@@ -62,6 +62,24 @@ CREATE TABLE IF NOT EXISTS ingest_log (
     updated_at      TEXT DEFAULT CURRENT_TIMESTAMP
 );
 
+-- Derived signals every coaching claim cites. inputs_json is lineage: the source
+-- rows (as {table, match_id, round_num, ...} references) a value was computed
+-- from, so the Phase 3 decision trace can point from a claim back to raw rows.
+-- round_num uses -1 as the sentinel for match-scoped (not per-round) features,
+-- since SQLite doesn't enforce PK uniqueness across NULLs the way idempotent
+-- re-runs need.
+CREATE TABLE IF NOT EXISTS features (
+    match_id        TEXT NOT NULL REFERENCES matches(match_id),
+    round_num       INTEGER NOT NULL DEFAULT -1,
+    scope           TEXT NOT NULL,        -- 'match' | 'round' | 'team_round' | ...
+    name            TEXT NOT NULL,
+    value           REAL,
+    inputs_json     TEXT NOT NULL,
+    computed_at     TEXT DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (match_id, round_num, scope, name)
+);
+
 CREATE INDEX IF NOT EXISTS idx_players_puuid ON match_players(puuid);
 CREATE INDEX IF NOT EXISTS idx_rounds_match ON rounds(match_id);
 CREATE INDEX IF NOT EXISTS idx_rps_puuid ON round_player_stats(puuid);
+CREATE INDEX IF NOT EXISTS idx_features_match ON features(match_id);
