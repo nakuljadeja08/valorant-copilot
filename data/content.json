@@ -1,0 +1,749 @@
+{
+  "version": "release-13.01",
+  "characters": [
+    {
+      "id": "E370FA57-4757-3604-3648-499E1F642D3F",
+      "name": "Gekko"
+    },
+    {
+      "id": "DADE69B4-4F5A-8528-247B-219E5A1FACD6",
+      "name": "Fade"
+    },
+    {
+      "id": "5F8D3A7F-467B-97F3-062C-13ACF203C006",
+      "name": "Breach"
+    },
+    {
+      "id": "CC8B64C8-4B25-4FF9-6E7F-37B4DA43D235",
+      "name": "Deadlock"
+    },
+    {
+      "id": "B444168C-4E35-8076-DB47-EF9BF368F384",
+      "name": "Tejo"
+    },
+    {
+      "id": "F94C3B30-42BE-E959-889C-5AA313DBA261",
+      "name": "Raze"
+    },
+    {
+      "id": "22697A3D-45BF-8DD7-4FEC-84A9E28C69D7",
+      "name": "Chamber"
+    },
+    {
+      "id": "601DBBE7-43CE-BE57-2A40-4ABD24953621",
+      "name": "KAY/O"
+    },
+    {
+      "id": "6F2A04CA-43E0-BE17-7F36-B3908627744D",
+      "name": "Skye"
+    },
+    {
+      "id": "117ED9E3-49F3-6512-3CCF-0CADA7E3823B",
+      "name": "Cypher"
+    },
+    {
+      "id": "320B2A48-4D9B-A075-30F1-1F93A9B638FA",
+      "name": "Sova"
+    },
+    {
+      "id": "7C8A4701-4DE6-9355-B254-E09BC2A34B72",
+      "name": "Miks"
+    },
+    {
+      "id": "1E58DE9C-4950-5125-93E9-A0AEE9F98746",
+      "name": "Killjoy"
+    },
+    {
+      "id": "95B78ED7-4637-86D9-7E41-71BA8C293152",
+      "name": "Harbor"
+    },
+    {
+      "id": "EFBA5359-4016-A1E5-7626-B1AE76895940",
+      "name": "Vyse"
+    },
+    {
+      "id": "707EAB51-4836-F488-046A-CDA6BF494859",
+      "name": "Viper"
+    },
+    {
+      "id": "EB93336A-449B-9C1B-0A54-A891F7921D69",
+      "name": "Phoenix"
+    },
+    {
+      "id": "92EEEF5D-43B5-1D4A-8D03-B3927A09034B",
+      "name": "Veto"
+    },
+    {
+      "id": "41FB69C1-4189-7B37-F117-BCAF1E96F1BF",
+      "name": "Astra"
+    },
+    {
+      "id": "9F0D8BA9-4140-B941-57D3-A7AD57C6B417",
+      "name": "Brimstone"
+    },
+    {
+      "id": "0E38B510-41A8-5780-5E8F-568B2A4F2D6C",
+      "name": "Iso"
+    },
+    {
+      "id": "1DBF2EDD-4729-0984-3115-DAA5EED44993",
+      "name": "Clove"
+    },
+    {
+      "id": "BB2A4828-46EB-8CD1-E765-15848195D751",
+      "name": "Neon"
+    },
+    {
+      "id": "7F94D92C-4234-0A36-9646-3A87EB8B5C89",
+      "name": "Yoru"
+    },
+    {
+      "id": "DF1CB487-4902-002E-5C17-D28E83E78588",
+      "name": "Waylay"
+    },
+    {
+      "id": "569FDD95-4D10-43AB-CA70-79BECC718B46",
+      "name": "Sage"
+    },
+    {
+      "id": "A3BFB853-43B2-7238-A4F1-AD90E9E46BCC",
+      "name": "Reyna"
+    },
+    {
+      "id": "8E253930-4C05-31DD-1B6C-968525494517",
+      "name": "Omen"
+    },
+    {
+      "id": "ADD6443A-41BD-E414-F6AD-E58D267F4E95",
+      "name": "Jett"
+    }
+  ],
+  "maps": [
+    {
+      "id": "7A929CD8-4021-C128-5A21-BC896C1929BA",
+      "name": "Null UI Data!",
+      "assetPath": ""
+    },
+    {
+      "id": "7EAECC1B-4337-BBF6-6AB9-04B8F06B3319",
+      "name": "Ascent",
+      "assetPath": "/Game/Maps/Ascent/Ascent"
+    },
+    {
+      "id": "D960549E-485C-E861-8D71-AA9D1AED12A2",
+      "name": "Split",
+      "assetPath": "/Game/Maps/Bonsai/Bonsai"
+    },
+    {
+      "id": "B529448B-4D60-346E-E89E-00A4C527A405",
+      "name": "Fracture",
+      "assetPath": "/Game/Maps/Canyon/Canyon"
+    },
+    {
+      "id": "2C9D57EC-4431-9C5E-2939-8F9EF6DD5CBA",
+      "name": "Bind",
+      "assetPath": "/Game/Maps/Duality/Duality"
+    },
+    {
+      "id": "A9009649-421F-D5D5-F80C-0CBE02C125BB",
+      "name": "Skirmish A",
+      "assetPath": "/Game/Maps/Duel/Duel_1/Skirmish_A"
+    },
+    {
+      "id": "A38A3F9A-4042-844C-8970-A3AC2F7CE93D",
+      "name": "Skirmish B",
+      "assetPath": "/Game/Maps/Duel/Duel_2/Skirmish_B"
+    },
+    {
+      "id": "A264DE0F-4A04-9C78-C97A-A6B192CE6E86",
+      "name": "Skirmish C",
+      "assetPath": "/Game/Maps/Duel/Duel_3/Skirmish_C"
+    },
+    {
+      "id": "4490F1D6-4818-BF5F-9B3A-9C9A8DBB52ED",
+      "name": "Skirmish E",
+      "assetPath": "/Game/Maps/Duel/Duel_Heady/Skirmish_E"
+    },
+    {
+      "id": "1C7555FC-4BC6-3B98-9674-789D47EF6C50",
+      "name": "Skirmish D",
+      "assetPath": "/Game/Maps/Duel/Duel_Platform/Skirmish_D"
+    },
+    {
+      "id": "2FB9A4FD-47B8-4E7D-A969-74B4046EBD53",
+      "name": "Breeze",
+      "assetPath": "/Game/Maps/Foxtrot/Foxtrot"
+    },
+    {
+      "id": "690B3ED2-4DFF-945B-8223-6DA834E30D24",
+      "name": "District",
+      "assetPath": "/Game/Maps/HURM/HURM_Alley/HURM_Alley"
+    },
+    {
+      "id": "12452A9D-48C3-0B02-E7EB-0381C3520404",
+      "name": "Kasbah",
+      "assetPath": "/Game/Maps/HURM/HURM_Bowl/HURM_Bowl"
+    },
+    {
+      "id": "2C09D728-42D5-30D8-43DC-96A05CC7EE9D",
+      "name": "Drift",
+      "assetPath": "/Game/Maps/HURM/HURM_Helix/HURM_Helix"
+    },
+    {
+      "id": "D6336A5A-428F-C591-98DB-C8A291159134",
+      "name": "Glitch",
+      "assetPath": "/Game/Maps/HURM/HURM_HighTide/HURM_HighTide"
+    },
+    {
+      "id": "DE28AA9B-4CBE-1003-320E-6CB3EC309557",
+      "name": "Piazza",
+      "assetPath": "/Game/Maps/HURM/HURM_Yard/HURM_Yard"
+    },
+    {
+      "id": "224B0A95-48B9-F703-1BD8-67ACA101A61F",
+      "name": "Abyss",
+      "assetPath": "/Game/Maps/Infinity/Infinity"
+    },
+    {
+      "id": "2FE4ED3A-450A-948B-6D6B-E89A78E680A9",
+      "name": "Lotus",
+      "assetPath": "/Game/Maps/Jam/Jam"
+    },
+    {
+      "id": "92584FBE-486A-B1B2-9FAA-39B0F486B498",
+      "name": "Sunset",
+      "assetPath": "/Game/Maps/Juliett/Juliett"
+    },
+    {
+      "id": "1F10DAB3-4294-3827-FA35-C2AA00213CF3",
+      "name": "Basic Training",
+      "assetPath": "/Game/Maps/NPEV2/NPEV2"
+    },
+    {
+      "id": "FD267378-4D1D-484F-FF52-77821ED10DC2",
+      "name": "Pearl",
+      "assetPath": "/Game/Maps/Pitt/Pitt"
+    },
+    {
+      "id": "756DA597-416B-C0F2-F47B-AFBDF28670BC",
+      "name": "Summit",
+      "assetPath": "/Game/Maps/Plummet/Plummet"
+    },
+    {
+      "id": "E2AD5C54-4114-A870-9641-8EA21279579A",
+      "name": "Icebox",
+      "assetPath": "/Game/Maps/Port/Port"
+    },
+    {
+      "id": "EE613EE9-28B7-4BEB-9666-08DB13BB2244",
+      "name": "The Range",
+      "assetPath": "/Game/Maps/Poveglia/Range"
+    },
+    {
+      "id": "5914D1E0-40C4-CFDD-6B88-EBA06347686C",
+      "name": "The Range",
+      "assetPath": "/Game/Maps/PovegliaV2/RangeV2"
+    },
+    {
+      "id": "1C18AB1F-420D-0D8B-71D0-77AD3C439115",
+      "name": "Corrode",
+      "assetPath": "/Game/Maps/Rook/Rook"
+    },
+    {
+      "id": "2BEE0DC9-4FFE-519B-1CBD-7FBE763A6047",
+      "name": "Haven",
+      "assetPath": "/Game/Maps/Triad/Triad"
+    }
+  ],
+  "equips": [
+    {
+      "id": "2F59173C-4BED-B6C3-2191-DEA9B58BE9C7",
+      "name": "Melee"
+    },
+    {
+      "id": "0AFB2636-4093-C63B-4EF1-1E97966E2A3E",
+      "name": "SPIKE"
+    },
+    {
+      "id": "C5DE005C-4BDC-26A7-A47D-C295EAAAE9D8",
+      "name": "Classic"
+    },
+    {
+      "id": "9677D521-45F0-0EFF-AD21-81A03FC8A314",
+      "name": "KAY/O Core"
+    },
+    {
+      "id": "95336AE4-45D4-1032-CFAF-6BAD01910607",
+      "name": "Overdrive"
+    },
+    {
+      "id": "63E6C2B6-4A8E-869C-3D4C-E38355226584",
+      "name": "Odin"
+    },
+    {
+      "id": "55D8A0F4-4274-CA67-FE2C-06AB45EFDF58",
+      "name": "Ares"
+    },
+    {
+      "id": "9C82E19D-4575-0200-1A81-3EACF00CF872",
+      "name": "Vandal"
+    },
+    {
+      "id": "AE3DE142-4D85-2547-DD26-4E90BED35CF7",
+      "name": "Bulldog"
+    },
+    {
+      "id": "EE8E8D15-496B-07AC-E5F6-8FAE5D4C7B1A",
+      "name": "Phantom"
+    },
+    {
+      "id": "EC845BF4-4F79-DDDA-A3DA-0DB3774B2794",
+      "name": "Judge"
+    },
+    {
+      "id": "910BE174-449B-C412-AB22-D0873436B21B",
+      "name": "Bucky"
+    },
+    {
+      "id": "44D4E95C-4157-0037-81B2-17841BF2E8E3",
+      "name": "Frenzy"
+    },
+    {
+      "id": "29A0CFAB-485B-F5D5-779A-B59F85E204A8",
+      "name": "Classic"
+    },
+    {
+      "id": "410B2E0B-4CEB-1321-1727-20858F7F3477",
+      "name": "Bandit"
+    },
+    {
+      "id": "1BAA85B4-4C70-1284-64BB-6481DFC3BB4E",
+      "name": "Ghost"
+    },
+    {
+      "id": "E336C6B8-418D-9340-D77F-7A9E4CFE0702",
+      "name": "Sheriff"
+    },
+    {
+      "id": "42DA8CCC-40D5-AFFC-BEEC-15AA47B42EDA",
+      "name": "Shorty"
+    },
+    {
+      "id": "A03B24D3-4319-996D-0F8C-94BBFBA1DFC7",
+      "name": "Operator"
+    },
+    {
+      "id": "4ADE7FAA-4CF1-8376-95EF-39884480959B",
+      "name": "Guardian"
+    },
+    {
+      "id": "5F0AAF7A-4289-3998-D5FF-EB9A5CF7EF5C",
+      "name": "Outlaw"
+    },
+    {
+      "id": "C4883E50-4494-202C-3EC3-6B8A9284F00B",
+      "name": "Marshal"
+    },
+    {
+      "id": "462080D1-4035-2937-7C09-27AA2A5C27A7",
+      "name": "Spectre"
+    },
+    {
+      "id": "F7E1B454-4AD4-1063-EC0A-159E56B58941",
+      "name": "Stinger"
+    },
+    {
+      "id": "3DE32920-4A8F-0499-7740-648A5BF95470",
+      "name": "Golden Gun"
+    },
+    {
+      "id": "129B0CFB-4C77-45E5-BA86-5694B231B242",
+      "name": "BIG KNIFE"
+    },
+    {
+      "id": "193C78AF-4498-4D51-C445-ADAC288425BE",
+      "name": "Shock Bolt"
+    },
+    {
+      "id": "9438BE81-46B8-D8B0-8A66-F9A0251FB728",
+      "name": "Showstopper"
+    },
+    {
+      "id": "D002A9A2-4B43-86C6-1DBC-58BC7815FF9C",
+      "name": "Blast Pack"
+    },
+    {
+      "id": "2E20A5AF-4726-95F6-7D9C-9DB9A18DADA9",
+      "name": "Boom Bot"
+    },
+    {
+      "id": "6BD46791-4F27-AA65-7D67-3F8D9D8B8B90",
+      "name": "Paint Shells"
+    },
+    {
+      "id": "5261A41B-4C56-8EB5-9E46-7193F363477E",
+      "name": "Snowball Launcher"
+    },
+    {
+      "id": "2A117B48-4BED-0701-5DCD-FCAC06047735",
+      "name": "Snowball Launcher"
+    },
+    {
+      "id": "856D9A7E-4B06-DC37-15DC-9D809C37CB90",
+      "name": "Headhunter"
+    },
+    {
+      "id": "39099FB5-4293-DEF4-1E09-2E9080CE7456",
+      "name": "Tour De Force"
+    },
+    {
+      "id": "4DEC83D5-4902-9AB3-BED6-A7A390761157",
+      "name": "Light Armor"
+    },
+    {
+      "id": "822BCAB2-40A2-324E-C137-E09195AD7692",
+      "name": "Heavy Armor"
+    },
+    {
+      "id": "B1B9086D-41BD-A516-5D29-E3B34A6F1644",
+      "name": "Regen Shield"
+    }
+  ],
+  "acts": [
+    {
+      "id": "3737c391-497a-6e82-aeb5-cc9f701f72e2",
+      "name": "V26",
+      "isActive": true
+    },
+    {
+      "id": "d816f426-48ea-f052-117f-9697a155b319",
+      "name": "ACT VI",
+      "isActive": false
+    },
+    {
+      "id": "8102cd81-43a0-d0d7-bd59-47b8fe9bed1b",
+      "name": "ACT V",
+      "isActive": false
+    },
+    {
+      "id": "4f0864e2-40af-28a4-de2c-0e9e64e75f23",
+      "name": "ACT IV",
+      "isActive": true
+    },
+    {
+      "id": "15a01c8a-4637-7b7b-de7b-9f906719c020",
+      "name": "V26",
+      "isActive": false
+    },
+    {
+      "id": "ce2783e8-44fc-dd48-3da3-33b5ba6c4a22",
+      "name": "ACT III",
+      "isActive": false
+    },
+    {
+      "id": "9d85c932-4820-c060-09c3-668636d4df1b",
+      "name": "ACT II",
+      "isActive": false
+    },
+    {
+      "id": "3ea2b318-423b-cf86-25da-7cbb0eefbe2d",
+      "name": "ACT I",
+      "isActive": false
+    },
+    {
+      "id": "c470d964-4bf4-1261-87aa-c484252f2d66",
+      "name": "V25",
+      "isActive": false
+    },
+    {
+      "id": "4c4b8cff-43eb-13d3-8f14-96b783c90cd2",
+      "name": "ACT VI",
+      "isActive": false
+    },
+    {
+      "id": "5adc33fa-4f30-2899-f131-6fba64c5dd3a",
+      "name": "ACT V",
+      "isActive": false
+    },
+    {
+      "id": "ac12e9b3-47e6-9599-8fa1-0bb473e5efc7",
+      "name": "ACT IV",
+      "isActive": false
+    },
+    {
+      "id": "439dd42d-4a59-9e41-b50b-1ebb6810f22c",
+      "name": "V25",
+      "isActive": false
+    },
+    {
+      "id": "aef237a0-494d-3a14-a1c8-ec8de84e309c",
+      "name": "ACT III",
+      "isActive": false
+    },
+    {
+      "id": "16118998-4705-5813-86dd-0292a2439d90",
+      "name": "ACT II",
+      "isActive": false
+    },
+    {
+      "id": "476b0893-4c2e-abd6-c5fe-708facff0772",
+      "name": "ACT I",
+      "isActive": false
+    },
+    {
+      "id": "d1ad9e7a-4e3f-e8c6-eb1b-148162a5acf7",
+      "name": "EPISODE 9",
+      "isActive": false
+    },
+    {
+      "id": "dcde7346-4085-de4f-c463-2489ed47983b",
+      "name": "ACT III",
+      "isActive": false
+    },
+    {
+      "id": "292f58db-4c17-89a7-b1c0-ba988f0e9d98",
+      "name": "ACT II",
+      "isActive": false
+    },
+    {
+      "id": "52ca6698-41c1-e7de-4008-8994d2221209",
+      "name": "ACT I",
+      "isActive": false
+    },
+    {
+      "id": "843cc465-4f0a-7466-ccda-19a427f8e478",
+      "name": "EPISODE 8",
+      "isActive": false
+    },
+    {
+      "id": "4539cac3-47ae-90e5-3d01-b3812ca3274e",
+      "name": "ACT III",
+      "isActive": false
+    },
+    {
+      "id": "22d10d66-4d2a-a340-6c54-408c7bd53807",
+      "name": "ACT II",
+      "isActive": false
+    },
+    {
+      "id": "ec876e6c-43e8-fa63-ffc1-2e8d4db25525",
+      "name": "ACT I",
+      "isActive": false
+    },
+    {
+      "id": "1a2fc1de-4f58-4a89-49d0-f28b720ff76f",
+      "name": "EPISODE 7",
+      "isActive": false
+    },
+    {
+      "id": "4401f9fd-4170-2e4c-4bc3-f3b4d7d150d1",
+      "name": "ACT III",
+      "isActive": false
+    },
+    {
+      "id": "03dfd004-45d4-ebfd-ab0a-948ce780dac4",
+      "name": "ACT II",
+      "isActive": false
+    },
+    {
+      "id": "0981a882-4e7d-371a-70c4-c3b4f46c504a",
+      "name": "ACT I",
+      "isActive": false
+    },
+    {
+      "id": "3ec8084a-4e45-4d22-d801-f8a63e5a208b",
+      "name": "EPISODE 6",
+      "isActive": false
+    },
+    {
+      "id": "2de5423b-4aad-02ad-8d9b-c0a931958861",
+      "name": "ACT III",
+      "isActive": false
+    },
+    {
+      "id": "34093c29-4306-43de-452f-3f944bde22be",
+      "name": "ACT II",
+      "isActive": false
+    },
+    {
+      "id": "9c91a445-4f78-1baa-a3ea-8f8aadf4914d",
+      "name": "ACT I",
+      "isActive": false
+    },
+    {
+      "id": "79f9d00f-433a-85d6-dfc3-60aef115e699",
+      "name": "EPISODE 5",
+      "isActive": false
+    },
+    {
+      "id": "aca29595-40e4-01f5-3f35-b1b3d304c96e",
+      "name": "ACT III",
+      "isActive": false
+    },
+    {
+      "id": "7a85de9a-4032-61a9-61d8-f4aa2b4a84b6",
+      "name": "ACT II",
+      "isActive": false
+    },
+    {
+      "id": "67e373c7-48f7-b422-641b-079ace30b427",
+      "name": "ACT I",
+      "isActive": false
+    },
+    {
+      "id": "808202d6-4f2b-a8ff-1feb-b3a0590ad79f",
+      "name": "EPISODE 4",
+      "isActive": false
+    },
+    {
+      "id": "3e47230a-463c-a301-eb7d-67bb60357d4f",
+      "name": "ACT III",
+      "isActive": false
+    },
+    {
+      "id": "d929bc38-4ab6-7da4-94f0-ee84f8ac141e",
+      "name": "ACT II",
+      "isActive": false
+    },
+    {
+      "id": "573f53ac-41a5-3a7d-d9ce-d6a6298e5704",
+      "name": "ACT I",
+      "isActive": false
+    },
+    {
+      "id": "97b39124-46ce-8b55-8fd1-7cbf7ffe173f",
+      "name": "EPISODE 3",
+      "isActive": false
+    },
+    {
+      "id": "a16955a5-4ad0-f761-5e9e-389df1c892fb",
+      "name": "ACT III",
+      "isActive": false
+    },
+    {
+      "id": "4cb622e1-4244-6da3-7276-8daaf1c01be2",
+      "name": "ACT II",
+      "isActive": false
+    },
+    {
+      "id": "2a27e5d2-4d30-c9e2-b15a-93b8909a442c",
+      "name": "ACT I",
+      "isActive": false
+    },
+    {
+      "id": "71c81c67-4fae-ceb1-844c-aab2bb8710fa",
+      "name": "EPISODE 2",
+      "isActive": false
+    },
+    {
+      "id": "52e9749a-429b-7060-99fe-4595426a0cf7",
+      "name": "ACT III",
+      "isActive": false
+    },
+    {
+      "id": "ab57ef51-4e59-da91-cc8d-51a5a2b9b8ff",
+      "name": "ACT II",
+      "isActive": false
+    },
+    {
+      "id": "97b6e739-44cc-ffa7-49ad-398ba502ceb0",
+      "name": "ACT I",
+      "isActive": false
+    },
+    {
+      "id": "fcf2c8f4-4324-e50b-2e23-718e4a3ab046",
+      "name": "EPISODE 1",
+      "isActive": false
+    },
+    {
+      "id": "46ea6166-4573-1128-9cea-60a15640059b",
+      "name": "ACT III",
+      "isActive": false
+    },
+    {
+      "id": "0530b9c4-4980-f2ee-df5d-09864cd00542",
+      "name": "ACT II",
+      "isActive": false
+    },
+    {
+      "id": "3f61c772-4560-cd3f-5d3f-a7ab5abda6b3",
+      "name": "ACT I",
+      "isActive": false
+    },
+    {
+      "id": "0df5adb9-4dcb-6899-1306-3e9860661dd3",
+      "name": "Closed Beta",
+      "isActive": false
+    }
+  ],
+  "gameModes": [
+    {
+      "id": "1CD8901F-47AF-49CB-D758-E2AFD0EB2A39",
+      "name": "All Random One Site"
+    },
+    {
+      "id": "96BD3920-4F36-D026-2B28-C683EB0BCAC5",
+      "name": "Standard"
+    },
+    {
+      "id": "A8790EC5-4237-F2F0-E93B-08A8E89865B2",
+      "name": "Deathmatch"
+    },
+    {
+      "id": "1A4A3FD5-4966-62CB-7FE4-15B0317F5C80",
+      "name": "Knockout"
+    },
+    {
+      "id": "D2D0F229-4514-517A-B10A-AAA0EF0D4A67",
+      "name": "Bot Match"
+    },
+    {
+      "id": "75B7B658-472C-0264-CBE6-049ABF14F54B",
+      "name": "Retake"
+    },
+    {
+      "id": "A4ED6518-4741-6DCB-35BD-F884AECDC859",
+      "name": "Escalation"
+    },
+    {
+      "id": "E086DB66-47FD-E791-CA81-06A645AC7661",
+      "name": "Team Deathmatch"
+    },
+    {
+      "id": "D2B4E425-4CAB-8D95-EB26-BB9B444551DC",
+      "name": "Onboarding"
+    },
+    {
+      "id": "2B470A47-40E0-AD02-73B4-7F8585FA108C",
+      "name": "Basic Training"
+    },
+    {
+      "id": "4744698A-4513-DC96-9C22-A9AA437E4A58",
+      "name": "Replication"
+    },
+    {
+      "id": "E921D1E6-416B-C31F-1291-74930C330B7B",
+      "name": "Spike Rush"
+    },
+    {
+      "id": "E2DC3878-4FE5-D132-28F8-3D8C259EFCC6",
+      "name": "The Range"
+    },
+    {
+      "id": "0E9805D8-4AF6-5FFB-F467-55806A6BC484",
+      "name": "Skirmish"
+    },
+    {
+      "id": "D08C45FE-4415-EDCF-65A3-45885CC4349B",
+      "name": "Skirmish: Ascension"
+    },
+    {
+      "id": "57038D6D-49B1-3A74-C5EF-3395D9F23A97",
+      "name": "Snowball Fight"
+    },
+    {
+      "id": "5D0F264B-4EBE-CC63-C147-809E1374484B",
+      "name": "Swiftplay"
+    }
+  ]
+}
