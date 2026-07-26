@@ -1,11 +1,19 @@
-"""Features the runner executes, in order. Populated in Phase 2b.
-
-An empty registry is a valid, idempotent, zero-row run — it lets the runner
-and its plumbing be exercised before any concrete feature exists.
-"""
+"""Features the runner executes, in order."""
 
 from __future__ import annotations
 
 from src.features.base import Feature
+from src.features.economy import BuyClassificationFeature, EconomyCurveFeature
+from src.features.loss_streak import LossStreakFeature
+from src.features.pivotal_round import PivotalRoundFeature
+from src.features.post_plant import PostPlantConversionFeature
+from src.features.trade_efficiency import TradeEfficiencyFeature
 
-REGISTRY: list[Feature] = []
+REGISTRY: list[Feature] = [
+    BuyClassificationFeature(),
+    EconomyCurveFeature(),
+    LossStreakFeature(),
+    PostPlantConversionFeature(),
+    PivotalRoundFeature(),
+    TradeEfficiencyFeature(),
+]
