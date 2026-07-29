@@ -4,4 +4,5 @@ pydantic>=2.7
 pandas>=2.2
 numpy>=1.26
 rich>=13.7
+anthropic>=0.97          # Phase 3 phrasing layer only; --no-llm needs no key
 pytest>=8.2
