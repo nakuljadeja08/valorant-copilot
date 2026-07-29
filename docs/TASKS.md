@@ -93,50 +93,77 @@ a larger corpus (e.g. thread `n` through `--matches`, or ingest under multiple p
 
 ---
 
-## Phase 3 — Agents + decision trace  ← *next up, the differentiator*
+## Phase 3 — Agents + decision trace ✅ COMPLETE
 
 **Goal:** Rules produce conclusions; an LLM only phrases them. Every claim in a debrief
 is traceable to feature rows, which are traceable to raw rounds. No hallucinated stats
 by construction.
 
-**Work items:**
+**Delivered:**
 
 *3a. Deterministic core*
-- `src/agents/rules.py`: rule registry — each rule declares `(inputs: feature names,
-  fire condition, conclusion template, severity)`
-- `Analyst`: pivotal-round narration rules ("lost R14 on a broken buy after 2-streak")
-- `Economist`: buy-discipline rules (force-buy cost, eco conversion, bank misuse)
-- `Watchdog`: cross-checks — every conclusion's cited features re-queried against the
-  store; any mismatch marks the claim `unverified` and excludes it from the report
-- Decision trace object: `raw rows → feature rows → rule id → conclusion`, serialized
-  to JSON per match
+- `src/agents/rules.py` — rule registry; each rule declares `(id, agent, severity,
+  inputs, evaluate)` and returns `Conclusion`s carrying the feature rows they cite
+- `src/agents/view.py` — `FeatureView`, the rules' read-only snapshot of the store
+- `Analyst` (7 rules) — pivotal-round narration, post-plant conversion, plant rate,
+  trade efficiency
+- `Economist` (5 rules) — force-buy frequency, consecutive forces, broken buys, eco
+  conversion, cumulative spend disadvantage
+- `Watchdog` — re-queries every cited value straight from SQL (never the view's
+  snapshot) and compares; mismatch or missing row marks the claim `unverified` and
+  excludes it. A conclusion never checked (`verified is None`) is excluded too.
+- `src/agents/trace.py` — `raw rows → feature rows → rule id → conclusion`, serialized
+  per match with no timestamps and every collection sorted, so it is byte-stable
 
 *3b. LLM phrasing layer (thin, optional-off)*
-- `ReportWriter`: takes verified conclusions + trace, produces the plain-language
-  debrief; temperature low; a `--no-llm` flag emits template text so the demo runs
-  without any API key
-- Prompt contract: the model may rephrase, never add numbers — enforced by a
-  post-check that every numeral in output exists in the trace
+- `src/agents/writer.py` — `claude-opus-5` at `effort: low`; `--no-llm` emits template
+  text from the same conclusions, so the demo runs with no API key and no network
+- Numeral post-check: every numeral in the draft must already appear in the trace, or
+  the draft is rejected and the template version is used. Enforced in code, not
+  requested in the prompt.
+- Any API failure, refusal, or missing SDK falls back to template text with the reason
+  printed rather than failing the debrief
 
-*3c. Tests*
-- Golden-file test: fixed sim match → identical trace JSON every run
-- Watchdog catches a deliberately corrupted claim (mutation test)
-- Numeral post-check rejects an LLM output containing an invented stat
+*3c. Tests* — 23 new (`tests/test_agents.py`), 37 total
+- Golden-file trace test + a byte-identical-across-runs determinism check;
+  `python -m tests.regen_golden` regenerates after an intentional rule change
+- Watchdog mutation tests: corrupted value, deleted row, claim citing nothing
+- Numeral post-check: faithful rephrasing accepted, invented stat rejected,
+  recomputed figure (0.31 → "31 percent") rejected
+- LLM path driven through a stubbed client, so it is covered without credentials
+- Registry coverage test asserts every rule fires somewhere in 40 sim matches
 
-**Demoable artifact:** `python -m src.agents.debrief --match <id>` → debrief text +
-expandable JSON trace where every sentence links to its evidence.
+**Verified 2026-07-28:**
+- `pytest` — 37/37 green
+- 30 sim matches → 232 conclusions, 0 unverified, all 12 rules firing
+- `python -m src.agents.debrief --match <id> --no-llm --trace-out t.json` → 8 verified
+  conclusions citing 220 raw source rows, full chain resolving end to end
 
 **Checklist:**
-- [ ] ≥ 10 rules across Analyst/Economist, each with trace output
-- [ ] Watchdog verification pass runs on every debrief
-- [ ] `--no-llm` mode produces a complete (if dry) debrief
-- [ ] Numeral post-check active when LLM is on
-- [ ] Golden trace test green
-- [ ] Committed and pushed
+- [x] ≥ 10 rules across Analyst/Economist, each with trace output (12, all firing)
+- [x] Watchdog verification pass runs on every debrief
+- [x] `--no-llm` mode produces a complete (if dry) debrief
+- [x] Numeral post-check active when LLM is on
+- [x] Golden trace test green
+- [x] Committed and pushed
+
+**Notes on two judgment calls:**
+1. `round_won:{team}` was added to the Phase 2 feature registry. The rules need round
+   outcomes, and letting them read `rounds.winning_team` directly would give the
+   Watchdog two verification paths and the trace two shapes. One extra feature keeps
+   the "every claim cites a feature row" invariant intact.
+2. A drafted `economist.bank_misuse` rule is **not** shipped. The simulator never
+   spends under 55% of a full-buy bank, so no threshold could make it fire — it would
+   have been a rule that always returns zero conclusions. The reasoning is recorded in
+   `src/agents/constants.py`; revisit against real `val-match-v1` rounds.
+
+**Not verified against live data:** the LLM path has never made a real API call — no
+`ANTHROPIC_API_KEY` is configured in this environment. Its request shape, refusal
+handling, and numeral rejection are covered by stubbed tests only.
 
 ---
 
-## Phase 4 — Surface + ship + apply
+## Phase 4 — Surface + ship + apply  ← *next up*
 
 **Goal:** A public URL Riot can load. Thin by design — the dashboard sells the trace,
 not itself.
@@ -172,4 +199,4 @@ not itself.
 
 ## Current status
 
-Phase 0 ✅ → Phase 1 ✅ → Phase 2 ✅ → **Phase 3 next** (agents + decision trace) → 4.
+Phase 0 ✅ → Phase 1 ✅ → Phase 2 ✅ → Phase 3 ✅ → **Phase 4 next** (surface + ship + apply).
