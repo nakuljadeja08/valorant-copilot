@@ -1,91 +1,202 @@
-# Build Plan
+# Build Plan — VALORANT Coaching Copilot
 
-Ordered so that there is a demoable artifact at the end of every phase, and so the
-production-key application can be submitted the moment Phase 3 lands.
+Every phase ends with a **demoable artifact** and a **checklist**. A phase is not done
+until every checklist item is checked. The production-key application gates on Phase 4.
 
----
-
-## Phase 0 — Foundation  ✅ scaffolded
-
-- [x] Repo structure, `.env.example`, requirements
-- [x] Rate-limited client (20/1s, 100/2min, per-routing-value buckets, 429/5xx backoff)
-- [x] Live/sim adapter seam
-- [x] Normalized schema with `source` provenance column
-- [x] Schema-faithful match simulator with causal economy model
-- [ ] `python -m src.storage.init` — schema bootstrap
-- [ ] Pytest: limiter honors both buckets under concurrency
-
-## Phase 1 — Real content grounding
-
-Everything here uses **real** dev-key data. This is the part that proves the pipeline
-talks to Riot for real, not just to itself.
-
-- [ ] `val-content-v1` fetch → `data/content.json` (agents, maps, weapons, seasons, gameModes)
-- [ ] `val-status-v1` fetch → platform status
-- [ ] Rewire simulator to use real UUIDs from the content cache
-- [ ] Cache invalidation on `Last-Modified` / act rollover
-
-## Phase 2 — Ingest + features
-
-- [ ] `src/ingest/pipeline.py` — resumable ingest, writes `ingest_log`, idempotent upserts
-- [ ] Normalizer: `val-match-v1` payload → 4 tables
-- [ ] Feature: **economy curve** per team per round (loadout, spent, remaining, buy classification: full/half/eco/force)
-- [ ] Feature: **loss-streak / bonus-round state machine**
-- [ ] Feature: **plant state** and post-plant conversion rate
-- [ ] Feature: **trade windows** (deaths within N seconds of a teammate death)
-- [ ] Validation: assert the recovered eco→loss relationship matches the injected one
-      *(this is the test that makes synthetic data defensible)*
-
-## Phase 3 — Agents + decision trace
-
-- [ ] `Analyst` — round classification, identifies pivotal rounds
-- [ ] `Economist` — buy discipline, force-buy cost, eco round conversion
-- [ ] `Watchdog` — sanity-checks other agents' claims against the store, flags unsupported conclusions
-- [ ] `ReportWriter` — post-match debrief in plain language
-- [ ] **Decision Trace** — every claim carries: source rows → feature → rule fired → conclusion
-- [ ] Hard constraints enforced in Python *before* any LLM call (no hallucinated stats)
-
-## Phase 4 — Surface + ship
-
-- [ ] React dashboard: match list → round timeline → decision trace panel
-- [ ] Deploy to a real public URL (Vercel/Render free tier is fine)
-- [ ] README banner: data provenance stated plainly
-- [ ] **Submit production key application** with the live URL
-- [ ] Reply to Brian with the link
+Target cadence: Phases 2–3 are the bulk of the work. Phase 4 is deliberately thin so the
+"one week" promised to Brian is achievable with a working, deployed, honest demo.
 
 ---
 
-## Data inventory
+## Phase 0 — Foundation ✅ COMPLETE
 
-### Available now (development key)
+**Goal:** A repo where the data source is swappable, rate limits are respected by
+construction, and synthetic data is testable against known ground truth.
 
-| Endpoint | Gives us | Used for |
-|---|---|---|
-| `val-content-v1` | agents, maps, weapons, acts, game modes | Grounding sim in real IDs; UI labels |
-| `val-status-v1` | platform status, incidents | Health widget; proves live integration |
-| `account-v1` | puuid by Riot ID | Player lookup |
+**Delivered:**
+- Rate-limited client — dual sliding-window buckets (20/1s, 100/2min), keyed per routing
+  value, 429 `Retry-After` handling, exponential backoff on 5xx, response cache
+- `MatchSource` adapter seam — `live` | `sim` behind one config flag
+- Schema-faithful simulator with causal economy model (spend differential + skill prior
+  → round win probability), deterministic per match ID
+- Normalized SQLite store (4 tables + ingest log), provenance column on every match
+- Resumable, idempotent ingest pipeline
+- 7 tests incl. `test_economy_effect_recoverable`
 
-### Blocked until production key
-
-| Endpoint | Gives us | Substitute |
-|---|---|---|
-| `val-match-v1/matches/{id}` | full match + roundResults + per-round economy | Simulator |
-| `val-match-v1/matchlists/by-puuid/{puuid}` | player match history | Simulator |
-| `val-match-v1/recent-matches/by-queue/{q}` | recent competitive matches | Simulator |
-| RSO OAuth | player opt-in linking | Not needed pre-approval |
-
-### Constraints to design around
-
-- Match history is a **bounded window**, not an archive → local store accumulates over time
-- Dev key **expires every 24h** → key from env, never hardcoded; pipeline resumable mid-run
-- Rate limits are **per routing value** → limiter keyed by host
-- Riot policy: **no personal profiles or scouting tools** without player opt-in → aggregate by
-  default, individual data only for the consenting player
+**Checklist:**
+- [x] `pytest` green
+- [x] Ingest 25 sim matches; re-run skips all 25
+- [x] Repo pushed to GitHub (owner: nakuljadeja08)
+- [x] `.env` gitignored; no key material in tracked files
 
 ---
 
-## Open questions
+## Phase 1 — Real content grounding ✅ COMPLETE
 
-- Production application "Product URL" needs a live, loadable page → Phase 4 gates the application
-- Does the debrief need an LLM at all, or do deterministic rules + templates tell a stronger
-  data-engineering story? (Leaning: rules produce the trace, LLM only phrases it)
+**Goal:** Every simulated match uses authentic Riot asset UUIDs. The pipeline provably
+talks to the real API, not just to itself.
+
+**Delivered:**
+- `data/content.json` committed: 29 agents, 27 maps, active act, weapons/gameModes
+- Simulator rewired to draw map/agent IDs from the content cache
+- `src/riot/resolve.py`: UUID → display name for agents and maps
+
+**Checklist:**
+- [x] `data/content.json` contains ≥ 25 agents, ≥ 10 maps, an active act
+- [x] Sim matches reference only IDs present in the content cache
+- [x] `resolve.py` round-trips ID → name for every agent and map
+- [x] Committed and pushed
+
+---
+
+## Phase 2 — Feature layer ✅ COMPLETE
+
+**Goal:** Transform raw round rows into the derived signals every coaching claim will
+cite. Features are computed by SQL + pandas, persisted, and each carries the row-level
+lineage that the decision trace will later surface.
+
+**Delivered:**
+- `features` table `(match_id, round_num, scope, name, value, inputs_json)` — lineage is
+  a first-class column
+- `src/features/base.py` `Feature` protocol + `src/features/registry.py`
+- Idempotent runner: `python -m src.features.run --match <id>` and `--all`
+- Six features: buy classification (`buy_type`), economy curve (`spend`/`bank`/
+  `spend_diff`/`spend_trend3`), loss-streak state machine (`loss_streak`, `broken_buy`),
+  post-plant conversion (`plant_rate`, `win_after_plant`), pivotal-round detection
+  (`pivotal_round`, `pivotal_round_swing`), trade efficiency (`trade_efficiency_sim_approx`,
+  honestly labeled sim-approx)
+- Validation suite: eco→win edge recovered within tolerance, buy-classifier force-buy
+  spike on bonus rounds, lineage integrity (every `inputs_json` reference resolves to a
+  real row), idempotent re-run across the full registry
+- README `## Features` section: plain-language definitions for every signal
+
+**Verified 2026-07-28:**
+- 100 sim matches ingested (the sim's `matchlist_for` default window), features run in
+  ~1.4s producing 28,906 rows; re-run reproduces the identical count (idempotent)
+- `pytest` — 14/14 green
+- `python -m src.features.report --match <id>` prints the full table with lineage
+
+**Checklist:**
+- [x] `features` table populated for 100 sim matches (the sim's default matchlist
+      window) well under 60s — see note below on the 200-match target
+- [x] All six features implemented with lineage
+- [x] Validation suite green, including eco-recovery within tolerance
+- [x] Feature runner is idempotent (re-run produces identical rows)
+- [x] README section: feature definitions in plain language
+- [x] Committed and pushed
+
+**Known gap (non-blocking):** `SimSource.matchlist` (`src/sim/generator.py:49`,
+`matchlist_for(puuid, n=100)`) hardcodes a 100-match window per puuid; passing
+`--matches 200` to the ingest pipeline can't exceed that ceiling because the pipeline
+only slices an already-capped list. Fine for one demo puuid — revisit if Phase 3/4 needs
+a larger corpus (e.g. thread `n` through `--matches`, or ingest under multiple puuids).
+
+---
+
+## Phase 3 — Agents + decision trace ✅ COMPLETE
+
+**Goal:** Rules produce conclusions; an LLM only phrases them. Every claim in a debrief
+is traceable to feature rows, which are traceable to raw rounds. No hallucinated stats
+by construction.
+
+**Delivered:**
+
+*3a. Deterministic core*
+- `src/agents/rules.py` — rule registry; each rule declares `(id, agent, severity,
+  inputs, evaluate)` and returns `Conclusion`s carrying the feature rows they cite
+- `src/agents/view.py` — `FeatureView`, the rules' read-only snapshot of the store
+- `Analyst` (7 rules) — pivotal-round narration, post-plant conversion, plant rate,
+  trade efficiency
+- `Economist` (5 rules) — force-buy frequency, consecutive forces, broken buys, eco
+  conversion, cumulative spend disadvantage
+- `Watchdog` — re-queries every cited value straight from SQL (never the view's
+  snapshot) and compares; mismatch or missing row marks the claim `unverified` and
+  excludes it. A conclusion never checked (`verified is None`) is excluded too.
+- `src/agents/trace.py` — `raw rows → feature rows → rule id → conclusion`, serialized
+  per match with no timestamps and every collection sorted, so it is byte-stable
+
+*3b. LLM phrasing layer (thin, optional-off)*
+- `src/agents/writer.py` — `claude-opus-5` at `effort: low`; `--no-llm` emits template
+  text from the same conclusions, so the demo runs with no API key and no network
+- Numeral post-check: every numeral in the draft must already appear in the trace, or
+  the draft is rejected and the template version is used. Enforced in code, not
+  requested in the prompt.
+- Any API failure, refusal, or missing SDK falls back to template text with the reason
+  printed rather than failing the debrief
+
+*3c. Tests* — 23 new (`tests/test_agents.py`), 37 total
+- Golden-file trace test + a byte-identical-across-runs determinism check;
+  `python -m tests.regen_golden` regenerates after an intentional rule change
+- Watchdog mutation tests: corrupted value, deleted row, claim citing nothing
+- Numeral post-check: faithful rephrasing accepted, invented stat rejected,
+  recomputed figure (0.31 → "31 percent") rejected
+- LLM path driven through a stubbed client, so it is covered without credentials
+- Registry coverage test asserts every rule fires somewhere in 40 sim matches
+
+**Verified 2026-07-28:**
+- `pytest` — 37/37 green
+- 30 sim matches → 232 conclusions, 0 unverified, all 12 rules firing
+- `python -m src.agents.debrief --match <id> --no-llm --trace-out t.json` → 8 verified
+  conclusions citing 220 raw source rows, full chain resolving end to end
+
+**Checklist:**
+- [x] ≥ 10 rules across Analyst/Economist, each with trace output (12, all firing)
+- [x] Watchdog verification pass runs on every debrief
+- [x] `--no-llm` mode produces a complete (if dry) debrief
+- [x] Numeral post-check active when LLM is on
+- [x] Golden trace test green
+- [x] Committed and pushed
+
+**Notes on two judgment calls:**
+1. `round_won:{team}` was added to the Phase 2 feature registry. The rules need round
+   outcomes, and letting them read `rounds.winning_team` directly would give the
+   Watchdog two verification paths and the trace two shapes. One extra feature keeps
+   the "every claim cites a feature row" invariant intact.
+2. A drafted `economist.bank_misuse` rule is **not** shipped. The simulator never
+   spends under 55% of a full-buy bank, so no threshold could make it fire — it would
+   have been a rule that always returns zero conclusions. The reasoning is recorded in
+   `src/agents/constants.py`; revisit against real `val-match-v1` rounds.
+
+**Not verified against live data:** the LLM path has never made a real API call — no
+`ANTHROPIC_API_KEY` is configured in this environment. Its request shape, refusal
+handling, and numeral rejection are covered by stubbed tests only.
+
+---
+
+## Phase 4 — Surface + ship + apply  ← *next up*
+
+**Goal:** A public URL Riot can load. Thin by design — the dashboard sells the trace,
+not itself.
+
+**Work items:**
+- React app (Vite): match list → match view (round timeline, economy chart) →
+  debrief panel with expandable decision trace per claim
+- Data path: pre-generate JSON bundles from the store at build time (no backend needed
+  for v1 → free static hosting, zero key exposure)
+- Provenance banner on every page: "Simulated data conforming to val-match-v1 schema —
+  production key application pending" — the honesty is the pitch
+- Deploy: Vercel or Render free tier
+- Submit production application: description names endpoints (val-match, val-content,
+  val-status, account-v1), the RSO opt-in plan, and the live URL
+- Reply to Brian with the URL + repo link
+
+**Checklist:**
+- [ ] Live URL loads a full debrief with trace on desktop + mobile
+- [ ] Provenance banner visible on every view
+- [ ] No API key anywhere in the frontend bundle or repo history
+- [ ] Production application submitted (screenshot saved)
+- [ ] Email to Brian sent
+- [ ] README updated with live URL
+
+---
+
+## Standing rules (all phases)
+
+- Never commit key material; `.env` stays gitignored
+- Every phase ends in a pushed commit with a message describing *why*, not just *what*
+- Anything sim-approximated is labeled `sim-approx` in code and UI — no fake precision
+- Aggregate by default; individual data only for the consenting player (Riot policy)
+
+## Current status
+
+Phase 0 ✅ → Phase 1 ✅ → Phase 2 ✅ → Phase 3 ✅ → **Phase 4 next** (surface + ship + apply).

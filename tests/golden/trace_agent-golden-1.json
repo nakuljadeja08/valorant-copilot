@@ -1,0 +1,2307 @@
+{
+  "conclusions": [
+    {
+      "agent": "Analyst",
+      "claim": "Blue was simply out-fought in the pivotal R5, taking only 20% of the round's kills (sim-approx: kill share stands in for real trade windows).",
+      "evidence": [
+        {
+          "feature": {
+            "name": "pivotal_round",
+            "round_num": -1,
+            "scope": "match",
+            "value": 5.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 4,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 5,
+              "table": "rounds"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "round_won:Blue",
+            "round_num": 5,
+            "scope": "team_round",
+            "value": 0.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 5,
+              "table": "rounds"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "round_won:Red",
+            "round_num": 5,
+            "scope": "team_round",
+            "value": 1.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 5,
+              "table": "rounds"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "trade_efficiency_sim_approx:Blue",
+            "round_num": 5,
+            "scope": "team_round",
+            "value": 0.2
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "062eb5b2-70a8-a73c-48c5-d01faf938cd4",
+              "round_num": 5,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3958540e-b497-59aa-ab02-17e79d195072",
+              "round_num": 5,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3bdb9eae-b087-289e-c8dd-fd8c8933959b",
+              "round_num": 5,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3f2f20f4-18e4-d37d-7435-4c2f883178d9",
+              "round_num": 5,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "54ff5034-7896-cae2-2e4d-031e4fd91424",
+              "round_num": 5,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "5684e009-b7fc-dec7-0a12-c49010b6f036",
+              "round_num": 5,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "b6649f64-4fe2-32b6-543c-1f39cab99a6e",
+              "round_num": 5,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "c0cfe54d-7f55-aac1-1c84-50c2120833cb",
+              "round_num": 5,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "d6371ef0-f1e1-2729-6d58-e0ef938a24c3",
+              "round_num": 5,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "hero",
+              "round_num": 5,
+              "table": "round_player_stats"
+            }
+          ]
+        }
+      ],
+      "rule_id": "analyst.pivotal_trade_collapse",
+      "severity": "warning",
+      "unverified_reason": null,
+      "verified": true
+    },
+    {
+      "agent": "Analyst",
+      "claim": "Red got the spike down but could not hold it -- only 25% of its plants converted into round wins.",
+      "evidence": [
+        {
+          "feature": {
+            "name": "plant_rate:Red",
+            "round_num": -1,
+            "scope": "match",
+            "value": 0.3333333333333333
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 0,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 1,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 2,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 3,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 4,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 5,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 6,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 7,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 8,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 9,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 10,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 11,
+              "table": "rounds"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "win_after_plant:Red",
+            "round_num": -1,
+            "scope": "match",
+            "value": 0.25
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 2,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 3,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 6,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 9,
+              "table": "rounds"
+            }
+          ]
+        }
+      ],
+      "rule_id": "analyst.post_plant_conversion",
+      "severity": "warning",
+      "unverified_reason": null,
+      "verified": true
+    },
+    {
+      "agent": "Economist",
+      "claim": "Blue force-bought 4 rounds back to back (R13, R14, R15, R16). One force is a read; a run this long means the team never got off the back foot long enough to rebuild.",
+      "evidence": [
+        {
+          "feature": {
+            "name": "buy_type:Blue",
+            "round_num": 13,
+            "scope": "team_round",
+            "value": 1.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "062eb5b2-70a8-a73c-48c5-d01faf938cd4",
+              "round_num": 13,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "54ff5034-7896-cae2-2e4d-031e4fd91424",
+              "round_num": 13,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "5684e009-b7fc-dec7-0a12-c49010b6f036",
+              "round_num": 13,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "c0cfe54d-7f55-aac1-1c84-50c2120833cb",
+              "round_num": 13,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "d6371ef0-f1e1-2729-6d58-e0ef938a24c3",
+              "round_num": 13,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Blue",
+            "round_num": 14,
+            "scope": "team_round",
+            "value": 1.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "062eb5b2-70a8-a73c-48c5-d01faf938cd4",
+              "round_num": 14,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "54ff5034-7896-cae2-2e4d-031e4fd91424",
+              "round_num": 14,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "5684e009-b7fc-dec7-0a12-c49010b6f036",
+              "round_num": 14,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "c0cfe54d-7f55-aac1-1c84-50c2120833cb",
+              "round_num": 14,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "d6371ef0-f1e1-2729-6d58-e0ef938a24c3",
+              "round_num": 14,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Blue",
+            "round_num": 15,
+            "scope": "team_round",
+            "value": 1.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "062eb5b2-70a8-a73c-48c5-d01faf938cd4",
+              "round_num": 15,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "54ff5034-7896-cae2-2e4d-031e4fd91424",
+              "round_num": 15,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "5684e009-b7fc-dec7-0a12-c49010b6f036",
+              "round_num": 15,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "c0cfe54d-7f55-aac1-1c84-50c2120833cb",
+              "round_num": 15,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "d6371ef0-f1e1-2729-6d58-e0ef938a24c3",
+              "round_num": 15,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Blue",
+            "round_num": 16,
+            "scope": "team_round",
+            "value": 1.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "062eb5b2-70a8-a73c-48c5-d01faf938cd4",
+              "round_num": 16,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "54ff5034-7896-cae2-2e4d-031e4fd91424",
+              "round_num": 16,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "5684e009-b7fc-dec7-0a12-c49010b6f036",
+              "round_num": 16,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "c0cfe54d-7f55-aac1-1c84-50c2120833cb",
+              "round_num": 16,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "d6371ef0-f1e1-2729-6d58-e0ef938a24c3",
+              "round_num": 16,
+              "table": "round_player_stats"
+            }
+          ]
+        }
+      ],
+      "rule_id": "economist.consecutive_force",
+      "severity": "warning",
+      "unverified_reason": null,
+      "verified": true
+    },
+    {
+      "agent": "Economist",
+      "claim": "Blue force-bought in 8 of 19 rounds (42%), past the 30% mark where forcing stops being a read and starts being a habit.",
+      "evidence": [
+        {
+          "feature": {
+            "name": "buy_type:Blue",
+            "round_num": 0,
+            "scope": "team_round",
+            "value": 0.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "062eb5b2-70a8-a73c-48c5-d01faf938cd4",
+              "round_num": 0,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "54ff5034-7896-cae2-2e4d-031e4fd91424",
+              "round_num": 0,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "5684e009-b7fc-dec7-0a12-c49010b6f036",
+              "round_num": 0,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "c0cfe54d-7f55-aac1-1c84-50c2120833cb",
+              "round_num": 0,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "d6371ef0-f1e1-2729-6d58-e0ef938a24c3",
+              "round_num": 0,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Blue",
+            "round_num": 1,
+            "scope": "team_round",
+            "value": 1.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "062eb5b2-70a8-a73c-48c5-d01faf938cd4",
+              "round_num": 1,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "54ff5034-7896-cae2-2e4d-031e4fd91424",
+              "round_num": 1,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "5684e009-b7fc-dec7-0a12-c49010b6f036",
+              "round_num": 1,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "c0cfe54d-7f55-aac1-1c84-50c2120833cb",
+              "round_num": 1,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "d6371ef0-f1e1-2729-6d58-e0ef938a24c3",
+              "round_num": 1,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Blue",
+            "round_num": 2,
+            "scope": "team_round",
+            "value": 2.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "062eb5b2-70a8-a73c-48c5-d01faf938cd4",
+              "round_num": 2,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "54ff5034-7896-cae2-2e4d-031e4fd91424",
+              "round_num": 2,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "5684e009-b7fc-dec7-0a12-c49010b6f036",
+              "round_num": 2,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "c0cfe54d-7f55-aac1-1c84-50c2120833cb",
+              "round_num": 2,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "d6371ef0-f1e1-2729-6d58-e0ef938a24c3",
+              "round_num": 2,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Blue",
+            "round_num": 3,
+            "scope": "team_round",
+            "value": 2.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "062eb5b2-70a8-a73c-48c5-d01faf938cd4",
+              "round_num": 3,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "54ff5034-7896-cae2-2e4d-031e4fd91424",
+              "round_num": 3,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "5684e009-b7fc-dec7-0a12-c49010b6f036",
+              "round_num": 3,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "c0cfe54d-7f55-aac1-1c84-50c2120833cb",
+              "round_num": 3,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "d6371ef0-f1e1-2729-6d58-e0ef938a24c3",
+              "round_num": 3,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Blue",
+            "round_num": 4,
+            "scope": "team_round",
+            "value": 2.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "062eb5b2-70a8-a73c-48c5-d01faf938cd4",
+              "round_num": 4,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "54ff5034-7896-cae2-2e4d-031e4fd91424",
+              "round_num": 4,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "5684e009-b7fc-dec7-0a12-c49010b6f036",
+              "round_num": 4,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "c0cfe54d-7f55-aac1-1c84-50c2120833cb",
+              "round_num": 4,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "d6371ef0-f1e1-2729-6d58-e0ef938a24c3",
+              "round_num": 4,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Blue",
+            "round_num": 5,
+            "scope": "team_round",
+            "value": 1.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "062eb5b2-70a8-a73c-48c5-d01faf938cd4",
+              "round_num": 5,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "54ff5034-7896-cae2-2e4d-031e4fd91424",
+              "round_num": 5,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "5684e009-b7fc-dec7-0a12-c49010b6f036",
+              "round_num": 5,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "c0cfe54d-7f55-aac1-1c84-50c2120833cb",
+              "round_num": 5,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "d6371ef0-f1e1-2729-6d58-e0ef938a24c3",
+              "round_num": 5,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Blue",
+            "round_num": 6,
+            "scope": "team_round",
+            "value": 2.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "062eb5b2-70a8-a73c-48c5-d01faf938cd4",
+              "round_num": 6,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "54ff5034-7896-cae2-2e4d-031e4fd91424",
+              "round_num": 6,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "5684e009-b7fc-dec7-0a12-c49010b6f036",
+              "round_num": 6,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "c0cfe54d-7f55-aac1-1c84-50c2120833cb",
+              "round_num": 6,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "d6371ef0-f1e1-2729-6d58-e0ef938a24c3",
+              "round_num": 6,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Blue",
+            "round_num": 7,
+            "scope": "team_round",
+            "value": 3.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "062eb5b2-70a8-a73c-48c5-d01faf938cd4",
+              "round_num": 7,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "54ff5034-7896-cae2-2e4d-031e4fd91424",
+              "round_num": 7,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "5684e009-b7fc-dec7-0a12-c49010b6f036",
+              "round_num": 7,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "c0cfe54d-7f55-aac1-1c84-50c2120833cb",
+              "round_num": 7,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "d6371ef0-f1e1-2729-6d58-e0ef938a24c3",
+              "round_num": 7,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Blue",
+            "round_num": 8,
+            "scope": "team_round",
+            "value": 3.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "062eb5b2-70a8-a73c-48c5-d01faf938cd4",
+              "round_num": 8,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "54ff5034-7896-cae2-2e4d-031e4fd91424",
+              "round_num": 8,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "5684e009-b7fc-dec7-0a12-c49010b6f036",
+              "round_num": 8,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "c0cfe54d-7f55-aac1-1c84-50c2120833cb",
+              "round_num": 8,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "d6371ef0-f1e1-2729-6d58-e0ef938a24c3",
+              "round_num": 8,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Blue",
+            "round_num": 9,
+            "scope": "team_round",
+            "value": 3.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "062eb5b2-70a8-a73c-48c5-d01faf938cd4",
+              "round_num": 9,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "54ff5034-7896-cae2-2e4d-031e4fd91424",
+              "round_num": 9,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "5684e009-b7fc-dec7-0a12-c49010b6f036",
+              "round_num": 9,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "c0cfe54d-7f55-aac1-1c84-50c2120833cb",
+              "round_num": 9,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "d6371ef0-f1e1-2729-6d58-e0ef938a24c3",
+              "round_num": 9,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Blue",
+            "round_num": 10,
+            "scope": "team_round",
+            "value": 1.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "062eb5b2-70a8-a73c-48c5-d01faf938cd4",
+              "round_num": 10,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "54ff5034-7896-cae2-2e4d-031e4fd91424",
+              "round_num": 10,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "5684e009-b7fc-dec7-0a12-c49010b6f036",
+              "round_num": 10,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "c0cfe54d-7f55-aac1-1c84-50c2120833cb",
+              "round_num": 10,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "d6371ef0-f1e1-2729-6d58-e0ef938a24c3",
+              "round_num": 10,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Blue",
+            "round_num": 11,
+            "scope": "team_round",
+            "value": 1.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "062eb5b2-70a8-a73c-48c5-d01faf938cd4",
+              "round_num": 11,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "54ff5034-7896-cae2-2e4d-031e4fd91424",
+              "round_num": 11,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "5684e009-b7fc-dec7-0a12-c49010b6f036",
+              "round_num": 11,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "c0cfe54d-7f55-aac1-1c84-50c2120833cb",
+              "round_num": 11,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "d6371ef0-f1e1-2729-6d58-e0ef938a24c3",
+              "round_num": 11,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Blue",
+            "round_num": 12,
+            "scope": "team_round",
+            "value": 2.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "062eb5b2-70a8-a73c-48c5-d01faf938cd4",
+              "round_num": 12,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "54ff5034-7896-cae2-2e4d-031e4fd91424",
+              "round_num": 12,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "5684e009-b7fc-dec7-0a12-c49010b6f036",
+              "round_num": 12,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "c0cfe54d-7f55-aac1-1c84-50c2120833cb",
+              "round_num": 12,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "d6371ef0-f1e1-2729-6d58-e0ef938a24c3",
+              "round_num": 12,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Blue",
+            "round_num": 13,
+            "scope": "team_round",
+            "value": 1.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "062eb5b2-70a8-a73c-48c5-d01faf938cd4",
+              "round_num": 13,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "54ff5034-7896-cae2-2e4d-031e4fd91424",
+              "round_num": 13,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "5684e009-b7fc-dec7-0a12-c49010b6f036",
+              "round_num": 13,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "c0cfe54d-7f55-aac1-1c84-50c2120833cb",
+              "round_num": 13,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "d6371ef0-f1e1-2729-6d58-e0ef938a24c3",
+              "round_num": 13,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Blue",
+            "round_num": 14,
+            "scope": "team_round",
+            "value": 1.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "062eb5b2-70a8-a73c-48c5-d01faf938cd4",
+              "round_num": 14,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "54ff5034-7896-cae2-2e4d-031e4fd91424",
+              "round_num": 14,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "5684e009-b7fc-dec7-0a12-c49010b6f036",
+              "round_num": 14,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "c0cfe54d-7f55-aac1-1c84-50c2120833cb",
+              "round_num": 14,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "d6371ef0-f1e1-2729-6d58-e0ef938a24c3",
+              "round_num": 14,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Blue",
+            "round_num": 15,
+            "scope": "team_round",
+            "value": 1.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "062eb5b2-70a8-a73c-48c5-d01faf938cd4",
+              "round_num": 15,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "54ff5034-7896-cae2-2e4d-031e4fd91424",
+              "round_num": 15,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "5684e009-b7fc-dec7-0a12-c49010b6f036",
+              "round_num": 15,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "c0cfe54d-7f55-aac1-1c84-50c2120833cb",
+              "round_num": 15,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "d6371ef0-f1e1-2729-6d58-e0ef938a24c3",
+              "round_num": 15,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Blue",
+            "round_num": 16,
+            "scope": "team_round",
+            "value": 1.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "062eb5b2-70a8-a73c-48c5-d01faf938cd4",
+              "round_num": 16,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "54ff5034-7896-cae2-2e4d-031e4fd91424",
+              "round_num": 16,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "5684e009-b7fc-dec7-0a12-c49010b6f036",
+              "round_num": 16,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "c0cfe54d-7f55-aac1-1c84-50c2120833cb",
+              "round_num": 16,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "d6371ef0-f1e1-2729-6d58-e0ef938a24c3",
+              "round_num": 16,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Blue",
+            "round_num": 17,
+            "scope": "team_round",
+            "value": 2.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "062eb5b2-70a8-a73c-48c5-d01faf938cd4",
+              "round_num": 17,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "54ff5034-7896-cae2-2e4d-031e4fd91424",
+              "round_num": 17,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "5684e009-b7fc-dec7-0a12-c49010b6f036",
+              "round_num": 17,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "c0cfe54d-7f55-aac1-1c84-50c2120833cb",
+              "round_num": 17,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "d6371ef0-f1e1-2729-6d58-e0ef938a24c3",
+              "round_num": 17,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Blue",
+            "round_num": 18,
+            "scope": "team_round",
+            "value": 2.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "062eb5b2-70a8-a73c-48c5-d01faf938cd4",
+              "round_num": 18,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "54ff5034-7896-cae2-2e4d-031e4fd91424",
+              "round_num": 18,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "5684e009-b7fc-dec7-0a12-c49010b6f036",
+              "round_num": 18,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "c0cfe54d-7f55-aac1-1c84-50c2120833cb",
+              "round_num": 18,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "d6371ef0-f1e1-2729-6d58-e0ef938a24c3",
+              "round_num": 18,
+              "table": "round_player_stats"
+            }
+          ]
+        }
+      ],
+      "rule_id": "economist.force_buy_frequency",
+      "severity": "warning",
+      "unverified_reason": null,
+      "verified": true
+    },
+    {
+      "agent": "Economist",
+      "claim": "Red force-bought in 6 of 19 rounds (32%), past the 30% mark where forcing stops being a read and starts being a habit.",
+      "evidence": [
+        {
+          "feature": {
+            "name": "buy_type:Red",
+            "round_num": 0,
+            "scope": "team_round",
+            "value": 0.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3958540e-b497-59aa-ab02-17e79d195072",
+              "round_num": 0,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3bdb9eae-b087-289e-c8dd-fd8c8933959b",
+              "round_num": 0,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3f2f20f4-18e4-d37d-7435-4c2f883178d9",
+              "round_num": 0,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "b6649f64-4fe2-32b6-543c-1f39cab99a6e",
+              "round_num": 0,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "hero",
+              "round_num": 0,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Red",
+            "round_num": 1,
+            "scope": "team_round",
+            "value": 1.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3958540e-b497-59aa-ab02-17e79d195072",
+              "round_num": 1,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3bdb9eae-b087-289e-c8dd-fd8c8933959b",
+              "round_num": 1,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3f2f20f4-18e4-d37d-7435-4c2f883178d9",
+              "round_num": 1,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "b6649f64-4fe2-32b6-543c-1f39cab99a6e",
+              "round_num": 1,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "hero",
+              "round_num": 1,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Red",
+            "round_num": 2,
+            "scope": "team_round",
+            "value": 2.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3958540e-b497-59aa-ab02-17e79d195072",
+              "round_num": 2,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3bdb9eae-b087-289e-c8dd-fd8c8933959b",
+              "round_num": 2,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3f2f20f4-18e4-d37d-7435-4c2f883178d9",
+              "round_num": 2,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "b6649f64-4fe2-32b6-543c-1f39cab99a6e",
+              "round_num": 2,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "hero",
+              "round_num": 2,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Red",
+            "round_num": 3,
+            "scope": "team_round",
+            "value": 2.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3958540e-b497-59aa-ab02-17e79d195072",
+              "round_num": 3,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3bdb9eae-b087-289e-c8dd-fd8c8933959b",
+              "round_num": 3,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3f2f20f4-18e4-d37d-7435-4c2f883178d9",
+              "round_num": 3,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "b6649f64-4fe2-32b6-543c-1f39cab99a6e",
+              "round_num": 3,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "hero",
+              "round_num": 3,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Red",
+            "round_num": 4,
+            "scope": "team_round",
+            "value": 2.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3958540e-b497-59aa-ab02-17e79d195072",
+              "round_num": 4,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3bdb9eae-b087-289e-c8dd-fd8c8933959b",
+              "round_num": 4,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3f2f20f4-18e4-d37d-7435-4c2f883178d9",
+              "round_num": 4,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "b6649f64-4fe2-32b6-543c-1f39cab99a6e",
+              "round_num": 4,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "hero",
+              "round_num": 4,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Red",
+            "round_num": 5,
+            "scope": "team_round",
+            "value": 3.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3958540e-b497-59aa-ab02-17e79d195072",
+              "round_num": 5,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3bdb9eae-b087-289e-c8dd-fd8c8933959b",
+              "round_num": 5,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3f2f20f4-18e4-d37d-7435-4c2f883178d9",
+              "round_num": 5,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "b6649f64-4fe2-32b6-543c-1f39cab99a6e",
+              "round_num": 5,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "hero",
+              "round_num": 5,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Red",
+            "round_num": 6,
+            "scope": "team_round",
+            "value": 2.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3958540e-b497-59aa-ab02-17e79d195072",
+              "round_num": 6,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3bdb9eae-b087-289e-c8dd-fd8c8933959b",
+              "round_num": 6,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3f2f20f4-18e4-d37d-7435-4c2f883178d9",
+              "round_num": 6,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "b6649f64-4fe2-32b6-543c-1f39cab99a6e",
+              "round_num": 6,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "hero",
+              "round_num": 6,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Red",
+            "round_num": 7,
+            "scope": "team_round",
+            "value": 2.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3958540e-b497-59aa-ab02-17e79d195072",
+              "round_num": 7,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3bdb9eae-b087-289e-c8dd-fd8c8933959b",
+              "round_num": 7,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3f2f20f4-18e4-d37d-7435-4c2f883178d9",
+              "round_num": 7,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "b6649f64-4fe2-32b6-543c-1f39cab99a6e",
+              "round_num": 7,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "hero",
+              "round_num": 7,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Red",
+            "round_num": 8,
+            "scope": "team_round",
+            "value": 2.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3958540e-b497-59aa-ab02-17e79d195072",
+              "round_num": 8,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3bdb9eae-b087-289e-c8dd-fd8c8933959b",
+              "round_num": 8,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3f2f20f4-18e4-d37d-7435-4c2f883178d9",
+              "round_num": 8,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "b6649f64-4fe2-32b6-543c-1f39cab99a6e",
+              "round_num": 8,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "hero",
+              "round_num": 8,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Red",
+            "round_num": 9,
+            "scope": "team_round",
+            "value": 3.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3958540e-b497-59aa-ab02-17e79d195072",
+              "round_num": 9,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3bdb9eae-b087-289e-c8dd-fd8c8933959b",
+              "round_num": 9,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3f2f20f4-18e4-d37d-7435-4c2f883178d9",
+              "round_num": 9,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "b6649f64-4fe2-32b6-543c-1f39cab99a6e",
+              "round_num": 9,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "hero",
+              "round_num": 9,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Red",
+            "round_num": 10,
+            "scope": "team_round",
+            "value": 3.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3958540e-b497-59aa-ab02-17e79d195072",
+              "round_num": 10,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3bdb9eae-b087-289e-c8dd-fd8c8933959b",
+              "round_num": 10,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3f2f20f4-18e4-d37d-7435-4c2f883178d9",
+              "round_num": 10,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "b6649f64-4fe2-32b6-543c-1f39cab99a6e",
+              "round_num": 10,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "hero",
+              "round_num": 10,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Red",
+            "round_num": 11,
+            "scope": "team_round",
+            "value": 1.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3958540e-b497-59aa-ab02-17e79d195072",
+              "round_num": 11,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3bdb9eae-b087-289e-c8dd-fd8c8933959b",
+              "round_num": 11,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3f2f20f4-18e4-d37d-7435-4c2f883178d9",
+              "round_num": 11,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "b6649f64-4fe2-32b6-543c-1f39cab99a6e",
+              "round_num": 11,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "hero",
+              "round_num": 11,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Red",
+            "round_num": 12,
+            "scope": "team_round",
+            "value": 1.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3958540e-b497-59aa-ab02-17e79d195072",
+              "round_num": 12,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3bdb9eae-b087-289e-c8dd-fd8c8933959b",
+              "round_num": 12,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3f2f20f4-18e4-d37d-7435-4c2f883178d9",
+              "round_num": 12,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "b6649f64-4fe2-32b6-543c-1f39cab99a6e",
+              "round_num": 12,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "hero",
+              "round_num": 12,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Red",
+            "round_num": 13,
+            "scope": "team_round",
+            "value": 2.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3958540e-b497-59aa-ab02-17e79d195072",
+              "round_num": 13,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3bdb9eae-b087-289e-c8dd-fd8c8933959b",
+              "round_num": 13,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3f2f20f4-18e4-d37d-7435-4c2f883178d9",
+              "round_num": 13,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "b6649f64-4fe2-32b6-543c-1f39cab99a6e",
+              "round_num": 13,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "hero",
+              "round_num": 13,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Red",
+            "round_num": 14,
+            "scope": "team_round",
+            "value": 1.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3958540e-b497-59aa-ab02-17e79d195072",
+              "round_num": 14,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3bdb9eae-b087-289e-c8dd-fd8c8933959b",
+              "round_num": 14,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3f2f20f4-18e4-d37d-7435-4c2f883178d9",
+              "round_num": 14,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "b6649f64-4fe2-32b6-543c-1f39cab99a6e",
+              "round_num": 14,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "hero",
+              "round_num": 14,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Red",
+            "round_num": 15,
+            "scope": "team_round",
+            "value": 2.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3958540e-b497-59aa-ab02-17e79d195072",
+              "round_num": 15,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3bdb9eae-b087-289e-c8dd-fd8c8933959b",
+              "round_num": 15,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3f2f20f4-18e4-d37d-7435-4c2f883178d9",
+              "round_num": 15,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "b6649f64-4fe2-32b6-543c-1f39cab99a6e",
+              "round_num": 15,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "hero",
+              "round_num": 15,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Red",
+            "round_num": 16,
+            "scope": "team_round",
+            "value": 1.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3958540e-b497-59aa-ab02-17e79d195072",
+              "round_num": 16,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3bdb9eae-b087-289e-c8dd-fd8c8933959b",
+              "round_num": 16,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3f2f20f4-18e4-d37d-7435-4c2f883178d9",
+              "round_num": 16,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "b6649f64-4fe2-32b6-543c-1f39cab99a6e",
+              "round_num": 16,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "hero",
+              "round_num": 16,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Red",
+            "round_num": 17,
+            "scope": "team_round",
+            "value": 1.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3958540e-b497-59aa-ab02-17e79d195072",
+              "round_num": 17,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3bdb9eae-b087-289e-c8dd-fd8c8933959b",
+              "round_num": 17,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3f2f20f4-18e4-d37d-7435-4c2f883178d9",
+              "round_num": 17,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "b6649f64-4fe2-32b6-543c-1f39cab99a6e",
+              "round_num": 17,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "hero",
+              "round_num": 17,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "buy_type:Red",
+            "round_num": 18,
+            "scope": "team_round",
+            "value": 2.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3958540e-b497-59aa-ab02-17e79d195072",
+              "round_num": 18,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3bdb9eae-b087-289e-c8dd-fd8c8933959b",
+              "round_num": 18,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3f2f20f4-18e4-d37d-7435-4c2f883178d9",
+              "round_num": 18,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "b6649f64-4fe2-32b6-543c-1f39cab99a6e",
+              "round_num": 18,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "hero",
+              "round_num": 18,
+              "table": "round_player_stats"
+            }
+          ]
+        }
+      ],
+      "rule_id": "economist.force_buy_frequency",
+      "severity": "warning",
+      "unverified_reason": null,
+      "verified": true
+    },
+    {
+      "agent": "Analyst",
+      "claim": "R5 was the match's pivotal round -- the largest single swing (0.192) in the win-probability proxy. Red took it, Blue lost it.",
+      "evidence": [
+        {
+          "feature": {
+            "name": "pivotal_round",
+            "round_num": -1,
+            "scope": "match",
+            "value": 5.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 4,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 5,
+              "table": "rounds"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "pivotal_round_swing",
+            "round_num": -1,
+            "scope": "match",
+            "value": 0.1916386424410501
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 4,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 5,
+              "table": "rounds"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "round_won:Blue",
+            "round_num": 5,
+            "scope": "team_round",
+            "value": 0.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 5,
+              "table": "rounds"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "round_won:Red",
+            "round_num": 5,
+            "scope": "team_round",
+            "value": 1.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 5,
+              "table": "rounds"
+            }
+          ]
+        }
+      ],
+      "rule_id": "analyst.pivotal_round",
+      "severity": "info",
+      "unverified_reason": null,
+      "verified": true
+    },
+    {
+      "agent": "Analyst",
+      "claim": "Blue reached a plant in only 43% of its attack rounds -- most of those rounds were lost before the spike ever went down.",
+      "evidence": [
+        {
+          "feature": {
+            "name": "plant_rate:Blue",
+            "round_num": -1,
+            "scope": "match",
+            "value": 0.42857142857142855
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 12,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 13,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 14,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 15,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 16,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 17,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 18,
+              "table": "rounds"
+            }
+          ]
+        }
+      ],
+      "rule_id": "analyst.plant_rate",
+      "severity": "info",
+      "unverified_reason": null,
+      "verified": true
+    },
+    {
+      "agent": "Analyst",
+      "claim": "Red reached a plant in only 33% of its attack rounds -- most of those rounds were lost before the spike ever went down.",
+      "evidence": [
+        {
+          "feature": {
+            "name": "plant_rate:Red",
+            "round_num": -1,
+            "scope": "match",
+            "value": 0.3333333333333333
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 0,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 1,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 2,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 3,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 4,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 5,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 6,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 7,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 8,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 9,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 10,
+              "table": "rounds"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 11,
+              "table": "rounds"
+            }
+          ]
+        }
+      ],
+      "rule_id": "analyst.plant_rate",
+      "severity": "info",
+      "unverified_reason": null,
+      "verified": true
+    },
+    {
+      "agent": "Economist",
+      "claim": "Blue stole 1 of its 1 eco rounds (100%).",
+      "evidence": [
+        {
+          "feature": {
+            "name": "buy_type:Blue",
+            "round_num": 0,
+            "scope": "team_round",
+            "value": 0.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "062eb5b2-70a8-a73c-48c5-d01faf938cd4",
+              "round_num": 0,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "54ff5034-7896-cae2-2e4d-031e4fd91424",
+              "round_num": 0,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "5684e009-b7fc-dec7-0a12-c49010b6f036",
+              "round_num": 0,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "c0cfe54d-7f55-aac1-1c84-50c2120833cb",
+              "round_num": 0,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "d6371ef0-f1e1-2729-6d58-e0ef938a24c3",
+              "round_num": 0,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "round_won:Blue",
+            "round_num": 0,
+            "scope": "team_round",
+            "value": 1.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 0,
+              "table": "rounds"
+            }
+          ]
+        }
+      ],
+      "rule_id": "economist.eco_conversion",
+      "severity": "info",
+      "unverified_reason": null,
+      "verified": true
+    },
+    {
+      "agent": "Economist",
+      "claim": "Red stole 0 of its 1 eco rounds (0%).",
+      "evidence": [
+        {
+          "feature": {
+            "name": "buy_type:Red",
+            "round_num": 0,
+            "scope": "team_round",
+            "value": 0.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3958540e-b497-59aa-ab02-17e79d195072",
+              "round_num": 0,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3bdb9eae-b087-289e-c8dd-fd8c8933959b",
+              "round_num": 0,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "3f2f20f4-18e4-d37d-7435-4c2f883178d9",
+              "round_num": 0,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "b6649f64-4fe2-32b6-543c-1f39cab99a6e",
+              "round_num": 0,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "agent-golden-1",
+              "puuid": "hero",
+              "round_num": 0,
+              "table": "round_player_stats"
+            }
+          ]
+        },
+        {
+          "feature": {
+            "name": "round_won:Red",
+            "round_num": 0,
+            "scope": "team_round",
+            "value": 0.0
+          },
+          "source_rows": [
+            {
+              "match_id": "agent-golden-1",
+              "round_num": 0,
+              "table": "rounds"
+            }
+          ]
+        }
+      ],
+      "rule_id": "economist.eco_conversion",
+      "severity": "info",
+      "unverified_reason": null,
+      "verified": true
+    }
+  ],
+  "match_id": "agent-golden-1",
+  "summary": {
+    "conclusions": 10,
+    "source_rows_cited": 277,
+    "unverified": 0,
+    "verified": 10
+  },
+  "trace_version": 1
+}
