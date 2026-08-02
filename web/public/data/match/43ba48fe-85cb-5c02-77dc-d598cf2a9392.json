@@ -1,0 +1,3003 @@
+{
+  "bundle_version": 1,
+  "debrief": {
+    "error": null,
+    "rejected_numerals": null,
+    "text": "Analyst\n-------\n  [warning] Blue got the spike down but could not hold it -- only 0% of its plants converted into round wins.\n           rule: analyst.post_plant_conversion, 2 feature row(s) cited\n  [info] R21 was the match's pivotal round -- the largest single swing (0.275) in the win-probability proxy. Red took it, Blue lost it.\n           rule: analyst.pivotal_round, 4 feature row(s) cited\n\nEconomist\n---------\n  [warning] Blue force-bought 3 rounds back to back (R7, R8, R9). One force is a read; a run this long means the team never got off the back foot long enough to rebuild.\n           rule: economist.consecutive_force, 3 feature row(s) cited\n  [warning] Blue force-bought in 9 of 22 rounds (41%), past the 30% mark where forcing stops being a read and starts being a habit.\n           rule: economist.force_buy_frequency, 22 feature row(s) cited\n  [warning] Red force-bought in 7 of 22 rounds (32%), past the 30% mark where forcing stops being a read and starts being a habit.\n           rule: economist.force_buy_frequency, 22 feature row(s) cited\n  [info] Blue stole 1 of its 1 eco rounds (100%).\n           rule: economist.eco_conversion, 2 feature row(s) cited\n  [info] Red stole 0 of its 1 eco rounds (0%).\n           rule: economist.eco_conversion, 2 feature row(s) cited",
+    "used_llm": false
+  },
+  "excluded": [],
+  "match": {
+    "game_length_ms": 2200000,
+    "map_id": "A264DE0F-4A04-9C78-C97A-A6B192CE6E86",
+    "map_name": "Skirmish C",
+    "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+    "queue_id": "competitive",
+    "rounds": 22,
+    "score": {
+      "Blue": 9,
+      "Red": 13
+    },
+    "source": "sim",
+    "winner": "Red"
+  },
+  "match_features": {
+    "pivotal_round": 21.0,
+    "pivotal_round_swing": 0.2747966482876837,
+    "plant_rate:Blue": 0.5,
+    "plant_rate:Red": 0.5833333333333334,
+    "win_after_plant:Blue": 0.0,
+    "win_after_plant:Red": 0.5714285714285714
+  },
+  "players": [
+    {
+      "agent_name": "Brimstone",
+      "assists": 0,
+      "character_id": "9F0D8BA9-4140-B941-57D3-A7AD57C6B417",
+      "competitive_tier": 21,
+      "deaths": 9,
+      "kills": 34,
+      "puuid": "bff2a658-4375-1188-3b60-1e6037d96cae",
+      "score": 6539,
+      "team_id": "Blue"
+    },
+    {
+      "agent_name": "Jett",
+      "assists": 0,
+      "character_id": "ADD6443A-41BD-E414-F6AD-E58D267F4E95",
+      "competitive_tier": 21,
+      "deaths": 11,
+      "kills": 31,
+      "puuid": "9c395985-1b6e-2a0e-180d-3a65191096b9",
+      "score": 5774,
+      "team_id": "Blue"
+    },
+    {
+      "agent_name": "Raze",
+      "assists": 0,
+      "character_id": "F94C3B30-42BE-E959-889C-5AA313DBA261",
+      "competitive_tier": 22,
+      "deaths": 10,
+      "kills": 30,
+      "puuid": "11f2d33c-ff75-183e-6593-bdff2e5b37ca",
+      "score": 5544,
+      "team_id": "Blue"
+    },
+    {
+      "agent_name": "Fade",
+      "assists": 0,
+      "character_id": "DADE69B4-4F5A-8528-247B-219E5A1FACD6",
+      "competitive_tier": 21,
+      "deaths": 11,
+      "kills": 24,
+      "puuid": "81f634c2-56f0-17f0-4542-149d60e9852e",
+      "score": 4618,
+      "team_id": "Blue"
+    },
+    {
+      "agent_name": "Skye",
+      "assists": 0,
+      "character_id": "6F2A04CA-43E0-BE17-7F36-B3908627744D",
+      "competitive_tier": 22,
+      "deaths": 10,
+      "kills": 20,
+      "puuid": "19eed0fd-f194-be6e-bd04-4a185547cc44",
+      "score": 4143,
+      "team_id": "Blue"
+    },
+    {
+      "agent_name": "KAY/O",
+      "assists": 0,
+      "character_id": "601DBBE7-43CE-BE57-2A40-4ABD24953621",
+      "competitive_tier": 21,
+      "deaths": 8,
+      "kills": 33,
+      "puuid": "8875603e-2a3b-3694-ad11-a9ac42c3654a",
+      "score": 5984,
+      "team_id": "Red"
+    },
+    {
+      "agent_name": "Miks",
+      "assists": 0,
+      "character_id": "7C8A4701-4DE6-9355-B254-E09BC2A34B72",
+      "competitive_tier": 21,
+      "deaths": 5,
+      "kills": 30,
+      "puuid": "4a975960-2d4c-712b-c978-f35853edb0fc",
+      "score": 5367,
+      "team_id": "Red"
+    },
+    {
+      "agent_name": "Harbor",
+      "assists": 0,
+      "character_id": "95B78ED7-4637-86D9-7E41-71BA8C293152",
+      "competitive_tier": 23,
+      "deaths": 7,
+      "kills": 30,
+      "puuid": "039473fd-c1f0-f564-36c6-8a5631f311bf",
+      "score": 5292,
+      "team_id": "Red"
+    },
+    {
+      "agent_name": "Iso",
+      "assists": 0,
+      "character_id": "0E38B510-41A8-5780-5E8F-568B2A4F2D6C",
+      "competitive_tier": 22,
+      "deaths": 9,
+      "kills": 24,
+      "puuid": "hero",
+      "score": 4407,
+      "team_id": "Red"
+    },
+    {
+      "agent_name": "Breach",
+      "assists": 0,
+      "character_id": "5F8D3A7F-467B-97F3-062C-13ACF203C006",
+      "competitive_tier": 21,
+      "deaths": 7,
+      "kills": 24,
+      "puuid": "5f4dbea8-83f6-589f-9614-541e26be4c80",
+      "score": 4261,
+      "team_id": "Red"
+    }
+  ],
+  "provenance": {
+    "detail": "val-match-v1 requires a Riot production key. Matches here are generated by an in-repo simulator that emits payloads in the documented val-match-v1 shape, grounded in real agent and map UUIDs fetched live from val-content-v1. Nothing is scraped and no unofficial API is used. Every module downstream of the match adapter is source-agnostic, so live data swaps in with no code change.",
+    "note": "Simulated data conforming to the val-match-v1 schema \u2014 production key application pending"
+  },
+  "rounds": [
+    {
+      "defuse_ms": null,
+      "economy": {
+        "Blue": {
+          "bank": 800.0,
+          "broken_buy": 0.0,
+          "buy_type": "eco",
+          "loss_streak": 0.0,
+          "spend": 680.0,
+          "spend_trend3": 680.0
+        },
+        "Red": {
+          "bank": 800.0,
+          "broken_buy": 0.0,
+          "buy_type": "eco",
+          "loss_streak": 0.0,
+          "spend": 480.0,
+          "spend_trend3": 480.0
+        }
+      },
+      "pivotal": false,
+      "plant_ms": 55284,
+      "plant_site": "C",
+      "round_num": 0,
+      "round_result": "Eliminated",
+      "spend_diff": 200.0,
+      "winning_team": "Blue"
+    },
+    {
+      "defuse_ms": null,
+      "economy": {
+        "Blue": {
+          "bank": 3115.0,
+          "broken_buy": 0.0,
+          "buy_type": "force",
+          "loss_streak": 0.0,
+          "spend": 1825.0,
+          "spend_trend3": 1252.5
+        },
+        "Red": {
+          "bank": 2715.0,
+          "broken_buy": 0.0,
+          "buy_type": "force",
+          "loss_streak": 1.0,
+          "spend": 1975.0,
+          "spend_trend3": 1227.5
+        }
+      },
+      "pivotal": false,
+      "plant_ms": 22036,
+      "plant_site": "C",
+      "round_num": 1,
+      "round_result": "Eliminated",
+      "spend_diff": -150.0,
+      "winning_team": "Red"
+    },
+    {
+      "defuse_ms": null,
+      "economy": {
+        "Blue": {
+          "bank": 3690.0,
+          "broken_buy": 0.0,
+          "buy_type": "half",
+          "loss_streak": 1.0,
+          "spend": 2390.0,
+          "spend_trend3": 1631.6666666666667
+        },
+        "Red": {
+          "bank": 3740.0,
+          "broken_buy": 0.0,
+          "buy_type": "half",
+          "loss_streak": 0.0,
+          "spend": 3175.0,
+          "spend_trend3": 1876.6666666666667
+        }
+      },
+      "pivotal": false,
+      "plant_ms": null,
+      "plant_site": null,
+      "round_num": 2,
+      "round_result": "Eliminated",
+      "spend_diff": -785.0,
+      "winning_team": "Red"
+    },
+    {
+      "defuse_ms": null,
+      "economy": {
+        "Blue": {
+          "bank": 4195.0,
+          "broken_buy": 0.0,
+          "buy_type": "half",
+          "loss_streak": 2.0,
+          "spend": 3170.0,
+          "spend_trend3": 2461.6666666666665
+        },
+        "Red": {
+          "bank": 3560.0,
+          "broken_buy": 0.0,
+          "buy_type": "half",
+          "loss_streak": 0.0,
+          "spend": 3245.0,
+          "spend_trend3": 2798.3333333333335
+        }
+      },
+      "pivotal": false,
+      "plant_ms": null,
+      "plant_site": null,
+      "round_num": 3,
+      "round_result": "Eliminated",
+      "spend_diff": -75.0,
+      "winning_team": "Blue"
+    },
+    {
+      "defuse_ms": null,
+      "economy": {
+        "Blue": {
+          "bank": 4020.0,
+          "broken_buy": 0.0,
+          "buy_type": "half",
+          "loss_streak": 0.0,
+          "spend": 2305.0,
+          "spend_trend3": 2621.6666666666665
+        },
+        "Red": {
+          "bank": 2715.0,
+          "broken_buy": 0.0,
+          "buy_type": "force",
+          "loss_streak": 1.0,
+          "spend": 2080.0,
+          "spend_trend3": 2833.3333333333335
+        }
+      },
+      "pivotal": false,
+      "plant_ms": 58478,
+      "plant_site": "B",
+      "round_num": 4,
+      "round_result": "Eliminated",
+      "spend_diff": 225.0,
+      "winning_team": "Blue"
+    },
+    {
+      "defuse_ms": null,
+      "economy": {
+        "Blue": {
+          "bank": 4715.0,
+          "broken_buy": 0.0,
+          "buy_type": "full",
+          "loss_streak": 0.0,
+          "spend": 4020.0,
+          "spend_trend3": 3165.0
+        },
+        "Red": {
+          "bank": 3535.0,
+          "broken_buy": 0.0,
+          "buy_type": "half",
+          "loss_streak": 2.0,
+          "spend": 2925.0,
+          "spend_trend3": 2750.0
+        }
+      },
+      "pivotal": false,
+      "plant_ms": null,
+      "plant_site": null,
+      "round_num": 5,
+      "round_result": "Round timer expired",
+      "spend_diff": 1095.0,
+      "winning_team": "Blue"
+    },
+    {
+      "defuse_ms": null,
+      "economy": {
+        "Blue": {
+          "bank": 3690.0,
+          "broken_buy": 0.0,
+          "buy_type": "half",
+          "loss_streak": 0.0,
+          "spend": 2755.0,
+          "spend_trend3": 3026.6666666666665
+        },
+        "Red": {
+          "bank": 3505.0,
+          "broken_buy": 0.0,
+          "buy_type": "half",
+          "loss_streak": 2.0,
+          "spend": 3220.0,
+          "spend_trend3": 2741.6666666666665
+        }
+      },
+      "pivotal": false,
+      "plant_ms": 59111,
+      "plant_site": "A",
+      "round_num": 6,
+      "round_result": "Bomb detonated",
+      "spend_diff": -465.0,
+      "winning_team": "Red"
+    },
+    {
+      "defuse_ms": null,
+      "economy": {
+        "Blue": {
+          "bank": 3330.0,
+          "broken_buy": 0.0,
+          "buy_type": "force",
+          "loss_streak": 1.0,
+          "spend": 3155.0,
+          "spend_trend3": 3310.0
+        },
+        "Red": {
+          "bank": 3280.0,
+          "broken_buy": 0.0,
+          "buy_type": "force",
+          "loss_streak": 0.0,
+          "spend": 2620.0,
+          "spend_trend3": 2921.6666666666665
+        }
+      },
+      "pivotal": false,
+      "plant_ms": 34302,
+      "plant_site": "B",
+      "round_num": 7,
+      "round_result": "Eliminated",
+      "spend_diff": 535.0,
+      "winning_team": "Blue"
+    },
+    {
+      "defuse_ms": null,
+      "economy": {
+        "Blue": {
+          "bank": 3170.0,
+          "broken_buy": 0.0,
+          "buy_type": "force",
+          "loss_streak": 0.0,
+          "spend": 2385.0,
+          "spend_trend3": 2765.0
+        },
+        "Red": {
+          "bank": 3060.0,
+          "broken_buy": 0.0,
+          "buy_type": "force",
+          "loss_streak": 1.0,
+          "spend": 1940.0,
+          "spend_trend3": 2593.3333333333335
+        }
+      },
+      "pivotal": false,
+      "plant_ms": null,
+      "plant_site": null,
+      "round_num": 8,
+      "round_result": "Round timer expired",
+      "spend_diff": 445.0,
+      "winning_team": "Red"
+    },
+    {
+      "defuse_ms": null,
+      "economy": {
+        "Blue": {
+          "bank": 3185.0,
+          "broken_buy": 0.0,
+          "buy_type": "force",
+          "loss_streak": 1.0,
+          "spend": 1950.0,
+          "spend_trend3": 2496.6666666666665
+        },
+        "Red": {
+          "bank": 4120.0,
+          "broken_buy": 0.0,
+          "buy_type": "half",
+          "loss_streak": 0.0,
+          "spend": 3600.0,
+          "spend_trend3": 2720.0
+        }
+      },
+      "pivotal": false,
+      "plant_ms": null,
+      "plant_site": null,
+      "round_num": 9,
+      "round_result": "Eliminated",
+      "spend_diff": -1650.0,
+      "winning_team": "Red"
+    },
+    {
+      "defuse_ms": null,
+      "economy": {
+        "Blue": {
+          "bank": 4135.0,
+          "broken_buy": 0.0,
+          "buy_type": "half",
+          "loss_streak": 2.0,
+          "spend": 3485.0,
+          "spend_trend3": 2606.6666666666665
+        },
+        "Red": {
+          "bank": 3515.0,
+          "broken_buy": 0.0,
+          "buy_type": "half",
+          "loss_streak": 0.0,
+          "spend": 2045.0,
+          "spend_trend3": 2528.3333333333335
+        }
+      },
+      "pivotal": false,
+      "plant_ms": 46731,
+      "plant_site": "B",
+      "round_num": 10,
+      "round_result": "Bomb detonated",
+      "spend_diff": 1440.0,
+      "winning_team": "Red"
+    },
+    {
+      "defuse_ms": null,
+      "economy": {
+        "Blue": {
+          "bank": 3545.0,
+          "broken_buy": 0.0,
+          "buy_type": "half",
+          "loss_streak": 2.0,
+          "spend": 3170.0,
+          "spend_trend3": 2868.3333333333335
+        },
+        "Red": {
+          "bank": 4470.0,
+          "broken_buy": 0.0,
+          "buy_type": "full",
+          "loss_streak": 0.0,
+          "spend": 3660.0,
+          "spend_trend3": 3101.6666666666665
+        }
+      },
+      "pivotal": false,
+      "plant_ms": 22325,
+      "plant_site": "C",
+      "round_num": 11,
+      "round_result": "Eliminated",
+      "spend_diff": -490.0,
+      "winning_team": "Red"
+    },
+    {
+      "defuse_ms": null,
+      "economy": {
+        "Blue": {
+          "bank": 3275.0,
+          "broken_buy": 1.0,
+          "buy_type": "force",
+          "loss_streak": 2.0,
+          "spend": 1925.0,
+          "spend_trend3": 2860.0
+        },
+        "Red": {
+          "bank": 3810.0,
+          "broken_buy": 0.0,
+          "buy_type": "half",
+          "loss_streak": 0.0,
+          "spend": 3110.0,
+          "spend_trend3": 2938.3333333333335
+        }
+      },
+      "pivotal": false,
+      "plant_ms": null,
+      "plant_site": null,
+      "round_num": 12,
+      "round_result": "Round timer expired",
+      "spend_diff": -1185.0,
+      "winning_team": "Blue"
+    },
+    {
+      "defuse_ms": null,
+      "economy": {
+        "Blue": {
+          "bank": 4345.0,
+          "broken_buy": 0.0,
+          "buy_type": "full",
+          "loss_streak": 0.0,
+          "spend": 3440.0,
+          "spend_trend3": 2845.0
+        },
+        "Red": {
+          "bank": 3095.0,
+          "broken_buy": 0.0,
+          "buy_type": "force",
+          "loss_streak": 1.0,
+          "spend": 2530.0,
+          "spend_trend3": 3100.0
+        }
+      },
+      "pivotal": false,
+      "plant_ms": 45772,
+      "plant_site": "B",
+      "round_num": 13,
+      "round_result": "Bomb detonated",
+      "spend_diff": 910.0,
+      "winning_team": "Red"
+    },
+    {
+      "defuse_ms": null,
+      "economy": {
+        "Blue": {
+          "bank": 3300.0,
+          "broken_buy": 0.0,
+          "buy_type": "force",
+          "loss_streak": 1.0,
+          "spend": 2085.0,
+          "spend_trend3": 2483.3333333333335
+        },
+        "Red": {
+          "bank": 3560.0,
+          "broken_buy": 0.0,
+          "buy_type": "half",
+          "loss_streak": 0.0,
+          "spend": 2550.0,
+          "spend_trend3": 2730.0
+        }
+      },
+      "pivotal": false,
+      "plant_ms": null,
+      "plant_site": null,
+      "round_num": 14,
+      "round_result": "Round timer expired",
+      "spend_diff": -465.0,
+      "winning_team": "Blue"
+    },
+    {
+      "defuse_ms": null,
+      "economy": {
+        "Blue": {
+          "bank": 4215.0,
+          "broken_buy": 0.0,
+          "buy_type": "full",
+          "loss_streak": 0.0,
+          "spend": 3675.0,
+          "spend_trend3": 3066.6666666666665
+        },
+        "Red": {
+          "bank": 3410.0,
+          "broken_buy": 0.0,
+          "buy_type": "half",
+          "loss_streak": 1.0,
+          "spend": 2675.0,
+          "spend_trend3": 2585.0
+        }
+      },
+      "pivotal": false,
+      "plant_ms": 59730,
+      "plant_site": "B",
+      "round_num": 15,
+      "round_result": "Eliminated",
+      "spend_diff": 1000.0,
+      "winning_team": "Red"
+    },
+    {
+      "defuse_ms": null,
+      "economy": {
+        "Blue": {
+          "bank": 2940.0,
+          "broken_buy": 0.0,
+          "buy_type": "force",
+          "loss_streak": 1.0,
+          "spend": 1915.0,
+          "spend_trend3": 2558.3333333333335
+        },
+        "Red": {
+          "bank": 3730.0,
+          "broken_buy": 0.0,
+          "buy_type": "half",
+          "loss_streak": 0.0,
+          "spend": 2200.0,
+          "spend_trend3": 2475.0
+        }
+      },
+      "pivotal": false,
+      "plant_ms": null,
+      "plant_site": null,
+      "round_num": 16,
+      "round_result": "Eliminated",
+      "spend_diff": -285.0,
+      "winning_team": "Blue"
+    },
+    {
+      "defuse_ms": null,
+      "economy": {
+        "Blue": {
+          "bank": 4025.0,
+          "broken_buy": 0.0,
+          "buy_type": "half",
+          "loss_streak": 0.0,
+          "spend": 3395.0,
+          "spend_trend3": 2995.0
+        },
+        "Red": {
+          "bank": 3930.0,
+          "broken_buy": 0.0,
+          "buy_type": "half",
+          "loss_streak": 1.0,
+          "spend": 2680.0,
+          "spend_trend3": 2518.3333333333335
+        }
+      },
+      "pivotal": false,
+      "plant_ms": 32979,
+      "plant_site": "C",
+      "round_num": 17,
+      "round_result": "Eliminated",
+      "spend_diff": 715.0,
+      "winning_team": "Red"
+    },
+    {
+      "defuse_ms": null,
+      "economy": {
+        "Blue": {
+          "bank": 3025.0,
+          "broken_buy": 0.0,
+          "buy_type": "force",
+          "loss_streak": 1.0,
+          "spend": 2030.0,
+          "spend_trend3": 2446.6666666666665
+        },
+        "Red": {
+          "bank": 4245.0,
+          "broken_buy": 0.0,
+          "buy_type": "full",
+          "loss_streak": 0.0,
+          "spend": 3985.0,
+          "spend_trend3": 2955.0
+        }
+      },
+      "pivotal": false,
+      "plant_ms": null,
+      "plant_site": null,
+      "round_num": 18,
+      "round_result": "Eliminated",
+      "spend_diff": -1955.0,
+      "winning_team": "Red"
+    },
+    {
+      "defuse_ms": null,
+      "economy": {
+        "Blue": {
+          "bank": 3895.0,
+          "broken_buy": 0.0,
+          "buy_type": "half",
+          "loss_streak": 2.0,
+          "spend": 2675.0,
+          "spend_trend3": 2700.0
+        },
+        "Red": {
+          "bank": 3260.0,
+          "broken_buy": 0.0,
+          "buy_type": "force",
+          "loss_streak": 0.0,
+          "spend": 3025.0,
+          "spend_trend3": 3230.0
+        }
+      },
+      "pivotal": false,
+      "plant_ms": null,
+      "plant_site": null,
+      "round_num": 19,
+      "round_result": "Eliminated",
+      "spend_diff": -350.0,
+      "winning_team": "Blue"
+    },
+    {
+      "defuse_ms": null,
+      "economy": {
+        "Blue": {
+          "bank": 4220.0,
+          "broken_buy": 0.0,
+          "buy_type": "full",
+          "loss_streak": 0.0,
+          "spend": 3955.0,
+          "spend_trend3": 2886.6666666666665
+        },
+        "Red": {
+          "bank": 2635.0,
+          "broken_buy": 0.0,
+          "buy_type": "force",
+          "loss_streak": 1.0,
+          "spend": 1685.0,
+          "spend_trend3": 2898.3333333333335
+        }
+      },
+      "pivotal": false,
+      "plant_ms": 58382,
+      "plant_site": "C",
+      "round_num": 20,
+      "round_result": "Bomb detonated",
+      "spend_diff": 2270.0,
+      "winning_team": "Red"
+    },
+    {
+      "defuse_ms": null,
+      "economy": {
+        "Blue": {
+          "bank": 2660.0,
+          "broken_buy": 0.0,
+          "buy_type": "force",
+          "loss_streak": 1.0,
+          "spend": 1930.0,
+          "spend_trend3": 2853.3333333333335
+        },
+        "Red": {
+          "bank": 3950.0,
+          "broken_buy": 0.0,
+          "buy_type": "half",
+          "loss_streak": 0.0,
+          "spend": 3475.0,
+          "spend_trend3": 2728.3333333333335
+        }
+      },
+      "pivotal": true,
+      "plant_ms": 44921,
+      "plant_site": "A",
+      "round_num": 21,
+      "round_result": "Bomb detonated",
+      "spend_diff": -1545.0,
+      "winning_team": "Red"
+    }
+  ],
+  "trace": {
+    "conclusions": [
+      {
+        "agent": "Analyst",
+        "claim": "Blue got the spike down but could not hold it -- only 0% of its plants converted into round wins.",
+        "evidence": [
+          {
+            "feature": {
+              "name": "plant_rate:Blue",
+              "round_num": -1,
+              "scope": "match",
+              "value": 0.5
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "round_num": 12,
+                "table": "rounds"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "round_num": 13,
+                "table": "rounds"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "round_num": 14,
+                "table": "rounds"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "round_num": 15,
+                "table": "rounds"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "round_num": 16,
+                "table": "rounds"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "round_num": 17,
+                "table": "rounds"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "round_num": 18,
+                "table": "rounds"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "round_num": 19,
+                "table": "rounds"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "round_num": 20,
+                "table": "rounds"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "round_num": 21,
+                "table": "rounds"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "win_after_plant:Blue",
+              "round_num": -1,
+              "scope": "match",
+              "value": 0.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "round_num": 13,
+                "table": "rounds"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "round_num": 15,
+                "table": "rounds"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "round_num": 17,
+                "table": "rounds"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "round_num": 20,
+                "table": "rounds"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "round_num": 21,
+                "table": "rounds"
+              }
+            ]
+          }
+        ],
+        "rule_id": "analyst.post_plant_conversion",
+        "severity": "warning",
+        "unverified_reason": null,
+        "verified": true
+      },
+      {
+        "agent": "Economist",
+        "claim": "Blue force-bought 3 rounds back to back (R7, R8, R9). One force is a read; a run this long means the team never got off the back foot long enough to rebuild.",
+        "evidence": [
+          {
+            "feature": {
+              "name": "buy_type:Blue",
+              "round_num": 7,
+              "scope": "team_round",
+              "value": 1.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "11f2d33c-ff75-183e-6593-bdff2e5b37ca",
+                "round_num": 7,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "19eed0fd-f194-be6e-bd04-4a185547cc44",
+                "round_num": 7,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "81f634c2-56f0-17f0-4542-149d60e9852e",
+                "round_num": 7,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "9c395985-1b6e-2a0e-180d-3a65191096b9",
+                "round_num": 7,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "bff2a658-4375-1188-3b60-1e6037d96cae",
+                "round_num": 7,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Blue",
+              "round_num": 8,
+              "scope": "team_round",
+              "value": 1.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "11f2d33c-ff75-183e-6593-bdff2e5b37ca",
+                "round_num": 8,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "19eed0fd-f194-be6e-bd04-4a185547cc44",
+                "round_num": 8,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "81f634c2-56f0-17f0-4542-149d60e9852e",
+                "round_num": 8,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "9c395985-1b6e-2a0e-180d-3a65191096b9",
+                "round_num": 8,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "bff2a658-4375-1188-3b60-1e6037d96cae",
+                "round_num": 8,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Blue",
+              "round_num": 9,
+              "scope": "team_round",
+              "value": 1.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "11f2d33c-ff75-183e-6593-bdff2e5b37ca",
+                "round_num": 9,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "19eed0fd-f194-be6e-bd04-4a185547cc44",
+                "round_num": 9,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "81f634c2-56f0-17f0-4542-149d60e9852e",
+                "round_num": 9,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "9c395985-1b6e-2a0e-180d-3a65191096b9",
+                "round_num": 9,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "bff2a658-4375-1188-3b60-1e6037d96cae",
+                "round_num": 9,
+                "table": "round_player_stats"
+              }
+            ]
+          }
+        ],
+        "rule_id": "economist.consecutive_force",
+        "severity": "warning",
+        "unverified_reason": null,
+        "verified": true
+      },
+      {
+        "agent": "Economist",
+        "claim": "Blue force-bought in 9 of 22 rounds (41%), past the 30% mark where forcing stops being a read and starts being a habit.",
+        "evidence": [
+          {
+            "feature": {
+              "name": "buy_type:Blue",
+              "round_num": 0,
+              "scope": "team_round",
+              "value": 0.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "11f2d33c-ff75-183e-6593-bdff2e5b37ca",
+                "round_num": 0,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "19eed0fd-f194-be6e-bd04-4a185547cc44",
+                "round_num": 0,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "81f634c2-56f0-17f0-4542-149d60e9852e",
+                "round_num": 0,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "9c395985-1b6e-2a0e-180d-3a65191096b9",
+                "round_num": 0,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "bff2a658-4375-1188-3b60-1e6037d96cae",
+                "round_num": 0,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Blue",
+              "round_num": 1,
+              "scope": "team_round",
+              "value": 1.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "11f2d33c-ff75-183e-6593-bdff2e5b37ca",
+                "round_num": 1,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "19eed0fd-f194-be6e-bd04-4a185547cc44",
+                "round_num": 1,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "81f634c2-56f0-17f0-4542-149d60e9852e",
+                "round_num": 1,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "9c395985-1b6e-2a0e-180d-3a65191096b9",
+                "round_num": 1,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "bff2a658-4375-1188-3b60-1e6037d96cae",
+                "round_num": 1,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Blue",
+              "round_num": 2,
+              "scope": "team_round",
+              "value": 2.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "11f2d33c-ff75-183e-6593-bdff2e5b37ca",
+                "round_num": 2,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "19eed0fd-f194-be6e-bd04-4a185547cc44",
+                "round_num": 2,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "81f634c2-56f0-17f0-4542-149d60e9852e",
+                "round_num": 2,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "9c395985-1b6e-2a0e-180d-3a65191096b9",
+                "round_num": 2,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "bff2a658-4375-1188-3b60-1e6037d96cae",
+                "round_num": 2,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Blue",
+              "round_num": 3,
+              "scope": "team_round",
+              "value": 2.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "11f2d33c-ff75-183e-6593-bdff2e5b37ca",
+                "round_num": 3,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "19eed0fd-f194-be6e-bd04-4a185547cc44",
+                "round_num": 3,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "81f634c2-56f0-17f0-4542-149d60e9852e",
+                "round_num": 3,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "9c395985-1b6e-2a0e-180d-3a65191096b9",
+                "round_num": 3,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "bff2a658-4375-1188-3b60-1e6037d96cae",
+                "round_num": 3,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Blue",
+              "round_num": 4,
+              "scope": "team_round",
+              "value": 2.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "11f2d33c-ff75-183e-6593-bdff2e5b37ca",
+                "round_num": 4,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "19eed0fd-f194-be6e-bd04-4a185547cc44",
+                "round_num": 4,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "81f634c2-56f0-17f0-4542-149d60e9852e",
+                "round_num": 4,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "9c395985-1b6e-2a0e-180d-3a65191096b9",
+                "round_num": 4,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "bff2a658-4375-1188-3b60-1e6037d96cae",
+                "round_num": 4,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Blue",
+              "round_num": 5,
+              "scope": "team_round",
+              "value": 3.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "11f2d33c-ff75-183e-6593-bdff2e5b37ca",
+                "round_num": 5,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "19eed0fd-f194-be6e-bd04-4a185547cc44",
+                "round_num": 5,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "81f634c2-56f0-17f0-4542-149d60e9852e",
+                "round_num": 5,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "9c395985-1b6e-2a0e-180d-3a65191096b9",
+                "round_num": 5,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "bff2a658-4375-1188-3b60-1e6037d96cae",
+                "round_num": 5,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Blue",
+              "round_num": 6,
+              "scope": "team_round",
+              "value": 2.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "11f2d33c-ff75-183e-6593-bdff2e5b37ca",
+                "round_num": 6,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "19eed0fd-f194-be6e-bd04-4a185547cc44",
+                "round_num": 6,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "81f634c2-56f0-17f0-4542-149d60e9852e",
+                "round_num": 6,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "9c395985-1b6e-2a0e-180d-3a65191096b9",
+                "round_num": 6,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "bff2a658-4375-1188-3b60-1e6037d96cae",
+                "round_num": 6,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Blue",
+              "round_num": 7,
+              "scope": "team_round",
+              "value": 1.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "11f2d33c-ff75-183e-6593-bdff2e5b37ca",
+                "round_num": 7,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "19eed0fd-f194-be6e-bd04-4a185547cc44",
+                "round_num": 7,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "81f634c2-56f0-17f0-4542-149d60e9852e",
+                "round_num": 7,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "9c395985-1b6e-2a0e-180d-3a65191096b9",
+                "round_num": 7,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "bff2a658-4375-1188-3b60-1e6037d96cae",
+                "round_num": 7,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Blue",
+              "round_num": 8,
+              "scope": "team_round",
+              "value": 1.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "11f2d33c-ff75-183e-6593-bdff2e5b37ca",
+                "round_num": 8,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "19eed0fd-f194-be6e-bd04-4a185547cc44",
+                "round_num": 8,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "81f634c2-56f0-17f0-4542-149d60e9852e",
+                "round_num": 8,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "9c395985-1b6e-2a0e-180d-3a65191096b9",
+                "round_num": 8,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "bff2a658-4375-1188-3b60-1e6037d96cae",
+                "round_num": 8,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Blue",
+              "round_num": 9,
+              "scope": "team_round",
+              "value": 1.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "11f2d33c-ff75-183e-6593-bdff2e5b37ca",
+                "round_num": 9,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "19eed0fd-f194-be6e-bd04-4a185547cc44",
+                "round_num": 9,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "81f634c2-56f0-17f0-4542-149d60e9852e",
+                "round_num": 9,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "9c395985-1b6e-2a0e-180d-3a65191096b9",
+                "round_num": 9,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "bff2a658-4375-1188-3b60-1e6037d96cae",
+                "round_num": 9,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Blue",
+              "round_num": 10,
+              "scope": "team_round",
+              "value": 2.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "11f2d33c-ff75-183e-6593-bdff2e5b37ca",
+                "round_num": 10,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "19eed0fd-f194-be6e-bd04-4a185547cc44",
+                "round_num": 10,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "81f634c2-56f0-17f0-4542-149d60e9852e",
+                "round_num": 10,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "9c395985-1b6e-2a0e-180d-3a65191096b9",
+                "round_num": 10,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "bff2a658-4375-1188-3b60-1e6037d96cae",
+                "round_num": 10,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Blue",
+              "round_num": 11,
+              "scope": "team_round",
+              "value": 2.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "11f2d33c-ff75-183e-6593-bdff2e5b37ca",
+                "round_num": 11,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "19eed0fd-f194-be6e-bd04-4a185547cc44",
+                "round_num": 11,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "81f634c2-56f0-17f0-4542-149d60e9852e",
+                "round_num": 11,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "9c395985-1b6e-2a0e-180d-3a65191096b9",
+                "round_num": 11,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "bff2a658-4375-1188-3b60-1e6037d96cae",
+                "round_num": 11,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Blue",
+              "round_num": 12,
+              "scope": "team_round",
+              "value": 1.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "11f2d33c-ff75-183e-6593-bdff2e5b37ca",
+                "round_num": 12,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "19eed0fd-f194-be6e-bd04-4a185547cc44",
+                "round_num": 12,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "81f634c2-56f0-17f0-4542-149d60e9852e",
+                "round_num": 12,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "9c395985-1b6e-2a0e-180d-3a65191096b9",
+                "round_num": 12,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "bff2a658-4375-1188-3b60-1e6037d96cae",
+                "round_num": 12,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Blue",
+              "round_num": 13,
+              "scope": "team_round",
+              "value": 3.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "11f2d33c-ff75-183e-6593-bdff2e5b37ca",
+                "round_num": 13,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "19eed0fd-f194-be6e-bd04-4a185547cc44",
+                "round_num": 13,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "81f634c2-56f0-17f0-4542-149d60e9852e",
+                "round_num": 13,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "9c395985-1b6e-2a0e-180d-3a65191096b9",
+                "round_num": 13,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "bff2a658-4375-1188-3b60-1e6037d96cae",
+                "round_num": 13,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Blue",
+              "round_num": 14,
+              "scope": "team_round",
+              "value": 1.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "11f2d33c-ff75-183e-6593-bdff2e5b37ca",
+                "round_num": 14,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "19eed0fd-f194-be6e-bd04-4a185547cc44",
+                "round_num": 14,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "81f634c2-56f0-17f0-4542-149d60e9852e",
+                "round_num": 14,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "9c395985-1b6e-2a0e-180d-3a65191096b9",
+                "round_num": 14,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "bff2a658-4375-1188-3b60-1e6037d96cae",
+                "round_num": 14,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Blue",
+              "round_num": 15,
+              "scope": "team_round",
+              "value": 3.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "11f2d33c-ff75-183e-6593-bdff2e5b37ca",
+                "round_num": 15,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "19eed0fd-f194-be6e-bd04-4a185547cc44",
+                "round_num": 15,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "81f634c2-56f0-17f0-4542-149d60e9852e",
+                "round_num": 15,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "9c395985-1b6e-2a0e-180d-3a65191096b9",
+                "round_num": 15,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "bff2a658-4375-1188-3b60-1e6037d96cae",
+                "round_num": 15,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Blue",
+              "round_num": 16,
+              "scope": "team_round",
+              "value": 1.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "11f2d33c-ff75-183e-6593-bdff2e5b37ca",
+                "round_num": 16,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "19eed0fd-f194-be6e-bd04-4a185547cc44",
+                "round_num": 16,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "81f634c2-56f0-17f0-4542-149d60e9852e",
+                "round_num": 16,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "9c395985-1b6e-2a0e-180d-3a65191096b9",
+                "round_num": 16,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "bff2a658-4375-1188-3b60-1e6037d96cae",
+                "round_num": 16,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Blue",
+              "round_num": 17,
+              "scope": "team_round",
+              "value": 2.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "11f2d33c-ff75-183e-6593-bdff2e5b37ca",
+                "round_num": 17,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "19eed0fd-f194-be6e-bd04-4a185547cc44",
+                "round_num": 17,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "81f634c2-56f0-17f0-4542-149d60e9852e",
+                "round_num": 17,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "9c395985-1b6e-2a0e-180d-3a65191096b9",
+                "round_num": 17,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "bff2a658-4375-1188-3b60-1e6037d96cae",
+                "round_num": 17,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Blue",
+              "round_num": 18,
+              "scope": "team_round",
+              "value": 1.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "11f2d33c-ff75-183e-6593-bdff2e5b37ca",
+                "round_num": 18,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "19eed0fd-f194-be6e-bd04-4a185547cc44",
+                "round_num": 18,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "81f634c2-56f0-17f0-4542-149d60e9852e",
+                "round_num": 18,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "9c395985-1b6e-2a0e-180d-3a65191096b9",
+                "round_num": 18,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "bff2a658-4375-1188-3b60-1e6037d96cae",
+                "round_num": 18,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Blue",
+              "round_num": 19,
+              "scope": "team_round",
+              "value": 2.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "11f2d33c-ff75-183e-6593-bdff2e5b37ca",
+                "round_num": 19,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "19eed0fd-f194-be6e-bd04-4a185547cc44",
+                "round_num": 19,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "81f634c2-56f0-17f0-4542-149d60e9852e",
+                "round_num": 19,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "9c395985-1b6e-2a0e-180d-3a65191096b9",
+                "round_num": 19,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "bff2a658-4375-1188-3b60-1e6037d96cae",
+                "round_num": 19,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Blue",
+              "round_num": 20,
+              "scope": "team_round",
+              "value": 3.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "11f2d33c-ff75-183e-6593-bdff2e5b37ca",
+                "round_num": 20,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "19eed0fd-f194-be6e-bd04-4a185547cc44",
+                "round_num": 20,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "81f634c2-56f0-17f0-4542-149d60e9852e",
+                "round_num": 20,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "9c395985-1b6e-2a0e-180d-3a65191096b9",
+                "round_num": 20,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "bff2a658-4375-1188-3b60-1e6037d96cae",
+                "round_num": 20,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Blue",
+              "round_num": 21,
+              "scope": "team_round",
+              "value": 1.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "11f2d33c-ff75-183e-6593-bdff2e5b37ca",
+                "round_num": 21,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "19eed0fd-f194-be6e-bd04-4a185547cc44",
+                "round_num": 21,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "81f634c2-56f0-17f0-4542-149d60e9852e",
+                "round_num": 21,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "9c395985-1b6e-2a0e-180d-3a65191096b9",
+                "round_num": 21,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "bff2a658-4375-1188-3b60-1e6037d96cae",
+                "round_num": 21,
+                "table": "round_player_stats"
+              }
+            ]
+          }
+        ],
+        "rule_id": "economist.force_buy_frequency",
+        "severity": "warning",
+        "unverified_reason": null,
+        "verified": true
+      },
+      {
+        "agent": "Economist",
+        "claim": "Red force-bought in 7 of 22 rounds (32%), past the 30% mark where forcing stops being a read and starts being a habit.",
+        "evidence": [
+          {
+            "feature": {
+              "name": "buy_type:Red",
+              "round_num": 0,
+              "scope": "team_round",
+              "value": 0.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "039473fd-c1f0-f564-36c6-8a5631f311bf",
+                "round_num": 0,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "4a975960-2d4c-712b-c978-f35853edb0fc",
+                "round_num": 0,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "5f4dbea8-83f6-589f-9614-541e26be4c80",
+                "round_num": 0,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "8875603e-2a3b-3694-ad11-a9ac42c3654a",
+                "round_num": 0,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "hero",
+                "round_num": 0,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Red",
+              "round_num": 1,
+              "scope": "team_round",
+              "value": 1.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "039473fd-c1f0-f564-36c6-8a5631f311bf",
+                "round_num": 1,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "4a975960-2d4c-712b-c978-f35853edb0fc",
+                "round_num": 1,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "5f4dbea8-83f6-589f-9614-541e26be4c80",
+                "round_num": 1,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "8875603e-2a3b-3694-ad11-a9ac42c3654a",
+                "round_num": 1,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "hero",
+                "round_num": 1,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Red",
+              "round_num": 2,
+              "scope": "team_round",
+              "value": 2.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "039473fd-c1f0-f564-36c6-8a5631f311bf",
+                "round_num": 2,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "4a975960-2d4c-712b-c978-f35853edb0fc",
+                "round_num": 2,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "5f4dbea8-83f6-589f-9614-541e26be4c80",
+                "round_num": 2,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "8875603e-2a3b-3694-ad11-a9ac42c3654a",
+                "round_num": 2,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "hero",
+                "round_num": 2,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Red",
+              "round_num": 3,
+              "scope": "team_round",
+              "value": 2.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "039473fd-c1f0-f564-36c6-8a5631f311bf",
+                "round_num": 3,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "4a975960-2d4c-712b-c978-f35853edb0fc",
+                "round_num": 3,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "5f4dbea8-83f6-589f-9614-541e26be4c80",
+                "round_num": 3,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "8875603e-2a3b-3694-ad11-a9ac42c3654a",
+                "round_num": 3,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "hero",
+                "round_num": 3,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Red",
+              "round_num": 4,
+              "scope": "team_round",
+              "value": 1.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "039473fd-c1f0-f564-36c6-8a5631f311bf",
+                "round_num": 4,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "4a975960-2d4c-712b-c978-f35853edb0fc",
+                "round_num": 4,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "5f4dbea8-83f6-589f-9614-541e26be4c80",
+                "round_num": 4,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "8875603e-2a3b-3694-ad11-a9ac42c3654a",
+                "round_num": 4,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "hero",
+                "round_num": 4,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Red",
+              "round_num": 5,
+              "scope": "team_round",
+              "value": 2.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "039473fd-c1f0-f564-36c6-8a5631f311bf",
+                "round_num": 5,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "4a975960-2d4c-712b-c978-f35853edb0fc",
+                "round_num": 5,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "5f4dbea8-83f6-589f-9614-541e26be4c80",
+                "round_num": 5,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "8875603e-2a3b-3694-ad11-a9ac42c3654a",
+                "round_num": 5,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "hero",
+                "round_num": 5,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Red",
+              "round_num": 6,
+              "scope": "team_round",
+              "value": 2.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "039473fd-c1f0-f564-36c6-8a5631f311bf",
+                "round_num": 6,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "4a975960-2d4c-712b-c978-f35853edb0fc",
+                "round_num": 6,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "5f4dbea8-83f6-589f-9614-541e26be4c80",
+                "round_num": 6,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "8875603e-2a3b-3694-ad11-a9ac42c3654a",
+                "round_num": 6,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "hero",
+                "round_num": 6,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Red",
+              "round_num": 7,
+              "scope": "team_round",
+              "value": 1.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "039473fd-c1f0-f564-36c6-8a5631f311bf",
+                "round_num": 7,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "4a975960-2d4c-712b-c978-f35853edb0fc",
+                "round_num": 7,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "5f4dbea8-83f6-589f-9614-541e26be4c80",
+                "round_num": 7,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "8875603e-2a3b-3694-ad11-a9ac42c3654a",
+                "round_num": 7,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "hero",
+                "round_num": 7,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Red",
+              "round_num": 8,
+              "scope": "team_round",
+              "value": 1.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "039473fd-c1f0-f564-36c6-8a5631f311bf",
+                "round_num": 8,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "4a975960-2d4c-712b-c978-f35853edb0fc",
+                "round_num": 8,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "5f4dbea8-83f6-589f-9614-541e26be4c80",
+                "round_num": 8,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "8875603e-2a3b-3694-ad11-a9ac42c3654a",
+                "round_num": 8,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "hero",
+                "round_num": 8,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Red",
+              "round_num": 9,
+              "scope": "team_round",
+              "value": 2.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "039473fd-c1f0-f564-36c6-8a5631f311bf",
+                "round_num": 9,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "4a975960-2d4c-712b-c978-f35853edb0fc",
+                "round_num": 9,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "5f4dbea8-83f6-589f-9614-541e26be4c80",
+                "round_num": 9,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "8875603e-2a3b-3694-ad11-a9ac42c3654a",
+                "round_num": 9,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "hero",
+                "round_num": 9,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Red",
+              "round_num": 10,
+              "scope": "team_round",
+              "value": 2.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "039473fd-c1f0-f564-36c6-8a5631f311bf",
+                "round_num": 10,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "4a975960-2d4c-712b-c978-f35853edb0fc",
+                "round_num": 10,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "5f4dbea8-83f6-589f-9614-541e26be4c80",
+                "round_num": 10,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "8875603e-2a3b-3694-ad11-a9ac42c3654a",
+                "round_num": 10,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "hero",
+                "round_num": 10,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Red",
+              "round_num": 11,
+              "scope": "team_round",
+              "value": 3.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "039473fd-c1f0-f564-36c6-8a5631f311bf",
+                "round_num": 11,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "4a975960-2d4c-712b-c978-f35853edb0fc",
+                "round_num": 11,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "5f4dbea8-83f6-589f-9614-541e26be4c80",
+                "round_num": 11,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "8875603e-2a3b-3694-ad11-a9ac42c3654a",
+                "round_num": 11,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "hero",
+                "round_num": 11,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Red",
+              "round_num": 12,
+              "scope": "team_round",
+              "value": 2.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "039473fd-c1f0-f564-36c6-8a5631f311bf",
+                "round_num": 12,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "4a975960-2d4c-712b-c978-f35853edb0fc",
+                "round_num": 12,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "5f4dbea8-83f6-589f-9614-541e26be4c80",
+                "round_num": 12,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "8875603e-2a3b-3694-ad11-a9ac42c3654a",
+                "round_num": 12,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "hero",
+                "round_num": 12,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Red",
+              "round_num": 13,
+              "scope": "team_round",
+              "value": 1.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "039473fd-c1f0-f564-36c6-8a5631f311bf",
+                "round_num": 13,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "4a975960-2d4c-712b-c978-f35853edb0fc",
+                "round_num": 13,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "5f4dbea8-83f6-589f-9614-541e26be4c80",
+                "round_num": 13,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "8875603e-2a3b-3694-ad11-a9ac42c3654a",
+                "round_num": 13,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "hero",
+                "round_num": 13,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Red",
+              "round_num": 14,
+              "scope": "team_round",
+              "value": 2.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "039473fd-c1f0-f564-36c6-8a5631f311bf",
+                "round_num": 14,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "4a975960-2d4c-712b-c978-f35853edb0fc",
+                "round_num": 14,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "5f4dbea8-83f6-589f-9614-541e26be4c80",
+                "round_num": 14,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "8875603e-2a3b-3694-ad11-a9ac42c3654a",
+                "round_num": 14,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "hero",
+                "round_num": 14,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Red",
+              "round_num": 15,
+              "scope": "team_round",
+              "value": 2.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "039473fd-c1f0-f564-36c6-8a5631f311bf",
+                "round_num": 15,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "4a975960-2d4c-712b-c978-f35853edb0fc",
+                "round_num": 15,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "5f4dbea8-83f6-589f-9614-541e26be4c80",
+                "round_num": 15,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "8875603e-2a3b-3694-ad11-a9ac42c3654a",
+                "round_num": 15,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "hero",
+                "round_num": 15,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Red",
+              "round_num": 16,
+              "scope": "team_round",
+              "value": 2.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "039473fd-c1f0-f564-36c6-8a5631f311bf",
+                "round_num": 16,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "4a975960-2d4c-712b-c978-f35853edb0fc",
+                "round_num": 16,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "5f4dbea8-83f6-589f-9614-541e26be4c80",
+                "round_num": 16,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "8875603e-2a3b-3694-ad11-a9ac42c3654a",
+                "round_num": 16,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "hero",
+                "round_num": 16,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Red",
+              "round_num": 17,
+              "scope": "team_round",
+              "value": 2.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "039473fd-c1f0-f564-36c6-8a5631f311bf",
+                "round_num": 17,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "4a975960-2d4c-712b-c978-f35853edb0fc",
+                "round_num": 17,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "5f4dbea8-83f6-589f-9614-541e26be4c80",
+                "round_num": 17,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "8875603e-2a3b-3694-ad11-a9ac42c3654a",
+                "round_num": 17,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "hero",
+                "round_num": 17,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Red",
+              "round_num": 18,
+              "scope": "team_round",
+              "value": 3.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "039473fd-c1f0-f564-36c6-8a5631f311bf",
+                "round_num": 18,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "4a975960-2d4c-712b-c978-f35853edb0fc",
+                "round_num": 18,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "5f4dbea8-83f6-589f-9614-541e26be4c80",
+                "round_num": 18,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "8875603e-2a3b-3694-ad11-a9ac42c3654a",
+                "round_num": 18,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "hero",
+                "round_num": 18,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Red",
+              "round_num": 19,
+              "scope": "team_round",
+              "value": 1.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "039473fd-c1f0-f564-36c6-8a5631f311bf",
+                "round_num": 19,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "4a975960-2d4c-712b-c978-f35853edb0fc",
+                "round_num": 19,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "5f4dbea8-83f6-589f-9614-541e26be4c80",
+                "round_num": 19,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "8875603e-2a3b-3694-ad11-a9ac42c3654a",
+                "round_num": 19,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "hero",
+                "round_num": 19,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Red",
+              "round_num": 20,
+              "scope": "team_round",
+              "value": 1.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "039473fd-c1f0-f564-36c6-8a5631f311bf",
+                "round_num": 20,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "4a975960-2d4c-712b-c978-f35853edb0fc",
+                "round_num": 20,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "5f4dbea8-83f6-589f-9614-541e26be4c80",
+                "round_num": 20,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "8875603e-2a3b-3694-ad11-a9ac42c3654a",
+                "round_num": 20,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "hero",
+                "round_num": 20,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "buy_type:Red",
+              "round_num": 21,
+              "scope": "team_round",
+              "value": 2.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "039473fd-c1f0-f564-36c6-8a5631f311bf",
+                "round_num": 21,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "4a975960-2d4c-712b-c978-f35853edb0fc",
+                "round_num": 21,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "5f4dbea8-83f6-589f-9614-541e26be4c80",
+                "round_num": 21,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "8875603e-2a3b-3694-ad11-a9ac42c3654a",
+                "round_num": 21,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "hero",
+                "round_num": 21,
+                "table": "round_player_stats"
+              }
+            ]
+          }
+        ],
+        "rule_id": "economist.force_buy_frequency",
+        "severity": "warning",
+        "unverified_reason": null,
+        "verified": true
+      },
+      {
+        "agent": "Analyst",
+        "claim": "R21 was the match's pivotal round -- the largest single swing (0.275) in the win-probability proxy. Red took it, Blue lost it.",
+        "evidence": [
+          {
+            "feature": {
+              "name": "pivotal_round",
+              "round_num": -1,
+              "scope": "match",
+              "value": 21.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "round_num": 20,
+                "table": "rounds"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "round_num": 21,
+                "table": "rounds"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "pivotal_round_swing",
+              "round_num": -1,
+              "scope": "match",
+              "value": 0.2747966482876837
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "round_num": 20,
+                "table": "rounds"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "round_num": 21,
+                "table": "rounds"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "round_won:Blue",
+              "round_num": 21,
+              "scope": "team_round",
+              "value": 0.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "round_num": 21,
+                "table": "rounds"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "round_won:Red",
+              "round_num": 21,
+              "scope": "team_round",
+              "value": 1.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "round_num": 21,
+                "table": "rounds"
+              }
+            ]
+          }
+        ],
+        "rule_id": "analyst.pivotal_round",
+        "severity": "info",
+        "unverified_reason": null,
+        "verified": true
+      },
+      {
+        "agent": "Economist",
+        "claim": "Blue stole 1 of its 1 eco rounds (100%).",
+        "evidence": [
+          {
+            "feature": {
+              "name": "buy_type:Blue",
+              "round_num": 0,
+              "scope": "team_round",
+              "value": 0.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "11f2d33c-ff75-183e-6593-bdff2e5b37ca",
+                "round_num": 0,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "19eed0fd-f194-be6e-bd04-4a185547cc44",
+                "round_num": 0,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "81f634c2-56f0-17f0-4542-149d60e9852e",
+                "round_num": 0,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "9c395985-1b6e-2a0e-180d-3a65191096b9",
+                "round_num": 0,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "bff2a658-4375-1188-3b60-1e6037d96cae",
+                "round_num": 0,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "round_won:Blue",
+              "round_num": 0,
+              "scope": "team_round",
+              "value": 1.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "round_num": 0,
+                "table": "rounds"
+              }
+            ]
+          }
+        ],
+        "rule_id": "economist.eco_conversion",
+        "severity": "info",
+        "unverified_reason": null,
+        "verified": true
+      },
+      {
+        "agent": "Economist",
+        "claim": "Red stole 0 of its 1 eco rounds (0%).",
+        "evidence": [
+          {
+            "feature": {
+              "name": "buy_type:Red",
+              "round_num": 0,
+              "scope": "team_round",
+              "value": 0.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "039473fd-c1f0-f564-36c6-8a5631f311bf",
+                "round_num": 0,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "4a975960-2d4c-712b-c978-f35853edb0fc",
+                "round_num": 0,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "5f4dbea8-83f6-589f-9614-541e26be4c80",
+                "round_num": 0,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "8875603e-2a3b-3694-ad11-a9ac42c3654a",
+                "round_num": 0,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "puuid": "hero",
+                "round_num": 0,
+                "table": "round_player_stats"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "round_won:Red",
+              "round_num": 0,
+              "scope": "team_round",
+              "value": 0.0
+            },
+            "source_rows": [
+              {
+                "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+                "round_num": 0,
+                "table": "rounds"
+              }
+            ]
+          }
+        ],
+        "rule_id": "economist.eco_conversion",
+        "severity": "info",
+        "unverified_reason": null,
+        "verified": true
+      }
+    ],
+    "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+    "summary": {
+      "conclusions": 7,
+      "source_rows_cited": 268,
+      "unverified": 0,
+      "verified": 7
+    },
+    "trace_version": 1
+  }
+}

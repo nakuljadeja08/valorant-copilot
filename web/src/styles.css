@@ -1,0 +1,717 @@
+/* Design tokens.
+   Series and chrome values come from a palette validated with the dataviz
+   validator (lightness band, chroma floor, CVD separation, normal-vision floor,
+   contrast) in both light and dark. Dark is a selected set of steps for the dark
+   surface, not an inverted light palette. */
+
+:root {
+  color-scheme: light;
+
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+  --surface-sunken: #f2f1ee;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  --border: rgba(11, 11, 11, 0.1);
+
+  /* Categorical: team identity. Blue = slot 1, Red = slot 8. */
+  --team-blue: #2a78d6;
+  --team-red: #e34948;
+
+  /* Status: severity only. Never used for a series. */
+  --status-good: #0ca30c;
+  --status-warning: #fab219;
+  --status-critical: #d03b3b;
+
+  --radius: 10px;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page: #0d0d0d;
+    --surface: #1a1a19;
+    --surface-sunken: #131312;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --muted: #898781;
+    --grid: #2c2c2a;
+    --axis: #383835;
+    --border: rgba(255, 255, 255, 0.1);
+    --team-blue: #3987e5;
+    --team-red: #e66767;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d;
+  --surface: #1a1a19;
+  --surface-sunken: #131312;
+  --ink: #ffffff;
+  --ink-2: #c3c2b7;
+  --muted: #898781;
+  --grid: #2c2c2a;
+  --axis: #383835;
+  --border: rgba(255, 255, 255, 0.1);
+  --team-blue: #3987e5;
+  --team-red: #e66767;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+.shell {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px 72px;
+}
+
+/* ---------------------------------------------------------------- banner --
+   Provenance is on every view by construction: the banner is rendered by the
+   app shell, not by the individual pages, so no route can omit it. */
+
+.banner {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  -webkit-backdrop-filter: saturate(1.4) blur(6px);
+  backdrop-filter: saturate(1.4) blur(6px);
+}
+
+.banner-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.banner-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--status-warning);
+  flex: none;
+  align-self: center;
+}
+
+.banner-note {
+  font-size: 13px;
+  color: var(--ink-2);
+}
+
+.banner-toggle {
+  margin-left: auto;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 12px;
+  color: var(--ink-2);
+  cursor: pointer;
+}
+
+.banner-toggle:hover {
+  background: var(--surface-sunken);
+}
+
+.banner-detail {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px 12px;
+  font-size: 13px;
+  color: var(--ink-2);
+  max-width: min(1080px, 100%);
+}
+
+/* ---------------------------------------------------------------- header -- */
+
+.page-head {
+  padding: 32px 0 20px;
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.lede {
+  color: var(--ink-2);
+  max-width: 60ch;
+  margin: 10px 0 0;
+}
+
+.back {
+  display: inline-block;
+  margin: 20px 0 0;
+  font-size: 13px;
+  color: var(--ink-2);
+  text-decoration: none;
+}
+
+.back:hover {
+  color: var(--ink);
+}
+
+/* ------------------------------------------------------------- stat row -- */
+
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin: 4px 0 28px;
+}
+
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.stat-value {
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-top: 2px;
+}
+
+.hero {
+  font-size: 52px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+/* ----------------------------------------------------------------- card -- */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.card-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.card-sub {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0 0 16px;
+}
+
+/* --------------------------------------------------------- match list --- */
+
+.match-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.match-card {
+  display: block;
+  text-align: left;
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 120ms ease;
+}
+
+.match-card:hover,
+.match-card:focus-visible {
+  border-color: var(--axis);
+}
+
+.match-map {
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.scoreline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.score-num {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.score-sep {
+  color: var(--muted);
+}
+
+.match-id {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+/* team key: the colored mark sits BESIDE the text, never on it */
+
+.key {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--ink-2);
+}
+
+.key-line {
+  width: 14px;
+  height: 2px;
+  border-radius: 1px;
+  flex: none;
+}
+
+.key-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.blue {
+  background: var(--team-blue);
+}
+
+.red {
+  background: var(--team-red);
+}
+
+.legend {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* ------------------------------------------------------------ timeline --- */
+
+.timeline-scroll {
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+.timeline {
+  display: flex;
+  gap: 2px; /* the surface gap does the separating; no borders between marks */
+  min-width: min-content;
+}
+
+.round-col {
+  width: 36px;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: stretch;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.round-col:focus-visible {
+  outline: 2px solid var(--ink-2);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.round-num {
+  font-size: 11px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  height: 16px;
+}
+
+.round-pivot {
+  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.round-pivot span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 2px solid var(--ink-2);
+}
+
+.band {
+  height: 30px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  background: var(--surface-sunken);
+  color: var(--muted);
+}
+
+.band.won {
+  color: #fff;
+}
+
+.band.won.b {
+  background: var(--team-blue);
+}
+
+.band.won.r {
+  background: var(--team-red);
+}
+
+.timeline-rail {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-right: 10px;
+  flex: none;
+}
+
+.rail-spacer {
+  height: 16px;
+}
+
+.rail-pivot {
+  height: 12px;
+}
+
+.rail-label {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--ink-2);
+}
+
+/* ------------------------------------------------------------- tooltip --- */
+
+.plot-wrap {
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  pointer-events: none;
+  z-index: 10;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.14);
+  font-size: 12px;
+  min-width: 148px;
+}
+
+.tooltip-title {
+  color: var(--muted);
+  font-size: 11px;
+  margin-bottom: 4px;
+}
+
+.tooltip-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.tooltip-val {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+
+.tooltip-name {
+  color: var(--ink-2);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* --------------------------------------------------------------- table --- */
+
+.table-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 3px 11px;
+  font-size: 12px;
+  color: var(--ink-2);
+  cursor: pointer;
+}
+
+.table-toggle:hover {
+  background: var(--surface-sunken);
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+th,
+td {
+  text-align: right;
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--grid);
+  white-space: nowrap;
+}
+
+th:first-child,
+td:first-child,
+th.tl,
+td.tl {
+  text-align: left;
+}
+
+th {
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 12px;
+}
+
+/* ------------------------------------------------------------- debrief --- */
+
+.debrief-text {
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  background: var(--surface-sunken);
+  border-radius: 8px;
+  padding: 14px 16px;
+  overflow-x: auto;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 12px;
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+
+.tag-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.sev-critical {
+  background: var(--status-critical);
+}
+
+.sev-warning {
+  background: var(--status-warning);
+}
+
+.sev-info {
+  background: var(--muted);
+}
+
+.ok {
+  background: var(--status-good);
+}
+
+/* --------------------------------------------------------------- claim --- */
+
+.claim {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  background: var(--surface);
+}
+
+.claim-meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.claim-text {
+  margin: 0 0 10px;
+  font-size: 14px;
+}
+
+.rule-id {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.disclose {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-size: 13px;
+  color: var(--ink-2);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--axis);
+}
+
+.disclose:hover {
+  color: var(--ink);
+}
+
+.trace {
+  margin-top: 12px;
+  border-top: 1px solid var(--grid);
+  padding-top: 12px;
+}
+
+.chain {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.evidence {
+  border-left: 2px solid var(--grid);
+  padding: 0 0 0 12px;
+  margin-bottom: 10px;
+}
+
+.evidence-head {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  flex-wrap: wrap;
+  font-size: 13px;
+}
+
+.feature-name {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink);
+}
+
+.feature-value {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.rows {
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.rows li {
+  padding: 1px 0;
+  overflow-wrap: anywhere;
+}
+
+.footnote {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+.empty {
+  color: var(--muted);
+  font-size: 14px;
+  padding: 32px 0;
+}
+
+@media (max-width: 620px) {
+  .shell {
+    padding: 0 14px 56px;
+  }
+  .hero {
+    font-size: 40px;
+  }
+  .banner-inner {
+    padding: 8px 14px;
+  }
+}
