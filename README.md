@@ -70,6 +70,14 @@ python -m src.ingest.pipeline --source sim --matches 200
 python -m src.features.run --all
 python -m src.features.report --match <id>   # print every feature + its source rows
 python -m src.agents.debrief --match <id> --no-llm    # debrief, no API key needed
+python -m src.export.bundle --matches 12              # static JSON for the dashboard
+```
+
+Then, for the dashboard:
+
+```bash
+cd web && npm install && npm run dev     # http://localhost:5173
+npm test                                 # renders both routes against the real bundles
 ```
 
 ## Features
@@ -143,6 +151,45 @@ drafted rule (bank misuse) is deliberately **not** shipped: the simulator never
 spends under 55% of a full-buy bank, so it could never fire. That reasoning is
 recorded in `constants.py` rather than shipped as a dead rule.
 
+## Dashboard
+
+**Live URL:** _not yet deployed — see `docs/TASKS.md` Phase 4._
+
+The dashboard exists to make the trace legible, not to be a product. Match list →
+match view (round timeline, economy chart, scoreboard) → debrief, where every claim
+expands into the feature rows it cites and the raw rows each of those was computed
+from. The same chain the CLI prints, with a disclosure triangle on it.
+
+**There is no backend.** `python -m src.export.bundle` pre-generates static JSON from
+the store — `web/public/data/index.json` plus one file per match — and the React app
+fetches only those. A static host cannot leak an API key it was never given, and the
+frontend has no code path that talks to Riot. The bundles are committed because
+`data/*.db` is gitignored, so a clone (or a deploy build) has no store to regenerate
+them from.
+
+Bundles are byte-stable: no timestamps, every collection sorted. Re-exporting an
+unchanged store produces identical files, so a diff in `web/public/data` always means
+the data or the rules actually changed. `tests/test_export.py` pins that, along with
+the bundle agreeing with the store and the trace being passed through verbatim rather
+than reshaped for the UI.
+
+Export defaults to template debriefs (`--llm` opts in), so the whole pipeline —
+ingest through deployed page — runs with no API key.
+
+```bash
+python -m src.export.bundle --matches 12   # -> web/public/data
+cd web && npm install && npm run build     # -> web/dist, deployable as-is
+```
+
+Deploy: `vercel.json` at the repo root builds `web/` and serves `web/dist` as a static
+site. Any static host works — on Render, a Static Site with build command
+`npm install --prefix web && npm run build --prefix web` and publish directory
+`web/dist`. Routing is hash-based (`#/match/<id>`), so no rewrite rules are needed.
+
+Charts use a palette validated for colorblind separation and surface contrast in both
+light and dark. Round outcomes encode the winner by position as well as hue, and every
+chart has a table view, so nothing is conveyed by color alone.
+
 ## Layout
 
 | Path | Purpose |
@@ -158,6 +205,9 @@ recorded in `constants.py` rather than shipped as a dead rule.
 | `src/agents/trace.py` | Decision trace serialization |
 | `src/agents/writer.py` | LLM phrasing layer + numeral post-check |
 | `src/agents/debrief.py` | `python -m src.agents.debrief --match <id>` |
+| `src/export/bundle.py` | Store → static JSON bundles for the dashboard |
+| `web/` | React (Vite) dashboard — reads only the generated bundles |
+| `web/public/data/` | Generated bundles, committed (the store itself is gitignored) |
 | `src/storage/schema.sql` | Normalized match store |
 | `docs/TASKS.md` | Build plan |
 

@@ -1,0 +1,272 @@
+{
+  "bundle_version": 1,
+  "match_count": 12,
+  "matches": [
+    {
+      "game_length_ms": 1400000,
+      "map_id": "1C18AB1F-420D-0D8B-71D0-77AD3C439115",
+      "map_name": "Corrode",
+      "match_id": "00041a37-c43a-b5af-75ef-7038af82f832",
+      "queue_id": "competitive",
+      "rounds": 14,
+      "score": {
+        "Blue": 13,
+        "Red": 1
+      },
+      "severities": {
+        "critical": 1,
+        "info": 3,
+        "warning": 4
+      },
+      "source": "sim",
+      "source_rows_cited": 220,
+      "unverified_claims": 0,
+      "verified_claims": 8,
+      "winner": "Blue"
+    },
+    {
+      "game_length_ms": 1400000,
+      "map_id": "DE28AA9B-4CBE-1003-320E-6CB3EC309557",
+      "map_name": "Piazza",
+      "match_id": "0c7b9f63-ca0c-b031-0568-50873a98fa47",
+      "queue_id": "competitive",
+      "rounds": 14,
+      "score": {
+        "Blue": 13,
+        "Red": 1
+      },
+      "severities": {
+        "critical": 2,
+        "info": 3,
+        "warning": 6
+      },
+      "source": "sim",
+      "source_rows_cited": 463,
+      "unverified_claims": 0,
+      "verified_claims": 11,
+      "winner": "Blue"
+    },
+    {
+      "game_length_ms": 2400000,
+      "map_id": "2C9D57EC-4431-9C5E-2939-8F9EF6DD5CBA",
+      "map_name": "Bind",
+      "match_id": "0da10c78-5df6-2846-0035-bb82d0a76654",
+      "queue_id": "competitive",
+      "rounds": 24,
+      "score": {
+        "Blue": 11,
+        "Red": 13
+      },
+      "severities": {
+        "critical": 1,
+        "info": 3,
+        "warning": 1
+      },
+      "source": "sim",
+      "source_rows_cited": 51,
+      "unverified_claims": 0,
+      "verified_claims": 5,
+      "winner": "Red"
+    },
+    {
+      "game_length_ms": 1600000,
+      "map_id": "D960549E-485C-E861-8D71-AA9D1AED12A2",
+      "map_name": "Split",
+      "match_id": "14348b05-fe39-7166-3e40-f673e8b9de71",
+      "queue_id": "competitive",
+      "rounds": 16,
+      "score": {
+        "Blue": 13,
+        "Red": 3
+      },
+      "severities": {
+        "info": 3,
+        "warning": 7
+      },
+      "source": "sim",
+      "source_rows_cited": 473,
+      "unverified_claims": 0,
+      "verified_claims": 10,
+      "winner": "Blue"
+    },
+    {
+      "game_length_ms": 2400000,
+      "map_id": "224B0A95-48B9-F703-1BD8-67ACA101A61F",
+      "map_name": "Abyss",
+      "match_id": "1e703b85-a070-19a0-736f-6369fdba6b9d",
+      "queue_id": "competitive",
+      "rounds": 24,
+      "score": {
+        "Blue": 13,
+        "Red": 11
+      },
+      "severities": {
+        "critical": 2,
+        "info": 4,
+        "warning": 3
+      },
+      "source": "sim",
+      "source_rows_cited": 555,
+      "unverified_claims": 0,
+      "verified_claims": 9,
+      "winner": "Blue"
+    },
+    {
+      "game_length_ms": 2000000,
+      "map_id": "756DA597-416B-C0F2-F47B-AFBDF28670BC",
+      "map_name": "Summit",
+      "match_id": "2637b494-6cf9-891e-0027-fd5a236eb9ed",
+      "queue_id": "competitive",
+      "rounds": 20,
+      "score": {
+        "Blue": 7,
+        "Red": 13
+      },
+      "severities": {
+        "info": 3,
+        "warning": 4
+      },
+      "source": "sim",
+      "source_rows_cited": 162,
+      "unverified_claims": 0,
+      "verified_claims": 7,
+      "winner": "Red"
+    },
+    {
+      "game_length_ms": 1600000,
+      "map_id": "4490F1D6-4818-BF5F-9B3A-9C9A8DBB52ED",
+      "map_name": "Skirmish E",
+      "match_id": "313d06e9-0fab-a718-7a47-729e81c4d065",
+      "queue_id": "competitive",
+      "rounds": 16,
+      "score": {
+        "Blue": 3,
+        "Red": 13
+      },
+      "severities": {
+        "info": 3,
+        "warning": 3
+      },
+      "source": "sim",
+      "source_rows_cited": 47,
+      "unverified_claims": 0,
+      "verified_claims": 6,
+      "winner": "Red"
+    },
+    {
+      "game_length_ms": 2000000,
+      "map_id": "E2AD5C54-4114-A870-9641-8EA21279579A",
+      "map_name": "Icebox",
+      "match_id": "34e28c28-cef0-a5a9-7ade-a5155c27e2d3",
+      "queue_id": "competitive",
+      "rounds": 20,
+      "score": {
+        "Blue": 7,
+        "Red": 13
+      },
+      "severities": {
+        "info": 4,
+        "warning": 6
+      },
+      "source": "sim",
+      "source_rows_cited": 389,
+      "unverified_claims": 0,
+      "verified_claims": 10,
+      "winner": "Red"
+    },
+    {
+      "game_length_ms": 2000000,
+      "map_id": "92584FBE-486A-B1B2-9FAA-39B0F486B498",
+      "map_name": "Sunset",
+      "match_id": "3eca9101-11bf-aa4e-4c49-7fd7be57c598",
+      "queue_id": "competitive",
+      "rounds": 20,
+      "score": {
+        "Blue": 13,
+        "Red": 7
+      },
+      "severities": {
+        "critical": 1,
+        "info": 3,
+        "warning": 3
+      },
+      "source": "sim",
+      "source_rows_cited": 348,
+      "unverified_claims": 0,
+      "verified_claims": 7,
+      "winner": "Blue"
+    },
+    {
+      "game_length_ms": 1900000,
+      "map_id": "A9009649-421F-D5D5-F80C-0CBE02C125BB",
+      "map_name": "Skirmish A",
+      "match_id": "3f4432ef-48b0-c866-4de9-033925b9ff43",
+      "queue_id": "competitive",
+      "rounds": 19,
+      "score": {
+        "Blue": 13,
+        "Red": 6
+      },
+      "severities": {
+        "critical": 1,
+        "info": 5,
+        "warning": 3
+      },
+      "source": "sim",
+      "source_rows_cited": 178,
+      "unverified_claims": 0,
+      "verified_claims": 9,
+      "winner": "Blue"
+    },
+    {
+      "game_length_ms": 2200000,
+      "map_id": "A264DE0F-4A04-9C78-C97A-A6B192CE6E86",
+      "map_name": "Skirmish C",
+      "match_id": "43ba48fe-85cb-5c02-77dc-d598cf2a9392",
+      "queue_id": "competitive",
+      "rounds": 22,
+      "score": {
+        "Blue": 9,
+        "Red": 13
+      },
+      "severities": {
+        "info": 3,
+        "warning": 4
+      },
+      "source": "sim",
+      "source_rows_cited": 268,
+      "unverified_claims": 0,
+      "verified_claims": 7,
+      "winner": "Red"
+    },
+    {
+      "game_length_ms": 2100000,
+      "map_id": "FD267378-4D1D-484F-FF52-77821ED10DC2",
+      "map_name": "Pearl",
+      "match_id": "5b805be5-a6a3-2f0a-3627-ef0a9be0c5e9",
+      "queue_id": "competitive",
+      "rounds": 21,
+      "score": {
+        "Blue": 13,
+        "Red": 8
+      },
+      "severities": {
+        "critical": 1,
+        "info": 5,
+        "warning": 2
+      },
+      "source": "sim",
+      "source_rows_cited": 184,
+      "unverified_claims": 0,
+      "verified_claims": 8,
+      "winner": "Blue"
+    }
+  ],
+  "provenance": {
+    "detail": "val-match-v1 requires a Riot production key. Matches here are generated by an in-repo simulator that emits payloads in the documented val-match-v1 shape, grounded in real agent and map UUIDs fetched live from val-content-v1. Nothing is scraped and no unofficial API is used. Every module downstream of the match adapter is source-agnostic, so live data swaps in with no code change.",
+    "note": "Simulated data conforming to the val-match-v1 schema \u2014 production key application pending",
+    "sources": [
+      "sim"
+    ]
+  }
+}

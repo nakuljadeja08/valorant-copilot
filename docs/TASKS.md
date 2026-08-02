@@ -163,27 +163,57 @@ handling, and numeral rejection are covered by stubbed tests only.
 
 ---
 
-## Phase 4 — Surface + ship + apply  ← *next up*
+## Phase 4 — Surface + ship + apply  ← *in progress: app built, not yet deployed*
 
 **Goal:** A public URL Riot can load. Thin by design — the dashboard sells the trace,
 not itself.
 
-**Work items:**
-- React app (Vite): match list → match view (round timeline, economy chart) →
-  debrief panel with expandable decision trace per claim
-- Data path: pre-generate JSON bundles from the store at build time (no backend needed
-  for v1 → free static hosting, zero key exposure)
-- Provenance banner on every page: "Simulated data conforming to val-match-v1 schema —
-  production key application pending" — the honesty is the pitch
-- Deploy: Vercel or Render free tier
-- Submit production application: description names endpoints (val-match, val-content,
+**Delivered (4a — the app):**
+
+- `src/export/bundle.py` — store → static JSON. `index.json` (match list + provenance)
+  plus `match/<id>.json` (meta, players, round timeline, economy series, debrief, and
+  the Phase 3 trace **verbatim**, not reshaped). No timestamps, every collection
+  sorted, so re-export is byte-identical and a diff always means real change.
+  Defaults to template debriefs; `--llm` opts in, so the whole path needs no API key.
+- React (Vite) app in `web/`: match list → match view → debrief. Every claim expands
+  into its feature rows, and each feature row into the raw rows behind it.
+- Round timeline (winner by **position** as well as hue, buy type printed in-band) and
+  a two-series economy chart with crosshair, tooltip, keyboard nav, and a table view.
+  Palette validated for CVD separation and surface contrast in light and dark; nothing
+  is conveyed by color alone.
+- Provenance banner rendered by the app shell rather than by each page, so no route can
+  omit it. Text ships inside the bundle, with the store it describes.
+- No backend and no credentials in the frontend: the app's only I/O is `fetch` against
+  its own static JSON.
+- Tests: 13 Python (`tests/test_export.py` — bundle agrees with the store, trace passed
+  through verbatim, byte-identical re-export) + 6 jsdom render tests (`web/test/`)
+  that mount both routes against the real bundles and expand every claim's trace.
+
+**Verified 2026-08-01:**
+- `pytest` — 50/50 green (37 from Phases 0–3, 13 new)
+- `cd web && npm test` — 6/6 green; `npm run build` clean (212 kB JS, 66 kB gzipped)
+- 12 matches exported → 97 verified claims, 0 dropped by the Watchdog; re-export
+  reproduces identical bytes
+
+**Not done — these need the account holder:**
+- Deploy to Vercel/Render (`vercel.json` is in place; needs a `vercel` login + link)
+- Submit the production application: endpoints named (val-match, val-content,
   val-status, account-v1), the RSO opt-in plan, and the live URL
 - Reply to Brian with the URL + repo link
 
+**Not verified in a real browser:** the render tests run in jsdom, which does not do
+layout. Desktop/mobile rendering has not been eyeballed — do that before sending the
+URL to anyone.
+
 **Checklist:**
+- [x] Match list → match view → debrief, with an expandable trace per claim
+- [x] Bundles pre-generated at build time; no backend, no key in the frontend
+- [x] Provenance banner on every view (rendered by the shell, not per page)
+- [x] Export is idempotent and byte-stable; covered by tests
 - [ ] Live URL loads a full debrief with trace on desktop + mobile
-- [ ] Provenance banner visible on every view
-- [ ] No API key anywhere in the frontend bundle or repo history
+- [x] No API key anywhere in the frontend bundle or repo history — `web/dist` scanned
+      clean; `git log --all -S RGAPI-` finds only the `.env.example` placeholder, and
+      `.env` has never been tracked
 - [ ] Production application submitted (screenshot saved)
 - [ ] Email to Brian sent
 - [ ] README updated with live URL
@@ -199,4 +229,6 @@ not itself.
 
 ## Current status
 
-Phase 0 ✅ → Phase 1 ✅ → Phase 2 ✅ → Phase 3 ✅ → **Phase 4 next** (surface + ship + apply).
+Phase 0 ✅ → Phase 1 ✅ → Phase 2 ✅ → Phase 3 ✅ → **Phase 4 in progress**: the app and
+the export path are built and tested; deploying, applying, and emailing Brian are the
+remaining steps and all three need the account holder.
