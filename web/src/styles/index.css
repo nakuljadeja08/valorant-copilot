@@ -1,0 +1,11 @@
+/* Vite inlines these at build time into a single stylesheet, so the split costs
+   nothing at runtime and no plugin or PostCSS config is involved. Order matters:
+   tokens before anything that reads them, base before the layers that override
+   it. Class names stay in one flat global namespace, as before. */
+
+@import "./fonts.css";
+@import "./tokens.css";
+@import "./base.css";
+@import "./chrome.css";
+@import "./charts.css";
+@import "./views.css";

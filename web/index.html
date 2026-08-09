@@ -8,6 +8,16 @@
       name="description"
       content="Rule-derived VALORANT round coaching, with the decision trace behind every claim. Simulated data conforming to the val-match-v1 schema."
     />
+    <meta name="color-scheme" content="dark light" />
+    <!-- Applies the stored theme before first paint. Only "light" needs setting:
+         dark is the CSS default, so a visitor with no stored preference — or one
+         whose localStorage throws — still gets the correct paint. -->
+    <script>
+      try {
+        if (localStorage.getItem("vcp-theme") === "light")
+          document.documentElement.dataset.theme = "light";
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="root"></div>

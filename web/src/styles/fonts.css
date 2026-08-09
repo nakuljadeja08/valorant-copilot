@@ -1,0 +1,68 @@
+/* Self-hosted only. The build must make no third-party request: web/test/
+   render.test.mjs scans for non-localhost URLs and for webfont CDN hostnames,
+   and the source mockup's Google Fonts <link> was deliberately not carried
+   over. (The scan reads this file too, so do not name that host here.)
+
+   These are the OFL faces the mockup itself used, vendored via @fontsource and
+   bundled by Vite into dist/assets. Barlow Condensed stands in for Tungsten,
+   Barlow for DIN Next.
+
+   To use Riot's real faces: drop Tungsten-Medium.woff2, Tungsten-Bold.woff2,
+   DINNext-Regular.woff2, DINNext-Medium.woff2 and DINNext-Bold.woff2 into
+   src/fonts/licensed/ and uncomment the block at the bottom of this file. They
+   are already first in the --font-display / --font-ui stacks, so they take over
+   with no other change. Note that src/fonts/licensed/ is gitignored: this repo
+   is public, and committing a licensed .woff2 is redistribution that most
+   Tungsten and DIN Next EULAs prohibit. */
+
+/* Display -- uppercase, condensed, 500/600/700 only. */
+@import "@fontsource/barlow-condensed/500.css";
+@import "@fontsource/barlow-condensed/600.css";
+@import "@fontsource/barlow-condensed/700.css";
+
+/* UI body text. */
+@import "@fontsource/barlow/400.css";
+@import "@fontsource/barlow/500.css";
+@import "@fontsource/barlow/600.css";
+
+/* Every numeral, rule id and trace row. Load-bearing in this design. */
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/600.css";
+
+/*
+@font-face {
+  font-family: "Tungsten";
+  src: url("../fonts/licensed/Tungsten-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Tungsten";
+  src: url("../fonts/licensed/Tungsten-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DIN Next";
+  src: url("../fonts/licensed/DINNext-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DIN Next";
+  src: url("../fonts/licensed/DINNext-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DIN Next";
+  src: url("../fonts/licensed/DINNext-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+*/

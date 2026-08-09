@@ -24,7 +24,7 @@
       "source": "sim",
       "source_rows_cited": 220,
       "unverified_claims": 0,
-      "verdict": "Lost 1\u201313, \u2014 2 broken buys \u2014 funded buys the team never made.",
+      "verdict": "Lost 1\u201313 \u2014 2 buys funded and never made.",
       "verified_claims": 8,
       "winner": "Blue"
     },
@@ -49,7 +49,7 @@
       "source": "sim",
       "source_rows_cited": 153,
       "unverified_claims": 0,
-      "verdict": "Lost 11\u201313, \u2014 3 force buys back to back \u2014 economy never reset.",
+      "verdict": "Lost 11\u201313 \u2014 3 force buys back to back, no economy reset.",
       "verified_claims": 5,
       "winner": "Blue"
     },
@@ -101,7 +101,7 @@
       "source": "sim",
       "source_rows_cited": 430,
       "unverified_claims": 0,
-      "verdict": "Won 13\u20132, but 2 broken buys \u2014 funded buys the team never made.",
+      "verdict": "Won 13\u20132, but 2 buys funded and never made.",
       "verified_claims": 9,
       "winner": "Red"
     },
@@ -126,7 +126,7 @@
       "source": "sim",
       "source_rows_cited": 192,
       "unverified_claims": 0,
-      "verdict": "Lost 10\u201313, \u2014 got the spike down but could not hold it.",
+      "verdict": "Lost 10\u201313 \u2014 the spike went down and did not stay down.",
       "verified_claims": 8,
       "winner": "Blue"
     },
@@ -152,7 +152,7 @@
       "source": "sim",
       "source_rows_cited": 463,
       "unverified_claims": 0,
-      "verdict": "Lost 1\u201313, \u2014 lost the R6 pivot on a broken buy.",
+      "verdict": "Lost 1\u201313 \u2014 lost the R6 pivot on a broken buy.",
       "verified_claims": 11,
       "winner": "Blue"
     },
@@ -177,7 +177,7 @@
       "source": "sim",
       "source_rows_cited": 43,
       "unverified_claims": 0,
-      "verdict": "Won 13\u20135, but got the spike down but could not hold it.",
+      "verdict": "Won 13\u20135, but the spike went down and did not stay down.",
       "verified_claims": 5,
       "winner": "Red"
     },
@@ -203,7 +203,7 @@
       "source": "sim",
       "source_rows_cited": 51,
       "unverified_claims": 0,
-      "verdict": "Won 13\u201311, but 2 broken buys \u2014 funded buys the team never made.",
+      "verdict": "Won 13\u201311, but 2 buys funded and never made.",
       "verified_claims": 5,
       "winner": "Red"
     },
@@ -229,7 +229,7 @@
       "source": "sim",
       "source_rows_cited": 74,
       "unverified_claims": 0,
-      "verdict": "Won 13\u20137, but 2 broken buys \u2014 funded buys the team never made.",
+      "verdict": "Won 13\u20137, but 2 buys funded and never made.",
       "verified_claims": 7,
       "winner": "Red"
     },
@@ -254,7 +254,7 @@
       "source": "sim",
       "source_rows_cited": 473,
       "unverified_claims": 0,
-      "verdict": "Lost 3\u201313, \u2014 went into the R4 pivot on bonus money.",
+      "verdict": "Lost 3\u201313 \u2014 went into the R4 pivot on bonus money.",
       "verified_claims": 10,
       "winner": "Blue"
     },
@@ -279,7 +279,7 @@
       "source": "sim",
       "source_rows_cited": 145,
       "unverified_claims": 0,
-      "verdict": "Lost 7\u201313, \u2014 got the spike down but could not hold it.",
+      "verdict": "Lost 7\u201313 \u2014 the spike went down and did not stay down.",
       "verified_claims": 6,
       "winner": "Blue"
     },
