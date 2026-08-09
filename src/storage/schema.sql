@@ -10,6 +10,12 @@ CREATE TABLE IF NOT EXISTS matches (
     season_id       TEXT,
     is_completed    INTEGER,
     source          TEXT NOT NULL,        -- 'sim' | 'live'  (provenance is never lost)
+    -- The player whose matchlist produced this row, when they are in the roster.
+    -- Without it there is no "your team", and every coaching number would have to
+    -- be phrased from a side (Blue/Red) rather than from the player's own point of
+    -- view. NULL is legitimate: bulk ingest with no focal player, or a puuid that
+    -- does not appear in the match.
+    hero_puuid      TEXT,
     ingested_at     TEXT DEFAULT CURRENT_TIMESTAMP
 );
 
