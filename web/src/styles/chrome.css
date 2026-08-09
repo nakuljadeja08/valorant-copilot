@@ -56,7 +56,7 @@
   color: var(--ink);
 }
 
-.app-nav a[aria-current="true"] {
+.app-nav a[aria-current="page"] {
   color: var(--ink);
   border-bottom-color: var(--brand);
 }

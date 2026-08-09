@@ -13,45 +13,37 @@ const AGENTS = [
   { name: "Watchdog", role: "re-checks every cited value", accent: "var(--watchdog)" },
 ];
 
-export default function AgentPipeline({ season, findings }) {
-  // Findings are attributed by the agent that produced them; the Watchdog does
-  // not author claims, it verifies them, so its counters are the verification
-  // totals rather than a share of the findings.
-  const byAgent = {};
-  for (const f of findings ?? []) {
-    byAgent[f.agent] = (byAgent[f.agent] ?? 0) + 1;
-  }
-
+export default function AgentPipeline({ season }) {
+  // Claims are attributed to the agent that authored them. The Watchdog is not
+  // in that tally by construction -- it verifies claims rather than writing
+  // them, so its counters are the verification totals.
   const stat = (name) => {
     if (name === "Watchdog") {
       return [
-        `${fmt(season.verified_claims)} verified`,
-        `${fmt(season.unverified_claims)} dropped`,
-        season.unverified_claims === 0 ? "tone-good" : "tone-bad",
+        `${fmt(season?.verified_claims)} verified`,
+        `${fmt(season?.unverified_claims)} dropped`,
+        season?.unverified_claims === 0 ? "tone-good" : "tone-bad",
       ];
     }
-    return [`${fmt(byAgent[name] ?? 0)} in top findings`, null, null];
+    const a = season?.agents?.[name];
+    if (!a) return ["—", null, null];
+    return [
+      `${fmt(a.findings)} findings`,
+      a.critical > 0 ? `${fmt(a.critical)} critical` : null,
+      "tone-bad",
+    ];
   };
 
   return (
-    <section className="section" id="agents">
-      <h2 className="page-title" style={{ fontSize: 28, marginBottom: 4 }}>
-        Agent pipeline
-      </h2>
-      <p className="lede" style={{ marginBottom: 16 }}>
-        Deterministic rules read the feature store. A Watchdog re-queries every cited value
-        against the database and drops anything that does not match. The language model only
-        phrases what survives — it never introduces a number.
-      </p>
-
+    <section className="section">
       <ol className="pipeline">
         <li className="pipeline-node">
           <span className="eyebrow">Input</span>
           <span className="pipeline-node-name">Feature store</span>
           <span className="pipeline-node-meta">
-            {fmt(season.rounds)} rounds
+            {fmt(season?.rounds)} rounds
             <br />
-            {fmt(season.source_rows_cited)} rows cited
+            {fmt(season?.source_rows_cited)} rows cited
           </span>
         </li>
 

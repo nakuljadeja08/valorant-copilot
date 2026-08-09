@@ -4,8 +4,11 @@ The frontend has no backend and no credentials: it fetches these files and
 nothing else. That is the whole point of pre-generating them -- a static host
 cannot leak an API key it was never given.
 
-Two shapes:
-  index.json          the match list, plus the provenance banner text
+Three shapes:
+  index.json          the match list and season aggregates, plus the provenance
+                      banner text. Fetched by every route, so it stays small.
+  agents.json         every verified claim in the season. Only the Agents route
+                      reads it, and it is three times the size of the index.
   match/<id>.json     one match: meta, players, round timeline, economy series,
                       debrief, and the Phase 3 decision trace verbatim
 
@@ -364,12 +367,30 @@ def _season(bundles: list[dict[str, Any]]) -> dict[str, Any]:
         "unverified_claims": sum(b["trace"]["summary"]["unverified"] for b in bundles),
         "source_rows_cited": sum(b["trace"]["summary"]["source_rows_cited"] for b in bundles),
         "critical_findings": sum(s.get("critical", 0) for s in severities),
-        "findings": _top_findings(bundles),
+        "agents": _agent_counts(bundles),
     }
 
 
-def _top_findings(bundles: list[dict[str, Any]], limit: int = 6) -> list[dict[str, Any]]:
-    """The most severe verified claims across the season, for the agent feed."""
+def _agent_counts(bundles: list[dict[str, Any]]) -> dict[str, dict[str, int]]:
+    """Verified findings per authoring agent, for the pipeline diagram.
+
+    The Watchdog is absent by construction: it verifies claims, it does not
+    author them. Its counters are the verification totals in the season block.
+    """
+    counts: dict[str, dict[str, int]] = {}
+    for b in bundles:
+        for c in b["trace"]["conclusions"]:
+            if c["verified"] is not True:
+                continue
+            entry = counts.setdefault(c["agent"], {"findings": 0, "critical": 0})
+            entry["findings"] += 1
+            if c["severity"] == "critical":
+                entry["critical"] += 1
+    return dict(sorted(counts.items()))
+
+
+def _findings(bundles: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Every verified claim across the season, most severe first."""
     found = []
     for b in bundles:
         for c in b["trace"]["conclusions"]:
@@ -382,11 +403,32 @@ def _top_findings(bundles: list[dict[str, Any]], limit: int = 6) -> list[dict[st
                 "claim": c["claim"],
                 "match_id": b["match"]["match_id"],
                 "map_name": b["match"]["map_name"],
+                "feature_rows": len(c["evidence"]),
                 "source_rows": sum(len(e["source_rows"]) for e in c["evidence"]),
             })
     found.sort(key=lambda f: (
         _SEVERITY_RANK.get(f["severity"], 9), f["rule_id"], f["match_id"], f["claim"]))
-    return found[:limit]
+    return found
+
+
+def build_agents(bundles: list[dict[str, Any]]) -> dict[str, Any]:
+    """The Agents route's own bundle.
+
+    Every verified claim in the season is ~36KB of text -- three times the whole
+    index -- and only this one route reads it. Keeping it out of index.json means
+    the other routes never pay for it.
+    """
+    return {
+        "bundle_version": BUNDLE_VERSION,
+        "provenance": {
+            "note": PROVENANCE_NOTE,
+            "detail": PROVENANCE_DETAIL,
+            "proxy_note": PROXY_NOTE,
+            "sim_approx_note": SIM_APPROX_NOTE,
+        },
+        "agents": _agent_counts(bundles),
+        "findings": _findings(bundles),
+    }
 
 
 def build_match_bundle(conn: sqlite3.Connection, match_id: str,
@@ -488,6 +530,7 @@ def export(conn: sqlite3.Connection, out_dir: Path, limit: int | None = None,
 
     index = build_index(bundles)
     (out_dir / "index.json").write_text(dumps(index), encoding="utf-8")
+    (out_dir / "agents.json").write_text(dumps(build_agents(bundles)), encoding="utf-8")
 
     return {
         "matches": len(bundles),

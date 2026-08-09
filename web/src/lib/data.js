@@ -36,12 +36,15 @@ export function useJson(path) {
   return state;
 }
 
-/** Current hash route: `#/` or `#/match/<id>`.
+/** Current hash route. Four views:
+ *    ""              overview
+ *    "agents"        the agent pipeline and every verified finding
+ *    "matches"       the filterable match list
+ *    "match/<id>"    one match
  *
- *  Only a hash starting with `#/` is a route. Bare fragments like `#matches`
- *  are in-page anchors for the header nav and must resolve to the home route,
- *  not to a view of their own -- otherwise every anchor click would be read as
- *  a navigation and reset the scroll position the browser just set. */
+ *  Only a hash starting with `#/` is a route, so a bare fragment (an in-page
+ *  anchor, or the `#` a browser leaves behind) resolves to the overview rather
+ *  than to a blank view. */
 const readRoute = () => {
   const hash = typeof window === "undefined" ? "" : window.location.hash;
   return hash.startsWith("#/") ? hash.slice(2) : "";
