@@ -25,15 +25,24 @@ from src.storage.init import init as init_db
 log = logging.getLogger(__name__)
 
 
-def normalize(conn: sqlite3.Connection, m: dict[str, Any], source: str) -> None:
+def normalize(conn: sqlite3.Connection, m: dict[str, Any], source: str,
+              hero_puuid: str | None = None) -> None:
     info = m["matchInfo"]
+
+    # Only record the focal player when they actually appear in the roster. A puuid
+    # we queried but that isn't in the match tells us nothing about a side, and
+    # storing it anyway would let the UI attribute a record to a team at random.
+    roster = {p["puuid"] for p in m.get("players", [])}
+    hero = hero_puuid if hero_puuid in roster else None
+
     conn.execute(
         """INSERT OR REPLACE INTO matches
-           (match_id, map_id, game_length_ms, game_start_ms, queue_id, season_id, is_completed, source)
-           VALUES (?,?,?,?,?,?,?,?)""",
+           (match_id, map_id, game_length_ms, game_start_ms, queue_id, season_id,
+            is_completed, source, hero_puuid)
+           VALUES (?,?,?,?,?,?,?,?,?)""",
         (info["matchId"], info["mapId"], info.get("gameLengthMillis"),
          info.get("gameStartMillis"), info.get("queueId"), info.get("seasonId"),
-         int(info.get("isCompleted", True)), source),
+         int(info.get("isCompleted", True)), source, hero),
     )
 
     for p in m.get("players", []):
@@ -91,7 +100,7 @@ def run(source_name: str, puuid: str = "hero", limit: int | None = None) -> dict
         try:
             payload = src.match(mid)
             with conn:
-                normalize(conn, payload, source_name)
+                normalize(conn, payload, source_name, hero_puuid=puuid)
                 conn.execute(
                     "INSERT OR REPLACE INTO ingest_log (match_id, status, attempts) "
                     "VALUES (?, 'done', COALESCE((SELECT attempts FROM ingest_log WHERE match_id=?),0)+1)",

@@ -1,6 +1,9 @@
 import { useJson, useRoute } from "./lib/data.js";
+import AppHeader from "./components/AppHeader.jsx";
 import ProvenanceBanner from "./components/ProvenanceBanner.jsx";
-import MatchList from "./components/MatchList.jsx";
+import OverviewView from "./components/OverviewView.jsx";
+import AgentsView from "./components/AgentsView.jsx";
+import MatchesView from "./components/MatchesView.jsx";
 import MatchView from "./components/MatchView.jsx";
 
 export default function App() {
@@ -11,7 +14,9 @@ export default function App() {
 
   return (
     <>
-      {/* Rendered by the shell, so provenance is on every route by construction. */}
+      {/* Both are rendered by the shell, so provenance and the data-source pill
+          are on every route by construction. */}
+      <AppHeader provenance={index?.provenance} route={route} />
       <ProvenanceBanner provenance={index?.provenance} />
       <main className="shell">
         {error && (
@@ -21,8 +26,15 @@ export default function App() {
           </p>
         )}
         {!index && !error && <p className="empty">Loading…</p>}
-        {index && (matchId ? <MatchView matchId={matchId} /> : <MatchList index={index} />)}
+        {index && <Route route={route} matchId={matchId} index={index} />}
       </main>
     </>
   );
+}
+
+function Route({ route, matchId, index }) {
+  if (matchId) return <MatchView matchId={matchId} />;
+  if (route === "agents") return <AgentsView season={index.season} />;
+  if (route === "matches") return <MatchesView index={index} />;
+  return <OverviewView index={index} />;
 }

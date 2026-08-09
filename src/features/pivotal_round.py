@@ -43,6 +43,7 @@ class PivotalRoundFeature:
         wins = {ref_team: 0, other: 0}
         prev_p = 0.5
         best_round, best_swing = rounds[0]["round_num"], 0.0
+        series: list[FeatureRow] = []
         for r in rounds:
             round_num = r["round_num"]
             score_diff = wins[ref_team] - wins[other]
@@ -54,11 +55,25 @@ class PivotalRoundFeature:
             if r["winning_team"]:
                 wins[r["winning_team"]] += 1
 
+            # The per-round proxy the argmax above is taken over. It was already
+            # being computed and discarded; emitting it lets the match view draw
+            # the curve the pivotal round is picked from, rather than asking the
+            # reader to trust a single number. Both sides are emitted because
+            # `ref_team` is a local convention (sorted(teams)[0]) that would
+            # otherwise be invisible to every consumer.
+            proxy_refs = [{"table": "rounds", "match_id": match_id, "round_num": round_num}]
+            for team, value in ((ref_team, p), (other, 1.0 - p)):
+                series.append(FeatureRow(
+                    match_id=match_id, scope="team_round", round_num=round_num,
+                    name=f"win_prob_proxy:{team}", value=value, inputs=proxy_refs,
+                ))
+
         refs = [
             {"table": "rounds", "match_id": match_id, "round_num": rn}
             for rn in (max(best_round - 1, rounds[0]["round_num"]), best_round)
         ]
         return [
+            *series,
             FeatureRow(match_id=match_id, scope="match", name="pivotal_round",
                        value=float(best_round), inputs=refs),
             FeatureRow(match_id=match_id, scope="match", name="pivotal_round_swing",

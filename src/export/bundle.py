@@ -4,8 +4,11 @@ The frontend has no backend and no credentials: it fetches these files and
 nothing else. That is the whole point of pre-generating them -- a static host
 cannot leak an API key it was never given.
 
-Two shapes:
-  index.json          the match list, plus the provenance banner text
+Three shapes:
+  index.json          the match list and season aggregates, plus the provenance
+                      banner text. Fetched by every route, so it stays small.
+  agents.json         every verified claim in the season. Only the Agents route
+                      reads it, and it is three times the size of the index.
   match/<id>.json     one match: meta, players, round timeline, economy series,
                       debrief, and the Phase 3 decision trace verbatim
 
@@ -27,12 +30,13 @@ import sqlite3
 from pathlib import Path
 from typing import Any
 
+from src.agents.constants import FORCE_BUY_RATE
 from src.agents.debrief import debrief
 from src.features.constants import BUY_NAMES
 from src.riot.resolve import ContentResolver, default_resolver
 from src.storage.init import init as init_db
 
-BUNDLE_VERSION = 1
+BUNDLE_VERSION = 2
 DEFAULT_OUT = Path("web/public/data")
 
 # Shown on every view. The honesty is the pitch, so it lives in the bundle
@@ -49,6 +53,24 @@ PROVENANCE_DETAIL = (
     "the match adapter is source-agnostic, so live data swaps in with no code change."
 )
 
+# Ships with the series it describes, for the same reason PROVENANCE_NOTE does:
+# frontend copy drifts from the feature that produced it, a bundle field cannot.
+# See src/features/pivotal_round.py -- the value is a bounded momentum index used
+# to rank rounds within one match, and calling it a win probability would be a
+# claim the feature explicitly declines to make.
+PROXY_NOTE = (
+    "Momentum index, not a calibrated win probability: a bounded logistic over "
+    "score state and round spend differential. It ranks rounds against each other "
+    "within one match and says nothing about the odds of winning."
+)
+
+# Kill share stands in for real trade windows -- the sim has no death timestamps.
+# The bundle key keeps `sim_approx` so the caveat cannot be dropped downstream.
+SIM_APPROX_NOTE = (
+    "Kill share stands in for trade efficiency: the simulator emits no death "
+    "timestamps, so real trade windows cannot be detected."
+)
+
 # Per-team, per-round signals the timeline renders. Feature name -> bundle key.
 _TEAM_ROUND_FEATURES = {
     "spend": "spend",
@@ -56,7 +78,12 @@ _TEAM_ROUND_FEATURES = {
     "spend_trend3": "spend_trend3",
     "loss_streak": "loss_streak",
     "broken_buy": "broken_buy",
+    "trade_efficiency_sim_approx": "kill_share_sim_approx",
+    "win_prob_proxy": "win_prob_proxy",
 }
+
+# Highest severity first. Used to pick the one finding a verdict line leads with.
+_SEVERITY_RANK = {"critical": 0, "warning": 1, "info": 2}
 
 
 def _feature_map(conn: sqlite3.Connection, match_id: str) -> dict[tuple[str, int], float]:
@@ -70,7 +97,7 @@ def _match_meta(conn: sqlite3.Connection, match_id: str,
                 resolver: ContentResolver) -> dict[str, Any]:
     m = conn.execute(
         """SELECT match_id, map_id, game_length_ms, game_start_ms, queue_id,
-                  season_id, source
+                  season_id, source, hero_puuid
            FROM matches WHERE match_id = ?""",
         (match_id,),
     ).fetchone()
@@ -86,6 +113,17 @@ def _match_meta(conn: sqlite3.Connection, match_id: str,
     score = {"Blue": wins.get("Blue", 0), "Red": wins.get("Red", 0)}
     winner = max(score, key=lambda t: score[t]) if score["Blue"] != score["Red"] else None
 
+    # The side the focal player was on. Everything the UI phrases in the second
+    # person ("your record", "your force-buy rate") is keyed off this, and is
+    # phrased from Blue's side with an explicit label when it is absent.
+    hero_team = None
+    if m["hero_puuid"]:
+        row = conn.execute(
+            "SELECT team_id FROM match_players WHERE match_id = ? AND puuid = ?",
+            (match_id, m["hero_puuid"]),
+        ).fetchone()
+        hero_team = row["team_id"] if row else None
+
     return {
         "match_id": m["match_id"],
         "map_id": m["map_id"],
@@ -96,6 +134,8 @@ def _match_meta(conn: sqlite3.Connection, match_id: str,
         "rounds": sum(score.values()),
         "score": score,
         "winner": winner,
+        "hero_puuid": m["hero_puuid"],
+        "hero_team": hero_team,
     }
 
 
@@ -167,6 +207,230 @@ def _match_features(features: dict[tuple[str, int], float]) -> dict[str, float]:
     return {name: value for (name, rn), value in features.items() if rn == -1}
 
 
+def _team_of(bundle: dict[str, Any]) -> str:
+    """The side every first-person number is computed for.
+
+    Falls back to Blue when no focal player was recorded. `perspective` is
+    carried alongside every aggregate so the UI can say which it is showing
+    rather than implying a "you" that the data does not support.
+    """
+    return bundle["match"]["hero_team"] or "Blue"
+
+
+def _buy_counts(bundles: list[dict[str, Any]], team_of) -> dict[str, dict[str, int]]:
+    """Rounds played and rounds won, bucketed by the buy that went into them."""
+    counts = {buy: {"rounds": 0, "won": 0} for buy in BUY_NAMES.values()}
+    for b in bundles:
+        team = team_of(b)
+        for r in b["rounds"]:
+            buy = r["economy"].get(team, {}).get("buy_type")
+            if buy is None:
+                continue
+            counts[buy]["rounds"] += 1
+            if r["winning_team"] == team:
+                counts[buy]["won"] += 1
+    return counts
+
+
+def _rate(part: float, whole: float) -> float | None:
+    return round(part / whole, 4) if whole else None
+
+
+def _force_rate(bundle: dict[str, Any], team: str) -> float | None:
+    """Share of this match's rounds the team forced. Derived from the round list
+    already in the bundle, so the index and the match view cannot disagree."""
+    buys = [r["economy"].get(team, {}).get("buy_type") for r in bundle["rounds"]]
+    buys = [b for b in buys if b is not None]
+    return _rate(sum(1 for b in buys if b == "force"), len(buys))
+
+
+# One line per match, led by its most severe verified finding. Templated rather
+# than phrased by the LLM: `export()` defaults to no-LLM and re-export has to stay
+# byte-identical, so a verdict has to be a pure function of the trace.
+#
+# Counts come from the bundle's own rows, never from regexing numerals out of the
+# claim text -- that would couple this to rule prose and silently break on a reword.
+_VERDICT_TEMPLATES = {
+    # No internal dashes: a loss verdict already joins on one.
+    "economist.broken_buy_count": "{n} buys funded and never made",
+    "economist.force_buy_frequency": "forced {n} of {total} rounds, past the habit line",
+    "economist.consecutive_force": "{n} force buys back to back, no economy reset",
+    "economist.spend_disadvantage": "out-spent across the match",
+    "economist.eco_conversion": "eco rounds converting at {pct}%",
+    "analyst.pivotal_broken_buy": "lost the R{round} pivot on a broken buy",
+    "analyst.pivotal_round": "R{round} was the pivot",
+    "analyst.pivotal_streak": "went into the R{round} pivot on bonus money",
+    "analyst.pivotal_trade_collapse": "out-fought in the R{round} pivot",
+    # No "but": a win verdict already joins on one.
+    "analyst.post_plant_conversion": "the spike went down and did not stay down",
+    "analyst.plant_rate": "rarely reached a plant",
+    "analyst.trade_efficiency": "lost the trade war over {total} rounds",
+}
+
+
+def _verdict(bundle: dict[str, Any]) -> str:
+    """A single sentence: the outcome, then the worst thing that happened."""
+    team = _team_of(bundle)
+    score = bundle["match"]["score"]
+    winner = bundle["match"]["winner"]
+    outcome = "Drawn" if winner is None else ("Won" if winner == team else "Lost")
+
+    verified = [c for c in bundle["trace"]["conclusions"] if c["verified"] is True]
+    # Total order: severity, then rule, then text. The third key matters because
+    # one rule fires once per team, and both conclusions share a severity.
+    verified.sort(key=lambda c: (_SEVERITY_RANK.get(c["severity"], 9), c["rule_id"], c["claim"]))
+
+    lead = next((c for c in verified if c["rule_id"] in _VERDICT_TEMPLATES), None)
+    if lead is None:
+        return f"{outcome} {score[team]}–{score[_other(team)]}."
+
+    rounds = bundle["rounds"]
+    pivotal = bundle["match_features"].get("pivotal_round")
+    eco = _buy_counts([bundle], lambda _b: team)["eco"]
+    detail = _VERDICT_TEMPLATES[lead["rule_id"]].format(
+        n=len(lead["evidence"]),
+        total=len(rounds),
+        round=int(pivotal) if pivotal is not None else "?",
+        pct=int(round((eco["won"] / eco["rounds"]) * 100)) if eco["rounds"] else 0,
+    )
+    head = f"{outcome} {score[team]}–{score[_other(team)]}"
+    # A win gets a concessive clause, a loss gets a dash to the cause.
+    return f"{head}, but {detail}." if outcome == "Won" else f"{head} — {detail}."
+
+
+def _other(team: str) -> str:
+    return "Blue" if team == "Red" else "Red"
+
+
+def _season(bundles: list[dict[str, Any]]) -> dict[str, Any]:
+    """Season-level aggregates for the overview.
+
+    Everything here is derived from the already-built match bundles -- no extra
+    SQL, and therefore no second definition of any metric that the match view
+    also shows.
+    """
+    if not bundles:
+        return {}
+
+    teams = {b["match"]["match_id"]: _team_of(b) for b in bundles}
+    perspective = "hero" if all(b["match"]["hero_team"] for b in bundles) else "Blue"
+
+    wins = losses = draws = 0
+    forced = total_rounds = broken = 0
+    kill_shares: list[float] = []
+    for b in bundles:
+        team = teams[b["match"]["match_id"]]
+        winner = b["match"]["winner"]
+        if winner is None:
+            draws += 1
+        elif winner == team:
+            wins += 1
+        else:
+            losses += 1
+
+        for r in b["rounds"]:
+            econ = r["economy"].get(team, {})
+            if econ.get("buy_type") is not None:
+                total_rounds += 1
+                if econ["buy_type"] == "force":
+                    forced += 1
+            if econ.get("broken_buy") == 1.0:
+                broken += 1
+            if econ.get("kill_share_sim_approx") is not None:
+                kill_shares.append(econ["kill_share_sim_approx"])
+
+    buys = _buy_counts(bundles, lambda b: teams[b["match"]["match_id"]])
+    severities = [_severity_counts(b["trace"]["conclusions"]) for b in bundles]
+
+    return {
+        "perspective": perspective,
+        "matches": len(bundles),
+        "record": {"wins": wins, "losses": losses, "draws": draws},
+        "win_rate": _rate(wins, len(bundles)),
+        "rounds": total_rounds,
+        "force_rate": _rate(forced, total_rounds),
+        "broken_buys": broken,
+        "kill_share_sim_approx": (
+            round(sum(kill_shares) / len(kill_shares), 4) if kill_shares else None
+        ),
+        "buy_type_win_rate": {
+            buy: {"rounds": c["rounds"], "won": c["won"], "rate": _rate(c["won"], c["rounds"])}
+            for buy, c in sorted(buys.items())
+        },
+        "matches_over_force_line": sum(
+            1 for b in bundles
+            if (fr := _force_rate(b, teams[b["match"]["match_id"]])) is not None
+            and fr > FORCE_BUY_RATE
+        ),
+        "force_line": FORCE_BUY_RATE,
+        "verified_claims": sum(b["trace"]["summary"]["verified"] for b in bundles),
+        "unverified_claims": sum(b["trace"]["summary"]["unverified"] for b in bundles),
+        "source_rows_cited": sum(b["trace"]["summary"]["source_rows_cited"] for b in bundles),
+        "critical_findings": sum(s.get("critical", 0) for s in severities),
+        "agents": _agent_counts(bundles),
+    }
+
+
+def _agent_counts(bundles: list[dict[str, Any]]) -> dict[str, dict[str, int]]:
+    """Verified findings per authoring agent, for the pipeline diagram.
+
+    The Watchdog is absent by construction: it verifies claims, it does not
+    author them. Its counters are the verification totals in the season block.
+    """
+    counts: dict[str, dict[str, int]] = {}
+    for b in bundles:
+        for c in b["trace"]["conclusions"]:
+            if c["verified"] is not True:
+                continue
+            entry = counts.setdefault(c["agent"], {"findings": 0, "critical": 0})
+            entry["findings"] += 1
+            if c["severity"] == "critical":
+                entry["critical"] += 1
+    return dict(sorted(counts.items()))
+
+
+def _findings(bundles: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Every verified claim across the season, most severe first."""
+    found = []
+    for b in bundles:
+        for c in b["trace"]["conclusions"]:
+            if c["verified"] is not True:
+                continue
+            found.append({
+                "agent": c["agent"],
+                "rule_id": c["rule_id"],
+                "severity": c["severity"],
+                "claim": c["claim"],
+                "match_id": b["match"]["match_id"],
+                "map_name": b["match"]["map_name"],
+                "feature_rows": len(c["evidence"]),
+                "source_rows": sum(len(e["source_rows"]) for e in c["evidence"]),
+            })
+    found.sort(key=lambda f: (
+        _SEVERITY_RANK.get(f["severity"], 9), f["rule_id"], f["match_id"], f["claim"]))
+    return found
+
+
+def build_agents(bundles: list[dict[str, Any]]) -> dict[str, Any]:
+    """The Agents route's own bundle.
+
+    Every verified claim in the season is ~36KB of text -- three times the whole
+    index -- and only this one route reads it. Keeping it out of index.json means
+    the other routes never pay for it.
+    """
+    return {
+        "bundle_version": BUNDLE_VERSION,
+        "provenance": {
+            "note": PROVENANCE_NOTE,
+            "detail": PROVENANCE_DETAIL,
+            "proxy_note": PROXY_NOTE,
+            "sim_approx_note": SIM_APPROX_NOTE,
+        },
+        "agents": _agent_counts(bundles),
+        "findings": _findings(bundles),
+    }
+
+
 def build_match_bundle(conn: sqlite3.Connection, match_id: str,
                        use_llm: bool = False,
                        resolver: ContentResolver | None = None) -> dict[str, Any]:
@@ -176,7 +440,12 @@ def build_match_bundle(conn: sqlite3.Connection, match_id: str,
 
     return {
         "bundle_version": BUNDLE_VERSION,
-        "provenance": {"note": PROVENANCE_NOTE, "detail": PROVENANCE_DETAIL},
+        "provenance": {
+            "note": PROVENANCE_NOTE,
+            "detail": PROVENANCE_DETAIL,
+            "proxy_note": PROXY_NOTE,
+            "sim_approx_note": SIM_APPROX_NOTE,
+        },
         "match": _match_meta(conn, match_id, resolver),
         "players": _players(conn, match_id, resolver),
         "rounds": _rounds(conn, match_id, features),
@@ -207,6 +476,8 @@ def build_index(bundles: list[dict[str, Any]]) -> dict[str, Any]:
             "unverified_claims": summary["unverified"],
             "source_rows_cited": summary["source_rows_cited"],
             "severities": _severity_counts(b["trace"]["conclusions"]),
+            "force_rate": _force_rate(b, _team_of(b)),
+            "verdict": _verdict(b),
         })
 
     sources = sorted({m["source"] for m in matches})
@@ -215,9 +486,12 @@ def build_index(bundles: list[dict[str, Any]]) -> dict[str, Any]:
         "provenance": {
             "note": PROVENANCE_NOTE,
             "detail": PROVENANCE_DETAIL,
+            "proxy_note": PROXY_NOTE,
+            "sim_approx_note": SIM_APPROX_NOTE,
             "sources": sources,
         },
         "match_count": len(matches),
+        "season": _season(bundles),
         "matches": sorted(matches, key=lambda m: m["match_id"]),
     }
 
@@ -256,6 +530,7 @@ def export(conn: sqlite3.Connection, out_dir: Path, limit: int | None = None,
 
     index = build_index(bundles)
     (out_dir / "index.json").write_text(dumps(index), encoding="utf-8")
+    (out_dir / "agents.json").write_text(dumps(build_agents(bundles)), encoding="utf-8")
 
     return {
         "matches": len(bundles),

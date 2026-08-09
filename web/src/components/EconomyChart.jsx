@@ -69,14 +69,14 @@ export default function EconomyChart({ rounds, pivotalRound }) {
   const a = active === null ? null : points[active];
 
   return (
-    <section className="card">
-      <div className="card-head">
-        <h2 style={{ fontSize: 15 }}>Round spend</h2>
+    <section className="panel section" data-chart="spend">
+      <div className="panel-head">
+        <h2 className="section-title">Round spend</h2>
         <button className="table-toggle" onClick={() => setShowTable((v) => !v)}>
           {showTable ? "Chart view" : "Table view"}
         </button>
       </div>
-      <p className="card-sub">
+      <p className="footnote" style={{ marginTop: 0, marginBottom: 12 }}>
         Credits each team spent entering each round, summed across its five players.
       </p>
 
@@ -88,7 +88,7 @@ export default function EconomyChart({ rounds, pivotalRound }) {
           </span>
         ))}
         {pivotIdx >= 0 && (
-          <span className="key" style={{ color: "var(--muted)" }}>
+          <span className="key" style={{ color: "var(--ink-faint)" }}>
             <span
               className="key-line"
               style={{ background: "var(--axis)", width: 2, height: 12 }}
@@ -132,7 +132,7 @@ export default function EconomyChart({ rounds, pivotalRound }) {
                   y={y(t) + 4}
                   textAnchor="end"
                   fontSize="11"
-                  fill="var(--muted)"
+                  fill="var(--ink-faint)"
                   style={{ fontVariantNumeric: "tabular-nums" }}
                 >
                   {t.toLocaleString("en-US")}
@@ -169,7 +169,7 @@ export default function EconomyChart({ rounds, pivotalRound }) {
                   y={M.top + PLOT_H + 20}
                   textAnchor="middle"
                   fontSize="11"
-                  fill="var(--muted)"
+                  fill="var(--ink-faint)"
                   style={{ fontVariantNumeric: "tabular-nums" }}
                 >
                   {p.round}
@@ -181,7 +181,7 @@ export default function EconomyChart({ rounds, pivotalRound }) {
               y={M.top + PLOT_H + 34}
               textAnchor="middle"
               fontSize="11"
-              fill="var(--muted)"
+              fill="var(--ink-faint)"
             >
               round
             </text>
@@ -218,7 +218,7 @@ export default function EconomyChart({ rounds, pivotalRound }) {
                 cy={y(points[lastIdx]?.[t.id])}
                 r="4"
                 fill={t.color}
-                stroke="var(--surface)"
+                stroke="var(--surface-panel)"
                 strokeWidth="2"
               />
             ))}
@@ -230,7 +230,7 @@ export default function EconomyChart({ rounds, pivotalRound }) {
                   x={x(lastIdx) + 10}
                   y={y(points[lastIdx]?.[t.id]) + 4}
                   fontSize="11"
-                  fill="var(--ink-2)"
+                  fill="var(--ink-body)"
                   style={{ fontVariantNumeric: "tabular-nums" }}
                 >
                   {fmt(points[lastIdx]?.[t.id])}
@@ -245,7 +245,7 @@ export default function EconomyChart({ rounds, pivotalRound }) {
                   cy={y(a[t.id])}
                   r="4"
                   fill={t.color}
-                  stroke="var(--surface)"
+                  stroke="var(--surface-panel)"
                   strokeWidth="2"
                 />
               ))}
@@ -289,7 +289,7 @@ function EconomyTable({ points }) {
   return (
     <div className="table-scroll">
       <table>
-        <caption className="card-sub" style={{ textAlign: "left", captionSide: "top" }}>
+        <caption className="footnote" style={{ textAlign: "left", captionSide: "top" }}>
           Credits spent per round
         </caption>
         <thead>
