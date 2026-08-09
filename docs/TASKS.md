@@ -163,7 +163,7 @@ handling, and numeral rejection are covered by stubbed tests only.
 
 ---
 
-## Phase 4 — Surface + ship + apply  ← *in progress: app built, not yet deployed*
+## Phase 4 — Surface + ship + apply  ← *in progress: app built and redesigned, not yet deployed*
 
 **Goal:** A public URL Riot can load. Thin by design — the dashboard sells the trace,
 not itself.
@@ -195,21 +195,110 @@ not itself.
 - 12 matches exported → 97 verified claims, 0 dropped by the Watchdog; re-export
   reproduces identical bytes
 
+**Everything in 4a above is a record of 2026-08-01, not current fact.** 4b replaced the
+light-first palette, the single match-list route, and the four-stat KPI row, and grew the
+export to a third shape (`agents.json`) plus a `season` block at `BUNDLE_VERSION` 2. What
+carried over unchanged: the byte-stable export property, the trace passed through
+verbatim, provenance rendered by the shell, and claim-level trace expansion.
+
+**Delivered (4b — the redesign):** branch `frontend_changes`
+
+Implements `Dashboard Redesign Options.dc.html` (a Claude design-canvas doc with four
+mockups): direction **1a Command Center** as the overview, with the agent pipeline from
+**1c Agent Ops** promoted to its own route, and **1d** as the match view. Visual language
+follows Riot's brand system — angular Fist-derived geometry, condensed uppercase display
+type, square corners, depth from surface steps and hairlines rather than shadows.
+
+*Data layer (`BUNDLE_VERSION` 1 → 2)*
+- `build_index()` gains a `season` block — record, win rate, force-buy rate, broken buys,
+  kill share, per-buy-type round conversion, critical count, per-agent finding totals.
+  All derived from the already-built match bundles, so no new SQL and no second
+  definition of any metric the match view also shows.
+- Per-match `force_rate` (for the trend chart) and a one-line `verdict`. Verdicts are
+  templated from the trace, never LLM-phrased — `export()` defaults to no-LLM and
+  re-export has to stay byte-identical. Counts come from the bundle's own rows, never
+  from regexing numerals out of claim text, which would couple them to rule prose.
+- `win_prob_proxy:{team}` emitted per round. `pivotal_round.py` already built this series
+  and discarded all but the argmax. Both sides are emitted so no consumer has to know the
+  feature's reference team is `sorted(teams)[0]`.
+- `trade_efficiency_sim_approx` reaches JSON for the first time, keyed
+  `kill_share_sim_approx` so the caveat cannot be dropped downstream.
+- `hero_puuid` persisted through ingest, giving "your record" a referent. Guarded: a
+  puuid absent from the roster is stored as NULL rather than attributing a record to a
+  side at random. `init()` gained a migration step, since `schema.sql` is
+  `CREATE TABLE IF NOT EXISTS` and a new column was invisible to existing stores.
+- New `agents.json`. All 93 verified claims are ~36KB of text, three times the whole
+  index, and `index.json` is fetched by every route — splitting them dropped the index
+  from 12.9KB to 10.6KB.
+
+*Frontend*
+- `styles.css` (717 lines, light-first) split into `src/styles/{tokens,fonts,base,chrome,
+  charts,views}.css` behind a barrel import. Vite inlines them, so it is still one
+  stylesheet at runtime and adds no dependency.
+- **Dark is now the base**, light is derived, and a header toggle persists the choice to
+  `localStorage`. An inline script in `index.html` applies it pre-paint; only `light`
+  needs setting, so a visitor with no stored preference paints correctly even if the
+  script never runs. Light preserves the surface ladder's *ordering* rather than
+  inverting it, and leans harder on hairlines because the compressed range weakens the
+  steps.
+- Two reds: `#FF4655` (Riot's official VALORANT red) for identity only — logo, active
+  nav, focus ring — because it measures 3.24:1 on the light card and cannot carry data;
+  a per-mode red for data ink. Blue/Red pass contrast and CVD separation in both modes.
+  The four-colour status set does **not** pass as a categorical palette and is never used
+  as one: status always ships with a text label (`CRIT`/`WARN`/`PASS`) or a border
+  position.
+- Four routes: `#/` overview, `#/agents`, `#/matches`, `#/match/<id>`. A bare fragment
+  falls back to the overview; a match keeps Matches lit with a back link to it.
+- Fonts self-hosted (Barlow Condensed / Barlow / JetBrains Mono, all OFL — the stack the
+  mockup itself used). Licensed Tungsten/DIN Next drop into a gitignored
+  `web/src/fonts/licensed/` and take over via the token stacks. They are **not** committed:
+  this repo is public and that would be redistribution most EULAs prohibit.
+
+*Honesty decisions made during the redesign*
+- The 1d hero chart is labelled **"Momentum index"**, not "Win probability". The feature
+  states outright that the value "is not a calibrated probability". The axis reads
+  0.0/0.5/1.0 rather than percentages — a percent sign is what makes a reader treat a
+  number as a probability — and the disclaimer ships in the bundle so page copy cannot
+  drift from the feature. A test asserts all of it.
+- The mockup's headline record of **7–5 was Blue's**, not the focal player's. With
+  `hero_puuid` persisted the honest figure is **6–6**, and that is what ships.
+- Fixed a latent bug: `SimMatchSource.match()` dropped the puuid on the way to
+  `build_match()`, so `--puuid X` produced rosters that never contained X.
+
+**Verified 2026-08-09:**
+- `pytest` — 67/67 green (50 from 4a, 17 new)
+- `cd web && npm test` — 17/17 green; `npm run build` clean (238 kB JS, 72 kB gzipped)
+- **Eyeballed in real Chrome** (headless, 1360px) — all four routes in both themes, no
+  console errors beyond a pre-existing `favicon.ico` 404. This closes 4a's "not verified
+  in a real browser" gap for desktop. **Mobile still not eyeballed**; the CSS has
+  breakpoints at 900px and 720px but they have not been looked at on a device.
+
+**Bundle/store drift found (pre-existing, not introduced here):** the Phase-4a bundles
+committed on 2026-08-01 report 97 verified claims across a match set that does not match
+the local `data/copilot.db` — the store already contained different matches before any 4b
+work began. Re-exporting from the current store yields 12 matches / 93 verified claims,
+which is what is committed now. Worth a CI check that re-runs the export and diffs against
+the tree, so the committed bundles cannot silently drift from the store again.
+
 **Not done — these need the account holder:**
 - Deploy to Vercel/Render (`vercel.json` is in place; needs a `vercel` login + link)
 - Submit the production application: endpoints named (val-match, val-content,
   val-status, account-v1), the RSO opt-in plan, and the live URL
 - Reply to Brian with the URL + repo link
-
-**Not verified in a real browser:** the render tests run in jsdom, which does not do
-layout. Desktop/mobile rendering has not been eyeballed — do that before sending the
-URL to anyone.
+- Merge `frontend_changes` (4 commits, unpushed) into `main`
 
 **Checklist:**
 - [x] Match list → match view → debrief, with an expandable trace per claim
 - [x] Bundles pre-generated at build time; no backend, no key in the frontend
 - [x] Provenance banner on every view (rendered by the shell, not per page)
 - [x] Export is idempotent and byte-stable; covered by tests
+- [x] Redesign per `Dashboard Redesign Options.dc.html` (1a + 1c pipeline + 1d)
+- [x] Light/dark theme toggle, persisted, applied before first paint
+- [x] Fonts self-hosted — no third-party request at runtime, enforced by a test
+- [x] Every chart has a table-view twin — asserted structurally, so it stays true as
+      charts are added
+- [x] Desktop rendering eyeballed in a real browser (all four routes, both themes)
+- [ ] Mobile rendering eyeballed on a device
 - [ ] Live URL loads a full debrief with trace on desktop + mobile
 - [x] No API key anywhere in the frontend bundle or repo history — `web/dist` scanned
       clean; `git log --all -S RGAPI-` finds only the `.env.example` placeholder, and
@@ -229,6 +318,24 @@ URL to anyone.
 
 ## Current status
 
-Phase 0 ✅ → Phase 1 ✅ → Phase 2 ✅ → Phase 3 ✅ → **Phase 4 in progress**: the app and
-the export path are built and tested; deploying, applying, and emailing Brian are the
-remaining steps and all three need the account holder.
+Phase 0 ✅ → Phase 1 ✅ → Phase 2 ✅ → Phase 3 ✅ → **Phase 4 in progress**: the app, the
+export path, and the Riot-flavoured redesign (4b) are built, tested, and eyeballed on
+desktop. Deploying, applying, and emailing Brian are the remaining steps and all three
+need the account holder.
+
+Live on `frontend_changes`, 4 commits, unpushed:
+
+| Commit | Subject |
+|---|---|
+| `a2fa330` | data: season aggregates, verdicts, momentum proxy series, `hero_puuid` |
+| `34a5eb0` | web: Riot-flavoured redesign — Command Center, 1d match view, theme toggle |
+| `ce6be05` | web: make the header nav actually navigate |
+| `91fca1d` | web: split Overview, Agents and Matches into real routes |
+
+Tests: **67 Python + 17 web**, all green.
+
+Open items that do not need the account holder:
+- Mobile layout has never been looked at (breakpoints exist at 900px and 720px)
+- A CI check that re-runs `python -m src.export.bundle` and diffs against the tree,
+  so committed bundles cannot drift from the store (see the drift note in 4b)
+- `favicon.ico` 404s; the app has never had one
