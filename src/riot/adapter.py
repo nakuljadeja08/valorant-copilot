@@ -56,13 +56,19 @@ class SimMatchSource(MatchSource):
     def __init__(self, generator):
         self.gen = generator
         self._cache: dict[str, dict] = {}
+        self._puuid: str | None = None
 
     def matchlist(self, puuid: str) -> list[str]:
+        # Remembered so match() can seat the same player. Without this the
+        # generator falls back to its default hero and a caller passing
+        # --puuid gets rosters that never contain the player they asked for.
+        self._puuid = puuid
         return self.gen.matchlist_for(puuid)
 
     def match(self, match_id: str) -> dict[str, Any]:
         if match_id not in self._cache:
-            self._cache[match_id] = self.gen.build_match(match_id)
+            kwargs = {"hero_puuid": self._puuid} if self._puuid else {}
+            self._cache[match_id] = self.gen.build_match(match_id, **kwargs)
         return self._cache[match_id]
 
 

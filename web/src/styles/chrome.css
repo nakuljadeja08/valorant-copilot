@@ -1,0 +1,490 @@
+/* App chrome: header, banner, panels, tiles, badges, chips, tables. */
+
+/* ------------------------------------------------------------- header --- */
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: var(--surface-card);
+  border-bottom: 1px solid var(--line-2);
+}
+
+.app-header-inner {
+  max-width: var(--shell-max);
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-mark {
+  width: 22px;
+  height: 22px;
+  flex: none;
+  background: var(--brand);
+  clip-path: var(--notch-logo);
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.app-nav {
+  display: flex;
+  gap: 18px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.app-nav a {
+  color: var(--ink-muted);
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+
+.app-nav a:hover {
+  color: var(--ink);
+}
+
+.app-nav a[aria-current="page"] {
+  color: var(--ink);
+  border-bottom-color: var(--brand);
+}
+
+.header-spacer {
+  margin-left: auto;
+}
+
+.sim-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--warn);
+  border: 1px solid var(--warn);
+  padding: 3px 10px;
+  white-space: nowrap;
+}
+
+.sim-pill .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--warn);
+  flex: none;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: none;
+  border: 1px solid var(--line-2);
+  padding: 3px 10px;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.theme-toggle:hover {
+  color: var(--ink);
+  border-color: var(--line-3);
+}
+
+.back-link {
+  font-size: 12px;
+  color: var(--ink-faint);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.back-link:hover {
+  color: var(--ink);
+}
+
+/* ------------------------------------------------------------- banner ---
+   Provenance is still rendered by the shell on every route, so no view can
+   omit it. It is no longer sticky: the header carries a pinned SIM DATA pill,
+   so the signal stays on screen without a second fixed bar on a phone. */
+
+.banner {
+  background: var(--surface-row);
+  border-bottom: 1px solid var(--line-1);
+}
+
+.banner-inner {
+  max-width: var(--shell-max);
+  margin: 0 auto;
+  padding: 8px 24px;
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.banner-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--warn);
+  flex: none;
+  align-self: center;
+}
+
+.banner-note {
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+.banner-toggle {
+  margin-left: auto;
+  background: none;
+  border: 1px solid var(--line-2);
+  padding: 2px 10px;
+  font-size: 11px;
+  color: var(--ink-muted);
+  cursor: pointer;
+}
+
+.banner-toggle:hover {
+  color: var(--ink);
+}
+
+.banner-detail {
+  max-width: var(--shell-max);
+  margin: 0 auto;
+  padding: 0 24px 10px;
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+/* ------------------------------------------------------- panels + tiles --- */
+
+.panel {
+  background: var(--surface-panel);
+  border: 1px solid var(--line-1);
+  padding: 16px 18px;
+}
+
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.panel-meta {
+  font-size: 11px;
+  color: var(--ink-faint);
+  font-family: var(--font-mono);
+}
+
+.section {
+  margin-bottom: 22px;
+  scroll-margin-top: 64px;
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+
+.tile {
+  background: var(--surface-panel);
+  border: 1px solid var(--line-1);
+  padding: 12px 14px;
+}
+
+/* Only the first tile is notched. One angled cut per grid reads as a deliberate
+   mark; six read as a texture. */
+.kpi-grid > .tile:first-child {
+  clip-path: var(--notch-tile);
+}
+
+.tile.alert {
+  border-color: var(--bad);
+}
+
+.tile-label {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.tile-value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.1;
+}
+
+.tile-foot {
+  font-size: 11px;
+  color: var(--ink-faint);
+}
+
+.tile.dense .tile-value {
+  font-size: 22px;
+}
+
+/* ------------------------------------------------------------- badges --- */
+
+.badge {
+  font-size: 10px;
+  border: 1px solid currentColor;
+  padding: 1px 6px;
+  white-space: nowrap;
+  flex: none;
+}
+
+.badge.sev-critical {
+  color: var(--bad);
+}
+.badge.sev-warning {
+  color: var(--warn);
+}
+.badge.sev-info,
+.badge.neutral {
+  color: var(--ink-faint);
+}
+.badge.pass {
+  color: var(--good);
+}
+
+.result-badge {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 14px;
+  clip-path: var(--slant-badge);
+  flex: none;
+}
+
+.result-badge.win {
+  background: var(--good);
+  color: var(--on-good);
+}
+
+.result-badge.loss {
+  background: var(--bad);
+  color: var(--on-brand);
+}
+
+.result-badge.draw {
+  background: var(--ink-neutral);
+  color: var(--ink);
+}
+
+/* Retained from the previous design: still used by the trace and debrief. */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--line-2);
+  padding: 2px 8px;
+  font-size: 11px;
+  color: var(--ink-muted);
+  white-space: nowrap;
+}
+
+.tag-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.sev-critical.tag-dot {
+  background: var(--bad);
+}
+.sev-warning.tag-dot {
+  background: var(--warn);
+}
+.sev-info.tag-dot {
+  background: var(--ink-faint);
+}
+.ok {
+  background: var(--good);
+}
+
+.diamond {
+  width: 10px;
+  height: 10px;
+  flex: none;
+  clip-path: var(--diamond);
+}
+
+/* -------------------------------------------------------------- chips --- */
+
+.chip-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.chip-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-right: 4px;
+}
+
+.chip {
+  font-size: 12px;
+  padding: 4px 12px;
+  border: 1px solid var(--line-3);
+  background: none;
+  color: var(--ink-muted);
+  cursor: pointer;
+}
+
+.chip:hover {
+  color: var(--ink);
+}
+
+.chip[aria-checked="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--surface-page);
+  font-weight: 600;
+}
+
+select.chip {
+  color: var(--ink-muted);
+  background: var(--surface-panel);
+}
+
+/* ---------------------------------------------------------- verdict cards */
+
+.verdict-card {
+  padding: 12px 14px;
+  border: 1px solid;
+}
+
+.verdict-card.good {
+  background: var(--surface-good);
+  border-color: var(--good);
+}
+
+.verdict-card.bad {
+  background: var(--surface-bad);
+  border-color: var(--bad);
+}
+
+.verdict-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.verdict-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--ink-body);
+  padding: 3px 0;
+}
+
+/* --------------------------------------------------------------- table --- */
+
+.table-toggle {
+  background: none;
+  border: 1px solid var(--line-2);
+  padding: 3px 11px;
+  font-size: 11px;
+  color: var(--ink-muted);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.table-toggle:hover {
+  color: var(--ink);
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+th,
+td {
+  text-align: right;
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--grid);
+  white-space: nowrap;
+}
+
+th:first-child,
+td:first-child,
+th.tl,
+td.tl {
+  text-align: left;
+}
+
+th {
+  color: var(--ink-faint);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .kpi-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .app-header-inner {
+    padding: 10px 14px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .app-nav {
+    order: 3;
+    width: 100%;
+  }
+  .banner-inner,
+  .banner-detail {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

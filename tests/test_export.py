@@ -12,7 +12,7 @@ import pytest
 from src.agents.rules import analyze
 from src.agents.trace import build_trace
 from src.agents.watchdog import verify
-from src.export.bundle import build_index, build_match_bundle, dumps, export
+from src.export.bundle import build_agents, build_index, build_match_bundle, dumps, export
 from src.features.constants import BUY_NAMES
 from src.features.run import compute_for_match
 from src.ingest.pipeline import normalize
@@ -28,7 +28,7 @@ def store(tmp_path):
     src = get_source("sim")
     ids = [f"{MATCH}-{i}" for i in range(3)]
     for mid in ids:
-        normalize(conn, src.match(mid), "sim")
+        normalize(conn, src.match(mid), "sim", hero_puuid="hero")
         compute_for_match(conn, mid)
     return conn, ids
 
@@ -71,6 +71,62 @@ class TestMatchBundle:
                 assert rnd["economy"][team]["spend"] == features[(f"spend:{team}", n)]
                 assert rnd["economy"][team]["bank"] == features[(f"bank:{team}", n)]
                 assert rnd["economy"][team]["buy_type"] == BUY_NAMES[features[(f"buy_type:{team}", n)]]
+                assert (rnd["economy"][team]["kill_share_sim_approx"]
+                        == features.get((f"trade_efficiency_sim_approx:{team}", n)))
+                assert (rnd["economy"][team]["win_prob_proxy"]
+                        == features.get((f"win_prob_proxy:{team}", n)))
+
+    def test_the_momentum_proxy_is_a_two_sided_series(self, store):
+        """Both sides are exported so no consumer has to know that the feature's
+        reference team is `sorted(teams)[0]`."""
+        conn, ids = store
+        bundle = build_match_bundle(conn, ids[1])  # ids[0] is a shutout; see below
+        assert bundle["match_features"].get("pivotal_round") is not None
+
+        for rnd in bundle["rounds"]:
+            blue = rnd["economy"]["Blue"]["win_prob_proxy"]
+            red = rnd["economy"]["Red"]["win_prob_proxy"]
+            assert 0.0 < blue < 1.0
+            assert blue + red == pytest.approx(1.0)
+
+    def test_a_shutout_has_no_proxy_series_on_either_side(self, store):
+        """`PivotalRoundFeature` declines to rank rounds when only one team ever
+        won one -- there is no swing to find. The export must carry that absence
+        symmetrically rather than emit a half-populated series."""
+        conn, ids = store
+        bundle = build_match_bundle(conn, ids[0])
+        winners = {r["winning_team"] for r in bundle["rounds"] if r["winning_team"]}
+        assert len(winners) == 1, "fixture 0 is expected to be a shutout"
+
+        assert "pivotal_round" not in bundle["match_features"]
+        for rnd in bundle["rounds"]:
+            assert rnd["economy"]["Blue"]["win_prob_proxy"] is None
+            assert rnd["economy"]["Red"]["win_prob_proxy"] is None
+
+    def test_the_proxy_ships_with_its_own_disclaimer(self, store):
+        """The feature is explicit that it is not a calibrated probability. That
+        caveat travels in the bundle so frontend copy cannot drift from it."""
+        conn, ids = store
+        provenance = build_match_bundle(conn, ids[0])["provenance"]
+        assert "not a calibrated win probability" in provenance["proxy_note"]
+        assert "sim" in provenance["sim_approx_note"].lower()
+
+    def test_hero_puuid_round_trips_to_a_team(self, store):
+        conn, ids = store
+        meta = build_match_bundle(conn, ids[0])["match"]
+        assert meta["hero_puuid"] == "hero"
+        assert meta["hero_team"] in ("Blue", "Red")
+
+    def test_a_puuid_outside_the_roster_is_not_recorded(self, tmp_path):
+        """Storing a focal player who never played would let the UI attribute a
+        record to a side at random."""
+        conn = init_db(str(tmp_path / "stranger.db"))
+        normalize(conn, get_source("sim").match("stranger-1"), "sim", hero_puuid="not-in-match")
+        compute_for_match(conn, "stranger-1")
+
+        meta = build_match_bundle(conn, "stranger-1")["match"]
+        assert meta["hero_puuid"] is None
+        assert meta["hero_team"] is None
 
     def test_trace_is_passed_through_verbatim(self, store):
         """The UI expands claims straight out of the Phase 3 trace. If the export
@@ -121,6 +177,135 @@ class TestIndex:
         listed = [m["match_id"] for m in index["matches"]]
         assert listed == sorted(listed)
 
+    def test_season_aggregates_agree_with_the_bundles(self, store):
+        """Recomputed independently here. The overview and the match view read
+        the same numbers, so a drift between them is a real bug."""
+        conn, ids = store
+        bundles = [build_match_bundle(conn, mid) for mid in ids]
+        season = build_index(bundles)["season"]
+
+        wins = forced = rounds = broken = 0
+        for b in bundles:
+            team = b["match"]["hero_team"]
+            if b["match"]["winner"] == team:
+                wins += 1
+            for r in b["rounds"]:
+                econ = r["economy"][team]
+                if econ["buy_type"] is not None:
+                    rounds += 1
+                    forced += econ["buy_type"] == "force"
+                broken += econ["broken_buy"] == 1.0
+
+        assert season["record"]["wins"] == wins
+        assert season["rounds"] == rounds
+        assert season["broken_buys"] == broken
+        assert season["force_rate"] == pytest.approx(forced / rounds, abs=1e-4)
+        assert season["perspective"] == "hero"
+
+        total = sum(v["rounds"] for v in season["buy_type_win_rate"].values())
+        assert total == rounds
+
+    def test_season_record_covers_every_match(self, store):
+        conn, ids = store
+        season = build_index([build_match_bundle(conn, m) for m in ids])["season"]
+        record = season["record"]
+        assert record["wins"] + record["losses"] + record["draws"] == len(ids)
+
+    def test_every_match_has_a_verdict_stating_its_own_score(self, store):
+        conn, ids = store
+        bundles = [build_match_bundle(conn, mid) for mid in ids]
+        index = build_index(bundles)
+        by_id = {b["match"]["match_id"]: b for b in bundles}
+
+        for entry in index["matches"]:
+            b = by_id[entry["match_id"]]
+            team = b["match"]["hero_team"]
+            other = "Blue" if team == "Red" else "Red"
+            score = b["match"]["score"]
+            assert entry["verdict"], "a match with no verdict renders as a blank card"
+            assert f"{score[team]}–{score[other]}" in entry["verdict"]
+            assert entry["verdict"].endswith(".")
+
+    def test_verdicts_are_deterministic(self, store):
+        """Templated, not phrased by the LLM -- export defaults to no-LLM and
+        re-export has to stay byte-identical."""
+        conn, ids = store
+        first = build_index([build_match_bundle(conn, m) for m in ids])
+        second = build_index([build_match_bundle(conn, m) for m in ids])
+        assert [m["verdict"] for m in first["matches"]] == \
+               [m["verdict"] for m in second["matches"]]
+
+    def test_every_rule_has_a_verdict_template(self):
+        """An uncovered rule falls back to a bare outcome, which reads in the UI
+        like a missing explanation rather than a missing template."""
+        from src.agents.analyst import RULES as ANALYST
+        from src.agents.economist import RULES as ECONOMIST
+        from src.export.bundle import _VERDICT_TEMPLATES
+
+        missing = {r.id for r in (*ANALYST, *ECONOMIST)} - set(_VERDICT_TEMPLATES)
+        assert not missing, f"rules with no verdict template: {sorted(missing)}"
+
+    def test_force_rate_matches_the_round_list(self, store):
+        conn, ids = store
+        bundles = [build_match_bundle(conn, mid) for mid in ids]
+        index = build_index(bundles)
+        by_id = {b["match"]["match_id"]: b for b in bundles}
+
+        for entry in index["matches"]:
+            b = by_id[entry["match_id"]]
+            buys = [r["economy"][b["match"]["hero_team"]]["buy_type"] for r in b["rounds"]]
+            buys = [x for x in buys if x is not None]
+            expected = sum(1 for x in buys if x == "force") / len(buys)
+            assert entry["force_rate"] == pytest.approx(expected, abs=1e-4)
+
+    def test_agent_counts_exclude_the_watchdog(self, store):
+        """The Watchdog verifies claims rather than authoring them, so counting
+        it among the finding-producers would double-count every claim."""
+        conn, ids = store
+        bundles = [build_match_bundle(conn, mid) for mid in ids]
+        season = build_index(bundles)["season"]
+
+        assert "Watchdog" not in season["agents"]
+        assert sum(a["findings"] for a in season["agents"].values()) == season["verified_claims"]
+        assert sum(a["critical"] for a in season["agents"].values()) == season["critical_findings"]
+
+    def test_bundle_version_is_current(self):
+        """Bumped whenever the shape the frontend reads changes."""
+        from src.export.bundle import BUNDLE_VERSION
+        assert BUNDLE_VERSION == 2
+
+
+class TestAgentsBundle:
+    def test_carries_every_verified_claim(self, store):
+        conn, ids = store
+        bundles = [build_match_bundle(conn, mid) for mid in ids]
+        agents = build_agents(bundles)
+        index = build_index(bundles)
+
+        assert len(agents["findings"]) == index["season"]["verified_claims"]
+        assert agents["agents"] == index["season"]["agents"]
+
+    def test_findings_are_ordered_most_severe_first(self, store):
+        conn, ids = store
+        findings = build_agents([build_match_bundle(conn, m) for m in ids])["findings"]
+        rank = {"critical": 0, "warning": 1, "info": 2}
+        severities = [rank[f["severity"]] for f in findings]
+        assert severities == sorted(severities)
+
+    def test_every_finding_points_back_at_its_match_and_rows(self, store):
+        conn, ids = store
+        for f in build_agents([build_match_bundle(conn, m) for m in ids])["findings"]:
+            assert f["match_id"] in ids
+            assert f["feature_rows"] > 0
+            assert f["rule_id"] and f["claim"]
+
+    def test_the_index_does_not_also_carry_them(self, store):
+        """~36KB of claim text, three times the whole index, on a file every
+        route fetches. It lives in agents.json so only that route pays."""
+        conn, ids = store
+        season = build_index([build_match_bundle(conn, m) for m in ids])["season"]
+        assert "findings" not in season
+
 
 class TestExport:
     def test_writes_an_index_and_one_file_per_match(self, store, tmp_path):
@@ -130,6 +315,7 @@ class TestExport:
 
         assert result["matches"] == len(ids)
         assert (out / "index.json").exists()
+        assert (out / "agents.json").exists()
         for mid in ids:
             assert (out / "match" / f"{mid}.json").exists()
 

@@ -12,6 +12,13 @@ from pathlib import Path
 
 SCHEMA = Path(__file__).with_name("schema.sql")
 
+# `schema.sql` uses CREATE TABLE IF NOT EXISTS, so a column added to it is invisible
+# to any store that already exists. Each entry is (table, column, declaration) and is
+# applied only when the column is missing, which keeps init() idempotent.
+MIGRATIONS = [
+    ("matches", "hero_puuid", "TEXT"),
+]
+
 
 def connect(db_path: str | None = None) -> sqlite3.Connection:
     path = Path(db_path or os.getenv("DB_PATH", "data/copilot.db"))
@@ -23,9 +30,17 @@ def connect(db_path: str | None = None) -> sqlite3.Connection:
     return conn
 
 
+def _migrate(conn: sqlite3.Connection) -> None:
+    for table, column, decl in MIGRATIONS:
+        existing = {r["name"] for r in conn.execute(f"PRAGMA table_info({table})")}
+        if column not in existing:
+            conn.execute(f"ALTER TABLE {table} ADD COLUMN {column} {decl}")
+
+
 def init(db_path: str | None = None) -> sqlite3.Connection:
     conn = connect(db_path)
     conn.executescript(SCHEMA.read_text())
+    _migrate(conn)
     conn.commit()
     return conn
 

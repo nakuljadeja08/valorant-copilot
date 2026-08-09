@@ -36,15 +36,32 @@ export function useJson(path) {
   return state;
 }
 
-/** Current hash route: `#/` or `#/match/<id>`. */
+/** Current hash route. Four views:
+ *    ""              overview
+ *    "agents"        the agent pipeline and every verified finding
+ *    "matches"       the filterable match list
+ *    "match/<id>"    one match
+ *
+ *  Only a hash starting with `#/` is a route, so a bare fragment (an in-page
+ *  anchor, or the `#` a browser leaves behind) resolves to the overview rather
+ *  than to a blank view. */
+const readRoute = () => {
+  const hash = typeof window === "undefined" ? "" : window.location.hash;
+  return hash.startsWith("#/") ? hash.slice(2) : "";
+};
+
 export function useRoute() {
-  const read = () => window.location.hash.replace(/^#\/?/, "");
-  const [route, setRoute] = useState(read);
+  const [route, setRoute] = useState(readRoute);
 
   useEffect(() => {
     const onChange = () => {
-      setRoute(read());
-      window.scrollTo(0, 0);
+      setRoute((prev) => {
+        const next = readRoute();
+        // Scroll resets on a real view change only. An anchor click leaves the
+        // route untouched, and scrolling to the top would undo the jump.
+        if (next !== prev) window.scrollTo(0, 0);
+        return next;
+      });
     };
     window.addEventListener("hashchange", onChange);
     return () => window.removeEventListener("hashchange", onChange);
@@ -74,3 +91,13 @@ export function useWidth(fallback = 720) {
 
 export const fmt = (n) =>
   n === null || n === undefined ? "—" : Math.round(n).toLocaleString("en-US");
+
+/** A 0-1 rate as a whole-number percentage. */
+export const pct = (n) => (n === null || n === undefined ? "—" : `${Math.round(n * 100)}%`);
+
+/** The side every first-person number is phrased for. `hero_team` is null when
+ *  no focal player was recorded, in which case the UI falls back to Blue and
+ *  says so rather than implying a "you" the data cannot support. */
+export const heroTeam = (match) => match?.hero_team || "Blue";
+
+export const otherTeam = (team) => (team === "Red" ? "Blue" : "Red");
