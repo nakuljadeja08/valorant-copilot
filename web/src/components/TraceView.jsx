@@ -64,7 +64,7 @@ function Evidence({ evidence }) {
     <div className="evidence">
       <div className="evidence-head">
         <span className="feature-name">{feature.name}</span>
-        <span style={{ color: "var(--muted)", fontSize: 12 }}>
+        <span style={{ color: "var(--ink-faint)", fontSize: 12 }}>
           {feature.round_num === -1 ? "match-scoped" : `round ${feature.round_num}`} ·{" "}
           {feature.scope}
         </span>

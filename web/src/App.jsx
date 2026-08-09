@@ -1,6 +1,7 @@
 import { useJson, useRoute } from "./lib/data.js";
+import AppHeader from "./components/AppHeader.jsx";
 import ProvenanceBanner from "./components/ProvenanceBanner.jsx";
-import MatchList from "./components/MatchList.jsx";
+import HomeView from "./components/HomeView.jsx";
 import MatchView from "./components/MatchView.jsx";
 
 export default function App() {
@@ -11,7 +12,9 @@ export default function App() {
 
   return (
     <>
-      {/* Rendered by the shell, so provenance is on every route by construction. */}
+      {/* Both are rendered by the shell, so provenance and the data-source pill
+          are on every route by construction. */}
+      <AppHeader provenance={index?.provenance} onMatchRoute={Boolean(matchId)} />
       <ProvenanceBanner provenance={index?.provenance} />
       <main className="shell">
         {error && (
@@ -21,7 +24,7 @@ export default function App() {
           </p>
         )}
         {!index && !error && <p className="empty">Loading…</p>}
-        {index && (matchId ? <MatchView matchId={matchId} /> : <MatchList index={index} />)}
+        {index && (matchId ? <MatchView matchId={matchId} /> : <HomeView index={index} />)}
       </main>
     </>
   );

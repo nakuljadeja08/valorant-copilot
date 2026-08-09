@@ -139,10 +139,52 @@ describe("dashboard", () => {
 
     const links = [...container.querySelectorAll("a.match-card")];
     assert.equal(links.length, index.match_count);
-    assert.match(container.textContent, /Verified claims/);
+    assert.match(container.textContent, /verified claims/i);
   });
 
-  it("provenance banner is present on both routes", async () => {
+  it("overview shows the season KPI grid with a record", async () => {
+    const { container } = await mount("#/");
+    const index = JSON.parse(await readFile(path.join(dataRoot, "index.json"), "utf-8"));
+    const { wins, losses } = index.season.record;
+
+    assert.equal(container.querySelectorAll(".kpi-grid .tile").length, 6);
+    assert.match(container.textContent, new RegExp(`${wins}–${losses}`));
+  });
+
+  it("every match card leads with its verdict", async () => {
+    const { container } = await mount("#/");
+    const index = JSON.parse(await readFile(path.join(dataRoot, "index.json"), "utf-8"));
+    const verdicts = new Map(index.matches.map((m) => [m.match_id, m.verdict]));
+
+    for (const card of container.querySelectorAll("a.match-card")) {
+      const id = card.getAttribute("href").replace("#/match/", "");
+      assert.match(card.textContent, /\S/);
+      assert.ok(
+        card.textContent.includes(verdicts.get(id)),
+        `card for ${id} does not show its verdict`,
+      );
+    }
+  });
+
+  it("filter chips actually filter the match grid", async () => {
+    const { container } = await mount("#/");
+    const index = JSON.parse(await readFile(path.join(dataRoot, "index.json"), "utf-8"));
+    const losses = index.matches.filter((m) => m.winner && m.winner !== m.hero_team).length;
+
+    const chip = [...container.querySelectorAll("button.chip")].find(
+      (b) => b.textContent === "Losses",
+    );
+    assert.ok(chip, "no Losses filter chip");
+    await React.act(async () => {
+      chip.dispatchEvent(new global.window.MouseEvent("click", { bubbles: true }));
+    });
+
+    const shown = container.querySelectorAll("a.match-card").length;
+    assert.equal(shown, losses);
+    assert.ok(shown < index.match_count, "filter did not narrow the grid");
+  });
+
+  it("provenance banner and app header are present on both routes", async () => {
     for (const hash of ["#/", `#/match/${firstMatch}`]) {
       const { container } = await mount(hash);
       assert.match(
@@ -150,7 +192,33 @@ describe("dashboard", () => {
         /production key application pending/,
         `banner missing on ${hash}`,
       );
+      assert.ok(
+        container.querySelector("header.app-header"),
+        `app header missing on ${hash}`,
+      );
+      assert.match(container.textContent, /SIM DATA/, `data-source pill missing on ${hash}`);
     }
+  });
+
+  it("theme toggle flips the document theme and persists it", async () => {
+    const { container, dom } = await mount("#/");
+    const root = dom.window.document.documentElement;
+    assert.ok(!root.dataset.theme || root.dataset.theme === "dark", "dark is the default");
+
+    const toggle = container.querySelector("button.theme-toggle");
+    assert.ok(toggle, "no theme toggle in the header");
+
+    await React.act(async () => {
+      toggle.dispatchEvent(new global.window.MouseEvent("click", { bubbles: true }));
+    });
+    assert.equal(root.dataset.theme, "light");
+    assert.equal(dom.window.localStorage.getItem("vcp-theme"), "light");
+
+    await React.act(async () => {
+      toggle.dispatchEvent(new global.window.MouseEvent("click", { bubbles: true }));
+    });
+    assert.equal(root.dataset.theme, "dark");
+    assert.equal(dom.window.localStorage.getItem("vcp-theme"), "dark");
   });
 
   it("match view renders timeline, chart, debrief and scoreboard", async () => {
@@ -187,31 +255,92 @@ describe("dashboard", () => {
     }
   });
 
-  it("charts have a table-view twin", async () => {
-    const { container } = await mount(`#/match/${firstMatch}`);
-    const toggles = [...container.querySelectorAll("button.table-toggle")];
-    assert.equal(toggles.length, 2, "expected a table toggle on the timeline and the chart");
+  /* Structural rather than counted: the property worth pinning is "every chart
+     has a table twin", which stays true as charts are added. The old
+     `toggles.length === 2` had to be edited every time one was. */
+  it("every chart has a table-view twin", async () => {
+    for (const hash of ["#/", `#/match/${firstMatch}`]) {
+      const { container } = await mount(hash);
+      const charts = [...container.querySelectorAll("[data-chart]")];
+      assert.ok(charts.length > 0, `no charts on ${hash}`);
 
-    for (const toggle of toggles) {
-      await React.act(async () => {
-        toggle.dispatchEvent(new global.window.MouseEvent("click", { bubbles: true }));
-      });
+      for (const chart of charts) {
+        const toggles = chart.querySelectorAll("button.table-toggle");
+        assert.equal(
+          toggles.length,
+          1,
+          `${chart.dataset.chart} on ${hash} has ${toggles.length} table toggles`,
+        );
+
+        assert.equal(chart.querySelectorAll("table").length, 0);
+        await React.act(async () => {
+          toggles[0].dispatchEvent(new global.window.MouseEvent("click", { bubbles: true }));
+        });
+        assert.equal(
+          chart.querySelectorAll("table").length,
+          1,
+          `${chart.dataset.chart} on ${hash} showed no table`,
+        );
+      }
     }
-    assert.ok(
-      container.querySelectorAll("table").length >= 3,
-      "table views did not replace the charts",
-    );
+  });
+
+  /* The momentum series is explicitly not a calibrated probability -- see
+     src/features/pivotal_round.py. These two lines are what stop the label
+     drifting back to "win probability" in six months. */
+  it("labels the momentum proxy honestly, never as a win probability", async () => {
+    const { container } = await mount(`#/match/${firstMatch}`);
+    const chart = container.querySelector('[data-chart="momentum"]');
+    assert.ok(chart, "momentum chart did not render");
+
+    // The heading and legend are where a reader takes the label from.
+    assert.match(chart.querySelector(".section-title").textContent, /momentum index/i);
+    assert.doesNotMatch(chart.querySelector(".section-title").textContent, /probability/i);
+    assert.match(chart.querySelector(".legend").textContent, /proxy/i);
+
+    // Axis ticks are index values. A percent sign is what makes a reader treat
+    // a number as a probability, so there must not be one in the plot.
+    const svgText = [...chart.querySelectorAll("svg text")].map((t) => t.textContent);
+    assert.ok(svgText.includes("0.5"), "axis is not labelled on a 0-1 scale");
+    assert.ok(!svgText.some((t) => t.includes("%")), `percent on the axis: ${svgText}`);
+
+    // And the disclaimer that travels with the data is on the page.
+    assert.match(chart.textContent, /not a calibrated win probability/i);
+  });
+
+  it("keeps the sim-approx caveat on kill share", async () => {
+    for (const hash of ["#/", `#/match/${firstMatch}`]) {
+      const { container } = await mount(hash);
+      if (/kill share/i.test(container.textContent)) {
+        assert.match(container.textContent, /sim-approx/i, `caveat dropped on ${hash}`);
+      }
+    }
   });
 
   it("ships no API key and no network calls beyond the static bundles", async () => {
+    const files = [
+      "index.html",
+      "src/App.jsx",
+      "src/lib/data.js",
+      "src/lib/theme.js",
+      "vite.config.js",
+      "src/styles/index.css",
+      "src/styles/tokens.css",
+      "src/styles/fonts.css",
+      "src/styles/base.css",
+      "src/styles/chrome.css",
+      "src/styles/charts.css",
+      "src/styles/views.css",
+    ];
     const sources = await Promise.all(
-      ["src/App.jsx", "src/lib/data.js", "vite.config.js"].map((f) =>
-        readFile(path.join(webRoot, f), "utf-8"),
-      ),
+      files.map(async (f) => [f, await readFile(path.join(webRoot, f), "utf-8")]),
     );
-    for (const src of sources) {
-      assert.doesNotMatch(src, /api[_-]?key|Bearer\s|X-Riot-Token/i);
-      assert.doesNotMatch(src, /https?:\/\/(?!localhost)/);
+    for (const [name, src] of sources) {
+      assert.doesNotMatch(src, /api[_-]?key|Bearer\s|X-Riot-Token/i, name);
+      // Bare hostnames too: the source mockup loaded Google Fonts, and fonts
+      // must stay self-hosted for the build to make no third-party request.
+      assert.doesNotMatch(src, /https?:\/\/(?!localhost)/, name);
+      assert.doesNotMatch(src, /fonts\.(googleapis|gstatic)/, name);
     }
   });
 });

@@ -1,0 +1,145 @@
+/* Design tokens.
+
+   Dark is the base, not a variant: the design this implements is dark-native,
+   and so is the brand it comes from. `:root` therefore carries the dark values
+   and `[data-theme="light"]` overrides them. A user with no stored preference
+   gets the correct paint even if the no-FOUC script in index.html never runs.
+
+   Light is derived, not inverted. The surface ladder keeps its *ordering*
+   (inset < page < card < panel) rather than flipping it, compressed into a
+   narrower range; because that compression weakens the steps, light leans
+   harder on the hairlines, which is why every --line-* alpha is a couple of
+   points higher than its dark counterpart.
+
+   Series and status values were checked for contrast and CVD separation in both
+   modes with the dataviz validator:
+     node scripts/validate_palette.js "#3b8de8,#f2495c" --mode dark  --surface "#171b22"
+     node scripts/validate_palette.js "#1f6ac2,#d6203a" --mode light --surface "#fcfbf8"
+   The categorical pair (Blue/Red) passes every check in both modes. The
+   four-colour status set does NOT pass as a categorical palette and must never
+   be used as one -- see the note above --good/--warn/--bad. */
+
+:root {
+  color-scheme: dark;
+
+  /* -- surfaces: five steps, deepest to highest ------------------------- */
+  --surface-inset: #0d1014; /* recessed: bar tracks, wells */
+  --surface-page: #0b0d10;
+  --surface-row: #12151b; /* feed and log rows */
+  --surface-card: #101318;
+  --surface-panel: #171b22; /* raised: tiles, panels */
+  --surface-good: #12181a; /* positive wash */
+  --surface-bad: #1a1214; /* negative wash */
+
+  /* -- ink -------------------------------------------------------------- */
+  --ink: #f2f3f0;
+  --ink-body: #d6d9d4;
+  --ink-muted: #a8adb5;
+  /* The mock's faint step was #757c86, which measures 4.10:1 on --surface-panel
+     -- under 4.5:1, and it carries 10-11px metadata. Lightened to clear it. */
+  --ink-faint: #838a95;
+  --ink-neutral: #3a4150; /* the un-won half of a score bar; arrows */
+
+  /* -- brand ------------------------------------------------------------
+     Two reds, deliberately. --brand is VALORANT's official #FF4655 and is used
+     only as identity: the logo mark, the active nav rule, the focus ring. It
+     measures 3.24:1 on the light card, so it cannot also carry data. --bad is
+     the per-mode data ink: loss lines, negative values, status borders. */
+  --brand: #ff4655;
+  --on-brand: #0f1923;
+
+  /* -- status ------------------------------------------------------------
+     Status is ALWAYS accompanied by a text label (CRIT / WARN / PASS) or a
+     border position. Never encode a status by hue alone: --warn and --bad sit
+     ~4 ΔE apart under deuteranopia in light mode, which is fine for a labelled
+     chip and disqualifying for a chart series. */
+  --good: #23c19f;
+  --on-good: #08120f;
+  --warn: #edb43c;
+  --bad: #f2495c;
+
+  /* -- categorical: team identity + agents ------------------------------- */
+  --analyst: #3b8de8;
+  --economist: var(--warn);
+  --watchdog: var(--good);
+  --team-blue: #3b8de8;
+  --team-red: #f2495c;
+
+  /* -- lines -------------------------------------------------------------- */
+  --line-1: rgba(255, 255, 255, 0.08);
+  --line-2: rgba(255, 255, 255, 0.12);
+  --line-3: rgba(255, 255, 255, 0.2);
+  --line-strong: rgba(255, 255, 255, 0.25);
+  --grid: rgba(255, 255, 255, 0.09);
+  --axis: rgba(255, 255, 255, 0.2);
+
+  /* -- shape --------------------------------------------------------------
+     Square by default. Depth comes from surface steps and 1px hairlines: no
+     border-radius, no box-shadow, no gradients. The angled cuts below are the
+     one exception, echoing the Fist geometry Riot's own system crops against.
+     Defined once here so the polygons cannot drift between components. */
+  --notch-logo: polygon(0 0, 100% 0, 100% 65%, 65% 100%, 0 100%);
+  --notch-tile: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+  --slant-badge: polygon(0 0, calc(100% - 8px) 0, 100% 100%, 0 100%);
+  --diamond: polygon(0 50%, 50% 0, 100% 50%, 50% 100%);
+
+  /* -- type ----------------------------------------------------------------
+     Riot's own faces are Tungsten (display) and DIN Next (UI); both are
+     commercial and this repo is public, so the vendored faces are the OFL
+     look-alikes the source mockup itself used. Licensed files dropped into
+     src/fonts/licensed/ take precedence automatically -- see fonts.css. */
+  --font-display: "Tungsten", "DIN Next Condensed", "Barlow Condensed",
+    "Arial Narrow", system-ui, sans-serif;
+  --font-ui: "DIN Next", "Riot Sans", "Barlow", system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo,
+    Consolas, monospace;
+  /* Retained: existing components reference --mono. */
+  --mono: var(--font-mono);
+
+  --shell-max: 1180px;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --surface-inset: #e2ded6;
+  --surface-page: #e9e5de; /* Riot's marketing off-white, one step down */
+  --surface-row: #f1eee8;
+  --surface-card: #f6f4ef;
+  --surface-panel: #fcfbf8;
+  --surface-good: #eaf4f0;
+  --surface-bad: #fbebec;
+
+  --ink: #0f1923; /* VALORANT near-black, not a neutral grey */
+  --ink-body: #333b47;
+  --ink-muted: #5f6672;
+  --ink-faint: #6a717c;
+  --ink-neutral: #c8c4bb;
+
+  --on-brand: #0f1923; /* white on #FF4655 is 3.36:1; dark ink is 5.29:1 */
+
+  --good: #0f7a63;
+  --on-good: #ffffff;
+  --warn: #8a6508; /* amber has to go much darker to clear 4.5:1 on light */
+  --bad: #d6203a;
+
+  --analyst: #1f6ac2;
+  --team-blue: #1f6ac2;
+  --team-red: #d6203a;
+
+  /* Tinted with --ink rather than pure black: black hairlines on a warm
+     off-white read cold and dirty. */
+  --line-1: rgba(15, 25, 35, 0.1);
+  --line-2: rgba(15, 25, 35, 0.14);
+  --line-3: rgba(15, 25, 35, 0.2);
+  --line-strong: rgba(15, 25, 35, 0.24);
+  --grid: rgba(15, 25, 35, 0.11);
+  --axis: rgba(15, 25, 35, 0.2);
+}
+
+/* Accepted so the toggle can write either value symmetrically. Dark is already
+   the base, so this is intentionally a no-op. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}

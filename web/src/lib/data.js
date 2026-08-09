@@ -74,3 +74,13 @@ export function useWidth(fallback = 720) {
 
 export const fmt = (n) =>
   n === null || n === undefined ? "—" : Math.round(n).toLocaleString("en-US");
+
+/** A 0-1 rate as a whole-number percentage. */
+export const pct = (n) => (n === null || n === undefined ? "—" : `${Math.round(n * 100)}%`);
+
+/** The side every first-person number is phrased for. `hero_team` is null when
+ *  no focal player was recorded, in which case the UI falls back to Blue and
+ *  says so rather than implying a "you" the data cannot support. */
+export const heroTeam = (match) => match?.hero_team || "Blue";
+
+export const otherTeam = (team) => (team === "Red" ? "Blue" : "Red");
