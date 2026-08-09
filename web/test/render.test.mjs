@@ -200,6 +200,34 @@ describe("dashboard", () => {
     }
   });
 
+  /* The header nav points at in-page sections, so a bare `#matches` must resolve
+     to the home route rather than being read as a navigation -- otherwise the
+     router resets the scroll position the browser just set and the nav appears
+     to do nothing. */
+  it("in-page nav anchors keep you on the overview", async () => {
+    const { container, dom } = await mount("#/");
+
+    const links = [...container.querySelectorAll(".app-nav a")];
+    assert.deepEqual(
+      links.map((a) => a.getAttribute("href")),
+      ["#overview", "#agents", "#matches"],
+    );
+
+    for (const href of ["#overview", "#agents", "#matches"]) {
+      const id = href.slice(1);
+      assert.ok(container.querySelector(`#${id}`), `no section with id ${id}`);
+    }
+
+    // Landing directly on an anchor still renders the overview, not a blank view.
+    const anchored = await mount("#matches");
+    assert.ok(
+      anchored.container.querySelectorAll("a.match-card").length > 0,
+      "#matches did not render the overview",
+    );
+    assert.ok(anchored.container.querySelector(".kpi-grid"), "#matches lost the KPI grid");
+    void dom;
+  });
+
   it("theme toggle flips the document theme and persists it", async () => {
     const { container, dom } = await mount("#/");
     const root = dom.window.document.documentElement;

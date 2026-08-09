@@ -36,15 +36,29 @@ export function useJson(path) {
   return state;
 }
 
-/** Current hash route: `#/` or `#/match/<id>`. */
+/** Current hash route: `#/` or `#/match/<id>`.
+ *
+ *  Only a hash starting with `#/` is a route. Bare fragments like `#matches`
+ *  are in-page anchors for the header nav and must resolve to the home route,
+ *  not to a view of their own -- otherwise every anchor click would be read as
+ *  a navigation and reset the scroll position the browser just set. */
+const readRoute = () => {
+  const hash = typeof window === "undefined" ? "" : window.location.hash;
+  return hash.startsWith("#/") ? hash.slice(2) : "";
+};
+
 export function useRoute() {
-  const read = () => window.location.hash.replace(/^#\/?/, "");
-  const [route, setRoute] = useState(read);
+  const [route, setRoute] = useState(readRoute);
 
   useEffect(() => {
     const onChange = () => {
-      setRoute(read());
-      window.scrollTo(0, 0);
+      setRoute((prev) => {
+        const next = readRoute();
+        // Scroll resets on a real view change only. An anchor click leaves the
+        // route untouched, and scrolling to the top would undo the jump.
+        if (next !== prev) window.scrollTo(0, 0);
+        return next;
+      });
     };
     window.addEventListener("hashchange", onChange);
     return () => window.removeEventListener("hashchange", onChange);
