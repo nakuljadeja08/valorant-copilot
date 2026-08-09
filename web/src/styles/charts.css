@@ -1,0 +1,257 @@
+/* Charts: the SVG frame, tooltips, legends, the round timeline, and bars.
+
+   Every chart in the app is hand-written inline SVG with a hover/keyboard
+   tooltip and a "Table view" twin holding the same numbers. New charts copy
+   that structure from EconomyChart rather than inventing a second one. */
+
+.plot-wrap {
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  pointer-events: none;
+  z-index: 10;
+  background: var(--surface-card);
+  border: 1px solid var(--line-3);
+  padding: 8px 10px;
+  font-size: 12px;
+  min-width: 150px;
+}
+
+.tooltip-title {
+  color: var(--ink-faint);
+  font-size: 11px;
+  margin-bottom: 4px;
+}
+
+.tooltip-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.tooltip-val {
+  font-weight: 600;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+
+.tooltip-name {
+  color: var(--ink-body);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ------------------------------------------------------------- legend --- */
+
+.legend {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+
+.key {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.key-line {
+  width: 14px;
+  height: 2px;
+  flex: none;
+}
+
+.key-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.key-bar {
+  width: 2px;
+  height: 10px;
+  flex: none;
+}
+
+.blue {
+  background: var(--team-blue);
+}
+
+.red {
+  background: var(--team-red);
+}
+
+/* ---------------------------------------------------------- bar list ---
+   No table twin: the label, the denominator and the percentage are all printed
+   on the row, so the row already is the table. */
+
+.bar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bar-head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 4px;
+  color: var(--ink-muted);
+}
+
+.bar-value {
+  font-weight: 600;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink);
+}
+
+.bar-track {
+  height: 10px;
+  background: var(--surface-inset);
+}
+
+.bar-fill {
+  height: 100%;
+}
+
+/* ------------------------------------------------------------ timeline --- */
+
+.timeline-scroll {
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+.timeline {
+  display: flex;
+  gap: 2px; /* the surface gap separates the marks; no borders between them */
+  min-width: min-content;
+}
+
+.round-col {
+  width: 34px;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: stretch;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.round-num {
+  font-size: 10px;
+  color: var(--ink-faint);
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  height: 16px;
+}
+
+.round-pivot {
+  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.round-pivot span {
+  width: 8px;
+  height: 8px;
+  background: var(--warn);
+  clip-path: var(--diamond);
+}
+
+.band {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  background: var(--surface-inset);
+  color: var(--ink-faint);
+}
+
+.band.won {
+  color: var(--on-brand);
+}
+
+.band.won.b {
+  background: var(--team-blue);
+}
+
+.band.won.r {
+  background: var(--team-red);
+}
+
+.timeline-rail {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-right: 10px;
+  flex: none;
+}
+
+.rail-spacer {
+  height: 16px;
+}
+
+.rail-pivot {
+  height: 12px;
+}
+
+.rail-label {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+/* ----------------------------------------------------------- callouts --- */
+
+.callout-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.callout {
+  border-left: 2px solid;
+  padding: 6px 10px;
+  background: var(--surface-row);
+}
+
+.callout-kicker {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  margin-bottom: 2px;
+  text-transform: uppercase;
+}
+
+.callout-body {
+  font-size: 12px;
+  color: var(--ink-body);
+}
+
+@media (max-width: 900px) {
+  .callout-row {
+    grid-template-columns: 1fr;
+  }
+}

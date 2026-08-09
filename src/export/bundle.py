@@ -248,16 +248,18 @@ def _force_rate(bundle: dict[str, Any], team: str) -> float | None:
 # Counts come from the bundle's own rows, never from regexing numerals out of the
 # claim text -- that would couple this to rule prose and silently break on a reword.
 _VERDICT_TEMPLATES = {
-    "economist.broken_buy_count": "{n} broken buys — funded buys the team never made",
+    # No internal dashes: a loss verdict already joins on one.
+    "economist.broken_buy_count": "{n} buys funded and never made",
     "economist.force_buy_frequency": "forced {n} of {total} rounds, past the habit line",
-    "economist.consecutive_force": "{n} force buys back to back — economy never reset",
+    "economist.consecutive_force": "{n} force buys back to back, no economy reset",
     "economist.spend_disadvantage": "out-spent across the match",
     "economist.eco_conversion": "eco rounds converting at {pct}%",
     "analyst.pivotal_broken_buy": "lost the R{round} pivot on a broken buy",
     "analyst.pivotal_round": "R{round} was the pivot",
     "analyst.pivotal_streak": "went into the R{round} pivot on bonus money",
     "analyst.pivotal_trade_collapse": "out-fought in the R{round} pivot",
-    "analyst.post_plant_conversion": "got the spike down but could not hold it",
+    # No "but": a win verdict already joins on one.
+    "analyst.post_plant_conversion": "the spike went down and did not stay down",
     "analyst.plant_rate": "rarely reached a plant",
     "analyst.trade_efficiency": "lost the trade war over {total} rounds",
 }
@@ -288,8 +290,9 @@ def _verdict(bundle: dict[str, Any]) -> str:
         round=int(pivotal) if pivotal is not None else "?",
         pct=int(round((eco["won"] / eco["rounds"]) * 100)) if eco["rounds"] else 0,
     )
-    joiner = "but" if outcome == "Won" else "—"
-    return f"{outcome} {score[team]}–{score[_other(team)]}, {joiner} {detail}."
+    head = f"{outcome} {score[team]}–{score[_other(team)]}"
+    # A win gets a concessive clause, a loss gets a dash to the cause.
+    return f"{head}, but {detail}." if outcome == "Won" else f"{head} — {detail}."
 
 
 def _other(team: str) -> str:
