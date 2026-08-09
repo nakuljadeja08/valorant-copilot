@@ -133,13 +133,12 @@ describe("dashboard", () => {
     await vite?.close();
   });
 
-  it("match list renders every exported match", async () => {
-    const { container } = await mount("#/");
+  it("matches route renders every exported match", async () => {
+    const { container } = await mount("#/matches");
     const index = JSON.parse(await readFile(path.join(dataRoot, "index.json"), "utf-8"));
 
     const links = [...container.querySelectorAll("a.match-card")];
     assert.equal(links.length, index.match_count);
-    assert.match(container.textContent, /verified claims/i);
   });
 
   it("overview shows the season KPI grid with a record", async () => {
@@ -149,10 +148,11 @@ describe("dashboard", () => {
 
     assert.equal(container.querySelectorAll(".kpi-grid .tile").length, 6);
     assert.match(container.textContent, new RegExp(`${wins}–${losses}`));
+    assert.match(container.textContent, /verified claims/i);
   });
 
   it("every match card leads with its verdict", async () => {
-    const { container } = await mount("#/");
+    const { container } = await mount("#/matches");
     const index = JSON.parse(await readFile(path.join(dataRoot, "index.json"), "utf-8"));
     const verdicts = new Map(index.matches.map((m) => [m.match_id, m.verdict]));
 
@@ -167,7 +167,7 @@ describe("dashboard", () => {
   });
 
   it("filter chips actually filter the match grid", async () => {
-    const { container } = await mount("#/");
+    const { container } = await mount("#/matches");
     const index = JSON.parse(await readFile(path.join(dataRoot, "index.json"), "utf-8"));
     const losses = index.matches.filter((m) => m.winner && m.winner !== m.hero_team).length;
 
@@ -182,6 +182,48 @@ describe("dashboard", () => {
     const shown = container.querySelectorAll("a.match-card").length;
     assert.equal(shown, losses);
     assert.ok(shown < index.match_count, "filter did not narrow the grid");
+  });
+
+  it("agents route lists every verified finding from its own bundle", async () => {
+    const { container } = await mount("#/agents");
+    const agents = JSON.parse(await readFile(path.join(dataRoot, "agents.json"), "utf-8"));
+    const index = JSON.parse(await readFile(path.join(dataRoot, "index.json"), "utf-8"));
+
+    assert.equal(agents.findings.length, index.season.verified_claims);
+    assert.ok(container.querySelector(".pipeline"), "no pipeline diagram");
+    // Unfiltered, so the heading is a bare total with no "of N" suffix.
+    assert.match(container.textContent, new RegExp(`Findings — ${agents.findings.length}`));
+
+    // Paged, so the DOM stays reasonable; the count in the heading is the truth.
+    const rows = container.querySelectorAll(".feed-row").length;
+    assert.ok(rows > 0 && rows <= agents.findings.length);
+
+    const more = [...container.querySelectorAll("button.table-toggle")].find((b) =>
+      /Show \d+ more/.test(b.textContent),
+    );
+    assert.ok(more, "no pagination control for 93 findings");
+    await React.act(async () => {
+      more.dispatchEvent(new global.window.MouseEvent("click", { bubbles: true }));
+    });
+    assert.ok(
+      container.querySelectorAll(".feed-row").length > rows,
+      "pagination revealed nothing",
+    );
+  });
+
+  it("agents route filters findings by agent", async () => {
+    const { container } = await mount("#/agents");
+    const agents = JSON.parse(await readFile(path.join(dataRoot, "agents.json"), "utf-8"));
+    const economist = agents.findings.filter((f) => f.agent === "Economist").length;
+
+    const chip = [...container.querySelectorAll("button.chip")].find(
+      (b) => b.textContent === "Economist",
+    );
+    assert.ok(chip, "no Economist filter chip");
+    await React.act(async () => {
+      chip.dispatchEvent(new global.window.MouseEvent("click", { bubbles: true }));
+    });
+    assert.match(container.textContent, new RegExp(`Findings — ${economist} of`));
   });
 
   it("provenance banner and app header are present on both routes", async () => {
@@ -200,32 +242,43 @@ describe("dashboard", () => {
     }
   });
 
-  /* The header nav points at in-page sections, so a bare `#matches` must resolve
-     to the home route rather than being read as a navigation -- otherwise the
-     router resets the scroll position the browser just set and the nav appears
-     to do nothing. */
-  it("in-page nav anchors keep you on the overview", async () => {
-    const { container, dom } = await mount("#/");
+  it("each nav item is its own route, and marks itself current", async () => {
+    const expected = [
+      ["#/", "Overview", ".kpi-grid"],
+      ["#/agents", "Agents", ".pipeline"],
+      ["#/matches", "Matches", "a.match-card"],
+    ];
 
-    const links = [...container.querySelectorAll(".app-nav a")];
-    assert.deepEqual(
-      links.map((a) => a.getAttribute("href")),
-      ["#overview", "#agents", "#matches"],
-    );
+    for (const [hash, label, marker] of expected) {
+      const { container } = await mount(hash);
 
-    for (const href of ["#overview", "#agents", "#matches"]) {
-      const id = href.slice(1);
-      assert.ok(container.querySelector(`#${id}`), `no section with id ${id}`);
+      assert.deepEqual(
+        [...container.querySelectorAll(".app-nav a")].map((a) => a.getAttribute("href")),
+        ["#/", "#/agents", "#/matches"],
+      );
+      assert.ok(container.querySelector(marker), `${hash} did not render ${marker}`);
+
+      const current = container.querySelector('.app-nav a[aria-current="page"]');
+      assert.equal(current?.textContent, label, `wrong nav item current on ${hash}`);
     }
+  });
 
-    // Landing directly on an anchor still renders the overview, not a blank view.
-    const anchored = await mount("#matches");
-    assert.ok(
-      anchored.container.querySelectorAll("a.match-card").length > 0,
-      "#matches did not render the overview",
+  it("a match keeps Matches lit and offers a way back to it", async () => {
+    const { container } = await mount(`#/match/${firstMatch}`);
+
+    const current = container.querySelector('.app-nav a[aria-current="page"]');
+    assert.equal(current?.textContent, "Matches");
+    assert.equal(
+      container.querySelector("a.back-link")?.getAttribute("href"),
+      "#/matches",
     );
-    assert.ok(anchored.container.querySelector(".kpi-grid"), "#matches lost the KPI grid");
-    void dom;
+  });
+
+  /* A bare fragment is not a route. Browsers leave a lone "#" behind on some
+     interactions, and it must resolve to the overview, not a blank view. */
+  it("a bare fragment falls back to the overview", async () => {
+    const { container } = await mount("#");
+    assert.ok(container.querySelector(".kpi-grid"), "bare # lost the overview");
   });
 
   it("theme toggle flips the document theme and persists it", async () => {
