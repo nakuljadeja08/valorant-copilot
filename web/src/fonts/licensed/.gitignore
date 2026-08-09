@@ -1,0 +1,9 @@
+# Licensed fonts are never committed.
+#
+# This repo is public, and most Tungsten / DIN Next EULAs treat distributing the
+# font file as redistribution. Drop them here for local work; CI and Vercel build
+# with the vendored OFL faces (Barlow Condensed / Barlow / JetBrains Mono).
+*.woff2
+*.woff
+*.ttf
+*.otf

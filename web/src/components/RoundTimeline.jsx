@@ -27,14 +27,14 @@ export default function RoundTimeline({ rounds, pivotalRound }) {
   }
 
   return (
-    <section className="card">
-      <div className="card-head">
-        <h2 style={{ fontSize: 15 }}>Round timeline</h2>
+    <section className="panel section" data-chart="timeline">
+      <div className="panel-head">
+        <h2 className="section-title">Round timeline</h2>
         <button className="table-toggle" onClick={() => setShowTable((v) => !v)}>
           {showTable ? "Timeline view" : "Table view"}
         </button>
       </div>
-      <p className="card-sub">
+      <p className="footnote" style={{ marginTop: 0, marginBottom: 12 }}>
         A filled band is a round won. The label is that team&apos;s buy classification.
       </p>
 

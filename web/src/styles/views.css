@@ -1,0 +1,402 @@
+/* Layout for the two routes: the Command Center overview and the match view. */
+
+/* ------------------------------------------------------------ overview --- */
+
+.page-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.overview-charts {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 12px;
+}
+
+/* -- agent pipeline (merged in from the Agent Ops direction) ------------- */
+
+/* An <ol> so the sequence survives without the arrows, which are decoration.
+   The markers themselves would render as literal "1." between the nodes. */
+.pipeline {
+  display: grid;
+  grid-template-columns: 150px 24px 1fr 24px 150px;
+  align-items: stretch;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pipeline-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-neutral);
+  font-size: 18px;
+}
+
+.pipeline-node {
+  background: var(--surface-panel);
+  border: 1px solid var(--line-1);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.pipeline-node-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.pipeline-node-meta {
+  font-size: 11px;
+  color: var(--ink-faint);
+  font-family: var(--font-mono);
+  margin-top: 6px;
+}
+
+.agent-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* The identity accent is a 3px top border, and the agent is also named in text
+   — colour never carries the distinction alone. */
+.agent-card {
+  background: var(--surface-panel);
+  border: 1px solid var(--line-1);
+  border-top: 3px solid var(--accent);
+  padding: 12px;
+}
+
+.agent-card-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.agent-card-role {
+  font-size: 11px;
+  color: var(--ink-faint);
+  margin: 2px 0 8px;
+}
+
+.agent-card-stat {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+
+/* -- agent output feed ---------------------------------------------------- */
+
+.feed {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.feed-row {
+  background: var(--surface-row);
+  border: 1px solid var(--line-1);
+  padding: 10px 14px;
+}
+
+.feed-line {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.feed-agent {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  width: 74px;
+  flex: none;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.feed-claim {
+  font-size: 12.5px;
+  color: var(--ink-body);
+}
+
+.feed-meta {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--ink-faint);
+  font-family: var(--font-mono);
+  flex: none;
+}
+
+.feed-trace {
+  font-size: 11px;
+  color: var(--ink-faint);
+  font-family: var(--font-mono);
+  margin-top: 6px;
+  padding-left: 84px;
+}
+
+/* -- match cards ---------------------------------------------------------- */
+
+.match-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.match-card {
+  background: var(--surface-panel);
+  border-left: 3px solid var(--ink-neutral);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  transition: background-color 120ms ease;
+}
+
+.match-card.win {
+  border-left-color: var(--good);
+}
+
+.match-card.loss {
+  border-left-color: var(--bad);
+}
+
+.match-card:hover {
+  background: var(--surface-card);
+}
+
+.match-map {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: uppercase;
+  width: 88px;
+  flex: none;
+}
+
+.match-score {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  width: 64px;
+  flex: none;
+  white-space: nowrap;
+}
+
+.match-verdict {
+  font-size: 12px;
+  color: var(--ink-muted);
+  flex: 1;
+}
+
+/* --------------------------------------------------------- match view --- */
+
+.match-hero {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.match-hero-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.match-hero-title .score {
+  color: var(--ink-muted);
+}
+
+.hero-stats {
+  margin-left: auto;
+  display: flex;
+  gap: 20px;
+  text-align: right;
+}
+
+.hero-stat-value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.1;
+}
+
+.match-summary {
+  font-size: 14px;
+  color: var(--ink-muted);
+  margin: 0 0 20px;
+}
+
+.match-summary strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* --------------------------------------------------------------- claim ---
+   The decision trace. Structure is unchanged from Phase 3 — only the surface
+   treatment is new, because the disclosure is the honesty mechanism. */
+
+.claim {
+  border: 1px solid var(--line-1);
+  background: var(--surface-row);
+  padding: 12px 14px;
+  margin-bottom: 6px;
+}
+
+.claim-meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.claim-text {
+  margin: 0 0 10px;
+  font-size: 13px;
+}
+
+.rule-id {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-faint);
+}
+
+.disclose {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: var(--ink-faint);
+  cursor: pointer;
+  text-align: left;
+}
+
+.disclose:hover {
+  color: var(--ink);
+}
+
+.trace {
+  margin-top: 12px;
+  border-top: 1px solid var(--line-1);
+  padding-top: 12px;
+}
+
+.chain {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: var(--ink-faint);
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.evidence {
+  border-left: 2px solid var(--line-2);
+  padding: 0 0 0 12px;
+  margin-bottom: 10px;
+}
+
+.evidence-head {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  flex-wrap: wrap;
+  font-size: 12px;
+}
+
+.feature-name {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink);
+}
+
+.feature-value {
+  font-weight: 600;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.rows {
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-faint);
+}
+
+.rows li {
+  padding: 1px 0;
+  overflow-wrap: anywhere;
+}
+
+.debrief-text {
+  white-space: pre-wrap;
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--ink-body);
+  background: var(--surface-row);
+  border: 1px solid var(--line-1);
+  padding: 14px 16px;
+  overflow-x: auto;
+}
+
+@media (max-width: 900px) {
+  .overview-charts,
+  .match-grid,
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+  .pipeline {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .pipeline-arrow {
+    transform: rotate(90deg);
+    height: 20px;
+  }
+  .agent-cards {
+    grid-template-columns: 1fr;
+  }
+  .hero-stats {
+    margin-left: 0;
+    width: 100%;
+    text-align: left;
+    flex-wrap: wrap;
+  }
+  .match-hero-title {
+    font-size: 32px;
+  }
+  .feed-trace {
+    padding-left: 0;
+  }
+}
