@@ -320,6 +320,16 @@
     ]
   },
   "season": {
+    "agents": {
+      "Analyst": {
+        "critical": 3,
+        "findings": 48
+      },
+      "Economist": {
+        "critical": 6,
+        "findings": 45
+      }
+    },
     "broken_buys": 11,
     "buy_type_win_rate": {
       "eco": {
@@ -344,62 +354,6 @@
       }
     },
     "critical_findings": 9,
-    "findings": [
-      {
-        "agent": "Analyst",
-        "claim": "Blue lost R3 on a broken buy: the loss bonus had escalated far enough to fund a real buy, but the team still walked in on a force.",
-        "map_name": "Skirmish A",
-        "match_id": "047ab4d9-2a24-cac3-a4f8-23b82b328adb",
-        "rule_id": "analyst.pivotal_broken_buy",
-        "severity": "critical",
-        "source_rows": 17
-      },
-      {
-        "agent": "Analyst",
-        "claim": "Red lost R6 on a broken buy: the loss bonus had escalated far enough to fund a real buy, but the team still walked in on a force.",
-        "map_name": "Piazza",
-        "match_id": "0c7b9f63-ca0c-b031-0568-50873a98fa47",
-        "rule_id": "analyst.pivotal_broken_buy",
-        "severity": "critical",
-        "source_rows": 16
-      },
-      {
-        "agent": "Analyst",
-        "claim": "Blue lost R3 on a broken buy: the loss bonus had escalated far enough to fund a real buy, but the team still walked in on a force.",
-        "map_name": "Abyss",
-        "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-        "rule_id": "analyst.pivotal_broken_buy",
-        "severity": "critical",
-        "source_rows": 17
-      },
-      {
-        "agent": "Economist",
-        "claim": "Red broke its buy 2 times (R8, R11) -- rounds where the escalated loss bonus should have funded a real buy and the team went in short anyway.",
-        "map_name": "Corrode",
-        "match_id": "00041a37-c43a-b5af-75ef-7038af82f832",
-        "rule_id": "economist.broken_buy_count",
-        "severity": "critical",
-        "source_rows": 23
-      },
-      {
-        "agent": "Economist",
-        "claim": "Blue broke its buy 2 times (R6, R8) -- rounds where the escalated loss bonus should have funded a real buy and the team went in short anyway.",
-        "map_name": "Skirmish B",
-        "match_id": "0a298534-67bb-af82-6fe4-946084d706a1",
-        "rule_id": "economist.broken_buy_count",
-        "severity": "critical",
-        "source_rows": 18
-      },
-      {
-        "agent": "Economist",
-        "claim": "Red broke its buy 4 times (R2, R6, R10, R12) -- rounds where the escalated loss bonus should have funded a real buy and the team went in short anyway.",
-        "map_name": "Piazza",
-        "match_id": "0c7b9f63-ca0c-b031-0568-50873a98fa47",
-        "rule_id": "economist.broken_buy_count",
-        "severity": "critical",
-        "source_rows": 38
-      }
-    ],
     "force_line": 0.3,
     "force_rate": 0.1991,
     "kill_share_sim_approx": 0.4957,

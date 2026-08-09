@@ -12,7 +12,7 @@ import pytest
 from src.agents.rules import analyze
 from src.agents.trace import build_trace
 from src.agents.watchdog import verify
-from src.export.bundle import build_index, build_match_bundle, dumps, export
+from src.export.bundle import build_agents, build_index, build_match_bundle, dumps, export
 from src.features.constants import BUY_NAMES
 from src.features.run import compute_for_match
 from src.ingest.pipeline import normalize
@@ -258,10 +258,53 @@ class TestIndex:
             expected = sum(1 for x in buys if x == "force") / len(buys)
             assert entry["force_rate"] == pytest.approx(expected, abs=1e-4)
 
+    def test_agent_counts_exclude_the_watchdog(self, store):
+        """The Watchdog verifies claims rather than authoring them, so counting
+        it among the finding-producers would double-count every claim."""
+        conn, ids = store
+        bundles = [build_match_bundle(conn, mid) for mid in ids]
+        season = build_index(bundles)["season"]
+
+        assert "Watchdog" not in season["agents"]
+        assert sum(a["findings"] for a in season["agents"].values()) == season["verified_claims"]
+        assert sum(a["critical"] for a in season["agents"].values()) == season["critical_findings"]
+
     def test_bundle_version_is_current(self):
         """Bumped whenever the shape the frontend reads changes."""
         from src.export.bundle import BUNDLE_VERSION
         assert BUNDLE_VERSION == 2
+
+
+class TestAgentsBundle:
+    def test_carries_every_verified_claim(self, store):
+        conn, ids = store
+        bundles = [build_match_bundle(conn, mid) for mid in ids]
+        agents = build_agents(bundles)
+        index = build_index(bundles)
+
+        assert len(agents["findings"]) == index["season"]["verified_claims"]
+        assert agents["agents"] == index["season"]["agents"]
+
+    def test_findings_are_ordered_most_severe_first(self, store):
+        conn, ids = store
+        findings = build_agents([build_match_bundle(conn, m) for m in ids])["findings"]
+        rank = {"critical": 0, "warning": 1, "info": 2}
+        severities = [rank[f["severity"]] for f in findings]
+        assert severities == sorted(severities)
+
+    def test_every_finding_points_back_at_its_match_and_rows(self, store):
+        conn, ids = store
+        for f in build_agents([build_match_bundle(conn, m) for m in ids])["findings"]:
+            assert f["match_id"] in ids
+            assert f["feature_rows"] > 0
+            assert f["rule_id"] and f["claim"]
+
+    def test_the_index_does_not_also_carry_them(self, store):
+        """~36KB of claim text, three times the whole index, on a file every
+        route fetches. It lives in agents.json so only that route pays."""
+        conn, ids = store
+        season = build_index([build_match_bundle(conn, m) for m in ids])["season"]
+        assert "findings" not in season
 
 
 class TestExport:
@@ -272,6 +315,7 @@ class TestExport:
 
         assert result["matches"] == len(ids)
         assert (out / "index.json").exists()
+        assert (out / "agents.json").exists()
         for mid in ids:
             assert (out / "match" / f"{mid}.json").exists()
 
