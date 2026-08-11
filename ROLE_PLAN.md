@@ -122,7 +122,7 @@ source rows.
 **Checklist:**
 - [ ] Role features implemented for all four roles, each with lineage
 - [ ] Peer baselines computed and versioned; percentile lookup works
-- [ ] Sim shows real role separation (Duelist vs. Sentinel first-contact gap)
+- [x] Sim shows real role separation (Duelist vs. Sentinel first-contact gap)  *(R2e)*
 - [ ] Role-fit rules fire on injected off-role behavior
 - [ ] Everything sim-derived labeled `sim-approx` / `role-approx` as appropriate
 - [ ] README: role feature definitions + the "role-relative, not cross-role" principle

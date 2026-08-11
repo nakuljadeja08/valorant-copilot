@@ -68,6 +68,11 @@ def normalize(conn: sqlite3.Connection, m: dict[str, Any], source: str,
         )
         for ps in r.get("playerStats", []):
             econ = ps.get("economy") or {}
+            # val-match-v1 nests a `kills` *list* (one entry per kill) under each
+            # playerStats; the count is its length. (An int is tolerated for
+            # backward compatibility with any older fixture.)
+            k = ps.get("kills")
+            kills_count = len(k) if isinstance(k, list) else k
             conn.execute(
                 """INSERT OR REPLACE INTO round_player_stats
                    (match_id, round_num, puuid, loadout_value, spent, remaining,
@@ -76,7 +81,7 @@ def normalize(conn: sqlite3.Connection, m: dict[str, Any], source: str,
                 (info["matchId"], r["roundNum"], ps["puuid"],
                  econ.get("loadoutValue"), econ.get("spent"), econ.get("remaining"),
                  econ.get("armor") or None, econ.get("weapon") or None,
-                 ps.get("kills"),
+                 kills_count,
                  sum(d.get("damage", 0) for d in ps.get("damage", []) if isinstance(d, dict)),
                  ps.get("score")),
             )
