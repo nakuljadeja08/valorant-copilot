@@ -66,19 +66,54 @@ def normalize(conn: sqlite3.Connection, m: dict[str, Any], source: str,
              r.get("roundCeremony"), r.get("plantSite") or None,
              r.get("plantRoundTime") or None, r.get("defuseRoundTime") or None),
         )
+        # Flatten the round's kill timeline (kills nest under each killer's stats),
+        # order by time, and persist as ordinal-indexed events. kill_ordinal 0 is
+        # the round's first contact — the anchor for the entry/first-death features.
+        events = sorted(
+            (k for ps in r.get("playerStats", []) for k in ps.get("kills", [])
+             if isinstance(k, dict)),
+            key=lambda k: (k.get("timeSinceRoundStartMillis") or 0),
+        )
+        for ordinal, k in enumerate(events):
+            conn.execute(
+                """INSERT OR REPLACE INTO round_kills
+                   (match_id, round_num, kill_ordinal, killer_puuid, victim_puuid,
+                    round_time_ms, traded)
+                   VALUES (?,?,?,?,?,?,?)""",
+                (info["matchId"], r["roundNum"], ordinal, k.get("killer"),
+                 k.get("victim"), k.get("timeSinceRoundStartMillis"),
+                 int(bool(k.get("traded")))),
+            )
+            for assistant in k.get("assistants", []) or []:
+                conn.execute(
+                    """INSERT OR REPLACE INTO round_kill_assists
+                       (match_id, round_num, kill_ordinal, assistant_puuid)
+                       VALUES (?,?,?,?)""",
+                    (info["matchId"], r["roundNum"], ordinal, assistant),
+                )
+
         for ps in r.get("playerStats", []):
             econ = ps.get("economy") or {}
+            ability = ps.get("ability") or {}
+            # val-match-v1 nests a `kills` *list* (one entry per kill) under each
+            # playerStats; the count is its length. (An int is tolerated for
+            # backward compatibility with any older fixture.)
+            k = ps.get("kills")
+            kills_count = len(k) if isinstance(k, list) else k
             conn.execute(
                 """INSERT OR REPLACE INTO round_player_stats
                    (match_id, round_num, puuid, loadout_value, spent, remaining,
-                    armor_id, weapon_id, kills, damage, score)
-                   VALUES (?,?,?,?,?,?,?,?,?,?,?)""",
+                    armor_id, weapon_id, kills, damage, score,
+                    grenade_casts, ability1_casts, ability2_casts, ultimate_casts)
+                   VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
                 (info["matchId"], r["roundNum"], ps["puuid"],
                  econ.get("loadoutValue"), econ.get("spent"), econ.get("remaining"),
                  econ.get("armor") or None, econ.get("weapon") or None,
-                 ps.get("kills"),
+                 kills_count,
                  sum(d.get("damage", 0) for d in ps.get("damage", []) if isinstance(d, dict)),
-                 ps.get("score")),
+                 ps.get("score"),
+                 ability.get("grenadeCasts", 0), ability.get("ability1Casts", 0),
+                 ability.get("ability2Casts", 0), ability.get("ultimateCasts", 0)),
             )
 
 

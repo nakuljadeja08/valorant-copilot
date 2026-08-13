@@ -7,6 +7,7 @@ from src.features.economy import BuyClassificationFeature, EconomyCurveFeature
 from src.features.loss_streak import LossStreakFeature
 from src.features.pivotal_round import PivotalRoundFeature
 from src.features.post_plant import PostPlantConversionFeature
+from src.features.role import RolePlayerFeatures, RoleSynergyFeatures
 from src.features.round_outcome import RoundOutcomeFeature
 from src.features.trade_efficiency import TradeEfficiencyFeature
 
@@ -18,4 +19,6 @@ REGISTRY: list[Feature] = [
     PivotalRoundFeature(),
     TradeEfficiencyFeature(),
     RoundOutcomeFeature(),  # Phase 3: round outcomes the agent rules cite
+    RolePlayerFeatures(),   # R2a: per-player role rates
+    RoleSynergyFeatures(),  # R2a: cross-role composition + support→entry synergy
 ]

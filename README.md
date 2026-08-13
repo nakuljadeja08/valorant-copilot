@@ -151,6 +151,67 @@ drafted rule (bank misuse) is deliberately **not** shipped: the simulator never
 spends under 55% of a full-buy bank, so it could never fire. That reasoning is
 recorded in `constants.py` rather than shipped as a dead rule.
 
+## Role coaching layer
+
+A second workstream layered on the base pipeline (`ROLE_PLAN.md`): scoring each
+player *as their role*. The whole reason it exists is one principle —
+
+> **Role-relative, never cross-role.** A Sentinel is not a weak Duelist because
+> their first-blood rate is low. Every player is scored against *role-appropriate
+> expectations* and a *peer distribution of same-role players*. There is no shared
+> leaderboard; cross-role output is about fit and synergy, not ranking.
+
+Role is assigned deterministically from the agent (`src/riot/resolve.py`, `role_of`),
+and an unknown agent raises rather than defaulting — a new agent shipping without a
+role entry fails loudly instead of being coached as the wrong role. Off-role *play*
+(a Duelist who lurks, a Sentinel who over-peeks) is a **finding**, not a mislabel —
+surfacing that divergence is the most valuable thing this layer does.
+
+**Honest boundaries.** Role value splits into what the API sees clearly and what it
+can only proxy, and the labeling *is* the integrity signal:
+
+- **Event-backed (strong)** — from the kill timeline (`round_kills`): first contact,
+  first death, entry trades, multikills, assists, survival.
+- **`role-approx` (weak proxy)** — `support_before_entry` infers "support set up the
+  entry" from utility *cast counts*, because the API exposes counts, not timings. It
+  carries a `role-approx` badge in code (`ROLE_APPROX`) and in the report.
+- **Deferred (no data)** — anchor positioning, defensive hold trades, post-plant
+  presence need positional or real attack/defend data the sim doesn't model. They're
+  left unbuilt rather than faked.
+
+| Role feature (`scope='player'`, `name:{puuid}`) | What it means |
+|---|---|
+| `first_contact_rate` | Involved in the round's opening kill (killer or victim) |
+| `entry_success_rate` | Took the opening kill |
+| `first_death_rate` | Took the opening death — **inverted** (low is good); the Sentinel signal |
+| `entry_trade_rate` | Of the rounds they died on entry, how many were traded (entering *with* support vs. throwing). Emitted only when they actually died on entry |
+| `multikill_rate` | Rounds with 2+ kills |
+| `assist_rate` | Mean assists per round |
+| `survival_rate` | Rounds they lived through |
+| `utility_per_round` | Mean utility casts per round — Controller/Initiator cadence |
+| `role_balance:{team}` | Distinct roles in the comp (composition) |
+| `support_before_entry:{team}` | **`role-approx`.** Of the team's entry rounds, how many had a support-role utility cast that round |
+
+**Peer baselines are a versioned artifact.** `src/features/baselines.py` builds
+per-`(role, feature)` distributions across a deterministic corpus and writes
+`data/baselines/role_baselines.json`. The version is a content hash of the
+distributions themselves — same corpus in, same version out — so a debrief can cite
+*which* baseline a percentile was scored against. `percentile_within_role()` returns
+the number the UI shows; inverted metrics flip orientation so "higher reads better"
+uniformly; a role/feature with no peers returns `None` rather than a fabricated rank.
+
+**Role-fit detection** (`src/agents/role_fit.py`) is where the highest-value claims
+come from: a player in the bottom quartile of *their role* on a signature feature is
+flagged — a passive Duelist, an over-exposed Sentinel, a utility-starved Initiator.
+Every flag cites the feature row (raw-row lineage) and the baseline version, setting
+up the RoleCoach agent's Watchdog-verified trace.
+
+```bash
+python -m src.features.baselines --build          # (re)build the versioned baseline
+python -m src.features.report --match <id> --by-role   # per-player role card + percentiles + flags
+python -m src.agents.role_fit --match <id>        # just the mis-role flags
+```
+
 ## Dashboard
 
 **Live URL:** _not yet deployed — see `docs/TASKS.md` Phase 4._
@@ -159,6 +220,17 @@ The dashboard exists to make the trace legible, not to be a product. Match list 
 match view (round timeline, economy chart, scoreboard) → debrief, where every claim
 expands into the feature rows it cites and the raw rows each of those was computed
 from. The same chain the CLI prints, with a disclosure triangle on it.
+
+The match view carries a **base ↔ role toggle** (R4): _"Why the team lost"_ (the
+economy/analyst debrief) ↔ _"How each player performed for their role."_ The role
+lens shows a per-player card — role badge, a within-role percentile bar per feature,
+and a one-line role-fit verdict — plus a composition/synergy strip and the role
+debrief, where each claim expands into the same trace, now with the within-role
+percentile and the baseline version it was scored against. Inferred metrics
+(support-before-entry) carry a `role-approx` badge exactly where they appear, so a
+reviewer sees which numbers are event-backed and which are proxies. Percentiles are
+oriented — higher always reads better — so the one inverted metric (first death)
+points the same way as the rest.
 
 **There is no backend.** `python -m src.export.bundle` pre-generates static JSON from
 the store — `web/public/data/index.json` plus one file per match — and the React app
@@ -200,6 +272,9 @@ chart has a table view, so nothing is conveyed by color alone.
 | `src/sim/generator.py` | Schema-faithful match simulator |
 | `src/ingest/pipeline.py` | Resumable ingest into local store |
 | `src/features/` | Round-level feature extraction |
+| `src/features/role.py` | Role-scoped features (R2a) |
+| `src/features/baselines.py` | Versioned per-role peer baselines + within-role percentiles (R2b) |
+| `src/agents/role_fit.py` | Mis-role detection on within-role percentiles (R2c) |
 | `src/agents/rules.py` | Rule registry — the deterministic core |
 | `src/agents/watchdog.py` | Re-verifies every cited value against the store |
 | `src/agents/trace.py` | Decision trace serialization |

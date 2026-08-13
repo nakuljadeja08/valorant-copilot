@@ -35,7 +35,7 @@ def _evidence(ref: FeatureRef) -> dict[str, Any]:
 
 
 def conclusion_trace(c: Conclusion) -> dict[str, Any]:
-    return {
+    trace = {
         "rule_id": c.rule_id,
         "agent": c.agent,
         "severity": c.severity,
@@ -47,6 +47,13 @@ def conclusion_trace(c: Conclusion) -> dict[str, Any]:
             for ref in sorted(c.citations, key=lambda r: (r.name, r.round_num))
         ],
     }
+    # Role claims add the middle link of the chain — the within-role percentile and
+    # the baseline it was scored against. Omitted entirely on base claims so their
+    # trace JSON stays byte-identical (the base golden depends on that).
+    if c.percentile is not None:
+        trace["within_role_percentile"] = c.percentile
+        trace["baseline_version"] = c.baseline_version
+    return trace
 
 
 def build_trace(match_id: str, conclusions: list[Conclusion]) -> dict[str, Any]:

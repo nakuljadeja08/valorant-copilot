@@ -95,6 +95,16 @@ export const fmt = (n) =>
 /** A 0-1 rate as a whole-number percentage. */
 export const pct = (n) => (n === null || n === undefined ? "—" : `${Math.round(n * 100)}%`);
 
+/** An integer as an English ordinal: 1 → "1st", 23 → "23rd", 11 → "11th". */
+export const ordinal = (n) => {
+  const v = Math.round(n);
+  const suffix =
+    v % 100 >= 11 && v % 100 <= 13
+      ? "th"
+      : { 1: "st", 2: "nd", 3: "rd" }[v % 10] || "th";
+  return `${v}${suffix}`;
+};
+
 /** The side every first-person number is phrased for. `hero_team` is null when
  *  no focal player was recorded, in which case the UI falls back to Blue and
  *  says so rather than implying a "you" the data cannot support. */

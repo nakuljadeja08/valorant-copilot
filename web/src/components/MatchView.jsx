@@ -1,17 +1,21 @@
+import { useState } from "react";
+
 import { fmt, heroTeam, otherTeam, pct, useJson } from "../lib/data.js";
 import DebriefPanel from "./DebriefPanel.jsx";
 import EconomyChart from "./EconomyChart.jsx";
 import MomentumChart from "./MomentumChart.jsx";
+import RolePanel from "./RolePanel.jsx";
 import RoundTimeline from "./RoundTimeline.jsx";
 import Scoreboard from "./Scoreboard.jsx";
 
 export default function MatchView({ matchId }) {
   const { data, error } = useJson(`match/${encodeURIComponent(matchId)}.json`);
+  const [view, setView] = useState("team");
 
   if (error) return <p className="empty">No bundle for match {matchId}.</p>;
   if (!data) return <p className="empty">Loading match…</p>;
 
-  const { match, rounds, players, match_features: mf, debrief, trace, excluded } = data;
+  const { match, rounds, players, match_features: mf, debrief, trace, excluded, role } = data;
   const pivotalRound = mf.pivotal_round ?? null;
   const team = heroTeam(match);
   const foe = otherTeam(team);
@@ -80,8 +84,33 @@ export default function MatchView({ matchId }) {
         <p className="match-summary">
           {summarize({ team, outcome, stats, postPlant, pivotalRound, swing: mf.pivotal_round_swing })}
         </p>
+
+        {role && (
+          <div className="chip-row view-toggle" role="tablist" aria-label="Match lens">
+            <button
+              className={`chip ${view === "team" ? "active" : ""}`}
+              role="tab"
+              aria-selected={view === "team"}
+              onClick={() => setView("team")}
+            >
+              Why the team lost
+            </button>
+            <button
+              className={`chip ${view === "role" ? "active" : ""}`}
+              role="tab"
+              aria-selected={view === "role"}
+              onClick={() => setView("role")}
+            >
+              How each player performed for their role
+            </button>
+          </div>
+        )}
       </div>
 
+      {view === "role" && role ? (
+        <RolePanel role={role} />
+      ) : (
+        <>
       <MomentumChart
         rounds={rounds}
         pivotalRound={pivotalRound}
@@ -148,6 +177,8 @@ export default function MatchView({ matchId }) {
         {match.match_id} · source: {match.source}
         {foeStats.broken > 0 && ` · ${foe} broke ${foeStats.broken} of its own buys`}
       </p>
+        </>
+      )}
     </>
   );
 }
