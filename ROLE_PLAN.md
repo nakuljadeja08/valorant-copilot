@@ -168,11 +168,11 @@ role debrief with an expandable trace where every sentence links role claim → 
 baseline → rounds.
 
 **Checklist:**
-- [ ] Rule packs for all four roles + at least one cross-role synergy rule
-- [ ] Percentiles carried in the trace and re-verified by Watchdog
-- [ ] `--no-llm` produces a complete role debrief
-- [ ] Golden role-trace test green
-- [ ] Committed and pushed
+- [x] Rule packs for all four roles + at least one cross-role synergy rule  *(R3a: `src/agents/role_coach.py` — R2c faults + strengths + `cold_entries` synergy)*
+- [x] Percentiles carried in the trace and re-verified by Watchdog  *(R3a: `Conclusion.percentile`, `verify_role` re-queries the baseline)*
+- [x] `--no-llm` produces a complete role debrief  *(R3b: `debrief.py --by-role`)*
+- [x] Golden role-trace test green  *(R3c: `tests/test_role_agent.py`, `tests/regen_role_golden.py`)*
+- [x] Committed and pushed
 
 ---
 

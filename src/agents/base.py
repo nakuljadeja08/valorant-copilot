@@ -35,6 +35,13 @@ class Conclusion:
     verified: bool | None = None
     unverified_reason: str | None = None
 
+    # Role claims (R3) are scored against a within-role peer distribution. The
+    # percentile is a first-class, verifiable quantity: the Watchdog re-queries it
+    # from the cited baseline, so a stale value or a swapped baseline fails the
+    # same way a drifted feature does. None on every base (team/economy) claim.
+    percentile: float | None = None
+    baseline_version: str | None = None
+
     def numerals(self) -> set[str]:
         """Every numeric token this claim is entitled to state."""
         return set(_NUMERAL.findall(self.text))

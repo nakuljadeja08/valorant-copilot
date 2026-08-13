@@ -12,10 +12,13 @@ import argparse
 import sqlite3
 
 from src.agents.base import Conclusion
+from src.agents.role_coach import analyze_roles
 from src.agents.rules import analyze
 from src.agents.trace import build_trace, dumps
-from src.agents.watchdog import verified_only, verify
-from src.agents.writer import Report, write_report
+from src.agents.watchdog import verified_only, verify, verify_role
+from src.agents.writer import ROLE_SYSTEM, Report, write_report
+from src.features.baselines import BASELINE_PATH, Baselines
+from src.features.queries import player_roles
 from src.features.run import compute_for_match
 from src.storage.init import init as init_db
 
@@ -32,6 +35,23 @@ def debrief(conn: sqlite3.Connection, match_id: str,
 
     conclusions = verify(conn, match_id, analyze(conn, match_id))
     report = write_report(verified_only(conclusions), use_llm)
+    return report, conclusions, build_trace(match_id, conclusions)
+
+
+def role_debrief(conn: sqlite3.Connection, match_id: str,
+                 use_llm: bool = True) -> tuple[Report, list[Conclusion], dict]:
+    """The per-player role debrief (R3): claims scored within-role, percentile-verified."""
+    if not conn.execute("SELECT 1 FROM matches WHERE match_id = ?", (match_id,)).fetchone():
+        raise SystemExit(f"match {match_id!r} not found -- ingest it first")
+    if not BASELINE_PATH.exists():
+        raise SystemExit("no baseline artifact -- run `python -m src.features.baselines --build`")
+
+    compute_for_match(conn, match_id)
+    baseline = Baselines.load()
+    roles = player_roles(conn, match_id)
+    conclusions = verify_role(conn, match_id, analyze_roles(conn, match_id, baseline),
+                              baseline, roles)
+    report = write_report(verified_only(conclusions), use_llm, system=ROLE_SYSTEM)
     return report, conclusions, build_trace(match_id, conclusions)
 
 
@@ -73,11 +93,14 @@ if __name__ == "__main__":
     ap.add_argument("--match", required=True, help="match id to debrief")
     ap.add_argument("--no-llm", action="store_true",
                     help="emit template text; runs with no API key")
+    ap.add_argument("--by-role", action="store_true",
+                    help="per-player role debrief (within-role percentiles) instead of the team debrief")
     ap.add_argument("--trace-out", help="write the decision trace JSON to this path")
     args = ap.parse_args()
 
     conn = init_db()
-    report, conclusions, trace = debrief(conn, args.match, use_llm=not args.no_llm)
+    run = role_debrief if args.by_role else debrief
+    report, conclusions, trace = run(conn, args.match, use_llm=not args.no_llm)
     print(render(args.match, report, conclusions, trace))
 
     if args.trace_out:
