@@ -30,9 +30,19 @@ import sqlite3
 from pathlib import Path
 from typing import Any
 
+from functools import lru_cache
+
 from src.agents.constants import FORCE_BUY_RATE
-from src.agents.debrief import debrief
+from src.agents.debrief import debrief, role_debrief
+from src.agents.role_coach import analyze_roles
+from src.agents.trace import build_trace
+from src.agents.watchdog import verify_role
+from src.features.baselines import BASELINE_PATH, Baselines
 from src.features.constants import BUY_NAMES
+from src.features.queries import player_roles
+from src.features.role import ROLE_APPROX
+from src.features.report import ROLE_FEATURE_ORDER
+from src.features.run import compute_for_match
 from src.riot.resolve import ContentResolver, default_resolver
 from src.storage.init import init as init_db
 
@@ -431,6 +441,116 @@ def build_agents(bundles: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+@lru_cache(maxsize=1)
+def _baseline() -> Baselines | None:
+    """The committed peer baseline the role percentiles are scored against.
+
+    Loaded once per process. None when the artifact hasn't been built — the role
+    block is then omitted rather than fabricated, and the base bundle is unchanged.
+    """
+    return Baselines.load() if BASELINE_PATH.exists() else None
+
+
+def _role(conn: sqlite3.Connection, match_id: str, resolver: ContentResolver,
+          use_llm: bool) -> dict[str, Any] | None:
+    """The role layer (R4): per-player cards scored within-role, synergy, debrief.
+
+    Percentiles are `oriented` — higher always reads better, so an inverted metric
+    (first_death_rate) is flipped, matching how the coach phrases it. Returns None
+    when no baseline artifact exists, so a bundle without it stays valid.
+    """
+    from src.agents.watchdog import verified_only
+    from src.agents.writer import ROLE_SYSTEM, write_report
+
+    baseline = _baseline()
+    if baseline is None:
+        return None
+
+    roles = player_roles(conn, match_id)
+    conclusions = verify_role(
+        conn, match_id, analyze_roles(conn, match_id, baseline), baseline, roles)
+    report = write_report(verified_only(conclusions), use_llm, system=ROLE_SYSTEM)
+
+    # Raw player-feature values, and the top verified claim per player (the verdict).
+    values = {
+        (name.split(":", 1)[0], name.split(":", 1)[1]): value
+        for name, value in conn.execute(
+            "SELECT name, value FROM features WHERE match_id=? AND scope='player'", (match_id,))
+    }
+    verdicts: dict[str, tuple[int, str]] = {}
+    for c in conclusions:
+        if c.verified is not True:
+            continue
+        ref = next((r for r in c.citations if r.scope == "player"), None)
+        if ref is None:
+            continue
+        puuid = ref.name.split(":", 1)[1]
+        claim = c.text.split(": ", 1)[-1]  # drop the "Agent (you): " prefix
+        rank = _SEVERITY_RANK.get(c.severity, 9)
+        if puuid not in verdicts or rank < verdicts[puuid][0]:
+            verdicts[puuid] = (rank, claim)
+
+    roster = conn.execute(
+        """SELECT puuid, team_id, character_id FROM match_players
+           WHERE match_id=? ORDER BY team_id, puuid""", (match_id,)).fetchall()
+    hero = _match_meta(conn, match_id, resolver)["hero_puuid"]
+
+    players = []
+    for r in roster:
+        puuid, role = r["puuid"], roles.get(r["puuid"])
+        feats = []
+        for feat in ROLE_FEATURE_ORDER:
+            if (feat, puuid) not in values:
+                continue
+            value = values[(feat, puuid)]
+            res = baseline.percentile_within_role(role, feat, value)
+            feats.append({
+                "name": feat,
+                "value": round(value, 4),
+                "percentile": round(res.oriented_percentile, 1) if res else None,
+                "inverted": bool(res.inverted) if res else False,
+                "role_approx": feat in ROLE_APPROX,
+            })
+        players.append({
+            "puuid": puuid,
+            "team_id": r["team_id"],
+            "agent_name": resolver.agent_name(r["character_id"]),
+            "role": role,
+            "is_hero": puuid == hero,
+            "verdict": verdicts.get(puuid, (9, "Playing to role for the position."))[1],
+            "features": feats,
+        })
+
+    team_feats: dict[str, dict[str, float]] = {}
+    for name, value in conn.execute(
+        "SELECT name, value FROM features WHERE match_id=? AND scope='team'", (match_id,)):
+        feat, _, team = name.partition(":")
+        team_feats.setdefault(team, {})[feat] = value
+    synergy = {
+        team: {
+            "role_balance": int(tf["role_balance"]) if "role_balance" in tf else None,
+            "support_before_entry": (
+                {"value": round(tf["support_before_entry"], 4), "role_approx": True}
+                if "support_before_entry" in tf else None),
+        }
+        for team, tf in sorted(team_feats.items())
+    }
+
+    return {
+        "baseline_version": baseline.version,
+        "baseline_matches": baseline.matches,
+        "players": players,
+        "synergy": synergy,
+        "debrief": {
+            "text": report.text,
+            "used_llm": report.used_llm,
+            "error": report.error,
+            "rejected_numerals": report.rejected_numerals,
+        },
+        "trace": build_trace(match_id, conclusions),
+    }
+
+
 def build_match_bundle(conn: sqlite3.Connection, match_id: str,
                        use_llm: bool = False,
                        resolver: ContentResolver | None = None) -> dict[str, Any]:
@@ -438,7 +558,7 @@ def build_match_bundle(conn: sqlite3.Connection, match_id: str,
     report, conclusions, trace = debrief(conn, match_id, use_llm=use_llm)
     features = _feature_map(conn, match_id)
 
-    return {
+    bundle = {
         "bundle_version": BUNDLE_VERSION,
         "provenance": {
             "note": PROVENANCE_NOTE,
@@ -464,6 +584,10 @@ def build_match_bundle(conn: sqlite3.Connection, match_id: str,
             for c in conclusions if c.verified is not True
         ],
     }
+    role = _role(conn, match_id, resolver, use_llm)
+    if role is not None:
+        bundle["role"] = role
+    return bundle
 
 
 def build_index(bundles: list[dict[str, Any]]) -> dict[str, Any]:
