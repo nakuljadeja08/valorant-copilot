@@ -17,6 +17,11 @@ SCHEMA = Path(__file__).with_name("schema.sql")
 # applied only when the column is missing, which keeps init() idempotent.
 MIGRATIONS = [
     ("matches", "hero_puuid", "TEXT"),
+    # R2a: utility cast counts, for role cadence/volume features.
+    ("round_player_stats", "grenade_casts", "INTEGER DEFAULT 0"),
+    ("round_player_stats", "ability1_casts", "INTEGER DEFAULT 0"),
+    ("round_player_stats", "ability2_casts", "INTEGER DEFAULT 0"),
+    ("round_player_stats", "ultimate_casts", "INTEGER DEFAULT 0"),
 ]
 
 
