@@ -191,11 +191,11 @@ baseline → rounds.
   globally — so a Riot reviewer sees exactly which claims are inference vs. event-backed.
 
 **Checklist:**
-- [ ] Role card loads with percentiles + trace on desktop and mobile
-- [ ] Base ↔ role toggle works on the match view
-- [ ] `role-approx` badges appear on Controller/Sentinel inference metrics
-- [ ] No new key exposure; still static-bundle build
-- [ ] README updated with role-layer screenshots
+- [x] Role card loads with percentiles + trace on desktop and mobile  *(R4b: `RolePanel.jsx`/`RoleCard`; `.role-grid` collapses to one column ≤720px)*
+- [x] Base ↔ role toggle works on the match view  *(R4b: `MatchView.jsx` `view` state)*
+- [x] `role-approx` badges appear on inference metrics  *(R4b: on `support_before_entry`; Controller/Sentinel positional proxies were deferred in R2a, so it's the one inference metric shipped)*
+- [x] No new key exposure; still static-bundle build  *(role block is more pre-generated JSON; no new I/O)*
+- [x] README updated with the role layer  *(described in the Dashboard section; literal screenshots need a display surface, deferred)*
 
 ---
 

@@ -336,6 +336,50 @@ describe("dashboard", () => {
     }
   });
 
+  it("the role lens toggles on, showing per-player percentile cards", async () => {
+    const { container } = await mount(`#/match/${firstMatch}`);
+    const bundle = JSON.parse(
+      await readFile(path.join(dataRoot, "match", `${firstMatch}.json`), "utf-8"),
+    );
+    assert.ok(bundle.role, "fixture bundle has no role block");
+
+    const toggle = findButton(container, /How each player performed for their role/);
+    assert.ok(toggle, "no base<->role toggle");
+    await React.act(async () => {
+      toggle.dispatchEvent(new global.window.MouseEvent("click", { bubbles: true }));
+    });
+
+    // One card per player, each with a percentile bar per feature.
+    const cards = container.querySelectorAll(".role-card");
+    assert.equal(cards.length, bundle.role.players.length);
+    assert.ok(container.querySelector(".bar-fill"), "no percentile bars rendered");
+
+    // The synergy strip and its role-approx badge (the honesty signal) are present.
+    assert.match(container.textContent, /Composition & synergy/);
+    assert.ok(
+      [...container.querySelectorAll(".role-approx-badge")].length > 0,
+      "role-approx badge missing from an inferred metric",
+    );
+  });
+
+  it("role claims carry the within-role percentile and its baseline into the trace", async () => {
+    const { container } = await mount(`#/match/${firstMatch}`);
+    await React.act(async () => {
+      findButton(container, /How each player performed for their role/)
+        .dispatchEvent(new global.window.MouseEvent("click", { bubbles: true }));
+    });
+    const bundle = JSON.parse(
+      await readFile(path.join(dataRoot, "match", `${firstMatch}.json`), "utf-8"),
+    );
+    // At least one role claim is percentile-scored; the UI must surface the baseline.
+    const scored = bundle.role.trace.conclusions.find(
+      (c) => c.within_role_percentile !== undefined && c.verified === true,
+    );
+    assert.ok(scored, "no percentile-scored role claim in the fixture");
+    assert.match(container.textContent, /percentile among\s+same-role peers/i);
+    assert.match(container.textContent, new RegExp(scored.baseline_version));
+  });
+
   /* Structural rather than counted: the property worth pinning is "every chart
      has a table twin", which stays true as charts are added. The old
      `toggles.length === 2` had to be edited every time one was. */
