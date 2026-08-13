@@ -221,6 +221,17 @@ match view (round timeline, economy chart, scoreboard) → debrief, where every 
 expands into the feature rows it cites and the raw rows each of those was computed
 from. The same chain the CLI prints, with a disclosure triangle on it.
 
+The match view carries a **base ↔ role toggle** (R4): _"Why the team lost"_ (the
+economy/analyst debrief) ↔ _"How each player performed for their role."_ The role
+lens shows a per-player card — role badge, a within-role percentile bar per feature,
+and a one-line role-fit verdict — plus a composition/synergy strip and the role
+debrief, where each claim expands into the same trace, now with the within-role
+percentile and the baseline version it was scored against. Inferred metrics
+(support-before-entry) carry a `role-approx` badge exactly where they appear, so a
+reviewer sees which numbers are event-backed and which are proxies. Percentiles are
+oriented — higher always reads better — so the one inverted metric (first death)
+points the same way as the rest.
+
 **There is no backend.** `python -m src.export.bundle` pre-generates static JSON from
 the store — `web/public/data/index.json` plus one file per match — and the React app
 fetches only those. A static host cannot leak an API key it was never given, and the
