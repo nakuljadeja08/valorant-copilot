@@ -43,6 +43,27 @@ Hard constraints:
 Write 2-4 short paragraphs, lead with what decided the match. Address the team
 directly. No headings, no bullet lists, no preamble, no sign-off."""
 
+ROLE_SYSTEM = """You are a VALORANT coaching analyst writing a per-player role debrief.
+
+You will be given a list of verified findings, each about one player and scored
+against other players of the same role. Every finding was produced by a
+deterministic rule and checked against the underlying data.
+
+Your job is to phrase them, not to extend them.
+
+Hard constraints:
+- You may rephrase, reorder, and group the findings by player into prose.
+- The findings name players by their agent and role, and cite within-role
+  percentiles -- you MAY keep those. You MUST NOT introduce any number that does
+  not already appear in the findings: no new percentages, no new percentiles, no
+  recomputed rates.
+- You MUST NOT compare players across different roles, or rank them on a shared
+  scale -- every judgement stays within a player's own role, as the findings do.
+- Anything labelled `role-approx` must stay labelled as an approximation.
+
+Write a short paragraph per player who has findings, leading with what most needs
+to change (or what they did well). No headings, no bullet lists, no sign-off."""
+
 
 @dataclass
 class Report:
@@ -90,7 +111,7 @@ def _findings_block(conclusions: list[Conclusion]) -> str:
     )
 
 
-def llm_report(conclusions: list[Conclusion]) -> Report:
+def llm_report(conclusions: list[Conclusion], system: str = SYSTEM) -> Report:
     """Ask the model to phrase the findings; reject the draft if it invents a number."""
     fallback = template_report(conclusions)
     if not conclusions:
@@ -107,7 +128,7 @@ def llm_report(conclusions: list[Conclusion]) -> Report:
         response = client.messages.create(
             model=MODEL,
             max_tokens=MAX_TOKENS,
-            system=SYSTEM,
+            system=system,
             output_config={"effort": "low"},  # phrasing, not reasoning
             messages=[{"role": "user", "content": _findings_block(conclusions)}],
         )
@@ -129,7 +150,8 @@ def llm_report(conclusions: list[Conclusion]) -> Report:
     return Report(text=draft, used_llm=True)
 
 
-def write_report(conclusions: list[Conclusion], use_llm: bool) -> Report:
+def write_report(conclusions: list[Conclusion], use_llm: bool,
+                 system: str = SYSTEM) -> Report:
     if not use_llm:
         return Report(text=template_report(conclusions), used_llm=False)
-    return llm_report(conclusions)
+    return llm_report(conclusions, system=system)

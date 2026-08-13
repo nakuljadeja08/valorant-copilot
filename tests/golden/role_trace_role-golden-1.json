@@ -1,0 +1,1169 @@
+{
+  "conclusions": [
+    {
+      "agent": "RoleCoach",
+      "baseline_version": "v1-0053970dd262",
+      "claim": "Iso: passive for a Duelist -- took first contact in only 5% of rounds, bottom quartile among Duelists (0th pct)",
+      "evidence": [
+        {
+          "feature": {
+            "name": "first_contact_rate:f280d1c8-1f71-a427-f631-121b12eb3283",
+            "round_num": -1,
+            "scope": "player",
+            "value": 0.045454545454545456
+          },
+          "source_rows": [
+            {
+              "kill_ordinal": 0,
+              "match_id": "role-golden-1",
+              "round_num": 18,
+              "table": "round_kills"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 0,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 1,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 2,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 3,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 4,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 5,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 6,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 7,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 8,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 9,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 10,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 11,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 12,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 13,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 14,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 15,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 16,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 17,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 18,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 19,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 20,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 21,
+              "table": "rounds"
+            }
+          ]
+        }
+      ],
+      "rule_id": "role_fit.duelist_passive_entry",
+      "severity": "warning",
+      "unverified_reason": null,
+      "verified": true,
+      "within_role_percentile": 0.3552397868561279
+    },
+    {
+      "agent": "RoleCoach",
+      "baseline_version": "v1-0053970dd262",
+      "claim": "Chamber: over-exposed for a Sentinel -- first to die in 9% of rounds, worst quartile among Sentinels (13th pct)",
+      "evidence": [
+        {
+          "feature": {
+            "name": "first_death_rate:14feb9d6-984a-b298-38d1-c537fb6c7f29",
+            "round_num": -1,
+            "scope": "player",
+            "value": 0.09090909090909091
+          },
+          "source_rows": [
+            {
+              "kill_ordinal": 0,
+              "match_id": "role-golden-1",
+              "round_num": 11,
+              "table": "round_kills"
+            },
+            {
+              "kill_ordinal": 0,
+              "match_id": "role-golden-1",
+              "round_num": 16,
+              "table": "round_kills"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 0,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 1,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 2,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 3,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 4,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 5,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 6,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 7,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 8,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 9,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 10,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 11,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 12,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 13,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 14,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 15,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 16,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 17,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 18,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 19,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 20,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 21,
+              "table": "rounds"
+            }
+          ]
+        }
+      ],
+      "rule_id": "role_fit.sentinel_overexposed",
+      "severity": "warning",
+      "unverified_reason": null,
+      "verified": true,
+      "within_role_percentile": 12.94363256784969
+    },
+    {
+      "agent": "RoleCoach",
+      "baseline_version": "v1-0053970dd262",
+      "claim": "Brimstone: strong map control -- 3.59 utility casts/round, 85th pct among Controllers",
+      "evidence": [
+        {
+          "feature": {
+            "name": "utility_per_round:cab3eeb1-eff4-f336-4ef5-fa19ab1c5e11",
+            "round_num": -1,
+            "scope": "player",
+            "value": 3.590909090909091
+          },
+          "source_rows": [
+            {
+              "match_id": "role-golden-1",
+              "puuid": "cab3eeb1-eff4-f336-4ef5-fa19ab1c5e11",
+              "round_num": 0,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "cab3eeb1-eff4-f336-4ef5-fa19ab1c5e11",
+              "round_num": 1,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "cab3eeb1-eff4-f336-4ef5-fa19ab1c5e11",
+              "round_num": 2,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "cab3eeb1-eff4-f336-4ef5-fa19ab1c5e11",
+              "round_num": 3,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "cab3eeb1-eff4-f336-4ef5-fa19ab1c5e11",
+              "round_num": 4,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "cab3eeb1-eff4-f336-4ef5-fa19ab1c5e11",
+              "round_num": 5,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "cab3eeb1-eff4-f336-4ef5-fa19ab1c5e11",
+              "round_num": 6,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "cab3eeb1-eff4-f336-4ef5-fa19ab1c5e11",
+              "round_num": 7,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "cab3eeb1-eff4-f336-4ef5-fa19ab1c5e11",
+              "round_num": 8,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "cab3eeb1-eff4-f336-4ef5-fa19ab1c5e11",
+              "round_num": 9,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "cab3eeb1-eff4-f336-4ef5-fa19ab1c5e11",
+              "round_num": 10,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "cab3eeb1-eff4-f336-4ef5-fa19ab1c5e11",
+              "round_num": 11,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "cab3eeb1-eff4-f336-4ef5-fa19ab1c5e11",
+              "round_num": 12,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "cab3eeb1-eff4-f336-4ef5-fa19ab1c5e11",
+              "round_num": 13,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "cab3eeb1-eff4-f336-4ef5-fa19ab1c5e11",
+              "round_num": 14,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "cab3eeb1-eff4-f336-4ef5-fa19ab1c5e11",
+              "round_num": 15,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "cab3eeb1-eff4-f336-4ef5-fa19ab1c5e11",
+              "round_num": 16,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "cab3eeb1-eff4-f336-4ef5-fa19ab1c5e11",
+              "round_num": 17,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "cab3eeb1-eff4-f336-4ef5-fa19ab1c5e11",
+              "round_num": 18,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "cab3eeb1-eff4-f336-4ef5-fa19ab1c5e11",
+              "round_num": 19,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "cab3eeb1-eff4-f336-4ef5-fa19ab1c5e11",
+              "round_num": 20,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "cab3eeb1-eff4-f336-4ef5-fa19ab1c5e11",
+              "round_num": 21,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 0,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 1,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 2,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 3,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 4,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 5,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 6,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 7,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 8,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 9,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 10,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 11,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 12,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 13,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 14,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 15,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 16,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 17,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 18,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 19,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 20,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 21,
+              "table": "rounds"
+            }
+          ]
+        }
+      ],
+      "rule_id": "role_coach.controller_map_control",
+      "severity": "info",
+      "unverified_reason": null,
+      "verified": true,
+      "within_role_percentile": 84.53159041394335
+    },
+    {
+      "agent": "RoleCoach",
+      "baseline_version": "v1-0053970dd262",
+      "claim": "Phoenix: entering with support -- 50% of entry deaths traded, 86th pct among Duelists",
+      "evidence": [
+        {
+          "feature": {
+            "name": "entry_trade_rate:02cfd674-d936-a5c0-7b62-9b057add0b71",
+            "round_num": -1,
+            "scope": "player",
+            "value": 0.5
+          },
+          "source_rows": [
+            {
+              "kill_ordinal": 0,
+              "match_id": "role-golden-1",
+              "round_num": 7,
+              "table": "round_kills"
+            },
+            {
+              "kill_ordinal": 0,
+              "match_id": "role-golden-1",
+              "round_num": 14,
+              "table": "round_kills"
+            },
+            {
+              "kill_ordinal": 1,
+              "match_id": "role-golden-1",
+              "round_num": 14,
+              "table": "round_kills"
+            }
+          ]
+        }
+      ],
+      "rule_id": "role_coach.duelist_trade_secure",
+      "severity": "info",
+      "unverified_reason": null,
+      "verified": true,
+      "within_role_percentile": 86.32162661737523
+    },
+    {
+      "agent": "RoleCoach",
+      "baseline_version": "v1-0053970dd262",
+      "claim": "Gekko: driving setups -- assisted on 86% of rounds, 87th pct among Initiators",
+      "evidence": [
+        {
+          "feature": {
+            "name": "assist_rate:0dd27dff-9c08-d49e-509c-6113983ebfa6",
+            "round_num": -1,
+            "scope": "player",
+            "value": 0.8636363636363636
+          },
+          "source_rows": [
+            {
+              "assistant_puuid": "0dd27dff-9c08-d49e-509c-6113983ebfa6",
+              "kill_ordinal": 4,
+              "match_id": "role-golden-1",
+              "round_num": 0,
+              "table": "round_kill_assists"
+            },
+            {
+              "assistant_puuid": "0dd27dff-9c08-d49e-509c-6113983ebfa6",
+              "kill_ordinal": 1,
+              "match_id": "role-golden-1",
+              "round_num": 1,
+              "table": "round_kill_assists"
+            },
+            {
+              "assistant_puuid": "0dd27dff-9c08-d49e-509c-6113983ebfa6",
+              "kill_ordinal": 0,
+              "match_id": "role-golden-1",
+              "round_num": 3,
+              "table": "round_kill_assists"
+            },
+            {
+              "assistant_puuid": "0dd27dff-9c08-d49e-509c-6113983ebfa6",
+              "kill_ordinal": 1,
+              "match_id": "role-golden-1",
+              "round_num": 3,
+              "table": "round_kill_assists"
+            },
+            {
+              "assistant_puuid": "0dd27dff-9c08-d49e-509c-6113983ebfa6",
+              "kill_ordinal": 2,
+              "match_id": "role-golden-1",
+              "round_num": 3,
+              "table": "round_kill_assists"
+            },
+            {
+              "assistant_puuid": "0dd27dff-9c08-d49e-509c-6113983ebfa6",
+              "kill_ordinal": 5,
+              "match_id": "role-golden-1",
+              "round_num": 4,
+              "table": "round_kill_assists"
+            },
+            {
+              "assistant_puuid": "0dd27dff-9c08-d49e-509c-6113983ebfa6",
+              "kill_ordinal": 2,
+              "match_id": "role-golden-1",
+              "round_num": 7,
+              "table": "round_kill_assists"
+            },
+            {
+              "assistant_puuid": "cab3eeb1-eff4-f336-4ef5-fa19ab1c5e11",
+              "kill_ordinal": 2,
+              "match_id": "role-golden-1",
+              "round_num": 7,
+              "table": "round_kill_assists"
+            },
+            {
+              "assistant_puuid": "0dd27dff-9c08-d49e-509c-6113983ebfa6",
+              "kill_ordinal": 3,
+              "match_id": "role-golden-1",
+              "round_num": 9,
+              "table": "round_kill_assists"
+            },
+            {
+              "assistant_puuid": "0dd27dff-9c08-d49e-509c-6113983ebfa6",
+              "kill_ordinal": 0,
+              "match_id": "role-golden-1",
+              "round_num": 11,
+              "table": "round_kill_assists"
+            },
+            {
+              "assistant_puuid": "0dd27dff-9c08-d49e-509c-6113983ebfa6",
+              "kill_ordinal": 3,
+              "match_id": "role-golden-1",
+              "round_num": 11,
+              "table": "round_kill_assists"
+            },
+            {
+              "assistant_puuid": "0dd27dff-9c08-d49e-509c-6113983ebfa6",
+              "kill_ordinal": 3,
+              "match_id": "role-golden-1",
+              "round_num": 12,
+              "table": "round_kill_assists"
+            },
+            {
+              "assistant_puuid": "0dd27dff-9c08-d49e-509c-6113983ebfa6",
+              "kill_ordinal": 0,
+              "match_id": "role-golden-1",
+              "round_num": 13,
+              "table": "round_kill_assists"
+            },
+            {
+              "assistant_puuid": "cab3eeb1-eff4-f336-4ef5-fa19ab1c5e11",
+              "kill_ordinal": 0,
+              "match_id": "role-golden-1",
+              "round_num": 13,
+              "table": "round_kill_assists"
+            },
+            {
+              "assistant_puuid": "0dd27dff-9c08-d49e-509c-6113983ebfa6",
+              "kill_ordinal": 4,
+              "match_id": "role-golden-1",
+              "round_num": 13,
+              "table": "round_kill_assists"
+            },
+            {
+              "assistant_puuid": "0dd27dff-9c08-d49e-509c-6113983ebfa6",
+              "kill_ordinal": 3,
+              "match_id": "role-golden-1",
+              "round_num": 16,
+              "table": "round_kill_assists"
+            },
+            {
+              "assistant_puuid": "cab3eeb1-eff4-f336-4ef5-fa19ab1c5e11",
+              "kill_ordinal": 3,
+              "match_id": "role-golden-1",
+              "round_num": 16,
+              "table": "round_kill_assists"
+            },
+            {
+              "assistant_puuid": "0dd27dff-9c08-d49e-509c-6113983ebfa6",
+              "kill_ordinal": 5,
+              "match_id": "role-golden-1",
+              "round_num": 17,
+              "table": "round_kill_assists"
+            },
+            {
+              "assistant_puuid": "0dd27dff-9c08-d49e-509c-6113983ebfa6",
+              "kill_ordinal": 1,
+              "match_id": "role-golden-1",
+              "round_num": 18,
+              "table": "round_kill_assists"
+            },
+            {
+              "assistant_puuid": "cab3eeb1-eff4-f336-4ef5-fa19ab1c5e11",
+              "kill_ordinal": 1,
+              "match_id": "role-golden-1",
+              "round_num": 18,
+              "table": "round_kill_assists"
+            },
+            {
+              "assistant_puuid": "0dd27dff-9c08-d49e-509c-6113983ebfa6",
+              "kill_ordinal": 2,
+              "match_id": "role-golden-1",
+              "round_num": 18,
+              "table": "round_kill_assists"
+            },
+            {
+              "assistant_puuid": "f280d1c8-1f71-a427-f631-121b12eb3283",
+              "kill_ordinal": 2,
+              "match_id": "role-golden-1",
+              "round_num": 18,
+              "table": "round_kill_assists"
+            },
+            {
+              "assistant_puuid": "0dd27dff-9c08-d49e-509c-6113983ebfa6",
+              "kill_ordinal": 0,
+              "match_id": "role-golden-1",
+              "round_num": 21,
+              "table": "round_kill_assists"
+            },
+            {
+              "assistant_puuid": "cab3eeb1-eff4-f336-4ef5-fa19ab1c5e11",
+              "kill_ordinal": 0,
+              "match_id": "role-golden-1",
+              "round_num": 21,
+              "table": "round_kill_assists"
+            },
+            {
+              "assistant_puuid": "0dd27dff-9c08-d49e-509c-6113983ebfa6",
+              "kill_ordinal": 1,
+              "match_id": "role-golden-1",
+              "round_num": 21,
+              "table": "round_kill_assists"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 0,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 1,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 2,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 3,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 4,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 5,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 6,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 7,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 8,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 9,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 10,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 11,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 12,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 13,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 14,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 15,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 16,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 17,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 18,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 19,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 20,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 21,
+              "table": "rounds"
+            }
+          ]
+        }
+      ],
+      "rule_id": "role_coach.initiator_assist_engine",
+      "severity": "info",
+      "unverified_reason": null,
+      "verified": true,
+      "within_role_percentile": 86.97394789579158
+    },
+    {
+      "agent": "RoleCoach",
+      "baseline_version": "v1-0053970dd262",
+      "claim": "Viper: thin map control for a Controller -- 2.55 utility casts/round, bottom quartile among Controllers (1st pct)",
+      "evidence": [
+        {
+          "feature": {
+            "name": "utility_per_round:d075f8eb-86ab-4226-4a8b-cc98ae1ec29f",
+            "round_num": -1,
+            "scope": "player",
+            "value": 2.5454545454545454
+          },
+          "source_rows": [
+            {
+              "match_id": "role-golden-1",
+              "puuid": "d075f8eb-86ab-4226-4a8b-cc98ae1ec29f",
+              "round_num": 0,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "d075f8eb-86ab-4226-4a8b-cc98ae1ec29f",
+              "round_num": 1,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "d075f8eb-86ab-4226-4a8b-cc98ae1ec29f",
+              "round_num": 2,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "d075f8eb-86ab-4226-4a8b-cc98ae1ec29f",
+              "round_num": 3,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "d075f8eb-86ab-4226-4a8b-cc98ae1ec29f",
+              "round_num": 4,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "d075f8eb-86ab-4226-4a8b-cc98ae1ec29f",
+              "round_num": 5,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "d075f8eb-86ab-4226-4a8b-cc98ae1ec29f",
+              "round_num": 6,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "d075f8eb-86ab-4226-4a8b-cc98ae1ec29f",
+              "round_num": 7,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "d075f8eb-86ab-4226-4a8b-cc98ae1ec29f",
+              "round_num": 8,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "d075f8eb-86ab-4226-4a8b-cc98ae1ec29f",
+              "round_num": 9,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "d075f8eb-86ab-4226-4a8b-cc98ae1ec29f",
+              "round_num": 10,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "d075f8eb-86ab-4226-4a8b-cc98ae1ec29f",
+              "round_num": 11,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "d075f8eb-86ab-4226-4a8b-cc98ae1ec29f",
+              "round_num": 12,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "d075f8eb-86ab-4226-4a8b-cc98ae1ec29f",
+              "round_num": 13,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "d075f8eb-86ab-4226-4a8b-cc98ae1ec29f",
+              "round_num": 14,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "d075f8eb-86ab-4226-4a8b-cc98ae1ec29f",
+              "round_num": 15,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "d075f8eb-86ab-4226-4a8b-cc98ae1ec29f",
+              "round_num": 16,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "d075f8eb-86ab-4226-4a8b-cc98ae1ec29f",
+              "round_num": 17,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "d075f8eb-86ab-4226-4a8b-cc98ae1ec29f",
+              "round_num": 18,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "d075f8eb-86ab-4226-4a8b-cc98ae1ec29f",
+              "round_num": 19,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "d075f8eb-86ab-4226-4a8b-cc98ae1ec29f",
+              "round_num": 20,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "puuid": "d075f8eb-86ab-4226-4a8b-cc98ae1ec29f",
+              "round_num": 21,
+              "table": "round_player_stats"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 0,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 1,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 2,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 3,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 4,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 5,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 6,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 7,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 8,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 9,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 10,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 11,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 12,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 13,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 14,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 15,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 16,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 17,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 18,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 19,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 20,
+              "table": "rounds"
+            },
+            {
+              "match_id": "role-golden-1",
+              "round_num": 21,
+              "table": "rounds"
+            }
+          ]
+        }
+      ],
+      "rule_id": "role_fit.controller_thin_smokes",
+      "severity": "info",
+      "unverified_reason": null,
+      "verified": true,
+      "within_role_percentile": 0.8714596949891068
+    }
+  ],
+  "match_id": "role-golden-1",
+  "summary": {
+    "conclusions": 6,
+    "source_rows_cited": 185,
+    "unverified": 0,
+    "verified": 6
+  },
+  "trace_version": 1
+}
