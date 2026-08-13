@@ -257,6 +257,42 @@
   gap: 14px;
 }
 
+/* ---------------------------------------------------------------- role ---
+   R4: the role coaching lens. Per-player cards of within-role percentile bars,
+   the base<->role toggle, and the role-approx badge on inferred metrics. */
+
+.view-toggle {
+  margin-top: 14px;
+}
+
+.chip[aria-selected="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--surface-page);
+  font-weight: 600;
+}
+
+.role-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.role-card .bar-list {
+  margin-top: 12px;
+}
+
+.role-approx-badge {
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+@media (max-width: 720px) {
+  .role-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* --------------------------------------------------------------- claim ---
    The decision trace. Structure is unchanged from Phase 3 — only the surface
    treatment is new, because the disclosure is the honesty mechanism. */

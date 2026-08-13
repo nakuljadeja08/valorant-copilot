@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { ordinal } from "../lib/data.js";
+
 const PREVIEW_ROWS = 8;
 
 const short = (id) => (id && id.length > 8 ? `${id.slice(0, 8)}…` : id ?? "");
@@ -31,6 +33,14 @@ export default function ClaimCard({ conclusion }) {
 
       <p className="claim-text">{conclusion.claim}</p>
 
+      {conclusion.within_role_percentile !== undefined && (
+        <p className="footnote" style={{ margin: "0 0 8px" }}>
+          Scored within role: {ordinal(conclusion.within_role_percentile)} percentile among
+          same-role peers, baseline <span className="mono">{conclusion.baseline_version}</span>.
+          The Watchdog re-queried this percentile from that baseline.
+        </p>
+      )}
+
       <button className="disclose" onClick={() => setOpen((v) => !v)} aria-expanded={open}>
         {open ? "Hide decision trace" : `Show decision trace — ${conclusion.evidence.length} feature row(s), ${rowCount} raw row(s)`}
       </button>
@@ -41,6 +51,12 @@ export default function ClaimCard({ conclusion }) {
             <span>raw rows</span>
             <span aria-hidden="true">→</span>
             <span>feature rows</span>
+            {conclusion.within_role_percentile !== undefined && (
+              <>
+                <span aria-hidden="true">→</span>
+                <span>within-role percentile</span>
+              </>
+            )}
             <span aria-hidden="true">→</span>
             <span>{conclusion.rule_id}</span>
             <span aria-hidden="true">→</span>
