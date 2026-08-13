@@ -120,11 +120,11 @@ player: role, each role feature, its within-role percentile, the baseline versio
 source rows.
 
 **Checklist:**
-- [ ] Role features implemented for all four roles, each with lineage
+- [x] Role features implemented for all four roles, each with lineage  *(R2a; position/side-based ones — anchor_positioning, defensive hold_trade, post-plant presence — deferred: no data)*
 - [ ] Peer baselines computed and versioned; percentile lookup works
 - [x] Sim shows real role separation (Duelist vs. Sentinel first-contact gap)  *(R2e)*
 - [ ] Role-fit rules fire on injected off-role behavior
-- [ ] Everything sim-derived labeled `sim-approx` / `role-approx` as appropriate
+- [x] Everything sim-derived labeled `sim-approx` / `role-approx` as appropriate  *(R2a: `ROLE_APPROX` badge on `support_before_entry`; rest are event/count-backed)*
 - [ ] README: role feature definitions + the "role-relative, not cross-role" principle
 - [ ] Committed and pushed
 

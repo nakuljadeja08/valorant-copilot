@@ -56,11 +56,17 @@ class FeatureView:
     def __bool__(self) -> bool:
         return bool(self._by_key)
 
+    # Scopes whose `name:suffix` suffix is a team id. Player-scoped features (R2a)
+    # also carry a `name:<puuid>` suffix, but that suffix is a player, not a team —
+    # so team enumeration must ignore them or puuids leak in as phantom teams.
+    _TEAM_SCOPES = frozenset({"team", "team_round"})
+
     @property
     def teams(self) -> list[str]:
-        """Team ids present in the feature names, e.g. ['Blue', 'Red']."""
+        """Team ids present in the team-scoped feature names, e.g. ['Blue', 'Red']."""
         return sorted({
-            ref.team for ref in self._by_key.values() if ref.team is not None
+            ref.team for ref in self._by_key.values()
+            if ref.scope in self._TEAM_SCOPES and ref.team is not None
         })
 
     def match_value(self, name: str) -> FeatureRef | None:
