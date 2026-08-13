@@ -11,6 +11,8 @@ import argparse
 import json
 import sqlite3
 
+from src.agents.role_fit import evaluate_role_fit
+from src.agents.view import FeatureView
 from src.features.baselines import BASELINE_PATH, Baselines
 from src.features.constants import BUY_NAMES
 from src.features.queries import player_roles
@@ -95,6 +97,12 @@ def report_by_role(conn: sqlite3.Connection, match_id: str) -> str:
     # baseline artifact has been built (R2b). Absent is fine: fall back to raw.
     baseline = Baselines.load() if BASELINE_PATH.exists() else None
 
+    # Role-fit flags (R2c): mis-role behavior, grouped by player.
+    flags_by_player: dict[str, list] = {}
+    if baseline is not None:
+        for f in evaluate_role_fit(FeatureView(conn, match_id), roles, baseline):
+            flags_by_player.setdefault(f.puuid, []).append(f)
+
     # Collect player-scoped role features: name is `<feature>:<puuid>`.
     per_player: dict[str, dict[str, sqlite3.Row]] = {}
     for r in conn.execute(
@@ -128,6 +136,8 @@ def report_by_role(conn: sqlite3.Connection, match_id: str) -> str:
                     pct = f"p{res.oriented_percentile:>5.1f}{mark} "
             lines.append(f"    {feat:<20} {row['value']:<8.3f} {pct}"
                          f"{_lineage_summary(row['inputs_json'])}{badge}")
+        for f in flags_by_player.get(puuid, []):
+            lines.append(f"    >> FLAG [{f.severity}] {f.text}")
 
     # Cross-role synergy strip.
     team_rows = conn.execute(
