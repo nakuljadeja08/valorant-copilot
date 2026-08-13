@@ -7,3 +7,6 @@ data/*.db
 data/cache/
 .pytest_cache/
 .DS_Store
+valorant-copilot-riot-deck.pptx
+valorant-copilot-riot-deck.pdf
+
