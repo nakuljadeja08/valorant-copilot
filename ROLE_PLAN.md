@@ -125,8 +125,8 @@ source rows.
 - [x] Sim shows real role separation (Duelist vs. Sentinel first-contact gap)  *(R2e)*
 - [x] Role-fit rules fire on injected off-role behavior  *(R2c: `src/agents/role_fit.py`, bottom-quartile within-role percentile)*
 - [x] Everything sim-derived labeled `sim-approx` / `role-approx` as appropriate  *(R2a: `ROLE_APPROX` badge on `support_before_entry`; rest are event/count-backed)*
-- [ ] README: role feature definitions + the "role-relative, not cross-role" principle
-- [ ] Committed and pushed
+- [x] README: role feature definitions + the "role-relative, not cross-role" principle
+- [x] Committed and pushed
 
 ---
 
