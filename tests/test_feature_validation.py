@@ -98,6 +98,15 @@ class TestLineageIntegrity:
             (r["match_id"], r["round_num"], r["puuid"])
             for r in conn.execute("SELECT match_id, round_num, puuid FROM round_player_stats")
         }
+        existing_kills = {
+            (r["match_id"], r["round_num"], r["kill_ordinal"])
+            for r in conn.execute("SELECT match_id, round_num, kill_ordinal FROM round_kills")
+        }
+        existing_assists = {
+            (r["match_id"], r["round_num"], r["kill_ordinal"], r["assistant_puuid"])
+            for r in conn.execute(
+                "SELECT match_id, round_num, kill_ordinal, assistant_puuid FROM round_kill_assists")
+        }
 
         checked = 0
         for row in conn.execute("SELECT match_id, inputs_json FROM features"):
@@ -107,6 +116,11 @@ class TestLineageIntegrity:
                     assert (ref["match_id"], ref["round_num"]) in existing_rounds
                 elif ref["table"] == "round_player_stats":
                     assert (ref["match_id"], ref["round_num"], ref["puuid"]) in existing_rps
+                elif ref["table"] == "round_kills":
+                    assert (ref["match_id"], ref["round_num"], ref["kill_ordinal"]) in existing_kills
+                elif ref["table"] == "round_kill_assists":
+                    assert (ref["match_id"], ref["round_num"], ref["kill_ordinal"],
+                            ref["assistant_puuid"]) in existing_assists
                 else:
                     raise AssertionError(f"unexpected lineage table: {ref['table']}")
                 checked += 1

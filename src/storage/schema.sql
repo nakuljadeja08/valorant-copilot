@@ -56,8 +56,43 @@ CREATE TABLE IF NOT EXISTS round_player_stats (
     kills           INTEGER,
     damage          INTEGER,
     score           INTEGER,
+    -- Utility cast counts (val-match-v1 playerStats.ability). Role features read
+    -- these for cadence/volume; live data exposes casts as counts, not timings.
+    grenade_casts   INTEGER DEFAULT 0,
+    ability1_casts  INTEGER DEFAULT 0,
+    ability2_casts  INTEGER DEFAULT 0,
+    ultimate_casts  INTEGER DEFAULT 0,
     PRIMARY KEY (match_id, round_num, puuid)
 );
+
+-- The kill timeline: one row per kill, ordered within the round by kill_ordinal
+-- (0 = first contact). This is the event backing for the role features — first
+-- contact, first death, entry trades, multikills — that a per-round kill *count*
+-- can't express. Mirrors val-match-v1 roundResults[].playerStats[].kills[].
+CREATE TABLE IF NOT EXISTS round_kills (
+    match_id        TEXT NOT NULL,
+    round_num       INTEGER NOT NULL,
+    kill_ordinal    INTEGER NOT NULL,     -- 0-based order within the round, by time
+    killer_puuid    TEXT NOT NULL,
+    victim_puuid    TEXT NOT NULL,
+    round_time_ms   INTEGER,              -- timeSinceRoundStartMillis
+    traded          INTEGER DEFAULT 0,    -- 1 if this kill traded back the prior fragger
+    PRIMARY KEY (match_id, round_num, kill_ordinal)
+);
+
+-- Assistants on a kill, normalized (a kill can have 0-4). Kept out of round_kills
+-- so assist_rate can cite the exact rows it counted.
+CREATE TABLE IF NOT EXISTS round_kill_assists (
+    match_id        TEXT NOT NULL,
+    round_num       INTEGER NOT NULL,
+    kill_ordinal    INTEGER NOT NULL,
+    assistant_puuid TEXT NOT NULL,
+    PRIMARY KEY (match_id, round_num, kill_ordinal, assistant_puuid)
+);
+
+CREATE INDEX IF NOT EXISTS idx_kills_match ON round_kills(match_id);
+CREATE INDEX IF NOT EXISTS idx_kills_killer ON round_kills(match_id, killer_puuid);
+CREATE INDEX IF NOT EXISTS idx_kills_victim ON round_kills(match_id, victim_puuid);
 
 -- Ingest bookkeeping: makes the pipeline resumable across dev-key expiry.
 CREATE TABLE IF NOT EXISTS ingest_log (
