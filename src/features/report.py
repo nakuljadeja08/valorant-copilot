@@ -11,6 +11,7 @@ import argparse
 import json
 import sqlite3
 
+from src.features.baselines import BASELINE_PATH, Baselines
 from src.features.constants import BUY_NAMES
 from src.features.queries import player_roles
 from src.features.role import ROLE_APPROX
@@ -90,6 +91,9 @@ def report_by_role(conn: sqlite3.Connection, match_id: str) -> str:
     resolver = default_resolver()
     agents = {r["puuid"]: r["character_id"] for r in conn.execute(
         "SELECT puuid, character_id FROM match_players WHERE match_id = ?", (match_id,))}
+    # Within-role percentiles are the number the UI shows — load them if the
+    # baseline artifact has been built (R2b). Absent is fine: fall back to raw.
+    baseline = Baselines.load() if BASELINE_PATH.exists() else None
 
     # Collect player-scoped role features: name is `<feature>:<puuid>`.
     per_player: dict[str, dict[str, sqlite3.Row]] = {}
@@ -101,6 +105,10 @@ def report_by_role(conn: sqlite3.Connection, match_id: str) -> str:
         per_player.setdefault(puuid, {})[feat] = r
 
     lines = [f"Role report - match {match_id}", "=" * 64]
+    if baseline is not None:
+        lines.append(f"within-role percentiles vs baseline {baseline.version} "
+                     f"({baseline.matches} matches); p = percentile among same-role peers, "
+                     f"* = inverted (low raw is good)")
     order = {"duelist": 0, "initiator": 1, "controller": 2, "sentinel": 3}
     for puuid in sorted(per_player, key=lambda p: (order.get(roles.get(p), 9), p)):
         role = roles.get(puuid, "?")
@@ -112,7 +120,13 @@ def report_by_role(conn: sqlite3.Connection, match_id: str) -> str:
             if row is None:
                 continue
             badge = "  role-approx" if feat in ROLE_APPROX else ""
-            lines.append(f"    {feat:<20} {row['value']:<8.3f} "
+            pct = ""
+            if baseline is not None:
+                res = baseline.percentile_within_role(role, feat, row["value"])
+                if res is not None:
+                    mark = "*" if res.inverted else " "
+                    pct = f"p{res.oriented_percentile:>5.1f}{mark} "
+            lines.append(f"    {feat:<20} {row['value']:<8.3f} {pct}"
                          f"{_lineage_summary(row['inputs_json'])}{badge}")
 
     # Cross-role synergy strip.
