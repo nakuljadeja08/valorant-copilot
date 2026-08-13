@@ -3,7 +3,7 @@
   "debrief": {
     "error": null,
     "rejected_numerals": null,
-    "text": "Analyst\n-------\n  [critical] Blue lost R3 on a broken buy: the loss bonus had escalated far enough to fund a real buy, but the team still walked in on a force.\n           rule: analyst.pivotal_broken_buy, 5 feature row(s) cited\n  [warning] Blue went into the pivotal R3 already 2 rounds into a losing streak -- the round that decided the match was played on bonus money.\n           rule: analyst.pivotal_streak, 4 feature row(s) cited\n  [warning] Blue got the spike down but could not hold it -- only 0% of its plants converted into round wins.\n           rule: analyst.post_plant_conversion, 2 feature row(s) cited\n  [warning] Blue was out-traded across the match, taking 44% of round kills over 14 rounds against a 50% even split (sim-approx: kill share stands in for real trade windows).\n           rule: analyst.trade_efficiency, 14 feature row(s) cited\n  [info] R3 was the match's pivotal round -- the largest single swing (0.135) in the win-probability proxy. Red took it, Blue lost it.\n           rule: analyst.pivotal_round, 4 feature row(s) cited\n\nEconomist\n---------\n  [critical] Blue broke its buy 2 times (R3, R13) -- rounds where the escalated loss bonus should have funded a real buy and the team went in short anyway.\n           rule: economist.broken_buy_count, 2 feature row(s) cited\n  [warning] Blue force-bought 3 rounds back to back (R11, R12, R13). One force is a read; a run this long means the team never got off the back foot long enough to rebuild.\n           rule: economist.consecutive_force, 3 feature row(s) cited\n  [warning] Blue force-bought in 5 of 14 rounds (36%), past the 30% mark where forcing stops being a read and starts being a habit.\n           rule: economist.force_buy_frequency, 14 feature row(s) cited\n  [info] Blue stole 0 of its 1 eco rounds (0%).\n           rule: economist.eco_conversion, 2 feature row(s) cited\n  [info] Red stole 1 of its 1 eco rounds (100%).\n           rule: economist.eco_conversion, 2 feature row(s) cited",
+    "text": "Analyst\n-------\n  [warning] Red was simply out-fought in the pivotal R6, taking only 0% of the round's kills (sim-approx: kill share stands in for real trade windows).\n           rule: analyst.pivotal_trade_collapse, 4 feature row(s) cited\n  [warning] Blue got the spike down but could not hold it -- only 0% of its plants converted into round wins.\n           rule: analyst.post_plant_conversion, 2 feature row(s) cited\n  [warning] Blue was out-traded across the match, taking 33% of round kills over 14 rounds against a 50% even split (sim-approx: kill share stands in for real trade windows).\n           rule: analyst.trade_efficiency, 14 feature row(s) cited\n  [info] R6 was the match's pivotal round -- the largest single swing (0.107) in the win-probability proxy. Blue took it, Red lost it.\n           rule: analyst.pivotal_round, 4 feature row(s) cited\n  [info] Red reached a plant in only 42% of its attack rounds -- most of those rounds were lost before the spike ever went down.\n           rule: analyst.plant_rate, 1 feature row(s) cited\n\nEconomist\n---------\n  [critical] Blue broke its buy 6 times (R2, R4, R6, R9, R11, R12) -- rounds where the escalated loss bonus should have funded a real buy and the team went in short anyway.\n           rule: economist.broken_buy_count, 6 feature row(s) cited\n  [warning] Blue force-bought in 7 of 14 rounds (50%), past the 30% mark where forcing stops being a read and starts being a habit.\n           rule: economist.force_buy_frequency, 14 feature row(s) cited\n  [info] Blue stole 0 of its 1 eco rounds (0%).\n           rule: economist.eco_conversion, 2 feature row(s) cited\n  [info] Red stole 1 of its 1 eco rounds (100%).\n           rule: economist.eco_conversion, 2 feature row(s) cited",
     "used_llm": false
   },
   "excluded": [],
@@ -24,122 +24,202 @@
     "winner": "Red"
   },
   "match_features": {
-    "pivotal_round": 3.0,
-    "pivotal_round_swing": 0.13482674983863527,
+    "assist_rate:0b37c6ce-90c7-a594-f01a-70b49cc6aad5": 0.5,
+    "assist_rate:65e45595-8ebb-9401-826b-ac44fe4c42e7": 0.35714285714285715,
+    "assist_rate:85d27d32-ff3f-c580-54a9-7e8b723cc5ee": 0.14285714285714285,
+    "assist_rate:972157dd-8f42-dbc7-9430-b1e2e20cc7ca": 0.5,
+    "assist_rate:9b69cfa8-fdb0-8990-10d7-54589b3c2c70": 0.7142857142857143,
+    "assist_rate:a0d39947-19b3-ba75-7ebb-7905c38297c9": 0.2857142857142857,
+    "assist_rate:c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a": 0.2857142857142857,
+    "assist_rate:ccbf7a75-c5fd-e7a0-aee2-0713be1e3979": 0.07142857142857142,
+    "assist_rate:e5c845a6-2a5f-a6a5-8ed8-d1c6bc3f09a0": 0.42857142857142855,
+    "assist_rate:hero": 0.42857142857142855,
+    "entry_success_rate:0b37c6ce-90c7-a594-f01a-70b49cc6aad5": 0.14285714285714285,
+    "entry_success_rate:65e45595-8ebb-9401-826b-ac44fe4c42e7": 0.07142857142857142,
+    "entry_success_rate:85d27d32-ff3f-c580-54a9-7e8b723cc5ee": 0.0,
+    "entry_success_rate:972157dd-8f42-dbc7-9430-b1e2e20cc7ca": 0.35714285714285715,
+    "entry_success_rate:9b69cfa8-fdb0-8990-10d7-54589b3c2c70": 0.07142857142857142,
+    "entry_success_rate:a0d39947-19b3-ba75-7ebb-7905c38297c9": 0.0,
+    "entry_success_rate:c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a": 0.07142857142857142,
+    "entry_success_rate:ccbf7a75-c5fd-e7a0-aee2-0713be1e3979": 0.0,
+    "entry_success_rate:e5c845a6-2a5f-a6a5-8ed8-d1c6bc3f09a0": 0.07142857142857142,
+    "entry_success_rate:hero": 0.21428571428571427,
+    "entry_trade_rate:65e45595-8ebb-9401-826b-ac44fe4c42e7": 0.0,
+    "entry_trade_rate:85d27d32-ff3f-c580-54a9-7e8b723cc5ee": 0.75,
+    "entry_trade_rate:972157dd-8f42-dbc7-9430-b1e2e20cc7ca": 0.0,
+    "entry_trade_rate:9b69cfa8-fdb0-8990-10d7-54589b3c2c70": 0.0,
+    "entry_trade_rate:ccbf7a75-c5fd-e7a0-aee2-0713be1e3979": 0.0,
+    "entry_trade_rate:e5c845a6-2a5f-a6a5-8ed8-d1c6bc3f09a0": 0.0,
+    "first_contact_rate:0b37c6ce-90c7-a594-f01a-70b49cc6aad5": 0.14285714285714285,
+    "first_contact_rate:65e45595-8ebb-9401-826b-ac44fe4c42e7": 0.21428571428571427,
+    "first_contact_rate:85d27d32-ff3f-c580-54a9-7e8b723cc5ee": 0.2857142857142857,
+    "first_contact_rate:972157dd-8f42-dbc7-9430-b1e2e20cc7ca": 0.5,
+    "first_contact_rate:9b69cfa8-fdb0-8990-10d7-54589b3c2c70": 0.14285714285714285,
+    "first_contact_rate:a0d39947-19b3-ba75-7ebb-7905c38297c9": 0.0,
+    "first_contact_rate:c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a": 0.07142857142857142,
+    "first_contact_rate:ccbf7a75-c5fd-e7a0-aee2-0713be1e3979": 0.07142857142857142,
+    "first_contact_rate:e5c845a6-2a5f-a6a5-8ed8-d1c6bc3f09a0": 0.35714285714285715,
+    "first_contact_rate:hero": 0.21428571428571427,
+    "first_death_rate:0b37c6ce-90c7-a594-f01a-70b49cc6aad5": 0.0,
+    "first_death_rate:65e45595-8ebb-9401-826b-ac44fe4c42e7": 0.14285714285714285,
+    "first_death_rate:85d27d32-ff3f-c580-54a9-7e8b723cc5ee": 0.2857142857142857,
+    "first_death_rate:972157dd-8f42-dbc7-9430-b1e2e20cc7ca": 0.14285714285714285,
+    "first_death_rate:9b69cfa8-fdb0-8990-10d7-54589b3c2c70": 0.07142857142857142,
+    "first_death_rate:a0d39947-19b3-ba75-7ebb-7905c38297c9": 0.0,
+    "first_death_rate:c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a": 0.0,
+    "first_death_rate:ccbf7a75-c5fd-e7a0-aee2-0713be1e3979": 0.07142857142857142,
+    "first_death_rate:e5c845a6-2a5f-a6a5-8ed8-d1c6bc3f09a0": 0.2857142857142857,
+    "first_death_rate:hero": 0.0,
+    "multikill_rate:0b37c6ce-90c7-a594-f01a-70b49cc6aad5": 0.14285714285714285,
+    "multikill_rate:65e45595-8ebb-9401-826b-ac44fe4c42e7": 0.07142857142857142,
+    "multikill_rate:85d27d32-ff3f-c580-54a9-7e8b723cc5ee": 0.14285714285714285,
+    "multikill_rate:972157dd-8f42-dbc7-9430-b1e2e20cc7ca": 0.2857142857142857,
+    "multikill_rate:9b69cfa8-fdb0-8990-10d7-54589b3c2c70": 0.07142857142857142,
+    "multikill_rate:a0d39947-19b3-ba75-7ebb-7905c38297c9": 0.21428571428571427,
+    "multikill_rate:c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a": 0.0,
+    "multikill_rate:ccbf7a75-c5fd-e7a0-aee2-0713be1e3979": 0.0,
+    "multikill_rate:e5c845a6-2a5f-a6a5-8ed8-d1c6bc3f09a0": 0.07142857142857142,
+    "multikill_rate:hero": 0.07142857142857142,
+    "pivotal_round": 6.0,
+    "pivotal_round_swing": 0.10696684402536391,
     "plant_rate:Blue": 0.5,
-    "plant_rate:Red": 0.5,
+    "plant_rate:Red": 0.4166666666666667,
+    "role_balance:Blue": 3.0,
+    "role_balance:Red": 3.0,
+    "support_before_entry:Blue": 1.0,
+    "support_before_entry:Red": 1.0,
+    "survival_rate:0b37c6ce-90c7-a594-f01a-70b49cc6aad5": 0.7857142857142857,
+    "survival_rate:65e45595-8ebb-9401-826b-ac44fe4c42e7": 0.14285714285714285,
+    "survival_rate:85d27d32-ff3f-c580-54a9-7e8b723cc5ee": 0.21428571428571427,
+    "survival_rate:972157dd-8f42-dbc7-9430-b1e2e20cc7ca": 0.21428571428571427,
+    "survival_rate:9b69cfa8-fdb0-8990-10d7-54589b3c2c70": 0.5,
+    "survival_rate:a0d39947-19b3-ba75-7ebb-7905c38297c9": 0.8571428571428571,
+    "survival_rate:c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a": 0.21428571428571427,
+    "survival_rate:ccbf7a75-c5fd-e7a0-aee2-0713be1e3979": 0.21428571428571427,
+    "survival_rate:e5c845a6-2a5f-a6a5-8ed8-d1c6bc3f09a0": 0.42857142857142855,
+    "survival_rate:hero": 0.7142857142857143,
+    "utility_per_round:0b37c6ce-90c7-a594-f01a-70b49cc6aad5": 2.2857142857142856,
+    "utility_per_round:65e45595-8ebb-9401-826b-ac44fe4c42e7": 3.142857142857143,
+    "utility_per_round:85d27d32-ff3f-c580-54a9-7e8b723cc5ee": 1.2857142857142858,
+    "utility_per_round:972157dd-8f42-dbc7-9430-b1e2e20cc7ca": 1.0,
+    "utility_per_round:9b69cfa8-fdb0-8990-10d7-54589b3c2c70": 1.6428571428571428,
+    "utility_per_round:a0d39947-19b3-ba75-7ebb-7905c38297c9": 1.9285714285714286,
+    "utility_per_round:c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a": 3.7142857142857144,
+    "utility_per_round:ccbf7a75-c5fd-e7a0-aee2-0713be1e3979": 0.9285714285714286,
+    "utility_per_round:e5c845a6-2a5f-a6a5-8ed8-d1c6bc3f09a0": 3.357142857142857,
+    "utility_per_round:hero": 3.2142857142857144,
     "win_after_plant:Blue": 0.0,
-    "win_after_plant:Red": 1.0
+    "win_after_plant:Red": 0.8
   },
   "players": [
     {
-      "agent_name": "Phoenix",
-      "assists": 0,
-      "character_id": "EB93336A-449B-9C1B-0A54-A891F7921D69",
-      "competitive_tier": 21,
-      "deaths": 13,
-      "kills": 17,
-      "puuid": "ccbf7a75-c5fd-e7a0-aee2-0713be1e3979",
-      "score": 3401,
-      "team_id": "Blue"
-    },
-    {
-      "agent_name": "Clove",
-      "assists": 0,
-      "character_id": "1DBF2EDD-4729-0984-3115-DAA5EED44993",
-      "competitive_tier": 22,
-      "deaths": 11,
-      "kills": 17,
-      "puuid": "c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a",
-      "score": 3243,
-      "team_id": "Blue"
-    },
-    {
       "agent_name": "Neon",
-      "assists": 0,
+      "assists": 2,
       "character_id": "BB2A4828-46EB-8CD1-E765-15848195D751",
       "competitive_tier": 23,
-      "deaths": 7,
-      "kills": 17,
+      "deaths": 11,
+      "kills": 8,
       "puuid": "85d27d32-ff3f-c580-54a9-7e8b723cc5ee",
-      "score": 3082,
+      "score": 1248,
       "team_id": "Blue"
     },
     {
       "agent_name": "Tejo",
-      "assists": 0,
+      "assists": 5,
       "character_id": "B444168C-4E35-8076-DB47-EF9BF368F384",
       "competitive_tier": 21,
-      "deaths": 8,
-      "kills": 15,
+      "deaths": 12,
+      "kills": 6,
       "puuid": "65e45595-8ebb-9401-826b-ac44fe4c42e7",
-      "score": 2843,
+      "score": 1090,
       "team_id": "Blue"
     },
     {
       "agent_name": "KAY/O",
-      "assists": 0,
+      "assists": 6,
       "character_id": "601DBBE7-43CE-BE57-2A40-4ABD24953621",
       "competitive_tier": 22,
-      "deaths": 12,
-      "kills": 15,
+      "deaths": 8,
+      "kills": 5,
       "puuid": "e5c845a6-2a5f-a6a5-8ed8-d1c6bc3f09a0",
-      "score": 2830,
+      "score": 957,
       "team_id": "Blue"
     },
     {
-      "agent_name": "Cypher",
-      "assists": 0,
-      "character_id": "117ED9E3-49F3-6512-3CCF-0CADA7E3823B",
+      "agent_name": "Clove",
+      "assists": 4,
+      "character_id": "1DBF2EDD-4729-0984-3115-DAA5EED44993",
+      "competitive_tier": 22,
+      "deaths": 11,
+      "kills": 4,
+      "puuid": "c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a",
+      "score": 808,
+      "team_id": "Blue"
+    },
+    {
+      "agent_name": "Phoenix",
+      "assists": 1,
+      "character_id": "EB93336A-449B-9C1B-0A54-A891F7921D69",
       "competitive_tier": 21,
-      "deaths": 1,
-      "kills": 28,
-      "puuid": "9b69cfa8-fdb0-8990-10d7-54589b3c2c70",
-      "score": 5015,
-      "team_id": "Red"
+      "deaths": 11,
+      "kills": 4,
+      "puuid": "ccbf7a75-c5fd-e7a0-aee2-0713be1e3979",
+      "score": 676,
+      "team_id": "Blue"
     },
     {
       "agent_name": "Raze",
-      "assists": 0,
+      "assists": 7,
       "character_id": "F94C3B30-42BE-E959-889C-5AA313DBA261",
       "competitive_tier": 21,
-      "deaths": 1,
-      "kills": 21,
+      "deaths": 11,
+      "kills": 15,
       "puuid": "972157dd-8f42-dbc7-9430-b1e2e20cc7ca",
-      "score": 3948,
-      "team_id": "Red"
-    },
-    {
-      "agent_name": "Brimstone",
-      "assists": 0,
-      "character_id": "9F0D8BA9-4140-B941-57D3-A7AD57C6B417",
-      "competitive_tier": 22,
-      "deaths": 1,
-      "kills": 19,
-      "puuid": "hero",
-      "score": 3280,
-      "team_id": "Red"
-    },
-    {
-      "agent_name": "Sage",
-      "assists": 0,
-      "character_id": "569FDD95-4D10-43AB-CA70-79BECC718B46",
-      "competitive_tier": 23,
-      "deaths": 0,
-      "kills": 16,
-      "puuid": "0b37c6ce-90c7-a594-f01a-70b49cc6aad5",
-      "score": 3147,
+      "score": 2545,
       "team_id": "Red"
     },
     {
       "agent_name": "Killjoy",
-      "assists": 0,
+      "assists": 4,
       "character_id": "1E58DE9C-4950-5125-93E9-A0AEE9F98746",
       "competitive_tier": 21,
-      "deaths": 0,
-      "kills": 16,
+      "deaths": 2,
+      "kills": 11,
       "puuid": "a0d39947-19b3-ba75-7ebb-7905c38297c9",
-      "score": 2997,
+      "score": 1814,
+      "team_id": "Red"
+    },
+    {
+      "agent_name": "Brimstone",
+      "assists": 6,
+      "character_id": "9F0D8BA9-4140-B941-57D3-A7AD57C6B417",
+      "competitive_tier": 22,
+      "deaths": 4,
+      "kills": 10,
+      "puuid": "hero",
+      "score": 1711,
+      "team_id": "Red"
+    },
+    {
+      "agent_name": "Cypher",
+      "assists": 10,
+      "character_id": "117ED9E3-49F3-6512-3CCF-0CADA7E3823B",
+      "competitive_tier": 21,
+      "deaths": 7,
+      "kills": 8,
+      "puuid": "9b69cfa8-fdb0-8990-10d7-54589b3c2c70",
+      "score": 1649,
+      "team_id": "Red"
+    },
+    {
+      "agent_name": "Sage",
+      "assists": 7,
+      "character_id": "569FDD95-4D10-43AB-CA70-79BECC718B46",
+      "competitive_tier": 23,
+      "deaths": 3,
+      "kills": 9,
+      "puuid": "0b37c6ce-90c7-a594-f01a-70b49cc6aad5",
+      "score": 1576,
       "team_id": "Red"
     }
   ],
@@ -149,6 +229,1462 @@
     "proxy_note": "Momentum index, not a calibrated win probability: a bounded logistic over score state and round spend differential. It ranks rounds against each other within one match and says nothing about the odds of winning.",
     "sim_approx_note": "Kill share stands in for trade efficiency: the simulator emits no death timestamps, so real trade windows cannot be detected."
   },
+  "role": {
+    "baseline_matches": 200,
+    "baseline_version": "v1-0053970dd262",
+    "debrief": {
+      "error": null,
+      "rejected_numerals": null,
+      "text": "RoleCoach\n---------\n  [warning] Phoenix: passive for a Duelist -- took first contact in only 7% of rounds, bottom quartile among Duelists (2nd pct)\n           rule: role_fit.duelist_passive_entry, 1 feature row(s) cited\n  [warning] Cypher: over-exposed for a Sentinel -- first to die in 7% of rounds, worst quartile among Sentinels (20th pct)\n           rule: role_fit.sentinel_overexposed, 1 feature row(s) cited\n  [info] Clove: strong map control -- 3.71 utility casts/round, 94th pct among Controllers\n           rule: role_coach.controller_map_control, 1 feature row(s) cited\n  [info] Raze: leading entries -- first contact in 50% of rounds, 94th pct among Duelists\n           rule: role_coach.duelist_entry_leader, 1 feature row(s) cited\n  [info] Neon: entering with support -- 75% of entry deaths traded, 93rd pct among Duelists\n           rule: role_coach.duelist_trade_secure, 1 feature row(s) cited\n  [info] Killjoy: anchoring the site -- survived 86% of rounds, 99th pct among Sentinels\n           rule: role_coach.sentinel_anchor, 1 feature row(s) cited\n  [info] Sage: anchoring the site -- survived 79% of rounds, 97th pct among Sentinels\n           rule: role_coach.sentinel_anchor, 1 feature row(s) cited",
+      "used_llm": false
+    },
+    "players": [
+      {
+        "agent_name": "Tejo",
+        "features": [
+          {
+            "inverted": false,
+            "name": "first_contact_rate",
+            "percentile": 62.7,
+            "role_approx": false,
+            "value": 0.2143
+          },
+          {
+            "inverted": false,
+            "name": "entry_success_rate",
+            "percentile": 43.9,
+            "role_approx": false,
+            "value": 0.0714
+          },
+          {
+            "inverted": true,
+            "name": "first_death_rate",
+            "percentile": 21.4,
+            "role_approx": false,
+            "value": 0.1429
+          },
+          {
+            "inverted": false,
+            "name": "entry_trade_rate",
+            "percentile": 50.0,
+            "role_approx": false,
+            "value": 0.0
+          },
+          {
+            "inverted": false,
+            "name": "multikill_rate",
+            "percentile": 27.5,
+            "role_approx": false,
+            "value": 0.0714
+          },
+          {
+            "inverted": false,
+            "name": "assist_rate",
+            "percentile": 10.4,
+            "role_approx": false,
+            "value": 0.3571
+          },
+          {
+            "inverted": false,
+            "name": "survival_rate",
+            "percentile": 7.2,
+            "role_approx": false,
+            "value": 0.1429
+          },
+          {
+            "inverted": false,
+            "name": "utility_per_round",
+            "percentile": 42.5,
+            "role_approx": false,
+            "value": 3.1429
+          }
+        ],
+        "is_hero": false,
+        "puuid": "65e45595-8ebb-9401-826b-ac44fe4c42e7",
+        "role": "initiator",
+        "team_id": "Blue",
+        "verdict": "Playing to role for the position."
+      },
+      {
+        "agent_name": "Neon",
+        "features": [
+          {
+            "inverted": false,
+            "name": "first_contact_rate",
+            "percentile": 40.3,
+            "role_approx": false,
+            "value": 0.2857
+          },
+          {
+            "inverted": false,
+            "name": "entry_success_rate",
+            "percentile": 6.6,
+            "role_approx": false,
+            "value": 0.0
+          },
+          {
+            "inverted": true,
+            "name": "first_death_rate",
+            "percentile": 8.9,
+            "role_approx": false,
+            "value": 0.2857
+          },
+          {
+            "inverted": false,
+            "name": "entry_trade_rate",
+            "percentile": 92.8,
+            "role_approx": false,
+            "value": 0.75
+          },
+          {
+            "inverted": false,
+            "name": "multikill_rate",
+            "percentile": 38.4,
+            "role_approx": false,
+            "value": 0.1429
+          },
+          {
+            "inverted": false,
+            "name": "assist_rate",
+            "percentile": 22.7,
+            "role_approx": false,
+            "value": 0.1429
+          },
+          {
+            "inverted": false,
+            "name": "survival_rate",
+            "percentile": 35.3,
+            "role_approx": false,
+            "value": 0.2143
+          },
+          {
+            "inverted": false,
+            "name": "utility_per_round",
+            "percentile": 66.8,
+            "role_approx": false,
+            "value": 1.2857
+          }
+        ],
+        "is_hero": false,
+        "puuid": "85d27d32-ff3f-c580-54a9-7e8b723cc5ee",
+        "role": "duelist",
+        "team_id": "Blue",
+        "verdict": "entering with support -- 75% of entry deaths traded, 93rd pct among Duelists"
+      },
+      {
+        "agent_name": "Clove",
+        "features": [
+          {
+            "inverted": false,
+            "name": "first_contact_rate",
+            "percentile": 19.8,
+            "role_approx": false,
+            "value": 0.0714
+          },
+          {
+            "inverted": false,
+            "name": "entry_success_rate",
+            "percentile": 57.3,
+            "role_approx": false,
+            "value": 0.0714
+          },
+          {
+            "inverted": true,
+            "name": "first_death_rate",
+            "percentile": 80.8,
+            "role_approx": false,
+            "value": 0.0
+          },
+          {
+            "inverted": false,
+            "name": "multikill_rate",
+            "percentile": 15.5,
+            "role_approx": false,
+            "value": 0.0
+          },
+          {
+            "inverted": false,
+            "name": "assist_rate",
+            "percentile": 20.5,
+            "role_approx": false,
+            "value": 0.2857
+          },
+          {
+            "inverted": false,
+            "name": "survival_rate",
+            "percentile": 11.8,
+            "role_approx": false,
+            "value": 0.2143
+          },
+          {
+            "inverted": false,
+            "name": "utility_per_round",
+            "percentile": 93.7,
+            "role_approx": false,
+            "value": 3.7143
+          }
+        ],
+        "is_hero": false,
+        "puuid": "c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a",
+        "role": "controller",
+        "team_id": "Blue",
+        "verdict": "strong map control -- 3.71 utility casts/round, 94th pct among Controllers"
+      },
+      {
+        "agent_name": "Phoenix",
+        "features": [
+          {
+            "inverted": false,
+            "name": "first_contact_rate",
+            "percentile": 1.6,
+            "role_approx": false,
+            "value": 0.0714
+          },
+          {
+            "inverted": false,
+            "name": "entry_success_rate",
+            "percentile": 6.6,
+            "role_approx": false,
+            "value": 0.0
+          },
+          {
+            "inverted": true,
+            "name": "first_death_rate",
+            "percentile": 85.1,
+            "role_approx": false,
+            "value": 0.0714
+          },
+          {
+            "inverted": false,
+            "name": "entry_trade_rate",
+            "percentile": 37.7,
+            "role_approx": false,
+            "value": 0.0
+          },
+          {
+            "inverted": false,
+            "name": "multikill_rate",
+            "percentile": 4.6,
+            "role_approx": false,
+            "value": 0.0
+          },
+          {
+            "inverted": false,
+            "name": "assist_rate",
+            "percentile": 8.5,
+            "role_approx": false,
+            "value": 0.0714
+          },
+          {
+            "inverted": false,
+            "name": "survival_rate",
+            "percentile": 35.3,
+            "role_approx": false,
+            "value": 0.2143
+          },
+          {
+            "inverted": false,
+            "name": "utility_per_round",
+            "percentile": 11.0,
+            "role_approx": false,
+            "value": 0.9286
+          }
+        ],
+        "is_hero": false,
+        "puuid": "ccbf7a75-c5fd-e7a0-aee2-0713be1e3979",
+        "role": "duelist",
+        "team_id": "Blue",
+        "verdict": "passive for a Duelist -- took first contact in only 7% of rounds, bottom quartile among Duelists (2nd pct)"
+      },
+      {
+        "agent_name": "KAY/O",
+        "features": [
+          {
+            "inverted": false,
+            "name": "first_contact_rate",
+            "percentile": 94.2,
+            "role_approx": false,
+            "value": 0.3571
+          },
+          {
+            "inverted": false,
+            "name": "entry_success_rate",
+            "percentile": 43.9,
+            "role_approx": false,
+            "value": 0.0714
+          },
+          {
+            "inverted": true,
+            "name": "first_death_rate",
+            "percentile": 0.4,
+            "role_approx": false,
+            "value": 0.2857
+          },
+          {
+            "inverted": false,
+            "name": "entry_trade_rate",
+            "percentile": 50.0,
+            "role_approx": false,
+            "value": 0.0
+          },
+          {
+            "inverted": false,
+            "name": "multikill_rate",
+            "percentile": 27.5,
+            "role_approx": false,
+            "value": 0.0714
+          },
+          {
+            "inverted": false,
+            "name": "assist_rate",
+            "percentile": 17.6,
+            "role_approx": false,
+            "value": 0.4286
+          },
+          {
+            "inverted": false,
+            "name": "survival_rate",
+            "percentile": 69.5,
+            "role_approx": false,
+            "value": 0.4286
+          },
+          {
+            "inverted": false,
+            "name": "utility_per_round",
+            "percentile": 67.5,
+            "role_approx": false,
+            "value": 3.3571
+          }
+        ],
+        "is_hero": false,
+        "puuid": "e5c845a6-2a5f-a6a5-8ed8-d1c6bc3f09a0",
+        "role": "initiator",
+        "team_id": "Blue",
+        "verdict": "Playing to role for the position."
+      },
+      {
+        "agent_name": "Sage",
+        "features": [
+          {
+            "inverted": false,
+            "name": "first_contact_rate",
+            "percentile": 76.0,
+            "role_approx": false,
+            "value": 0.1429
+          },
+          {
+            "inverted": false,
+            "name": "entry_success_rate",
+            "percentile": 91.0,
+            "role_approx": false,
+            "value": 0.1429
+          },
+          {
+            "inverted": true,
+            "name": "first_death_rate",
+            "percentile": 57.2,
+            "role_approx": false,
+            "value": 0.0
+          },
+          {
+            "inverted": false,
+            "name": "multikill_rate",
+            "percentile": 72.7,
+            "role_approx": false,
+            "value": 0.1429
+          },
+          {
+            "inverted": false,
+            "name": "assist_rate",
+            "percentile": 88.1,
+            "role_approx": false,
+            "value": 0.5
+          },
+          {
+            "inverted": false,
+            "name": "survival_rate",
+            "percentile": 97.1,
+            "role_approx": false,
+            "value": 0.7857
+          },
+          {
+            "inverted": false,
+            "name": "utility_per_round",
+            "percentile": 91.9,
+            "role_approx": false,
+            "value": 2.2857
+          }
+        ],
+        "is_hero": false,
+        "puuid": "0b37c6ce-90c7-a594-f01a-70b49cc6aad5",
+        "role": "sentinel",
+        "team_id": "Red",
+        "verdict": "anchoring the site -- survived 79% of rounds, 97th pct among Sentinels"
+      },
+      {
+        "agent_name": "Raze",
+        "features": [
+          {
+            "inverted": false,
+            "name": "first_contact_rate",
+            "percentile": 94.5,
+            "role_approx": false,
+            "value": 0.5
+          },
+          {
+            "inverted": false,
+            "name": "entry_success_rate",
+            "percentile": 97.9,
+            "role_approx": false,
+            "value": 0.3571
+          },
+          {
+            "inverted": true,
+            "name": "first_death_rate",
+            "percentile": 54.2,
+            "role_approx": false,
+            "value": 0.1429
+          },
+          {
+            "inverted": false,
+            "name": "entry_trade_rate",
+            "percentile": 37.7,
+            "role_approx": false,
+            "value": 0.0
+          },
+          {
+            "inverted": false,
+            "name": "multikill_rate",
+            "percentile": 84.4,
+            "role_approx": false,
+            "value": 0.2857
+          },
+          {
+            "inverted": false,
+            "name": "assist_rate",
+            "percentile": 95.9,
+            "role_approx": false,
+            "value": 0.5
+          },
+          {
+            "inverted": false,
+            "name": "survival_rate",
+            "percentile": 35.3,
+            "role_approx": false,
+            "value": 0.2143
+          },
+          {
+            "inverted": false,
+            "name": "utility_per_round",
+            "percentile": 25.0,
+            "role_approx": false,
+            "value": 1.0
+          }
+        ],
+        "is_hero": false,
+        "puuid": "972157dd-8f42-dbc7-9430-b1e2e20cc7ca",
+        "role": "duelist",
+        "team_id": "Red",
+        "verdict": "leading entries -- first contact in 50% of rounds, 94th pct among Duelists"
+      },
+      {
+        "agent_name": "Cypher",
+        "features": [
+          {
+            "inverted": false,
+            "name": "first_contact_rate",
+            "percentile": 76.0,
+            "role_approx": false,
+            "value": 0.1429
+          },
+          {
+            "inverted": false,
+            "name": "entry_success_rate",
+            "percentile": 66.8,
+            "role_approx": false,
+            "value": 0.0714
+          },
+          {
+            "inverted": true,
+            "name": "first_death_rate",
+            "percentile": 19.8,
+            "role_approx": false,
+            "value": 0.0714
+          },
+          {
+            "inverted": false,
+            "name": "entry_trade_rate",
+            "percentile": 65.7,
+            "role_approx": false,
+            "value": 0.0
+          },
+          {
+            "inverted": false,
+            "name": "multikill_rate",
+            "percentile": 41.8,
+            "role_approx": false,
+            "value": 0.0714
+          },
+          {
+            "inverted": false,
+            "name": "assist_rate",
+            "percentile": 99.6,
+            "role_approx": false,
+            "value": 0.7143
+          },
+          {
+            "inverted": false,
+            "name": "survival_rate",
+            "percentile": 56.2,
+            "role_approx": false,
+            "value": 0.5
+          },
+          {
+            "inverted": false,
+            "name": "utility_per_round",
+            "percentile": 16.5,
+            "role_approx": false,
+            "value": 1.6429
+          }
+        ],
+        "is_hero": false,
+        "puuid": "9b69cfa8-fdb0-8990-10d7-54589b3c2c70",
+        "role": "sentinel",
+        "team_id": "Red",
+        "verdict": "over-exposed for a Sentinel -- first to die in 7% of rounds, worst quartile among Sentinels (20th pct)"
+      },
+      {
+        "agent_name": "Killjoy",
+        "features": [
+          {
+            "inverted": false,
+            "name": "first_contact_rate",
+            "percentile": 14.6,
+            "role_approx": false,
+            "value": 0.0
+          },
+          {
+            "inverted": false,
+            "name": "entry_success_rate",
+            "percentile": 31.3,
+            "role_approx": false,
+            "value": 0.0
+          },
+          {
+            "inverted": true,
+            "name": "first_death_rate",
+            "percentile": 57.2,
+            "role_approx": false,
+            "value": 0.0
+          },
+          {
+            "inverted": false,
+            "name": "multikill_rate",
+            "percentile": 91.9,
+            "role_approx": false,
+            "value": 0.2143
+          },
+          {
+            "inverted": false,
+            "name": "assist_rate",
+            "percentile": 45.9,
+            "role_approx": false,
+            "value": 0.2857
+          },
+          {
+            "inverted": false,
+            "name": "survival_rate",
+            "percentile": 98.7,
+            "role_approx": false,
+            "value": 0.8571
+          },
+          {
+            "inverted": false,
+            "name": "utility_per_round",
+            "percentile": 55.7,
+            "role_approx": false,
+            "value": 1.9286
+          }
+        ],
+        "is_hero": false,
+        "puuid": "a0d39947-19b3-ba75-7ebb-7905c38297c9",
+        "role": "sentinel",
+        "team_id": "Red",
+        "verdict": "anchoring the site -- survived 86% of rounds, 99th pct among Sentinels"
+      },
+      {
+        "agent_name": "Brimstone",
+        "features": [
+          {
+            "inverted": false,
+            "name": "first_contact_rate",
+            "percentile": 77.1,
+            "role_approx": false,
+            "value": 0.2143
+          },
+          {
+            "inverted": false,
+            "name": "entry_success_rate",
+            "percentile": 98.3,
+            "role_approx": false,
+            "value": 0.2143
+          },
+          {
+            "inverted": true,
+            "name": "first_death_rate",
+            "percentile": 80.8,
+            "role_approx": false,
+            "value": 0.0
+          },
+          {
+            "inverted": false,
+            "name": "multikill_rate",
+            "percentile": 43.4,
+            "role_approx": false,
+            "value": 0.0714
+          },
+          {
+            "inverted": false,
+            "name": "assist_rate",
+            "percentile": 49.9,
+            "role_approx": false,
+            "value": 0.4286
+          },
+          {
+            "inverted": false,
+            "name": "survival_rate",
+            "percentile": 97.4,
+            "role_approx": false,
+            "value": 0.7143
+          },
+          {
+            "inverted": false,
+            "name": "utility_per_round",
+            "percentile": 42.5,
+            "role_approx": false,
+            "value": 3.2143
+          }
+        ],
+        "is_hero": true,
+        "puuid": "hero",
+        "role": "controller",
+        "team_id": "Red",
+        "verdict": "Playing to role for the position."
+      }
+    ],
+    "synergy": {
+      "Blue": {
+        "role_balance": 3,
+        "support_before_entry": {
+          "role_approx": true,
+          "value": 1.0
+        }
+      },
+      "Red": {
+        "role_balance": 3,
+        "support_before_entry": {
+          "role_approx": true,
+          "value": 1.0
+        }
+      }
+    },
+    "trace": {
+      "conclusions": [
+        {
+          "agent": "RoleCoach",
+          "baseline_version": "v1-0053970dd262",
+          "claim": "Phoenix: passive for a Duelist -- took first contact in only 7% of rounds, bottom quartile among Duelists (2nd pct)",
+          "evidence": [
+            {
+              "feature": {
+                "name": "first_contact_rate:ccbf7a75-c5fd-e7a0-aee2-0713be1e3979",
+                "round_num": -1,
+                "scope": "player",
+                "value": 0.07142857142857142
+              },
+              "source_rows": [
+                {
+                  "kill_ordinal": 0,
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 11,
+                  "table": "round_kills"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 0,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 1,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 2,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 3,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 4,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 5,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 6,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 7,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 8,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 9,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 10,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 11,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 12,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 13,
+                  "table": "rounds"
+                }
+              ]
+            }
+          ],
+          "rule_id": "role_fit.duelist_passive_entry",
+          "severity": "warning",
+          "unverified_reason": null,
+          "verified": true,
+          "within_role_percentile": 1.5985790408525755
+        },
+        {
+          "agent": "RoleCoach",
+          "baseline_version": "v1-0053970dd262",
+          "claim": "Cypher: over-exposed for a Sentinel -- first to die in 7% of rounds, worst quartile among Sentinels (20th pct)",
+          "evidence": [
+            {
+              "feature": {
+                "name": "first_death_rate:9b69cfa8-fdb0-8990-10d7-54589b3c2c70",
+                "round_num": -1,
+                "scope": "player",
+                "value": 0.07142857142857142
+              },
+              "source_rows": [
+                {
+                  "kill_ordinal": 0,
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 12,
+                  "table": "round_kills"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 0,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 1,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 2,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 3,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 4,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 5,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 6,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 7,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 8,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 9,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 10,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 11,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 12,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 13,
+                  "table": "rounds"
+                }
+              ]
+            }
+          ],
+          "rule_id": "role_fit.sentinel_overexposed",
+          "severity": "warning",
+          "unverified_reason": null,
+          "verified": true,
+          "within_role_percentile": 19.832985386221296
+        },
+        {
+          "agent": "RoleCoach",
+          "baseline_version": "v1-0053970dd262",
+          "claim": "Clove: strong map control -- 3.71 utility casts/round, 94th pct among Controllers",
+          "evidence": [
+            {
+              "feature": {
+                "name": "utility_per_round:c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a",
+                "round_num": -1,
+                "scope": "player",
+                "value": 3.7142857142857144
+              },
+              "source_rows": [
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "puuid": "c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a",
+                  "round_num": 0,
+                  "table": "round_player_stats"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "puuid": "c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a",
+                  "round_num": 1,
+                  "table": "round_player_stats"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "puuid": "c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a",
+                  "round_num": 2,
+                  "table": "round_player_stats"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "puuid": "c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a",
+                  "round_num": 3,
+                  "table": "round_player_stats"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "puuid": "c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a",
+                  "round_num": 4,
+                  "table": "round_player_stats"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "puuid": "c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a",
+                  "round_num": 5,
+                  "table": "round_player_stats"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "puuid": "c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a",
+                  "round_num": 6,
+                  "table": "round_player_stats"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "puuid": "c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a",
+                  "round_num": 7,
+                  "table": "round_player_stats"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "puuid": "c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a",
+                  "round_num": 8,
+                  "table": "round_player_stats"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "puuid": "c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a",
+                  "round_num": 9,
+                  "table": "round_player_stats"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "puuid": "c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a",
+                  "round_num": 10,
+                  "table": "round_player_stats"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "puuid": "c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a",
+                  "round_num": 11,
+                  "table": "round_player_stats"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "puuid": "c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a",
+                  "round_num": 12,
+                  "table": "round_player_stats"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "puuid": "c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a",
+                  "round_num": 13,
+                  "table": "round_player_stats"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 0,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 1,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 2,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 3,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 4,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 5,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 6,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 7,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 8,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 9,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 10,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 11,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 12,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 13,
+                  "table": "rounds"
+                }
+              ]
+            }
+          ],
+          "rule_id": "role_coach.controller_map_control",
+          "severity": "info",
+          "unverified_reason": null,
+          "verified": true,
+          "within_role_percentile": 93.68191721132898
+        },
+        {
+          "agent": "RoleCoach",
+          "baseline_version": "v1-0053970dd262",
+          "claim": "Raze: leading entries -- first contact in 50% of rounds, 94th pct among Duelists",
+          "evidence": [
+            {
+              "feature": {
+                "name": "first_contact_rate:972157dd-8f42-dbc7-9430-b1e2e20cc7ca",
+                "round_num": -1,
+                "scope": "player",
+                "value": 0.5
+              },
+              "source_rows": [
+                {
+                  "kill_ordinal": 0,
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 0,
+                  "table": "round_kills"
+                },
+                {
+                  "kill_ordinal": 0,
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 3,
+                  "table": "round_kills"
+                },
+                {
+                  "kill_ordinal": 0,
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 4,
+                  "table": "round_kills"
+                },
+                {
+                  "kill_ordinal": 0,
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 5,
+                  "table": "round_kills"
+                },
+                {
+                  "kill_ordinal": 0,
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 6,
+                  "table": "round_kills"
+                },
+                {
+                  "kill_ordinal": 0,
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 8,
+                  "table": "round_kills"
+                },
+                {
+                  "kill_ordinal": 0,
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 9,
+                  "table": "round_kills"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 0,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 1,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 2,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 3,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 4,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 5,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 6,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 7,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 8,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 9,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 10,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 11,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 12,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 13,
+                  "table": "rounds"
+                }
+              ]
+            }
+          ],
+          "rule_id": "role_coach.duelist_entry_leader",
+          "severity": "info",
+          "unverified_reason": null,
+          "verified": true,
+          "within_role_percentile": 94.49378330373001
+        },
+        {
+          "agent": "RoleCoach",
+          "baseline_version": "v1-0053970dd262",
+          "claim": "Neon: entering with support -- 75% of entry deaths traded, 93rd pct among Duelists",
+          "evidence": [
+            {
+              "feature": {
+                "name": "entry_trade_rate:85d27d32-ff3f-c580-54a9-7e8b723cc5ee",
+                "round_num": -1,
+                "scope": "player",
+                "value": 0.75
+              },
+              "source_rows": [
+                {
+                  "kill_ordinal": 0,
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 0,
+                  "table": "round_kills"
+                },
+                {
+                  "kill_ordinal": 1,
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 0,
+                  "table": "round_kills"
+                },
+                {
+                  "kill_ordinal": 0,
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 2,
+                  "table": "round_kills"
+                },
+                {
+                  "kill_ordinal": 1,
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 2,
+                  "table": "round_kills"
+                },
+                {
+                  "kill_ordinal": 0,
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 5,
+                  "table": "round_kills"
+                },
+                {
+                  "kill_ordinal": 1,
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 5,
+                  "table": "round_kills"
+                },
+                {
+                  "kill_ordinal": 0,
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 8,
+                  "table": "round_kills"
+                }
+              ]
+            }
+          ],
+          "rule_id": "role_coach.duelist_trade_secure",
+          "severity": "info",
+          "unverified_reason": null,
+          "verified": true,
+          "within_role_percentile": 92.79112754158965
+        },
+        {
+          "agent": "RoleCoach",
+          "baseline_version": "v1-0053970dd262",
+          "claim": "Killjoy: anchoring the site -- survived 86% of rounds, 99th pct among Sentinels",
+          "evidence": [
+            {
+              "feature": {
+                "name": "survival_rate:a0d39947-19b3-ba75-7ebb-7905c38297c9",
+                "round_num": -1,
+                "scope": "player",
+                "value": 0.8571428571428571
+              },
+              "source_rows": [
+                {
+                  "kill_ordinal": 4,
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 6,
+                  "table": "round_kills"
+                },
+                {
+                  "kill_ordinal": 4,
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 11,
+                  "table": "round_kills"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 0,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 1,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 2,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 3,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 4,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 5,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 6,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 7,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 8,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 9,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 10,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 11,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 12,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 13,
+                  "table": "rounds"
+                }
+              ]
+            }
+          ],
+          "rule_id": "role_coach.sentinel_anchor",
+          "severity": "info",
+          "unverified_reason": null,
+          "verified": true,
+          "within_role_percentile": 98.74739039665971
+        },
+        {
+          "agent": "RoleCoach",
+          "baseline_version": "v1-0053970dd262",
+          "claim": "Sage: anchoring the site -- survived 79% of rounds, 97th pct among Sentinels",
+          "evidence": [
+            {
+              "feature": {
+                "name": "survival_rate:0b37c6ce-90c7-a594-f01a-70b49cc6aad5",
+                "round_num": -1,
+                "scope": "player",
+                "value": 0.7857142857142857
+              },
+              "source_rows": [
+                {
+                  "kill_ordinal": 4,
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 3,
+                  "table": "round_kills"
+                },
+                {
+                  "kill_ordinal": 2,
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 6,
+                  "table": "round_kills"
+                },
+                {
+                  "kill_ordinal": 6,
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 11,
+                  "table": "round_kills"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 0,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 1,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 2,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 3,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 4,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 5,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 6,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 7,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 8,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 9,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 10,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 11,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 12,
+                  "table": "rounds"
+                },
+                {
+                  "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                  "round_num": 13,
+                  "table": "rounds"
+                }
+              ]
+            }
+          ],
+          "rule_id": "role_coach.sentinel_anchor",
+          "severity": "info",
+          "unverified_reason": null,
+          "verified": true,
+          "within_role_percentile": 97.07724425887265
+        }
+      ],
+      "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+      "summary": {
+        "conclusions": 7,
+        "source_rows_cited": 119,
+        "unverified": 0,
+        "verified": 7
+      },
+      "trace_version": 1
+    }
+  },
   "rounds": [
     {
       "defuse_ms": null,
@@ -157,7 +1693,7 @@
           "bank": 800.0,
           "broken_buy": 0.0,
           "buy_type": "eco",
-          "kill_share_sim_approx": 0.4,
+          "kill_share_sim_approx": 0.2857142857142857,
           "loss_streak": 0.0,
           "spend": 520.0,
           "spend_trend3": 520.0,
@@ -167,7 +1703,7 @@
           "bank": 800.0,
           "broken_buy": 0.0,
           "buy_type": "eco",
-          "kill_share_sim_approx": 0.6,
+          "kill_share_sim_approx": 0.7142857142857143,
           "loss_streak": 0.0,
           "spend": 715.0,
           "spend_trend3": 715.0,
@@ -189,149 +1725,149 @@
           "bank": 2675.0,
           "broken_buy": 0.0,
           "buy_type": "force",
-          "kill_share_sim_approx": 0.3,
+          "kill_share_sim_approx": 0.3333333333333333,
           "loss_streak": 1.0,
-          "spend": 1945.0,
-          "spend_trend3": 1232.5,
-          "win_prob_proxy": 0.415202325282263
+          "spend": 2340.0,
+          "spend_trend3": 1430.0,
+          "win_prob_proxy": 0.40733340004593027
         },
         "Red": {
           "bank": 3085.0,
           "broken_buy": 0.0,
           "buy_type": "force",
-          "kill_share_sim_approx": 0.7,
+          "kill_share_sim_approx": 0.6666666666666666,
           "loss_streak": 0.0,
-          "spend": 1915.0,
-          "spend_trend3": 1315.0,
-          "win_prob_proxy": 0.584797674717737
+          "spend": 2440.0,
+          "spend_trend3": 1577.5,
+          "win_prob_proxy": 0.5926665999540697
         }
       },
       "pivotal": false,
-      "plant_ms": 57210,
-      "plant_site": "C",
+      "plant_ms": null,
+      "plant_site": null,
       "round_num": 1,
-      "round_result": "Bomb detonated",
-      "spend_diff": 30.0,
+      "round_result": "Round timer expired",
+      "spend_diff": -100.0,
       "winning_team": "Red"
     },
     {
       "defuse_ms": null,
       "economy": {
         "Blue": {
-          "bank": 3625.0,
-          "broken_buy": 0.0,
-          "buy_type": "half",
-          "kill_share_sim_approx": 0.5454545454545454,
-          "loss_streak": 2.0,
-          "spend": 3430.0,
-          "spend_trend3": 1965.0,
-          "win_prob_proxy": 0.3483613244349232
-        },
-        "Red": {
-          "bank": 4165.0,
-          "broken_buy": 0.0,
-          "buy_type": "half",
-          "kill_share_sim_approx": 0.45454545454545453,
-          "loss_streak": 0.0,
-          "spend": 3135.0,
-          "spend_trend3": 1921.6666666666667,
-          "win_prob_proxy": 0.6516386755650768
-        }
-      },
-      "pivotal": false,
-      "plant_ms": 42183,
-      "plant_site": "B",
-      "round_num": 2,
-      "round_result": "Eliminated",
-      "spend_diff": 295.0,
-      "winning_team": "Red"
-    },
-    {
-      "defuse_ms": null,
-      "economy": {
-        "Blue": {
-          "bank": 3095.0,
+          "bank": 3235.0,
           "broken_buy": 1.0,
           "buy_type": "force",
-          "kill_share_sim_approx": 0.36363636363636365,
+          "kill_share_sim_approx": 0.2857142857142857,
           "loss_streak": 2.0,
-          "spend": 1730.0,
-          "spend_trend3": 2368.3333333333335,
-          "win_prob_proxy": 0.2135345745962879
+          "spend": 2635.0,
+          "spend_trend3": 1831.6666666666667,
+          "win_prob_proxy": 0.3036450701761659
+        },
+        "Red": {
+          "bank": 3640.0,
+          "broken_buy": 0.0,
+          "buy_type": "half",
+          "kill_share_sim_approx": 0.7142857142857143,
+          "loss_streak": 0.0,
+          "spend": 3155.0,
+          "spend_trend3": 2103.3333333333335,
+          "win_prob_proxy": 0.6963549298238341
+        }
+      },
+      "pivotal": false,
+      "plant_ms": null,
+      "plant_site": null,
+      "round_num": 2,
+      "round_result": "Eliminated",
+      "spend_diff": -520.0,
+      "winning_team": "Red"
+    },
+    {
+      "defuse_ms": null,
+      "economy": {
+        "Blue": {
+          "bank": 3495.0,
+          "broken_buy": 0.0,
+          "buy_type": "half",
+          "kill_share_sim_approx": 0.5,
+          "loss_streak": 2.0,
+          "spend": 3010.0,
+          "spend_trend3": 2661.6666666666665,
+          "win_prob_proxy": 0.25421632509094144
+        },
+        "Red": {
+          "bank": 3485.0,
+          "broken_buy": 0.0,
+          "buy_type": "half",
+          "kill_share_sim_approx": 0.5,
+          "loss_streak": 0.0,
+          "spend": 3115.0,
+          "spend_trend3": 2903.3333333333335,
+          "win_prob_proxy": 0.7457836749090585
+        }
+      },
+      "pivotal": false,
+      "plant_ms": 58525,
+      "plant_site": "A",
+      "round_num": 3,
+      "round_result": "Bomb detonated",
+      "spend_diff": -105.0,
+      "winning_team": "Red"
+    },
+    {
+      "defuse_ms": null,
+      "economy": {
+        "Blue": {
+          "bank": 3385.0,
+          "broken_buy": 1.0,
+          "buy_type": "force",
+          "kill_share_sim_approx": 0.5,
+          "loss_streak": 2.0,
+          "spend": 2645.0,
+          "spend_trend3": 2763.3333333333335,
+          "win_prob_proxy": 0.21040265932717342
+        },
+        "Red": {
+          "bank": 3370.0,
+          "broken_buy": 0.0,
+          "buy_type": "force",
+          "kill_share_sim_approx": 0.5,
+          "loss_streak": 0.0,
+          "spend": 2335.0,
+          "spend_trend3": 2868.3333333333335,
+          "win_prob_proxy": 0.7895973406728266
+        }
+      },
+      "pivotal": false,
+      "plant_ms": 35604,
+      "plant_site": "B",
+      "round_num": 4,
+      "round_result": "Bomb detonated",
+      "spend_diff": 310.0,
+      "winning_team": "Red"
+    },
+    {
+      "defuse_ms": null,
+      "economy": {
+        "Blue": {
+          "bank": 3640.0,
+          "broken_buy": 0.0,
+          "buy_type": "half",
+          "kill_share_sim_approx": 0.4,
+          "loss_streak": 2.0,
+          "spend": 3305.0,
+          "spend_trend3": 2986.6666666666665,
+          "win_prob_proxy": 0.17964566201741464
         },
         "Red": {
           "bank": 4030.0,
           "broken_buy": 0.0,
           "buy_type": "half",
-          "kill_share_sim_approx": 0.6363636363636364,
+          "kill_share_sim_approx": 0.6,
           "loss_streak": 0.0,
-          "spend": 2745.0,
-          "spend_trend3": 2598.3333333333335,
-          "win_prob_proxy": 0.7864654254037121
-        }
-      },
-      "pivotal": true,
-      "plant_ms": null,
-      "plant_site": null,
-      "round_num": 3,
-      "round_result": "Eliminated",
-      "spend_diff": -1015.0,
-      "winning_team": "Red"
-    },
-    {
-      "defuse_ms": null,
-      "economy": {
-        "Blue": {
-          "bank": 4265.0,
-          "broken_buy": 0.0,
-          "buy_type": "full",
-          "kill_share_sim_approx": 0.75,
-          "loss_streak": 2.0,
-          "spend": 2890.0,
-          "spend_trend3": 2683.3333333333335,
-          "win_prob_proxy": 0.2135345745962879
-        },
-        "Red": {
-          "bank": 4285.0,
-          "broken_buy": 0.0,
-          "buy_type": "full",
-          "kill_share_sim_approx": 0.25,
-          "loss_streak": 0.0,
-          "spend": 2505.0,
-          "spend_trend3": 2795.0,
-          "win_prob_proxy": 0.7864654254037121
-        }
-      },
-      "pivotal": false,
-      "plant_ms": 40728,
-      "plant_site": "A",
-      "round_num": 4,
-      "round_result": "Bomb detonated",
-      "spend_diff": 385.0,
-      "winning_team": "Red"
-    },
-    {
-      "defuse_ms": null,
-      "economy": {
-        "Blue": {
-          "bank": 4275.0,
-          "broken_buy": 0.0,
-          "buy_type": "full",
-          "kill_share_sim_approx": 0.4666666666666667,
-          "loss_streak": 2.0,
-          "spend": 2675.0,
-          "spend_trend3": 2431.6666666666665,
-          "win_prob_proxy": 0.12252321251815919
-        },
-        "Red": {
-          "bank": 4780.0,
-          "broken_buy": 0.0,
-          "buy_type": "full",
-          "kill_share_sim_approx": 0.5333333333333333,
-          "loss_streak": 0.0,
-          "spend": 3550.0,
-          "spend_trend3": 2933.3333333333335,
-          "win_prob_proxy": 0.8774767874818408
+          "spend": 2380.0,
+          "spend_trend3": 2610.0,
+          "win_prob_proxy": 0.8203543379825854
         }
       },
       "pivotal": false,
@@ -339,223 +1875,223 @@
       "plant_site": null,
       "round_num": 5,
       "round_result": "Round timer expired",
-      "spend_diff": -875.0,
+      "spend_diff": 925.0,
       "winning_team": "Red"
     },
     {
       "defuse_ms": null,
       "economy": {
         "Blue": {
-          "bank": 4500.0,
-          "broken_buy": 0.0,
-          "buy_type": "full",
-          "kill_share_sim_approx": 0.5,
+          "bank": 3230.0,
+          "broken_buy": 1.0,
+          "buy_type": "force",
+          "kill_share_sim_approx": 1.0,
           "loss_streak": 2.0,
-          "spend": 3385.0,
-          "spend_trend3": 2983.3333333333335,
-          "win_prob_proxy": 0.12772223991538798
+          "spend": 2430.0,
+          "spend_trend3": 2793.3333333333335,
+          "win_prob_proxy": 0.07267881799205073
         },
         "Red": {
-          "bank": 4225.0,
+          "bank": 4645.0,
           "broken_buy": 0.0,
           "buy_type": "full",
-          "kill_share_sim_approx": 0.5,
+          "kill_share_sim_approx": 0.0,
           "loss_streak": 0.0,
-          "spend": 2670.0,
-          "spend_trend3": 2908.3333333333335,
-          "win_prob_proxy": 0.872277760084612
+          "spend": 4215.0,
+          "spend_trend3": 2976.6666666666665,
+          "win_prob_proxy": 0.9273211820079492
         }
       },
-      "pivotal": false,
-      "plant_ms": null,
-      "plant_site": null,
+      "pivotal": true,
+      "plant_ms": 27812,
+      "plant_site": "A",
       "round_num": 6,
-      "round_result": "Round timer expired",
-      "spend_diff": 715.0,
-      "winning_team": "Red"
-    },
-    {
-      "defuse_ms": null,
-      "economy": {
-        "Blue": {
-          "bank": 4010.0,
-          "broken_buy": 0.0,
-          "buy_type": "half",
-          "kill_share_sim_approx": 0.4,
-          "loss_streak": 2.0,
-          "spend": 3385.0,
-          "spend_trend3": 3148.3333333333335,
-          "win_prob_proxy": 0.09395696045623737
-        },
-        "Red": {
-          "bank": 4555.0,
-          "broken_buy": 0.0,
-          "buy_type": "full",
-          "kill_share_sim_approx": 0.6,
-          "loss_streak": 0.0,
-          "spend": 2650.0,
-          "spend_trend3": 2956.6666666666665,
-          "win_prob_proxy": 0.9060430395437626
-        }
-      },
-      "pivotal": false,
-      "plant_ms": 33305,
-      "plant_site": "A",
-      "round_num": 7,
-      "round_result": "Eliminated",
-      "spend_diff": 735.0,
-      "winning_team": "Red"
-    },
-    {
-      "defuse_ms": null,
-      "economy": {
-        "Blue": {
-          "bank": 3520.0,
-          "broken_buy": 0.0,
-          "buy_type": "half",
-          "kill_share_sim_approx": 0.3076923076923077,
-          "loss_streak": 2.0,
-          "spend": 2105.0,
-          "spend_trend3": 2958.3333333333335,
-          "win_prob_proxy": 0.03874455334289725
-        },
-        "Red": {
-          "bank": 4900.0,
-          "broken_buy": 0.0,
-          "buy_type": "full",
-          "kill_share_sim_approx": 0.6923076923076923,
-          "loss_streak": 0.0,
-          "spend": 3750.0,
-          "spend_trend3": 3023.3333333333335,
-          "win_prob_proxy": 0.9612554466571027
-        }
-      },
-      "pivotal": false,
-      "plant_ms": null,
-      "plant_site": null,
-      "round_num": 8,
-      "round_result": "Eliminated",
-      "spend_diff": -1645.0,
-      "winning_team": "Red"
-    },
-    {
-      "defuse_ms": null,
-      "economy": {
-        "Blue": {
-          "bank": 4310.0,
-          "broken_buy": 0.0,
-          "buy_type": "full",
-          "kill_share_sim_approx": 0.42857142857142855,
-          "loss_streak": 2.0,
-          "spend": 3220.0,
-          "spend_trend3": 2903.3333333333335,
-          "win_prob_proxy": 0.03879113446023604
-        },
-        "Red": {
-          "bank": 4150.0,
-          "broken_buy": 0.0,
-          "buy_type": "half",
-          "kill_share_sim_approx": 0.5714285714285714,
-          "loss_streak": 0.0,
-          "spend": 3460.0,
-          "spend_trend3": 3286.6666666666665,
-          "win_prob_proxy": 0.9612088655397639
-        }
-      },
-      "pivotal": false,
-      "plant_ms": 59454,
-      "plant_site": "A",
-      "round_num": 9,
-      "round_result": "Eliminated",
-      "spend_diff": -240.0,
-      "winning_team": "Red"
-    },
-    {
-      "defuse_ms": null,
-      "economy": {
-        "Blue": {
-          "bank": 3990.0,
-          "broken_buy": 0.0,
-          "buy_type": "half",
-          "kill_share_sim_approx": 0.6666666666666666,
-          "loss_streak": 2.0,
-          "spend": 3780.0,
-          "spend_trend3": 3035.0,
-          "win_prob_proxy": 0.0438873339363313
-        },
-        "Red": {
-          "bank": 3690.0,
-          "broken_buy": 0.0,
-          "buy_type": "half",
-          "kill_share_sim_approx": 0.3333333333333333,
-          "loss_streak": 0.0,
-          "spend": 2105.0,
-          "spend_trend3": 3105.0,
-          "win_prob_proxy": 0.9561126660636687
-        }
-      },
-      "pivotal": false,
-      "plant_ms": null,
-      "plant_site": null,
-      "round_num": 10,
-      "round_result": "Round timer expired",
-      "spend_diff": 1675.0,
+      "round_result": "Bomb detonated",
+      "spend_diff": -1785.0,
       "winning_team": "Blue"
     },
     {
       "defuse_ms": null,
       "economy": {
         "Blue": {
-          "bank": 3205.0,
-          "broken_buy": 0.0,
-          "buy_type": "force",
-          "kill_share_sim_approx": 0.2,
-          "loss_streak": 0.0,
-          "spend": 2945.0,
-          "spend_trend3": 3315.0,
-          "win_prob_proxy": 0.04576021243849697
-        },
-        "Red": {
-          "bank": 3985.0,
+          "bank": 3800.0,
           "broken_buy": 0.0,
           "buy_type": "half",
-          "kill_share_sim_approx": 0.8,
+          "kill_share_sim_approx": 0.16666666666666666,
+          "loss_streak": 0.0,
+          "spend": 2285.0,
+          "spend_trend3": 2673.3333333333335,
+          "win_prob_proxy": 0.14246080221548799
+        },
+        "Red": {
+          "bank": 2830.0,
+          "broken_buy": 0.0,
+          "buy_type": "force",
+          "kill_share_sim_approx": 0.8333333333333334,
           "loss_streak": 1.0,
-          "spend": 2495.0,
-          "spend_trend3": 2686.6666666666665,
-          "win_prob_proxy": 0.9542397875615031
+          "spend": 2465.0,
+          "spend_trend3": 3020.0,
+          "win_prob_proxy": 0.857539197784512
         }
       },
       "pivotal": false,
-      "plant_ms": 23852,
-      "plant_site": "C",
-      "round_num": 11,
+      "plant_ms": null,
+      "plant_site": null,
+      "round_num": 7,
       "round_result": "Eliminated",
-      "spend_diff": 450.0,
+      "spend_diff": -180.0,
       "winning_team": "Red"
     },
     {
       "defuse_ms": null,
       "economy": {
         "Blue": {
-          "bank": 2660.0,
+          "bank": 3910.0,
           "broken_buy": 0.0,
-          "buy_type": "force",
-          "kill_share_sim_approx": 0.3333333333333333,
+          "buy_type": "half",
+          "kill_share_sim_approx": 0.0,
           "loss_streak": 1.0,
-          "spend": 2450.0,
-          "spend_trend3": 3058.3333333333335,
-          "win_prob_proxy": 0.025086962153479813
+          "spend": 3585.0,
+          "spend_trend3": 2766.6666666666665,
+          "win_prob_proxy": 0.14230816330079724
         },
         "Red": {
-          "bank": 4485.0,
+          "bank": 3365.0,
+          "broken_buy": 0.0,
+          "buy_type": "force",
+          "kill_share_sim_approx": 1.0,
+          "loss_streak": 0.0,
+          "spend": 2370.0,
+          "spend_trend3": 3016.6666666666665,
+          "win_prob_proxy": 0.8576918366992028
+        }
+      },
+      "pivotal": false,
+      "plant_ms": 42183,
+      "plant_site": "B",
+      "round_num": 8,
+      "round_result": "Bomb detonated",
+      "spend_diff": 1215.0,
+      "winning_team": "Red"
+    },
+    {
+      "defuse_ms": null,
+      "economy": {
+        "Blue": {
+          "bank": 3225.0,
+          "broken_buy": 1.0,
+          "buy_type": "force",
+          "kill_share_sim_approx": 0.16666666666666666,
+          "loss_streak": 2.0,
+          "spend": 1800.0,
+          "spend_trend3": 2556.6666666666665,
+          "win_prob_proxy": 0.06423897590094907
+        },
+        "Red": {
+          "bank": 3990.0,
+          "broken_buy": 0.0,
+          "buy_type": "half",
+          "kill_share_sim_approx": 0.8333333333333334,
+          "loss_streak": 0.0,
+          "spend": 2715.0,
+          "spend_trend3": 2516.6666666666665,
+          "win_prob_proxy": 0.9357610240990509
+        }
+      },
+      "pivotal": false,
+      "plant_ms": null,
+      "plant_site": null,
+      "round_num": 9,
+      "round_result": "Eliminated",
+      "spend_diff": -915.0,
+      "winning_team": "Red"
+    },
+    {
+      "defuse_ms": null,
+      "economy": {
+        "Blue": {
+          "bank": 4320.0,
           "broken_buy": 0.0,
           "buy_type": "full",
-          "kill_share_sim_approx": 0.6666666666666666,
+          "kill_share_sim_approx": 0.0,
+          "loss_streak": 2.0,
+          "spend": 3845.0,
+          "spend_trend3": 3076.6666666666665,
+          "win_prob_proxy": 0.061010976440880674
+        },
+        "Red": {
+          "bank": 4275.0,
+          "broken_buy": 0.0,
+          "buy_type": "full",
+          "kill_share_sim_approx": 1.0,
           "loss_streak": 0.0,
-          "spend": 3090.0,
-          "spend_trend3": 2563.3333333333335,
-          "win_prob_proxy": 0.9749130378465202
+          "spend": 3580.0,
+          "spend_trend3": 2888.3333333333335,
+          "win_prob_proxy": 0.9389890235591193
+        }
+      },
+      "pivotal": false,
+      "plant_ms": null,
+      "plant_site": null,
+      "round_num": 10,
+      "round_result": "Eliminated",
+      "spend_diff": 265.0,
+      "winning_team": "Red"
+    },
+    {
+      "defuse_ms": null,
+      "economy": {
+        "Blue": {
+          "bank": 3375.0,
+          "broken_buy": 1.0,
+          "buy_type": "force",
+          "kill_share_sim_approx": 0.5,
+          "loss_streak": 2.0,
+          "spend": 3170.0,
+          "spend_trend3": 2938.3333333333335,
+          "win_prob_proxy": 0.04446793303773007
+        },
+        "Red": {
+          "bank": 3690.0,
+          "broken_buy": 0.0,
+          "buy_type": "half",
+          "kill_share_sim_approx": 0.5,
+          "loss_streak": 0.0,
+          "spend": 2840.0,
+          "spend_trend3": 3045.0,
+          "win_prob_proxy": 0.9555320669622699
+        }
+      },
+      "pivotal": false,
+      "plant_ms": 47820,
+      "plant_site": "B",
+      "round_num": 11,
+      "round_result": "Bomb detonated",
+      "spend_diff": 330.0,
+      "winning_team": "Red"
+    },
+    {
+      "defuse_ms": null,
+      "economy": {
+        "Blue": {
+          "bank": 3105.0,
+          "broken_buy": 1.0,
+          "buy_type": "force",
+          "kill_share_sim_approx": 0.2857142857142857,
+          "loss_streak": 2.0,
+          "spend": 2090.0,
+          "spend_trend3": 3035.0,
+          "win_prob_proxy": 0.025799802179372285
+        },
+        "Red": {
+          "bank": 3850.0,
+          "broken_buy": 0.0,
+          "buy_type": "half",
+          "kill_share_sim_approx": 0.7142857142857143,
+          "loss_streak": 0.0,
+          "spend": 2615.0,
+          "spend_trend3": 3011.6666666666665,
+          "win_prob_proxy": 0.9742001978206277
         }
       },
       "pivotal": false,
@@ -563,207 +2099,52 @@
       "plant_site": null,
       "round_num": 12,
       "round_result": "Eliminated",
-      "spend_diff": -640.0,
+      "spend_diff": -525.0,
       "winning_team": "Red"
     },
     {
       "defuse_ms": null,
       "economy": {
         "Blue": {
-          "bank": 3110.0,
-          "broken_buy": 1.0,
-          "buy_type": "force",
-          "kill_share_sim_approx": 0.5294117647058824,
+          "bank": 3910.0,
+          "broken_buy": 0.0,
+          "buy_type": "half",
+          "kill_share_sim_approx": 0.16666666666666666,
           "loss_streak": 2.0,
-          "spend": 2275.0,
-          "spend_trend3": 2556.6666666666665,
-          "win_prob_proxy": 0.019478944627689895
+          "spend": 3485.0,
+          "spend_trend3": 2915.0,
+          "win_prob_proxy": 0.025117552317185435
         },
         "Red": {
-          "bank": 4395.0,
+          "bank": 4230.0,
           "broken_buy": 0.0,
           "buy_type": "full",
-          "kill_share_sim_approx": 0.47058823529411764,
+          "kill_share_sim_approx": 0.8333333333333334,
           "loss_streak": 0.0,
-          "spend": 2550.0,
-          "spend_trend3": 2711.6666666666665,
-          "win_prob_proxy": 0.9805210553723102
+          "spend": 2720.0,
+          "spend_trend3": 2725.0,
+          "win_prob_proxy": 0.9748824476828145
         }
       },
       "pivotal": false,
-      "plant_ms": 49467,
+      "plant_ms": 22691,
       "plant_site": "C",
       "round_num": 13,
       "round_result": "Eliminated",
-      "spend_diff": -275.0,
+      "spend_diff": 765.0,
       "winning_team": "Red"
     }
   ],
   "trace": {
     "conclusions": [
       {
-        "agent": "Analyst",
-        "claim": "Blue lost R3 on a broken buy: the loss bonus had escalated far enough to fund a real buy, but the team still walked in on a force.",
-        "evidence": [
-          {
-            "feature": {
-              "name": "broken_buy:Blue",
-              "round_num": 3,
-              "scope": "team_round",
-              "value": 1.0
-            },
-            "source_rows": [
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "puuid": "65e45595-8ebb-9401-826b-ac44fe4c42e7",
-                "round_num": 3,
-                "table": "round_player_stats"
-              },
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "puuid": "85d27d32-ff3f-c580-54a9-7e8b723cc5ee",
-                "round_num": 3,
-                "table": "round_player_stats"
-              },
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "puuid": "c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a",
-                "round_num": 3,
-                "table": "round_player_stats"
-              },
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "puuid": "ccbf7a75-c5fd-e7a0-aee2-0713be1e3979",
-                "round_num": 3,
-                "table": "round_player_stats"
-              },
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "puuid": "e5c845a6-2a5f-a6a5-8ed8-d1c6bc3f09a0",
-                "round_num": 3,
-                "table": "round_player_stats"
-              },
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "round_num": 0,
-                "table": "rounds"
-              },
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "round_num": 1,
-                "table": "rounds"
-              },
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "round_num": 2,
-                "table": "rounds"
-              }
-            ]
-          },
-          {
-            "feature": {
-              "name": "buy_type:Blue",
-              "round_num": 3,
-              "scope": "team_round",
-              "value": 1.0
-            },
-            "source_rows": [
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "puuid": "65e45595-8ebb-9401-826b-ac44fe4c42e7",
-                "round_num": 3,
-                "table": "round_player_stats"
-              },
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "puuid": "85d27d32-ff3f-c580-54a9-7e8b723cc5ee",
-                "round_num": 3,
-                "table": "round_player_stats"
-              },
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "puuid": "c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a",
-                "round_num": 3,
-                "table": "round_player_stats"
-              },
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "puuid": "ccbf7a75-c5fd-e7a0-aee2-0713be1e3979",
-                "round_num": 3,
-                "table": "round_player_stats"
-              },
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "puuid": "e5c845a6-2a5f-a6a5-8ed8-d1c6bc3f09a0",
-                "round_num": 3,
-                "table": "round_player_stats"
-              }
-            ]
-          },
-          {
-            "feature": {
-              "name": "pivotal_round",
-              "round_num": -1,
-              "scope": "match",
-              "value": 3.0
-            },
-            "source_rows": [
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "round_num": 2,
-                "table": "rounds"
-              },
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "round_num": 3,
-                "table": "rounds"
-              }
-            ]
-          },
-          {
-            "feature": {
-              "name": "round_won:Blue",
-              "round_num": 3,
-              "scope": "team_round",
-              "value": 0.0
-            },
-            "source_rows": [
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "round_num": 3,
-                "table": "rounds"
-              }
-            ]
-          },
-          {
-            "feature": {
-              "name": "round_won:Red",
-              "round_num": 3,
-              "scope": "team_round",
-              "value": 1.0
-            },
-            "source_rows": [
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "round_num": 3,
-                "table": "rounds"
-              }
-            ]
-          }
-        ],
-        "rule_id": "analyst.pivotal_broken_buy",
-        "severity": "critical",
-        "unverified_reason": null,
-        "verified": true
-      },
-      {
         "agent": "Economist",
-        "claim": "Blue broke its buy 2 times (R3, R13) -- rounds where the escalated loss bonus should have funded a real buy and the team went in short anyway.",
+        "claim": "Blue broke its buy 6 times (R2, R4, R6, R9, R11, R12) -- rounds where the escalated loss bonus should have funded a real buy and the team went in short anyway.",
         "evidence": [
           {
             "feature": {
               "name": "broken_buy:Blue",
-              "round_num": 3,
+              "round_num": 2,
               "scope": "team_round",
               "value": 1.0
             },
@@ -771,31 +2152,81 @@
               {
                 "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
                 "puuid": "65e45595-8ebb-9401-826b-ac44fe4c42e7",
-                "round_num": 3,
+                "round_num": 2,
                 "table": "round_player_stats"
               },
               {
                 "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
                 "puuid": "85d27d32-ff3f-c580-54a9-7e8b723cc5ee",
-                "round_num": 3,
+                "round_num": 2,
                 "table": "round_player_stats"
               },
               {
                 "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
                 "puuid": "c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a",
-                "round_num": 3,
+                "round_num": 2,
                 "table": "round_player_stats"
               },
               {
                 "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
                 "puuid": "ccbf7a75-c5fd-e7a0-aee2-0713be1e3979",
-                "round_num": 3,
+                "round_num": 2,
                 "table": "round_player_stats"
               },
               {
                 "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
                 "puuid": "e5c845a6-2a5f-a6a5-8ed8-d1c6bc3f09a0",
-                "round_num": 3,
+                "round_num": 2,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "round_num": 0,
+                "table": "rounds"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "round_num": 1,
+                "table": "rounds"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "broken_buy:Blue",
+              "round_num": 4,
+              "scope": "team_round",
+              "value": 1.0
+            },
+            "source_rows": [
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "puuid": "65e45595-8ebb-9401-826b-ac44fe4c42e7",
+                "round_num": 4,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "puuid": "85d27d32-ff3f-c580-54a9-7e8b723cc5ee",
+                "round_num": 4,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "puuid": "c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a",
+                "round_num": 4,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "puuid": "ccbf7a75-c5fd-e7a0-aee2-0713be1e3979",
+                "round_num": 4,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "puuid": "e5c845a6-2a5f-a6a5-8ed8-d1c6bc3f09a0",
+                "round_num": 4,
                 "table": "round_player_stats"
               },
               {
@@ -812,13 +2243,18 @@
                 "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
                 "round_num": 2,
                 "table": "rounds"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "round_num": 3,
+                "table": "rounds"
               }
             ]
           },
           {
             "feature": {
               "name": "broken_buy:Blue",
-              "round_num": 13,
+              "round_num": 6,
               "scope": "team_round",
               "value": 1.0
             },
@@ -826,41 +2262,236 @@
               {
                 "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
                 "puuid": "65e45595-8ebb-9401-826b-ac44fe4c42e7",
-                "round_num": 13,
+                "round_num": 6,
                 "table": "round_player_stats"
               },
               {
                 "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
                 "puuid": "85d27d32-ff3f-c580-54a9-7e8b723cc5ee",
-                "round_num": 13,
+                "round_num": 6,
                 "table": "round_player_stats"
               },
               {
                 "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
                 "puuid": "c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a",
-                "round_num": 13,
+                "round_num": 6,
                 "table": "round_player_stats"
               },
               {
                 "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
                 "puuid": "ccbf7a75-c5fd-e7a0-aee2-0713be1e3979",
-                "round_num": 13,
+                "round_num": 6,
                 "table": "round_player_stats"
               },
               {
                 "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
                 "puuid": "e5c845a6-2a5f-a6a5-8ed8-d1c6bc3f09a0",
-                "round_num": 13,
+                "round_num": 6,
                 "table": "round_player_stats"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "round_num": 0,
+                "table": "rounds"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "round_num": 1,
+                "table": "rounds"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "round_num": 2,
+                "table": "rounds"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "round_num": 3,
+                "table": "rounds"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "round_num": 4,
+                "table": "rounds"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "round_num": 5,
+                "table": "rounds"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "broken_buy:Blue",
+              "round_num": 9,
+              "scope": "team_round",
+              "value": 1.0
+            },
+            "source_rows": [
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "puuid": "65e45595-8ebb-9401-826b-ac44fe4c42e7",
+                "round_num": 9,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "puuid": "85d27d32-ff3f-c580-54a9-7e8b723cc5ee",
+                "round_num": 9,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "puuid": "c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a",
+                "round_num": 9,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "puuid": "ccbf7a75-c5fd-e7a0-aee2-0713be1e3979",
+                "round_num": 9,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "puuid": "e5c845a6-2a5f-a6a5-8ed8-d1c6bc3f09a0",
+                "round_num": 9,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "round_num": 7,
+                "table": "rounds"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "round_num": 8,
+                "table": "rounds"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "broken_buy:Blue",
+              "round_num": 11,
+              "scope": "team_round",
+              "value": 1.0
+            },
+            "source_rows": [
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "puuid": "65e45595-8ebb-9401-826b-ac44fe4c42e7",
+                "round_num": 11,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "puuid": "85d27d32-ff3f-c580-54a9-7e8b723cc5ee",
+                "round_num": 11,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "puuid": "c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a",
+                "round_num": 11,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "puuid": "ccbf7a75-c5fd-e7a0-aee2-0713be1e3979",
+                "round_num": 11,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "puuid": "e5c845a6-2a5f-a6a5-8ed8-d1c6bc3f09a0",
+                "round_num": 11,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "round_num": 7,
+                "table": "rounds"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "round_num": 8,
+                "table": "rounds"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "round_num": 9,
+                "table": "rounds"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "round_num": 10,
+                "table": "rounds"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "broken_buy:Blue",
+              "round_num": 12,
+              "scope": "team_round",
+              "value": 1.0
+            },
+            "source_rows": [
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "puuid": "65e45595-8ebb-9401-826b-ac44fe4c42e7",
+                "round_num": 12,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "puuid": "85d27d32-ff3f-c580-54a9-7e8b723cc5ee",
+                "round_num": 12,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "puuid": "c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a",
+                "round_num": 12,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "puuid": "ccbf7a75-c5fd-e7a0-aee2-0713be1e3979",
+                "round_num": 12,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "puuid": "e5c845a6-2a5f-a6a5-8ed8-d1c6bc3f09a0",
+                "round_num": 12,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "round_num": 7,
+                "table": "rounds"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "round_num": 8,
+                "table": "rounds"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "round_num": 9,
+                "table": "rounds"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "round_num": 10,
+                "table": "rounds"
               },
               {
                 "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
                 "round_num": 11,
-                "table": "rounds"
-              },
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "round_num": 12,
                 "table": "rounds"
               }
             ]
@@ -873,49 +2504,24 @@
       },
       {
         "agent": "Analyst",
-        "claim": "Blue went into the pivotal R3 already 2 rounds into a losing streak -- the round that decided the match was played on bonus money.",
+        "claim": "Red was simply out-fought in the pivotal R6, taking only 0% of the round's kills (sim-approx: kill share stands in for real trade windows).",
         "evidence": [
-          {
-            "feature": {
-              "name": "loss_streak:Blue",
-              "round_num": 3,
-              "scope": "team_round",
-              "value": 2.0
-            },
-            "source_rows": [
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "round_num": 0,
-                "table": "rounds"
-              },
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "round_num": 1,
-                "table": "rounds"
-              },
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "round_num": 2,
-                "table": "rounds"
-              }
-            ]
-          },
           {
             "feature": {
               "name": "pivotal_round",
               "round_num": -1,
               "scope": "match",
-              "value": 3.0
+              "value": 6.0
             },
             "source_rows": [
               {
                 "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "round_num": 2,
+                "round_num": 5,
                 "table": "rounds"
               },
               {
                 "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "round_num": 3,
+                "round_num": 6,
                 "table": "rounds"
               }
             ]
@@ -923,14 +2529,14 @@
           {
             "feature": {
               "name": "round_won:Blue",
-              "round_num": 3,
+              "round_num": 6,
               "scope": "team_round",
-              "value": 0.0
+              "value": 1.0
             },
             "source_rows": [
               {
                 "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "round_num": 3,
+                "round_num": 6,
                 "table": "rounds"
               }
             ]
@@ -938,20 +2544,90 @@
           {
             "feature": {
               "name": "round_won:Red",
-              "round_num": 3,
+              "round_num": 6,
               "scope": "team_round",
-              "value": 1.0
+              "value": 0.0
             },
             "source_rows": [
               {
                 "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "round_num": 3,
+                "round_num": 6,
                 "table": "rounds"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "trade_efficiency_sim_approx:Red",
+              "round_num": 6,
+              "scope": "team_round",
+              "value": 0.0
+            },
+            "source_rows": [
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "puuid": "0b37c6ce-90c7-a594-f01a-70b49cc6aad5",
+                "round_num": 6,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "puuid": "65e45595-8ebb-9401-826b-ac44fe4c42e7",
+                "round_num": 6,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "puuid": "85d27d32-ff3f-c580-54a9-7e8b723cc5ee",
+                "round_num": 6,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "puuid": "972157dd-8f42-dbc7-9430-b1e2e20cc7ca",
+                "round_num": 6,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "puuid": "9b69cfa8-fdb0-8990-10d7-54589b3c2c70",
+                "round_num": 6,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "puuid": "a0d39947-19b3-ba75-7ebb-7905c38297c9",
+                "round_num": 6,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "puuid": "c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a",
+                "round_num": 6,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "puuid": "ccbf7a75-c5fd-e7a0-aee2-0713be1e3979",
+                "round_num": 6,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "puuid": "e5c845a6-2a5f-a6a5-8ed8-d1c6bc3f09a0",
+                "round_num": 6,
+                "table": "round_player_stats"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "puuid": "hero",
+                "round_num": 6,
+                "table": "round_player_stats"
               }
             ]
           }
         ],
-        "rule_id": "analyst.pivotal_streak",
+        "rule_id": "analyst.pivotal_trade_collapse",
         "severity": "warning",
         "unverified_reason": null,
         "verified": true
@@ -1003,14 +2679,14 @@
       },
       {
         "agent": "Analyst",
-        "claim": "Blue was out-traded across the match, taking 44% of round kills over 14 rounds against a 50% even split (sim-approx: kill share stands in for real trade windows).",
+        "claim": "Blue was out-traded across the match, taking 33% of round kills over 14 rounds against a 50% even split (sim-approx: kill share stands in for real trade windows).",
         "evidence": [
           {
             "feature": {
               "name": "trade_efficiency_sim_approx:Blue",
               "round_num": 0,
               "scope": "team_round",
-              "value": 0.4
+              "value": 0.2857142857142857
             },
             "source_rows": [
               {
@@ -1080,7 +2756,7 @@
               "name": "trade_efficiency_sim_approx:Blue",
               "round_num": 1,
               "scope": "team_round",
-              "value": 0.3
+              "value": 0.3333333333333333
             },
             "source_rows": [
               {
@@ -1150,7 +2826,7 @@
               "name": "trade_efficiency_sim_approx:Blue",
               "round_num": 2,
               "scope": "team_round",
-              "value": 0.5454545454545454
+              "value": 0.2857142857142857
             },
             "source_rows": [
               {
@@ -1220,7 +2896,7 @@
               "name": "trade_efficiency_sim_approx:Blue",
               "round_num": 3,
               "scope": "team_round",
-              "value": 0.36363636363636365
+              "value": 0.5
             },
             "source_rows": [
               {
@@ -1290,7 +2966,7 @@
               "name": "trade_efficiency_sim_approx:Blue",
               "round_num": 4,
               "scope": "team_round",
-              "value": 0.75
+              "value": 0.5
             },
             "source_rows": [
               {
@@ -1360,7 +3036,7 @@
               "name": "trade_efficiency_sim_approx:Blue",
               "round_num": 5,
               "scope": "team_round",
-              "value": 0.4666666666666667
+              "value": 0.4
             },
             "source_rows": [
               {
@@ -1430,7 +3106,7 @@
               "name": "trade_efficiency_sim_approx:Blue",
               "round_num": 6,
               "scope": "team_round",
-              "value": 0.5
+              "value": 1.0
             },
             "source_rows": [
               {
@@ -1500,7 +3176,7 @@
               "name": "trade_efficiency_sim_approx:Blue",
               "round_num": 7,
               "scope": "team_round",
-              "value": 0.4
+              "value": 0.16666666666666666
             },
             "source_rows": [
               {
@@ -1570,7 +3246,7 @@
               "name": "trade_efficiency_sim_approx:Blue",
               "round_num": 8,
               "scope": "team_round",
-              "value": 0.3076923076923077
+              "value": 0.0
             },
             "source_rows": [
               {
@@ -1640,7 +3316,7 @@
               "name": "trade_efficiency_sim_approx:Blue",
               "round_num": 9,
               "scope": "team_round",
-              "value": 0.42857142857142855
+              "value": 0.16666666666666666
             },
             "source_rows": [
               {
@@ -1710,7 +3386,7 @@
               "name": "trade_efficiency_sim_approx:Blue",
               "round_num": 10,
               "scope": "team_round",
-              "value": 0.6666666666666666
+              "value": 0.0
             },
             "source_rows": [
               {
@@ -1780,7 +3456,7 @@
               "name": "trade_efficiency_sim_approx:Blue",
               "round_num": 11,
               "scope": "team_round",
-              "value": 0.2
+              "value": 0.5
             },
             "source_rows": [
               {
@@ -1850,7 +3526,7 @@
               "name": "trade_efficiency_sim_approx:Blue",
               "round_num": 12,
               "scope": "team_round",
-              "value": 0.3333333333333333
+              "value": 0.2857142857142857
             },
             "source_rows": [
               {
@@ -1920,7 +3596,7 @@
               "name": "trade_efficiency_sim_approx:Blue",
               "round_num": 13,
               "scope": "team_round",
-              "value": 0.5294117647058824
+              "value": 0.16666666666666666
             },
             "source_rows": [
               {
@@ -1993,137 +3669,7 @@
       },
       {
         "agent": "Economist",
-        "claim": "Blue force-bought 3 rounds back to back (R11, R12, R13). One force is a read; a run this long means the team never got off the back foot long enough to rebuild.",
-        "evidence": [
-          {
-            "feature": {
-              "name": "buy_type:Blue",
-              "round_num": 11,
-              "scope": "team_round",
-              "value": 1.0
-            },
-            "source_rows": [
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "puuid": "65e45595-8ebb-9401-826b-ac44fe4c42e7",
-                "round_num": 11,
-                "table": "round_player_stats"
-              },
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "puuid": "85d27d32-ff3f-c580-54a9-7e8b723cc5ee",
-                "round_num": 11,
-                "table": "round_player_stats"
-              },
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "puuid": "c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a",
-                "round_num": 11,
-                "table": "round_player_stats"
-              },
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "puuid": "ccbf7a75-c5fd-e7a0-aee2-0713be1e3979",
-                "round_num": 11,
-                "table": "round_player_stats"
-              },
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "puuid": "e5c845a6-2a5f-a6a5-8ed8-d1c6bc3f09a0",
-                "round_num": 11,
-                "table": "round_player_stats"
-              }
-            ]
-          },
-          {
-            "feature": {
-              "name": "buy_type:Blue",
-              "round_num": 12,
-              "scope": "team_round",
-              "value": 1.0
-            },
-            "source_rows": [
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "puuid": "65e45595-8ebb-9401-826b-ac44fe4c42e7",
-                "round_num": 12,
-                "table": "round_player_stats"
-              },
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "puuid": "85d27d32-ff3f-c580-54a9-7e8b723cc5ee",
-                "round_num": 12,
-                "table": "round_player_stats"
-              },
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "puuid": "c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a",
-                "round_num": 12,
-                "table": "round_player_stats"
-              },
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "puuid": "ccbf7a75-c5fd-e7a0-aee2-0713be1e3979",
-                "round_num": 12,
-                "table": "round_player_stats"
-              },
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "puuid": "e5c845a6-2a5f-a6a5-8ed8-d1c6bc3f09a0",
-                "round_num": 12,
-                "table": "round_player_stats"
-              }
-            ]
-          },
-          {
-            "feature": {
-              "name": "buy_type:Blue",
-              "round_num": 13,
-              "scope": "team_round",
-              "value": 1.0
-            },
-            "source_rows": [
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "puuid": "65e45595-8ebb-9401-826b-ac44fe4c42e7",
-                "round_num": 13,
-                "table": "round_player_stats"
-              },
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "puuid": "85d27d32-ff3f-c580-54a9-7e8b723cc5ee",
-                "round_num": 13,
-                "table": "round_player_stats"
-              },
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "puuid": "c5cca93d-a7c0-dc7f-f7f4-64713f5afb0a",
-                "round_num": 13,
-                "table": "round_player_stats"
-              },
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "puuid": "ccbf7a75-c5fd-e7a0-aee2-0713be1e3979",
-                "round_num": 13,
-                "table": "round_player_stats"
-              },
-              {
-                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "puuid": "e5c845a6-2a5f-a6a5-8ed8-d1c6bc3f09a0",
-                "round_num": 13,
-                "table": "round_player_stats"
-              }
-            ]
-          }
-        ],
-        "rule_id": "economist.consecutive_force",
-        "severity": "warning",
-        "unverified_reason": null,
-        "verified": true
-      },
-      {
-        "agent": "Economist",
-        "claim": "Blue force-bought in 5 of 14 rounds (36%), past the 30% mark where forcing stops being a read and starts being a habit.",
+        "claim": "Blue force-bought in 7 of 14 rounds (50%), past the 30% mark where forcing stops being a read and starts being a habit.",
         "evidence": [
           {
             "feature": {
@@ -2210,7 +3756,7 @@
               "name": "buy_type:Blue",
               "round_num": 2,
               "scope": "team_round",
-              "value": 2.0
+              "value": 1.0
             },
             "source_rows": [
               {
@@ -2250,7 +3796,7 @@
               "name": "buy_type:Blue",
               "round_num": 3,
               "scope": "team_round",
-              "value": 1.0
+              "value": 2.0
             },
             "source_rows": [
               {
@@ -2290,7 +3836,7 @@
               "name": "buy_type:Blue",
               "round_num": 4,
               "scope": "team_round",
-              "value": 3.0
+              "value": 1.0
             },
             "source_rows": [
               {
@@ -2330,7 +3876,7 @@
               "name": "buy_type:Blue",
               "round_num": 5,
               "scope": "team_round",
-              "value": 3.0
+              "value": 2.0
             },
             "source_rows": [
               {
@@ -2370,7 +3916,7 @@
               "name": "buy_type:Blue",
               "round_num": 6,
               "scope": "team_round",
-              "value": 3.0
+              "value": 1.0
             },
             "source_rows": [
               {
@@ -2490,7 +4036,7 @@
               "name": "buy_type:Blue",
               "round_num": 9,
               "scope": "team_round",
-              "value": 3.0
+              "value": 1.0
             },
             "source_rows": [
               {
@@ -2530,7 +4076,7 @@
               "name": "buy_type:Blue",
               "round_num": 10,
               "scope": "team_round",
-              "value": 2.0
+              "value": 3.0
             },
             "source_rows": [
               {
@@ -2650,7 +4196,7 @@
               "name": "buy_type:Blue",
               "round_num": 13,
               "scope": "team_round",
-              "value": 1.0
+              "value": 2.0
             },
             "source_rows": [
               {
@@ -2693,24 +4239,24 @@
       },
       {
         "agent": "Analyst",
-        "claim": "R3 was the match's pivotal round -- the largest single swing (0.135) in the win-probability proxy. Red took it, Blue lost it.",
+        "claim": "R6 was the match's pivotal round -- the largest single swing (0.107) in the win-probability proxy. Blue took it, Red lost it.",
         "evidence": [
           {
             "feature": {
               "name": "pivotal_round",
               "round_num": -1,
               "scope": "match",
-              "value": 3.0
+              "value": 6.0
             },
             "source_rows": [
               {
                 "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "round_num": 2,
+                "round_num": 5,
                 "table": "rounds"
               },
               {
                 "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "round_num": 3,
+                "round_num": 6,
                 "table": "rounds"
               }
             ]
@@ -2720,9 +4266,79 @@
               "name": "pivotal_round_swing",
               "round_num": -1,
               "scope": "match",
-              "value": 0.13482674983863527
+              "value": 0.10696684402536391
             },
             "source_rows": [
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "round_num": 5,
+                "table": "rounds"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "round_num": 6,
+                "table": "rounds"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "round_won:Blue",
+              "round_num": 6,
+              "scope": "team_round",
+              "value": 1.0
+            },
+            "source_rows": [
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "round_num": 6,
+                "table": "rounds"
+              }
+            ]
+          },
+          {
+            "feature": {
+              "name": "round_won:Red",
+              "round_num": 6,
+              "scope": "team_round",
+              "value": 0.0
+            },
+            "source_rows": [
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "round_num": 6,
+                "table": "rounds"
+              }
+            ]
+          }
+        ],
+        "rule_id": "analyst.pivotal_round",
+        "severity": "info",
+        "unverified_reason": null,
+        "verified": true
+      },
+      {
+        "agent": "Analyst",
+        "claim": "Red reached a plant in only 42% of its attack rounds -- most of those rounds were lost before the spike ever went down.",
+        "evidence": [
+          {
+            "feature": {
+              "name": "plant_rate:Red",
+              "round_num": -1,
+              "scope": "match",
+              "value": 0.4166666666666667
+            },
+            "source_rows": [
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "round_num": 0,
+                "table": "rounds"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "round_num": 1,
+                "table": "rounds"
+              },
               {
                 "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
                 "round_num": 2,
@@ -2732,41 +4348,51 @@
                 "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
                 "round_num": 3,
                 "table": "rounds"
-              }
-            ]
-          },
-          {
-            "feature": {
-              "name": "round_won:Blue",
-              "round_num": 3,
-              "scope": "team_round",
-              "value": 0.0
-            },
-            "source_rows": [
+              },
               {
                 "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "round_num": 3,
+                "round_num": 4,
                 "table": "rounds"
-              }
-            ]
-          },
-          {
-            "feature": {
-              "name": "round_won:Red",
-              "round_num": 3,
-              "scope": "team_round",
-              "value": 1.0
-            },
-            "source_rows": [
+              },
               {
                 "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
-                "round_num": 3,
+                "round_num": 5,
+                "table": "rounds"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "round_num": 6,
+                "table": "rounds"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "round_num": 7,
+                "table": "rounds"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "round_num": 8,
+                "table": "rounds"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "round_num": 9,
+                "table": "rounds"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "round_num": 10,
+                "table": "rounds"
+              },
+              {
+                "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+                "round_num": 11,
                 "table": "rounds"
               }
             ]
           }
         ],
-        "rule_id": "analyst.pivotal_round",
+        "rule_id": "analyst.plant_rate",
         "severity": "info",
         "unverified_reason": null,
         "verified": true
@@ -2904,10 +4530,10 @@
     ],
     "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
     "summary": {
-      "conclusions": 10,
-      "source_rows_cited": 285,
+      "conclusions": 9,
+      "source_rows_cited": 310,
       "unverified": 0,
-      "verified": 10
+      "verified": 9
     },
     "trace_version": 1
   }
