@@ -33,6 +33,53 @@ def store(tmp_path):
     return conn, ids
 
 
+class TestRoleBundle:
+    ROLES = {"duelist", "initiator", "controller", "sentinel"}
+
+    def test_every_player_has_a_role_card(self, store):
+        conn, ids = store
+        role = build_match_bundle(conn, ids[0])["role"]
+        assert role["baseline_version"].startswith("v")
+        assert len(role["players"]) == 10
+        for p in role["players"]:
+            assert p["role"] in self.ROLES
+            assert p["features"], "a role card with no features"
+
+    def test_percentiles_are_oriented_and_in_range(self, store):
+        conn, ids = store
+        role = build_match_bundle(conn, ids[0])["role"]
+        for p in role["players"]:
+            for f in p["features"]:
+                assert 0.0 <= f["percentile"] <= 100.0
+                # first_death_rate is the inverted metric; nothing else is.
+                assert f["inverted"] == (f["name"] == "first_death_rate")
+
+    def test_only_support_before_entry_is_role_approx(self, store):
+        conn, ids = store
+        role = build_match_bundle(conn, ids[0])["role"]
+        for p in role["players"]:
+            assert all(not f["role_approx"] for f in p["features"])
+        for team, syn in role["synergy"].items():
+            assert 1 <= syn["role_balance"] <= 4
+            if syn["support_before_entry"] is not None:
+                assert syn["support_before_entry"]["role_approx"] is True
+
+    def test_role_trace_claims_carry_the_percentile_chain(self, store):
+        conn, ids = store
+        role = build_match_bundle(conn, ids[0])["role"]
+        pct_claims = [c for c in role["trace"]["conclusions"]
+                      if "within_role_percentile" in c]
+        assert pct_claims, "no percentile-scored role claims in the trace"
+        for c in pct_claims:
+            assert c["baseline_version"] == role["baseline_version"]
+
+    def test_role_debrief_needs_no_api_key_by_default(self, store):
+        conn, ids = store
+        role = build_match_bundle(conn, ids[0])["role"]
+        assert role["debrief"]["used_llm"] is False
+        assert role["debrief"]["text"]
+
+
 class TestMatchBundle:
     def test_meta_and_score_match_the_rounds_table(self, store):
         conn, ids = store
