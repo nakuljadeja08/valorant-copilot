@@ -203,8 +203,7 @@ verbatim, provenance rendered by the shell, and claim-level trace expansion.
 
 **Delivered (4b — the redesign):** branch `frontend_changes`
 
-Implements `Dashboard Redesign Options.dc.html` (a design doc with four
-mockups): direction **1a Command Center** as the overview, with the agent pipeline from
+Implements the explored design directions: **1a Command Center** as the overview, with the agent pipeline from
 **1c Agent Ops** promoted to its own route, and **1d** as the match view. Visual language
 follows Riot's brand system — angular Fist-derived geometry, condensed uppercase display
 type, square corners, depth from surface steps and hairlines rather than shadows.
@@ -292,7 +291,7 @@ the tree, so the committed bundles cannot silently drift from the store again.
 - [x] Bundles pre-generated at build time; no backend, no key in the frontend
 - [x] Provenance banner on every view (rendered by the shell, not per page)
 - [x] Export is idempotent and byte-stable; covered by tests
-- [x] Redesign per `Dashboard Redesign Options.dc.html` (1a + 1c pipeline + 1d)
+- [x] Redesign per the explored directions (1a + 1c pipeline + 1d)
 - [x] Light/dark theme toggle, persisted, applied before first paint
 - [x] Fonts self-hosted — no third-party request at runtime, enforced by a test
 - [x] Every chart has a table-view twin — asserted structurally, so it stays true as
