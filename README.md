@@ -214,7 +214,7 @@ python -m src.agents.role_fit --match <id>        # just the mis-role flags
 
 ## Dashboard
 
-**Live URL:** _not yet deployed — see `docs/TASKS.md` Phase 4._
+**Live URL:** _not yet deployed._
 
 The dashboard exists to make the trace legible, not to be a product. Match list →
 match view (round timeline, economy chart, scoreboard) → debrief, where every claim
@@ -284,7 +284,6 @@ chart has a table view, so nothing is conveyed by color alone.
 | `web/` | React (Vite) dashboard — reads only the generated bundles |
 | `web/public/data/` | Generated bundles, committed (the store itself is gitignored) |
 | `src/storage/schema.sql` | Normalized match store |
-| `docs/TASKS.md` | Build plan |
 
 ## License
 
