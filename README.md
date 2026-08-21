@@ -153,7 +153,7 @@ recorded in `constants.py` rather than shipped as a dead rule.
 
 ## Role coaching layer
 
-A second workstream layered on the base pipeline (`ROLE_PLAN.md`): scoring each
+A second workstream layered on the base pipeline: scoring each
 player *as their role*. The whole reason it exists is one principle —
 
 > **Role-relative, never cross-role.** A Sentinel is not a weak Duelist because
