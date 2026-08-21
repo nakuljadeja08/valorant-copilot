@@ -12,3 +12,12 @@ valorant-copilot-riot-deck.pdf
 Dashboard Redesign Options.dc.html
 .claude
 docs/TASKS.md
+
+# Backup bundles contain full repo history — never commit one
+*.bundle
+
+# Editor / OS
+.vscode/
+.idea/
+*.swp
+Thumbs.db
