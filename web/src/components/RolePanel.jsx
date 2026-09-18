@@ -1,5 +1,6 @@
 import { ordinal, pct } from "../lib/data.js";
 import DebriefPanel from "./DebriefPanel.jsx";
+import RoleGlyph from "./RoleGlyph.jsx";
 
 /* The role layer (R4): each player scored *within their role*, never across
  * roles. Percentiles are oriented so higher always reads better; the inverted
@@ -39,10 +40,13 @@ function RoleCard({ player }) {
   return (
     <article className="panel section role-card">
       <div className="panel-head">
-        <h3 className="section-title" style={{ marginBottom: 0 }}>
-          {player.agent_name}
-          {player.is_hero && <span className="tag" style={{ marginLeft: 8 }}>you</span>}
-        </h3>
+        <div className="role-card-id">
+          <RoleGlyph role={player.role} />
+          <h3 className="section-title" style={{ marginBottom: 0 }}>
+            {player.agent_name}
+            {player.is_hero && <span className="tag" style={{ marginLeft: 8 }}>you</span>}
+          </h3>
+        </div>
         <span className="badge neutral">{ROLE_LABEL[player.role] ?? player.role}</span>
       </div>
 

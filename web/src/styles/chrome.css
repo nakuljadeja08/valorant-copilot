@@ -6,8 +6,18 @@
   position: sticky;
   top: 0;
   z-index: 30;
-  background: var(--surface-card);
+  background: linear-gradient(180deg, var(--surface-panel), var(--surface-card));
   border-bottom: 1px solid var(--line-2);
+  box-shadow: 0 1px 0 var(--hairline-accent);
+}
+
+/* The signature Riot top rule: a thin brand-gradient edge across the header. */
+.app-header::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: var(--brand-grad);
 }
 
 .app-header-inner {
@@ -20,21 +30,28 @@
 }
 
 .logo-mark {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   flex: none;
-  background: var(--brand);
+  background: var(--brand-grad);
   clip-path: var(--notch-logo);
+  box-shadow: var(--brand-glow);
 }
 
 .wordmark {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 17px;
-  letter-spacing: 0.14em;
+  font-size: 19px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
+}
+
+/* Tint the second word of the wordmark with the brand red for a two-tone lockup
+   (wrap it in <span class="wordmark-accent"> in the markup). */
+.wordmark-accent {
+  color: var(--brand);
 }
 
 .app-nav {
@@ -58,7 +75,9 @@
 
 .app-nav a[aria-current="page"] {
   color: var(--ink);
-  border-bottom-color: var(--brand);
+  border-image: var(--brand-grad) 1;
+  border-bottom-width: 2px;
+  text-shadow: 0 0 12px rgba(255, 70, 85, 0.25);
 }
 
 .header-spacer {
@@ -282,11 +301,13 @@
 .result-badge.win {
   background: var(--good);
   color: var(--on-good);
+  box-shadow: 0 0 20px rgba(35, 193, 159, 0.3);
 }
 
 .result-badge.loss {
-  background: var(--bad);
+  background: var(--brand-grad);
   color: var(--on-brand);
+  box-shadow: var(--brand-glow);
 }
 
 .result-badge.draw {

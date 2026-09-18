@@ -15,7 +15,12 @@
    is public, and committing a licensed .woff2 is redistribution that most
    Tungsten and DIN Next EULAs prohibit. */
 
-/* Display -- uppercase, condensed, 500/600/700 only. */
+/* Display -- uppercase, condensed, 500/600/700 only. Oswald is the tall,
+   tight-tracked condensed face that reads closest to Riot's Tungsten; Barlow
+   Condensed stays in the stack as a metrically-similar fallback. */
+@import "@fontsource/oswald/500.css";
+@import "@fontsource/oswald/600.css";
+@import "@fontsource/oswald/700.css";
 @import "@fontsource/barlow-condensed/500.css";
 @import "@fontsource/barlow-condensed/600.css";
 @import "@fontsource/barlow-condensed/700.css";

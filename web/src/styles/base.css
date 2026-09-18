@@ -6,7 +6,7 @@
 
 body {
   margin: 0;
-  background: var(--surface-page);
+  background: var(--page-backdrop) fixed;
   color: var(--ink);
   font-family: var(--font-ui);
   font-size: 14px;
@@ -60,10 +60,22 @@ button {
 .page-title {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 40px;
-  line-height: 1;
-  letter-spacing: 0.02em;
+  font-size: 52px;
+  line-height: 0.95;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
+}
+
+/* A short angled red slash sitting under a display title -- the recurring
+   VALORANT accent mark. Drop it on any heading wrapper. */
+.accent-rule::before {
+  content: "";
+  display: block;
+  width: 46px;
+  height: 3px;
+  margin-bottom: 12px;
+  background: var(--brand-grad);
+  clip-path: var(--slant-badge);
 }
 
 .section-title {
@@ -160,6 +172,6 @@ button {
     padding: 16px 14px 56px;
   }
   .page-title {
-    font-size: 30px;
+    font-size: 38px;
   }
 }

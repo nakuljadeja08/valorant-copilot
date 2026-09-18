@@ -21,7 +21,7 @@ export default function AppHeader({ provenance, route }) {
       <div className="app-header-inner">
         <span className="logo-mark" aria-hidden="true" />
         <a className="wordmark" href="#/">
-          Coaching Copilot
+          Coaching <span className="wordmark-accent">Copilot</span>
         </a>
 
         <nav className="app-nav" aria-label="Sections">
