@@ -633,6 +633,34 @@ def dumps(obj: Any) -> str:
     return json.dumps(obj, indent=2, sort_keys=True) + "\n"
 
 
+# Role features that cannot legitimately be zero for *every* player in a real
+# match: every round has an opening kill (first contact), and controllers /
+# initiators cast utility. If either is uniformly zero across the roster, the
+# store is missing its kill/event data (round_kills) and the role layer has
+# silently degenerated to all-zeros -- the exact failure a stale, pre-role store
+# produces. Fail the export loudly rather than ship bundles that read "every
+# player 0%, 100% survival".
+_ROLE_INTEGRITY_FEATURES = ("first_contact_rate", "utility_per_round")
+
+
+def _assert_role_integrity(match_id: str, bundle: dict[str, Any]) -> None:
+    role = bundle.get("role")
+    players = (role or {}).get("players") or []
+    if not players:
+        return
+    for feat in _ROLE_INTEGRITY_FEATURES:
+        vals = [f["value"] for p in players for f in p.get("features", [])
+                if f["name"] == feat]
+        if vals and not any(vals):
+            raise SystemExit(
+                f"role integrity check failed for match {match_id}: '{feat}' is "
+                "zero for every player -- the store has no kill/event data "
+                "(round_kills), so the role layer is degenerate. Rebuild the store "
+                "before exporting:\n"
+                "  python -m src.ingest.pipeline --source sim --matches 100\n"
+                "  python -m src.features.run --all")
+
+
 def export(conn: sqlite3.Connection, out_dir: Path, limit: int | None = None,
            use_llm: bool = False) -> dict[str, Any]:
     match_ids = [r["match_id"] for r in conn.execute(
@@ -649,6 +677,7 @@ def export(conn: sqlite3.Connection, out_dir: Path, limit: int | None = None,
     bundles = []
     for mid in match_ids:
         bundle = build_match_bundle(conn, mid, use_llm=use_llm, resolver=resolver)
+        _assert_role_integrity(mid, bundle)
         (match_dir / f"{mid}.json").write_text(dumps(bundle), encoding="utf-8")
         bundles.append(bundle)
 

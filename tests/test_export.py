@@ -12,7 +12,14 @@ import pytest
 from src.agents.rules import analyze
 from src.agents.trace import build_trace
 from src.agents.watchdog import verify
-from src.export.bundle import build_agents, build_index, build_match_bundle, dumps, export
+from src.export.bundle import (
+    _assert_role_integrity,
+    build_agents,
+    build_index,
+    build_match_bundle,
+    dumps,
+    export,
+)
 from src.features.constants import BUY_NAMES
 from src.features.run import compute_for_match
 from src.ingest.pipeline import normalize
@@ -31,6 +38,42 @@ def store(tmp_path):
         normalize(conn, src.match(mid), "sim", hero_puuid="hero")
         compute_for_match(conn, mid)
     return conn, ids
+
+
+class TestRoleIntegrityGuard:
+    """A stale, pre-role store (no round_kills) silently exports a role layer of
+    all-zeros. The export must refuse rather than ship it -- this pins the guard.
+    """
+
+    def test_export_refuses_when_kill_events_missing(self, store, tmp_path):
+        conn, ids = store
+        # Reproduce the stale store: drop the kill timeline the role layer reads,
+        # then recompute so the role features go all-zero the way a real regen
+        # against a pre-role store did.
+        conn.execute("DELETE FROM round_kills")
+        conn.execute("DELETE FROM round_kill_assists")
+        conn.commit()
+        for mid in ids:
+            compute_for_match(conn, mid)
+        with pytest.raises(SystemExit, match="role integrity"):
+            export(conn, tmp_path / "out", limit=1)
+
+    def test_healthy_store_exports_cleanly(self, store, tmp_path):
+        conn, _ = store
+        export(conn, tmp_path / "out", limit=1)  # must not raise
+
+    def test_guard_ignores_bundles_without_a_role_section(self):
+        # A bundle with no role key (e.g. a match with no focal player) must pass.
+        _assert_role_integrity("m", {"match": {}})
+        _assert_role_integrity("m", {"role": {"players": []}})
+
+    def test_guard_fires_on_uniformly_zero_first_contact(self):
+        bundle = {"role": {"players": [
+            {"features": [{"name": "first_contact_rate", "value": 0.0},
+                          {"name": "utility_per_round", "value": 2.0}]}
+            for _ in range(10)]}}
+        with pytest.raises(SystemExit, match="first_contact_rate"):
+            _assert_role_integrity("m", bundle)
 
 
 class TestRoleBundle:
