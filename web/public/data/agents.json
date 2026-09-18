@@ -1,189 +1,219 @@
 {
   "agents": {
     "Analyst": {
-      "critical": 3,
-      "findings": 48
+      "critical": 5,
+      "findings": 49
     },
     "Economist": {
-      "critical": 6,
-      "findings": 45
+      "critical": 8,
+      "findings": 48
     }
   },
   "bundle_version": 2,
   "findings": [
     {
       "agent": "Analyst",
-      "claim": "Blue lost R3 on a broken buy: the loss bonus had escalated far enough to fund a real buy, but the team still walked in on a force.",
+      "claim": "Red lost R19 on a broken buy: the loss bonus had escalated far enough to fund a real buy, but the team still walked in on a force.",
       "feature_rows": 5,
-      "map_name": "Skirmish A",
-      "match_id": "047ab4d9-2a24-cac3-a4f8-23b82b328adb",
+      "map_name": "The Range",
+      "match_id": "0c5b35ed-da8b-7e2d-f04c-ff6690ca33b6",
       "rule_id": "analyst.pivotal_broken_buy",
       "severity": "critical",
-      "source_rows": 17
+      "source_rows": 18
     },
     {
       "agent": "Analyst",
-      "claim": "Red lost R6 on a broken buy: the loss bonus had escalated far enough to fund a real buy, but the team still walked in on a force.",
+      "claim": "Red lost R4 on a broken buy: the loss bonus had escalated far enough to fund a real buy, but the team still walked in on a force.",
       "feature_rows": 5,
       "map_name": "Piazza",
       "match_id": "0c7b9f63-ca0c-b031-0568-50873a98fa47",
+      "rule_id": "analyst.pivotal_broken_buy",
+      "severity": "critical",
+      "source_rows": 18
+    },
+    {
+      "agent": "Analyst",
+      "claim": "Blue lost R4 on a broken buy: the loss bonus had escalated far enough to fund a real buy, but the team still walked in on a force.",
+      "feature_rows": 5,
+      "map_name": "Bind",
+      "match_id": "0da10c78-5df6-2846-0035-bb82d0a76654",
+      "rule_id": "analyst.pivotal_broken_buy",
+      "severity": "critical",
+      "source_rows": 18
+    },
+    {
+      "agent": "Analyst",
+      "claim": "Blue lost R2 on a broken buy: the loss bonus had escalated far enough to fund a real buy, but the team still walked in on a force.",
+      "feature_rows": 5,
+      "map_name": "Skirmish B",
+      "match_id": "11838110-0da4-833a-a7f2-39ce4892171c",
       "rule_id": "analyst.pivotal_broken_buy",
       "severity": "critical",
       "source_rows": 16
     },
     {
       "agent": "Analyst",
-      "claim": "Blue lost R3 on a broken buy: the loss bonus had escalated far enough to fund a real buy, but the team still walked in on a force.",
+      "claim": "Blue lost R8 on a broken buy: the loss bonus had escalated far enough to fund a real buy, but the team still walked in on a force.",
       "feature_rows": 5,
-      "map_name": "Abyss",
-      "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+      "map_name": "Kasbah",
+      "match_id": "18c5c87b-6d9b-8674-89c7-7144d42f2748",
       "rule_id": "analyst.pivotal_broken_buy",
       "severity": "critical",
-      "source_rows": 17
+      "source_rows": 16
     },
     {
       "agent": "Economist",
-      "claim": "Red broke its buy 2 times (R8, R11) -- rounds where the escalated loss bonus should have funded a real buy and the team went in short anyway.",
+      "claim": "Red broke its buy 2 times (R5, R12) -- rounds where the escalated loss bonus should have funded a real buy and the team went in short anyway.",
       "feature_rows": 2,
       "map_name": "Corrode",
       "match_id": "00041a37-c43a-b5af-75ef-7038af82f832",
-      "rule_id": "economist.broken_buy_count",
-      "severity": "critical",
-      "source_rows": 23
-    },
-    {
-      "agent": "Economist",
-      "claim": "Blue broke its buy 2 times (R6, R8) -- rounds where the escalated loss bonus should have funded a real buy and the team went in short anyway.",
-      "feature_rows": 2,
-      "map_name": "Skirmish B",
-      "match_id": "0a298534-67bb-af82-6fe4-946084d706a1",
       "rule_id": "economist.broken_buy_count",
       "severity": "critical",
       "source_rows": 18
     },
     {
       "agent": "Economist",
-      "claim": "Red broke its buy 4 times (R2, R6, R10, R12) -- rounds where the escalated loss bonus should have funded a real buy and the team went in short anyway.",
+      "claim": "Blue broke its buy 2 times (R7, R9) -- rounds where the escalated loss bonus should have funded a real buy and the team went in short anyway.",
+      "feature_rows": 2,
+      "map_name": "Skirmish A",
+      "match_id": "047ab4d9-2a24-cac3-a4f8-23b82b328adb",
+      "rule_id": "economist.broken_buy_count",
+      "severity": "critical",
+      "source_rows": 26
+    },
+    {
+      "agent": "Economist",
+      "claim": "Red broke its buy 2 times (R17, R19) -- rounds where the escalated loss bonus should have funded a real buy and the team went in short anyway.",
+      "feature_rows": 2,
+      "map_name": "The Range",
+      "match_id": "0c5b35ed-da8b-7e2d-f04c-ff6690ca33b6",
+      "rule_id": "economist.broken_buy_count",
+      "severity": "critical",
+      "source_rows": 16
+    },
+    {
+      "agent": "Economist",
+      "claim": "Red broke its buy 4 times (R2, R4, R14, R15) -- rounds where the escalated loss bonus should have funded a real buy and the team went in short anyway.",
       "feature_rows": 4,
       "map_name": "Piazza",
       "match_id": "0c7b9f63-ca0c-b031-0568-50873a98fa47",
       "rule_id": "economist.broken_buy_count",
       "severity": "critical",
-      "source_rows": 38
+      "source_rows": 31
     },
     {
       "agent": "Economist",
-      "claim": "Blue broke its buy 2 times (R2, R7) -- rounds where the escalated loss bonus should have funded a real buy and the team went in short anyway.",
-      "feature_rows": 2,
+      "claim": "Blue broke its buy 6 times (R2, R3, R4, R6, R9, R17) -- rounds where the escalated loss bonus should have funded a real buy and the team went in short anyway.",
+      "feature_rows": 6,
       "map_name": "Bind",
       "match_id": "0da10c78-5df6-2846-0035-bb82d0a76654",
+      "rule_id": "economist.broken_buy_count",
+      "severity": "critical",
+      "source_rows": 49
+    },
+    {
+      "agent": "Economist",
+      "claim": "Blue broke its buy 3 times (R2, R9, R19) -- rounds where the escalated loss bonus should have funded a real buy and the team went in short anyway.",
+      "feature_rows": 3,
+      "map_name": "Skirmish B",
+      "match_id": "11838110-0da4-833a-a7f2-39ce4892171c",
+      "rule_id": "economist.broken_buy_count",
+      "severity": "critical",
+      "source_rows": 22
+    },
+    {
+      "agent": "Economist",
+      "claim": "Blue broke its buy 2 times (R8, R23) -- rounds where the escalated loss bonus should have funded a real buy and the team went in short anyway.",
+      "feature_rows": 2,
+      "map_name": "Kasbah",
+      "match_id": "18c5c87b-6d9b-8674-89c7-7144d42f2748",
       "rule_id": "economist.broken_buy_count",
       "severity": "critical",
       "source_rows": 14
     },
     {
       "agent": "Economist",
-      "claim": "Red broke its buy 2 times (R5, R9) -- rounds where the escalated loss bonus should have funded a real buy and the team went in short anyway.",
-      "feature_rows": 2,
-      "map_name": "Skirmish B",
-      "match_id": "11838110-0da4-833a-a7f2-39ce4892171c",
-      "rule_id": "economist.broken_buy_count",
-      "severity": "critical",
-      "source_rows": 18
-    },
-    {
-      "agent": "Economist",
-      "claim": "Blue broke its buy 2 times (R3, R13) -- rounds where the escalated loss bonus should have funded a real buy and the team went in short anyway.",
-      "feature_rows": 2,
+      "claim": "Blue broke its buy 6 times (R2, R4, R6, R9, R11, R12) -- rounds where the escalated loss bonus should have funded a real buy and the team went in short anyway.",
+      "feature_rows": 6,
       "map_name": "Abyss",
       "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
       "rule_id": "economist.broken_buy_count",
       "severity": "critical",
-      "source_rows": 15
+      "source_rows": 53
     },
     {
       "agent": "Analyst",
-      "claim": "Red went into the pivotal R5 already 2 rounds into a losing streak -- the round that decided the match was played on bonus money.",
+      "claim": "Red went into the pivotal R19 already 2 rounds into a losing streak -- the round that decided the match was played on bonus money.",
       "feature_rows": 4,
-      "map_name": "Corrode",
-      "match_id": "00041a37-c43a-b5af-75ef-7038af82f832",
+      "map_name": "The Range",
+      "match_id": "0c5b35ed-da8b-7e2d-f04c-ff6690ca33b6",
       "rule_id": "analyst.pivotal_streak",
       "severity": "warning",
-      "source_rows": 6
-    },
-    {
-      "agent": "Analyst",
-      "claim": "Blue went into the pivotal R3 already 2 rounds into a losing streak -- the round that decided the match was played on bonus money.",
-      "feature_rows": 4,
-      "map_name": "Skirmish A",
-      "match_id": "047ab4d9-2a24-cac3-a4f8-23b82b328adb",
-      "rule_id": "analyst.pivotal_streak",
-      "severity": "warning",
-      "source_rows": 7
-    },
-    {
-      "agent": "Analyst",
-      "claim": "Red went into the pivotal R6 already 2 rounds into a losing streak -- the round that decided the match was played on bonus money.",
-      "feature_rows": 4,
-      "map_name": "Piazza",
-      "match_id": "0c7b9f63-ca0c-b031-0568-50873a98fa47",
-      "rule_id": "analyst.pivotal_streak",
-      "severity": "warning",
-      "source_rows": 6
+      "source_rows": 8
     },
     {
       "agent": "Analyst",
       "claim": "Red went into the pivotal R4 already 2 rounds into a losing streak -- the round that decided the match was played on bonus money.",
       "feature_rows": 4,
-      "map_name": "Split",
-      "match_id": "14348b05-fe39-7166-3e40-f673e8b9de71",
+      "map_name": "Piazza",
+      "match_id": "0c7b9f63-ca0c-b031-0568-50873a98fa47",
+      "rule_id": "analyst.pivotal_streak",
+      "severity": "warning",
+      "source_rows": 8
+    },
+    {
+      "agent": "Analyst",
+      "claim": "Blue went into the pivotal R4 already 2 rounds into a losing streak -- the round that decided the match was played on bonus money.",
+      "feature_rows": 4,
+      "map_name": "Bind",
+      "match_id": "0da10c78-5df6-2846-0035-bb82d0a76654",
+      "rule_id": "analyst.pivotal_streak",
+      "severity": "warning",
+      "source_rows": 8
+    },
+    {
+      "agent": "Analyst",
+      "claim": "Blue went into the pivotal R2 already 2 rounds into a losing streak -- the round that decided the match was played on bonus money.",
+      "feature_rows": 4,
+      "map_name": "Skirmish B",
+      "match_id": "11838110-0da4-833a-a7f2-39ce4892171c",
       "rule_id": "analyst.pivotal_streak",
       "severity": "warning",
       "source_rows": 6
     },
     {
       "agent": "Analyst",
-      "claim": "Blue went into the pivotal R3 already 2 rounds into a losing streak -- the round that decided the match was played on bonus money.",
+      "claim": "Blue went into the pivotal R8 already 2 rounds into a losing streak -- the round that decided the match was played on bonus money.",
       "feature_rows": 4,
-      "map_name": "Abyss",
-      "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+      "map_name": "Kasbah",
+      "match_id": "18c5c87b-6d9b-8674-89c7-7144d42f2748",
       "rule_id": "analyst.pivotal_streak",
       "severity": "warning",
-      "source_rows": 7
+      "source_rows": 6
     },
     {
       "agent": "Analyst",
-      "claim": "Red was simply out-fought in the pivotal R5, taking only 25% of the round's kills (sim-approx: kill share stands in for real trade windows).",
+      "claim": "Blue was simply out-fought in the pivotal R12, taking only 17% of the round's kills (sim-approx: kill share stands in for real trade windows).",
       "feature_rows": 4,
-      "map_name": "Corrode",
-      "match_id": "00041a37-c43a-b5af-75ef-7038af82f832",
+      "map_name": "Split",
+      "match_id": "022d03e5-b6cb-7a9c-6eb3-023e1941c3e4",
       "rule_id": "analyst.pivotal_trade_collapse",
       "severity": "warning",
       "source_rows": 14
     },
     {
       "agent": "Analyst",
-      "claim": "Blue was simply out-fought in the pivotal R3, taking only 31% of the round's kills (sim-approx: kill share stands in for real trade windows).",
+      "claim": "Red was simply out-fought in the pivotal R19, taking only 0% of the round's kills (sim-approx: kill share stands in for real trade windows).",
       "feature_rows": 4,
-      "map_name": "Skirmish A",
-      "match_id": "047ab4d9-2a24-cac3-a4f8-23b82b328adb",
+      "map_name": "The Range",
+      "match_id": "0c5b35ed-da8b-7e2d-f04c-ff6690ca33b6",
       "rule_id": "analyst.pivotal_trade_collapse",
       "severity": "warning",
       "source_rows": 14
     },
     {
       "agent": "Analyst",
-      "claim": "Blue was simply out-fought in the pivotal R4, taking only 22% of the round's kills (sim-approx: kill share stands in for real trade windows).",
-      "feature_rows": 4,
-      "map_name": "Skirmish B",
-      "match_id": "0a298534-67bb-af82-6fe4-946084d706a1",
-      "rule_id": "analyst.pivotal_trade_collapse",
-      "severity": "warning",
-      "source_rows": 14
-    },
-    {
-      "agent": "Analyst",
-      "claim": "Red was simply out-fought in the pivotal R6, taking only 33% of the round's kills (sim-approx: kill share stands in for real trade windows).",
+      "claim": "Red was simply out-fought in the pivotal R4, taking only 0% of the round's kills (sim-approx: kill share stands in for real trade windows).",
       "feature_rows": 4,
       "map_name": "Piazza",
       "match_id": "0c7b9f63-ca0c-b031-0568-50873a98fa47",
@@ -193,33 +223,43 @@
     },
     {
       "agent": "Analyst",
-      "claim": "Blue was simply out-fought in the pivotal R17, taking only 30% of the round's kills (sim-approx: kill share stands in for real trade windows).",
+      "claim": "Blue was simply out-fought in the pivotal R4, taking only 0% of the round's kills (sim-approx: kill share stands in for real trade windows).",
       "feature_rows": 4,
-      "map_name": "Skirmish B",
-      "match_id": "11838110-0da4-833a-a7f2-39ce4892171c",
+      "map_name": "Bind",
+      "match_id": "0da10c78-5df6-2846-0035-bb82d0a76654",
       "rule_id": "analyst.pivotal_trade_collapse",
       "severity": "warning",
       "source_rows": 14
     },
     {
       "agent": "Analyst",
-      "claim": "Red was simply out-fought in the pivotal R4, taking only 25% of the round's kills (sim-approx: kill share stands in for real trade windows).",
+      "claim": "Red was simply out-fought in the pivotal R6, taking only 0% of the round's kills (sim-approx: kill share stands in for real trade windows).",
       "feature_rows": 4,
-      "map_name": "Split",
-      "match_id": "14348b05-fe39-7166-3e40-f673e8b9de71",
+      "map_name": "Abyss",
+      "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
       "rule_id": "analyst.pivotal_trade_collapse",
       "severity": "warning",
       "source_rows": 14
     },
     {
       "agent": "Analyst",
-      "claim": "Red got the spike down but could not hold it -- only 0% of its plants converted into round wins.",
+      "claim": "Red got the spike down but could not hold it -- only 20% of its plants converted into round wins.",
       "feature_rows": 2,
       "map_name": "Corrode",
       "match_id": "00041a37-c43a-b5af-75ef-7038af82f832",
       "rule_id": "analyst.post_plant_conversion",
       "severity": "warning",
-      "source_rows": 19
+      "source_rows": 17
+    },
+    {
+      "agent": "Analyst",
+      "claim": "Blue got the spike down but could not hold it -- only 0% of its plants converted into round wins.",
+      "feature_rows": 2,
+      "map_name": "Split",
+      "match_id": "022d03e5-b6cb-7a9c-6eb3-023e1941c3e4",
+      "rule_id": "analyst.post_plant_conversion",
+      "severity": "warning",
+      "source_rows": 13
     },
     {
       "agent": "Analyst",
@@ -233,93 +273,53 @@
     },
     {
       "agent": "Analyst",
-      "claim": "Blue got the spike down but could not hold it -- only 0% of its plants converted into round wins.",
-      "feature_rows": 2,
-      "map_name": "Skirmish B",
-      "match_id": "0a298534-67bb-af82-6fe4-946084d706a1",
-      "rule_id": "analyst.post_plant_conversion",
-      "severity": "warning",
-      "source_rows": 5
-    },
-    {
-      "agent": "Analyst",
-      "claim": "Blue got the spike down but could not hold it -- only 25% of its plants converted into round wins.",
-      "feature_rows": 2,
-      "map_name": "The Range",
-      "match_id": "0c5b35ed-da8b-7e2d-f04c-ff6690ca33b6",
-      "rule_id": "analyst.post_plant_conversion",
-      "severity": "warning",
-      "source_rows": 15
-    },
-    {
-      "agent": "Analyst",
-      "claim": "Red got the spike down but could not hold it -- only 17% of its plants converted into round wins.",
-      "feature_rows": 2,
-      "map_name": "The Range",
-      "match_id": "0c5b35ed-da8b-7e2d-f04c-ff6690ca33b6",
-      "rule_id": "analyst.post_plant_conversion",
-      "severity": "warning",
-      "source_rows": 18
-    },
-    {
-      "agent": "Analyst",
-      "claim": "Red got the spike down but could not hold it -- only 11% of its plants converted into round wins.",
+      "claim": "Red got the spike down but could not hold it -- only 0% of its plants converted into round wins.",
       "feature_rows": 2,
       "map_name": "Piazza",
       "match_id": "0c7b9f63-ca0c-b031-0568-50873a98fa47",
       "rule_id": "analyst.post_plant_conversion",
       "severity": "warning",
-      "source_rows": 21
+      "source_rows": 17
     },
     {
       "agent": "Analyst",
-      "claim": "Red got the spike down but could not hold it -- only 43% of its plants converted into round wins.",
+      "claim": "Red got the spike down but could not hold it -- only 38% of its plants converted into round wins.",
       "feature_rows": 2,
       "map_name": "Skirmish D",
       "match_id": "0d31c021-8ccb-bc43-4772-ce0fa5b44fcd",
-      "rule_id": "analyst.post_plant_conversion",
-      "severity": "warning",
-      "source_rows": 19
-    },
-    {
-      "agent": "Analyst",
-      "claim": "Red got the spike down but could not hold it -- only 43% of its plants converted into round wins.",
-      "feature_rows": 2,
-      "map_name": "Bind",
-      "match_id": "0da10c78-5df6-2846-0035-bb82d0a76654",
-      "rule_id": "analyst.post_plant_conversion",
-      "severity": "warning",
-      "source_rows": 19
-    },
-    {
-      "agent": "Analyst",
-      "claim": "Blue got the spike down but could not hold it -- only 25% of its plants converted into round wins.",
-      "feature_rows": 2,
-      "map_name": "Skirmish B",
-      "match_id": "11838110-0da4-833a-a7f2-39ce4892171c",
-      "rule_id": "analyst.post_plant_conversion",
-      "severity": "warning",
-      "source_rows": 12
-    },
-    {
-      "agent": "Analyst",
-      "claim": "Red got the spike down but could not hold it -- only 12% of its plants converted into round wins.",
-      "feature_rows": 2,
-      "map_name": "Split",
-      "match_id": "14348b05-fe39-7166-3e40-f673e8b9de71",
       "rule_id": "analyst.post_plant_conversion",
       "severity": "warning",
       "source_rows": 20
     },
     {
       "agent": "Analyst",
-      "claim": "Red got the spike down but could not hold it -- only 43% of its plants converted into round wins.",
+      "claim": "Blue got the spike down but could not hold it -- only 33% of its plants converted into round wins.",
+      "feature_rows": 2,
+      "map_name": "Bind",
+      "match_id": "0da10c78-5df6-2846-0035-bb82d0a76654",
+      "rule_id": "analyst.post_plant_conversion",
+      "severity": "warning",
+      "source_rows": 9
+    },
+    {
+      "agent": "Analyst",
+      "claim": "Red got the spike down but could not hold it -- only 33% of its plants converted into round wins.",
+      "feature_rows": 2,
+      "map_name": "Split",
+      "match_id": "14348b05-fe39-7166-3e40-f673e8b9de71",
+      "rule_id": "analyst.post_plant_conversion",
+      "severity": "warning",
+      "source_rows": 21
+    },
+    {
+      "agent": "Analyst",
+      "claim": "Blue got the spike down but could not hold it -- only 38% of its plants converted into round wins.",
       "feature_rows": 2,
       "map_name": "Kasbah",
       "match_id": "18c5c87b-6d9b-8674-89c7-7144d42f2748",
       "rule_id": "analyst.post_plant_conversion",
       "severity": "warning",
-      "source_rows": 19
+      "source_rows": 20
     },
     {
       "agent": "Analyst",
@@ -333,17 +333,27 @@
     },
     {
       "agent": "Analyst",
-      "claim": "Red was out-traded across the match, taking 39% of round kills over 14 rounds against a 50% even split (sim-approx: kill share stands in for real trade windows).",
-      "feature_rows": 14,
+      "claim": "Red was out-traded across the match, taking 35% of round kills over 17 rounds against a 50% even split (sim-approx: kill share stands in for real trade windows).",
+      "feature_rows": 17,
       "map_name": "Corrode",
       "match_id": "00041a37-c43a-b5af-75ef-7038af82f832",
       "rule_id": "analyst.trade_efficiency",
       "severity": "warning",
-      "source_rows": 140
+      "source_rows": 170
     },
     {
       "agent": "Analyst",
-      "claim": "Blue was out-traded across the match, taking 40% of round kills over 14 rounds against a 50% even split (sim-approx: kill share stands in for real trade windows).",
+      "claim": "Red was out-traded across the match, taking 43% of round kills over 21 rounds against a 50% even split (sim-approx: kill share stands in for real trade windows).",
+      "feature_rows": 21,
+      "map_name": "Split",
+      "match_id": "022d03e5-b6cb-7a9c-6eb3-023e1941c3e4",
+      "rule_id": "analyst.trade_efficiency",
+      "severity": "warning",
+      "source_rows": 210
+    },
+    {
+      "agent": "Analyst",
+      "claim": "Blue was out-traded across the match, taking 31% of round kills over 14 rounds against a 50% even split (sim-approx: kill share stands in for real trade windows).",
       "feature_rows": 14,
       "map_name": "Skirmish A",
       "match_id": "047ab4d9-2a24-cac3-a4f8-23b82b328adb",
@@ -353,37 +363,47 @@
     },
     {
       "agent": "Analyst",
-      "claim": "Blue was out-traded across the match, taking 42% of round kills over 15 rounds against a 50% even split (sim-approx: kill share stands in for real trade windows).",
-      "feature_rows": 15,
-      "map_name": "Skirmish B",
-      "match_id": "0a298534-67bb-af82-6fe4-946084d706a1",
-      "rule_id": "analyst.trade_efficiency",
-      "severity": "warning",
-      "source_rows": 150
-    },
-    {
-      "agent": "Analyst",
-      "claim": "Red was out-traded across the match, taking 37% of round kills over 14 rounds against a 50% even split (sim-approx: kill share stands in for real trade windows).",
-      "feature_rows": 14,
+      "claim": "Red was out-traded across the match, taking 32% of round kills over 19 rounds against a 50% even split (sim-approx: kill share stands in for real trade windows).",
+      "feature_rows": 19,
       "map_name": "Piazza",
       "match_id": "0c7b9f63-ca0c-b031-0568-50873a98fa47",
       "rule_id": "analyst.trade_efficiency",
       "severity": "warning",
-      "source_rows": 140
+      "source_rows": 190
     },
     {
       "agent": "Analyst",
-      "claim": "Red was out-traded across the match, taking 44% of round kills over 16 rounds against a 50% even split (sim-approx: kill share stands in for real trade windows).",
-      "feature_rows": 16,
+      "claim": "Red was out-traded across the match, taking 39% of round kills over 22 rounds against a 50% even split (sim-approx: kill share stands in for real trade windows).",
+      "feature_rows": 22,
+      "map_name": "Skirmish D",
+      "match_id": "0d31c021-8ccb-bc43-4772-ce0fa5b44fcd",
+      "rule_id": "analyst.trade_efficiency",
+      "severity": "warning",
+      "source_rows": 220
+    },
+    {
+      "agent": "Analyst",
+      "claim": "Blue was out-traded across the match, taking 36% of round kills over 18 rounds against a 50% even split (sim-approx: kill share stands in for real trade windows).",
+      "feature_rows": 18,
+      "map_name": "Bind",
+      "match_id": "0da10c78-5df6-2846-0035-bb82d0a76654",
+      "rule_id": "analyst.trade_efficiency",
+      "severity": "warning",
+      "source_rows": 180
+    },
+    {
+      "agent": "Analyst",
+      "claim": "Red was out-traded across the match, taking 39% of round kills over 18 rounds against a 50% even split (sim-approx: kill share stands in for real trade windows).",
+      "feature_rows": 18,
       "map_name": "Split",
       "match_id": "14348b05-fe39-7166-3e40-f673e8b9de71",
       "rule_id": "analyst.trade_efficiency",
       "severity": "warning",
-      "source_rows": 160
+      "source_rows": 180
     },
     {
       "agent": "Analyst",
-      "claim": "Blue was out-traded across the match, taking 44% of round kills over 14 rounds against a 50% even split (sim-approx: kill share stands in for real trade windows).",
+      "claim": "Blue was out-traded across the match, taking 33% of round kills over 14 rounds against a 50% even split (sim-approx: kill share stands in for real trade windows).",
       "feature_rows": 14,
       "map_name": "Abyss",
       "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
@@ -403,17 +423,67 @@
     },
     {
       "agent": "Economist",
-      "claim": "Blue force-bought 3 rounds back to back (R9, R10, R11). One force is a read; a run this long means the team never got off the back foot long enough to rebuild.",
+      "claim": "Blue force-bought 3 rounds back to back (R7, R8, R9). One force is a read; a run this long means the team never got off the back foot long enough to rebuild.",
       "feature_rows": 3,
-      "map_name": "The Range",
-      "match_id": "0c5b35ed-da8b-7e2d-f04c-ff6690ca33b6",
+      "map_name": "Piazza",
+      "match_id": "0c7b9f63-ca0c-b031-0568-50873a98fa47",
       "rule_id": "economist.consecutive_force",
       "severity": "warning",
       "source_rows": 15
     },
     {
       "agent": "Economist",
-      "claim": "Blue force-bought 3 rounds back to back (R1, R2, R3). One force is a read; a run this long means the team never got off the back foot long enough to rebuild.",
+      "claim": "Red force-bought 3 rounds back to back (R13, R14, R15). One force is a read; a run this long means the team never got off the back foot long enough to rebuild.",
+      "feature_rows": 3,
+      "map_name": "Piazza",
+      "match_id": "0c7b9f63-ca0c-b031-0568-50873a98fa47",
+      "rule_id": "economist.consecutive_force",
+      "severity": "warning",
+      "source_rows": 15
+    },
+    {
+      "agent": "Economist",
+      "claim": "Blue force-bought 3 rounds back to back (R5, R6, R7). One force is a read; a run this long means the team never got off the back foot long enough to rebuild.",
+      "feature_rows": 3,
+      "map_name": "Skirmish D",
+      "match_id": "0d31c021-8ccb-bc43-4772-ce0fa5b44fcd",
+      "rule_id": "economist.consecutive_force",
+      "severity": "warning",
+      "source_rows": 15
+    },
+    {
+      "agent": "Economist",
+      "claim": "Blue force-bought 4 rounds back to back (R1, R2, R3, R4). One force is a read; a run this long means the team never got off the back foot long enough to rebuild.",
+      "feature_rows": 4,
+      "map_name": "Bind",
+      "match_id": "0da10c78-5df6-2846-0035-bb82d0a76654",
+      "rule_id": "economist.consecutive_force",
+      "severity": "warning",
+      "source_rows": 20
+    },
+    {
+      "agent": "Economist",
+      "claim": "Blue force-bought 4 rounds back to back (R9, R10, R11, R12). One force is a read; a run this long means the team never got off the back foot long enough to rebuild.",
+      "feature_rows": 4,
+      "map_name": "Skirmish B",
+      "match_id": "11838110-0da4-833a-a7f2-39ce4892171c",
+      "rule_id": "economist.consecutive_force",
+      "severity": "warning",
+      "source_rows": 20
+    },
+    {
+      "agent": "Economist",
+      "claim": "Red force-bought 4 rounds back to back (R9, R10, R11, R12). One force is a read; a run this long means the team never got off the back foot long enough to rebuild.",
+      "feature_rows": 4,
+      "map_name": "Skirmish B",
+      "match_id": "11838110-0da4-833a-a7f2-39ce4892171c",
+      "rule_id": "economist.consecutive_force",
+      "severity": "warning",
+      "source_rows": 20
+    },
+    {
+      "agent": "Economist",
+      "claim": "Red force-bought 3 rounds back to back (R7, R8, R9). One force is a read; a run this long means the team never got off the back foot long enough to rebuild.",
       "feature_rows": 3,
       "map_name": "Split",
       "match_id": "14348b05-fe39-7166-3e40-f673e8b9de71",
@@ -423,77 +493,87 @@
     },
     {
       "agent": "Economist",
-      "claim": "Blue force-bought 3 rounds back to back (R11, R12, R13). One force is a read; a run this long means the team never got off the back foot long enough to rebuild.",
+      "claim": "Red force-bought 3 rounds back to back (R1, R2, R3). One force is a read; a run this long means the team never got off the back foot long enough to rebuild.",
       "feature_rows": 3,
-      "map_name": "Abyss",
-      "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+      "map_name": "Kasbah",
+      "match_id": "18c5c87b-6d9b-8674-89c7-7144d42f2748",
       "rule_id": "economist.consecutive_force",
       "severity": "warning",
       "source_rows": 15
     },
     {
       "agent": "Economist",
-      "claim": "Blue force-bought in 10 of 24 rounds (42%), past the 30% mark where forcing stops being a read and starts being a habit.",
-      "feature_rows": 24,
-      "map_name": "Split",
-      "match_id": "022d03e5-b6cb-7a9c-6eb3-023e1941c3e4",
+      "claim": "Red force-bought in 6 of 17 rounds (35%), past the 30% mark where forcing stops being a read and starts being a habit.",
+      "feature_rows": 17,
+      "map_name": "Corrode",
+      "match_id": "00041a37-c43a-b5af-75ef-7038af82f832",
       "rule_id": "economist.force_buy_frequency",
       "severity": "warning",
-      "source_rows": 120
-    },
-    {
-      "agent": "Economist",
-      "claim": "Blue force-bought in 5 of 15 rounds (33%), past the 30% mark where forcing stops being a read and starts being a habit.",
-      "feature_rows": 15,
-      "map_name": "Skirmish B",
-      "match_id": "0a298534-67bb-af82-6fe4-946084d706a1",
-      "rule_id": "economist.force_buy_frequency",
-      "severity": "warning",
-      "source_rows": 75
-    },
-    {
-      "agent": "Economist",
-      "claim": "Blue force-bought in 11 of 23 rounds (48%), past the 30% mark where forcing stops being a read and starts being a habit.",
-      "feature_rows": 23,
-      "map_name": "The Range",
-      "match_id": "0c5b35ed-da8b-7e2d-f04c-ff6690ca33b6",
-      "rule_id": "economist.force_buy_frequency",
-      "severity": "warning",
-      "source_rows": 115
+      "source_rows": 85
     },
     {
       "agent": "Economist",
       "claim": "Red force-bought in 5 of 14 rounds (36%), past the 30% mark where forcing stops being a read and starts being a habit.",
       "feature_rows": 14,
-      "map_name": "Piazza",
-      "match_id": "0c7b9f63-ca0c-b031-0568-50873a98fa47",
+      "map_name": "Skirmish A",
+      "match_id": "047ab4d9-2a24-cac3-a4f8-23b82b328adb",
       "rule_id": "economist.force_buy_frequency",
       "severity": "warning",
       "source_rows": 70
     },
     {
       "agent": "Economist",
-      "claim": "Blue force-bought in 9 of 16 rounds (56%), past the 30% mark where forcing stops being a read and starts being a habit.",
-      "feature_rows": 16,
-      "map_name": "Split",
-      "match_id": "14348b05-fe39-7166-3e40-f673e8b9de71",
+      "claim": "Blue force-bought in 6 of 19 rounds (32%), past the 30% mark where forcing stops being a read and starts being a habit.",
+      "feature_rows": 19,
+      "map_name": "Piazza",
+      "match_id": "0c7b9f63-ca0c-b031-0568-50873a98fa47",
       "rule_id": "economist.force_buy_frequency",
       "severity": "warning",
-      "source_rows": 80
+      "source_rows": 95
     },
     {
       "agent": "Economist",
-      "claim": "Blue force-bought in 7 of 20 rounds (35%), past the 30% mark where forcing stops being a read and starts being a habit.",
-      "feature_rows": 20,
-      "map_name": "Kasbah",
-      "match_id": "18c5c87b-6d9b-8674-89c7-7144d42f2748",
+      "claim": "Red force-bought in 9 of 19 rounds (47%), past the 30% mark where forcing stops being a read and starts being a habit.",
+      "feature_rows": 19,
+      "map_name": "Piazza",
+      "match_id": "0c7b9f63-ca0c-b031-0568-50873a98fa47",
       "rule_id": "economist.force_buy_frequency",
       "severity": "warning",
-      "source_rows": 100
+      "source_rows": 95
     },
     {
       "agent": "Economist",
-      "claim": "Blue force-bought in 5 of 14 rounds (36%), past the 30% mark where forcing stops being a read and starts being a habit.",
+      "claim": "Blue force-bought in 10 of 18 rounds (56%), past the 30% mark where forcing stops being a read and starts being a habit.",
+      "feature_rows": 18,
+      "map_name": "Bind",
+      "match_id": "0da10c78-5df6-2846-0035-bb82d0a76654",
+      "rule_id": "economist.force_buy_frequency",
+      "severity": "warning",
+      "source_rows": 90
+    },
+    {
+      "agent": "Economist",
+      "claim": "Blue force-bought in 9 of 21 rounds (43%), past the 30% mark where forcing stops being a read and starts being a habit.",
+      "feature_rows": 21,
+      "map_name": "Skirmish B",
+      "match_id": "11838110-0da4-833a-a7f2-39ce4892171c",
+      "rule_id": "economist.force_buy_frequency",
+      "severity": "warning",
+      "source_rows": 105
+    },
+    {
+      "agent": "Economist",
+      "claim": "Red force-bought in 7 of 21 rounds (33%), past the 30% mark where forcing stops being a read and starts being a habit.",
+      "feature_rows": 21,
+      "map_name": "Skirmish B",
+      "match_id": "11838110-0da4-833a-a7f2-39ce4892171c",
+      "rule_id": "economist.force_buy_frequency",
+      "severity": "warning",
+      "source_rows": 105
+    },
+    {
+      "agent": "Economist",
+      "claim": "Blue force-bought in 7 of 14 rounds (50%), past the 30% mark where forcing stops being a read and starts being a habit.",
       "feature_rows": 14,
       "map_name": "Abyss",
       "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
@@ -502,48 +582,8 @@
       "source_rows": 70
     },
     {
-      "agent": "Economist",
-      "claim": "Blue was out-spent by Red by 2795 credits across the match's 14 rounds -- roughly a third of a full team buy in equipment Blue never got to bring.",
-      "feature_rows": 14,
-      "map_name": "Skirmish A",
-      "match_id": "047ab4d9-2a24-cac3-a4f8-23b82b328adb",
-      "rule_id": "economist.spend_disadvantage",
-      "severity": "warning",
-      "source_rows": 140
-    },
-    {
-      "agent": "Economist",
-      "claim": "Blue was out-spent by Red by 1650 credits across the match's 15 rounds -- roughly a third of a full team buy in equipment Blue never got to bring.",
-      "feature_rows": 15,
-      "map_name": "Skirmish B",
-      "match_id": "0a298534-67bb-af82-6fe4-946084d706a1",
-      "rule_id": "economist.spend_disadvantage",
-      "severity": "warning",
-      "source_rows": 150
-    },
-    {
-      "agent": "Economist",
-      "claim": "Red was out-spent by Blue by 1670 credits across the match's 14 rounds -- roughly a third of a full team buy in equipment Red never got to bring.",
-      "feature_rows": 14,
-      "map_name": "Piazza",
-      "match_id": "0c7b9f63-ca0c-b031-0568-50873a98fa47",
-      "rule_id": "economist.spend_disadvantage",
-      "severity": "warning",
-      "source_rows": 140
-    },
-    {
-      "agent": "Economist",
-      "claim": "Red was out-spent by Blue by 1895 credits across the match's 16 rounds -- roughly a third of a full team buy in equipment Red never got to bring.",
-      "feature_rows": 16,
-      "map_name": "Split",
-      "match_id": "14348b05-fe39-7166-3e40-f673e8b9de71",
-      "rule_id": "economist.spend_disadvantage",
-      "severity": "warning",
-      "source_rows": 160
-    },
-    {
       "agent": "Analyst",
-      "claim": "R5 was the match's pivotal round -- the largest single swing (0.116) in the win-probability proxy. Blue took it, Red lost it.",
+      "claim": "R5 was the match's pivotal round -- the largest single swing (0.127) in the win-probability proxy. Red took it, Blue lost it.",
       "feature_rows": 4,
       "map_name": "Corrode",
       "match_id": "00041a37-c43a-b5af-75ef-7038af82f832",
@@ -553,7 +593,7 @@
     },
     {
       "agent": "Analyst",
-      "claim": "R12 was the match's pivotal round -- the largest single swing (0.273) in the win-probability proxy. Red took it, Blue lost it.",
+      "claim": "R12 was the match's pivotal round -- the largest single swing (0.220) in the win-probability proxy. Red took it, Blue lost it.",
       "feature_rows": 4,
       "map_name": "Split",
       "match_id": "022d03e5-b6cb-7a9c-6eb3-023e1941c3e4",
@@ -563,7 +603,7 @@
     },
     {
       "agent": "Analyst",
-      "claim": "R3 was the match's pivotal round -- the largest single swing (0.201) in the win-probability proxy. Red took it, Blue lost it.",
+      "claim": "R1 was the match's pivotal round -- the largest single swing (0.152) in the win-probability proxy. Red took it, Blue lost it.",
       "feature_rows": 4,
       "map_name": "Skirmish A",
       "match_id": "047ab4d9-2a24-cac3-a4f8-23b82b328adb",
@@ -573,17 +613,7 @@
     },
     {
       "agent": "Analyst",
-      "claim": "R4 was the match's pivotal round -- the largest single swing (0.266) in the win-probability proxy. Red took it, Blue lost it.",
-      "feature_rows": 4,
-      "map_name": "Skirmish B",
-      "match_id": "0a298534-67bb-af82-6fe4-946084d706a1",
-      "rule_id": "analyst.pivotal_round",
-      "severity": "info",
-      "source_rows": 6
-    },
-    {
-      "agent": "Analyst",
-      "claim": "R2 was the match's pivotal round -- the largest single swing (0.278) in the win-probability proxy. Blue took it, Red lost it.",
+      "claim": "R19 was the match's pivotal round -- the largest single swing (0.190) in the win-probability proxy. Blue took it, Red lost it.",
       "feature_rows": 4,
       "map_name": "The Range",
       "match_id": "0c5b35ed-da8b-7e2d-f04c-ff6690ca33b6",
@@ -593,7 +623,7 @@
     },
     {
       "agent": "Analyst",
-      "claim": "R6 was the match's pivotal round -- the largest single swing (0.141) in the win-probability proxy. Blue took it, Red lost it.",
+      "claim": "R4 was the match's pivotal round -- the largest single swing (0.134) in the win-probability proxy. Blue took it, Red lost it.",
       "feature_rows": 4,
       "map_name": "Piazza",
       "match_id": "0c7b9f63-ca0c-b031-0568-50873a98fa47",
@@ -603,7 +633,7 @@
     },
     {
       "agent": "Analyst",
-      "claim": "R5 was the match's pivotal round -- the largest single swing (0.182) in the win-probability proxy. Blue took it, Red lost it.",
+      "claim": "R17 was the match's pivotal round -- the largest single swing (0.248) in the win-probability proxy. Red took it, Blue lost it.",
       "feature_rows": 4,
       "map_name": "Skirmish D",
       "match_id": "0d31c021-8ccb-bc43-4772-ce0fa5b44fcd",
@@ -613,7 +643,7 @@
     },
     {
       "agent": "Analyst",
-      "claim": "R15 was the match's pivotal round -- the largest single swing (0.231) in the win-probability proxy. Red took it, Blue lost it.",
+      "claim": "R4 was the match's pivotal round -- the largest single swing (0.110) in the win-probability proxy. Red took it, Blue lost it.",
       "feature_rows": 4,
       "map_name": "Bind",
       "match_id": "0da10c78-5df6-2846-0035-bb82d0a76654",
@@ -623,7 +653,7 @@
     },
     {
       "agent": "Analyst",
-      "claim": "R17 was the match's pivotal round -- the largest single swing (0.235) in the win-probability proxy. Red took it, Blue lost it.",
+      "claim": "R2 was the match's pivotal round -- the largest single swing (0.127) in the win-probability proxy. Red took it, Blue lost it.",
       "feature_rows": 4,
       "map_name": "Skirmish B",
       "match_id": "11838110-0da4-833a-a7f2-39ce4892171c",
@@ -633,7 +663,7 @@
     },
     {
       "agent": "Analyst",
-      "claim": "R4 was the match's pivotal round -- the largest single swing (0.214) in the win-probability proxy. Blue took it, Red lost it.",
+      "claim": "R9 was the match's pivotal round -- the largest single swing (0.197) in the win-probability proxy. Blue took it, Red lost it.",
       "feature_rows": 4,
       "map_name": "Split",
       "match_id": "14348b05-fe39-7166-3e40-f673e8b9de71",
@@ -643,7 +673,7 @@
     },
     {
       "agent": "Analyst",
-      "claim": "R6 was the match's pivotal round -- the largest single swing (0.230) in the win-probability proxy. Blue took it, Red lost it.",
+      "claim": "R8 was the match's pivotal round -- the largest single swing (0.227) in the win-probability proxy. Red took it, Blue lost it.",
       "feature_rows": 4,
       "map_name": "Kasbah",
       "match_id": "18c5c87b-6d9b-8674-89c7-7144d42f2748",
@@ -653,7 +683,7 @@
     },
     {
       "agent": "Analyst",
-      "claim": "R3 was the match's pivotal round -- the largest single swing (0.135) in the win-probability proxy. Red took it, Blue lost it.",
+      "claim": "R6 was the match's pivotal round -- the largest single swing (0.107) in the win-probability proxy. Blue took it, Red lost it.",
       "feature_rows": 4,
       "map_name": "Abyss",
       "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
@@ -663,43 +693,63 @@
     },
     {
       "agent": "Analyst",
-      "claim": "Blue reached a plant in only 36% of its attack rounds -- most of those rounds were lost before the spike ever went down.",
+      "claim": "Red reached a plant in only 42% of its attack rounds -- most of those rounds were lost before the spike ever went down.",
       "feature_rows": 1,
-      "map_name": "The Range",
-      "match_id": "0c5b35ed-da8b-7e2d-f04c-ff6690ca33b6",
-      "rule_id": "analyst.plant_rate",
-      "severity": "info",
-      "source_rows": 11
-    },
-    {
-      "agent": "Analyst",
-      "claim": "Blue reached a plant in only 17% of its attack rounds -- most of those rounds were lost before the spike ever went down.",
-      "feature_rows": 1,
-      "map_name": "Skirmish D",
-      "match_id": "0d31c021-8ccb-bc43-4772-ce0fa5b44fcd",
-      "rule_id": "analyst.plant_rate",
-      "severity": "info",
-      "source_rows": 6
-    },
-    {
-      "agent": "Analyst",
-      "claim": "Red reached a plant in only 33% of its attack rounds -- most of those rounds were lost before the spike ever went down.",
-      "feature_rows": 1,
-      "map_name": "Skirmish B",
-      "match_id": "11838110-0da4-833a-a7f2-39ce4892171c",
+      "map_name": "Corrode",
+      "match_id": "00041a37-c43a-b5af-75ef-7038af82f832",
       "rule_id": "analyst.plant_rate",
       "severity": "info",
       "source_rows": 12
     },
     {
       "agent": "Analyst",
-      "claim": "Blue reached a plant in only 38% of its attack rounds -- most of those rounds were lost before the spike ever went down.",
+      "claim": "Blue reached a plant in only 44% of its attack rounds -- most of those rounds were lost before the spike ever went down.",
       "feature_rows": 1,
-      "map_name": "Kasbah",
-      "match_id": "18c5c87b-6d9b-8674-89c7-7144d42f2748",
+      "map_name": "Split",
+      "match_id": "022d03e5-b6cb-7a9c-6eb3-023e1941c3e4",
       "rule_id": "analyst.plant_rate",
       "severity": "info",
-      "source_rows": 8
+      "source_rows": 9
+    },
+    {
+      "agent": "Analyst",
+      "claim": "Blue reached a plant in only 40% of its attack rounds -- most of those rounds were lost before the spike ever went down.",
+      "feature_rows": 1,
+      "map_name": "The Range",
+      "match_id": "0c5b35ed-da8b-7e2d-f04c-ff6690ca33b6",
+      "rule_id": "analyst.plant_rate",
+      "severity": "info",
+      "source_rows": 10
+    },
+    {
+      "agent": "Analyst",
+      "claim": "Blue reached a plant in only 29% of its attack rounds -- most of those rounds were lost before the spike ever went down.",
+      "feature_rows": 1,
+      "map_name": "Piazza",
+      "match_id": "0c7b9f63-ca0c-b031-0568-50873a98fa47",
+      "rule_id": "analyst.plant_rate",
+      "severity": "info",
+      "source_rows": 7
+    },
+    {
+      "agent": "Analyst",
+      "claim": "Red reached a plant in only 42% of its attack rounds -- most of those rounds were lost before the spike ever went down.",
+      "feature_rows": 1,
+      "map_name": "Piazza",
+      "match_id": "0c7b9f63-ca0c-b031-0568-50873a98fa47",
+      "rule_id": "analyst.plant_rate",
+      "severity": "info",
+      "source_rows": 12
+    },
+    {
+      "agent": "Analyst",
+      "claim": "Red reached a plant in only 42% of its attack rounds -- most of those rounds were lost before the spike ever went down.",
+      "feature_rows": 1,
+      "map_name": "Abyss",
+      "match_id": "19b8074b-d9b2-1155-4b68-4960d1afb6e7",
+      "rule_id": "analyst.plant_rate",
+      "severity": "info",
+      "source_rows": 12
     },
     {
       "agent": "Economist",
@@ -757,16 +807,6 @@
       "feature_rows": 2,
       "map_name": "Skirmish A",
       "match_id": "047ab4d9-2a24-cac3-a4f8-23b82b328adb",
-      "rule_id": "economist.eco_conversion",
-      "severity": "info",
-      "source_rows": 6
-    },
-    {
-      "agent": "Economist",
-      "claim": "Blue stole 0 of its 1 eco rounds (0%).",
-      "feature_rows": 2,
-      "map_name": "Skirmish B",
-      "match_id": "0a298534-67bb-af82-6fe4-946084d706a1",
       "rule_id": "economist.eco_conversion",
       "severity": "info",
       "source_rows": 6

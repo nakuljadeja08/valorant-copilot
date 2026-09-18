@@ -3,58 +3,58 @@
   "match_count": 12,
   "matches": [
     {
-      "force_rate": 0.2143,
-      "game_length_ms": 1400000,
+      "force_rate": 0.3529,
+      "game_length_ms": 1700000,
       "hero_puuid": "hero",
       "hero_team": "Red",
       "map_id": "1C18AB1F-420D-0D8B-71D0-77AD3C439115",
       "map_name": "Corrode",
       "match_id": "00041a37-c43a-b5af-75ef-7038af82f832",
       "queue_id": "competitive",
-      "rounds": 14,
+      "rounds": 17,
       "score": {
         "Blue": 13,
-        "Red": 1
+        "Red": 4
       },
       "severities": {
         "critical": 1,
-        "info": 3,
-        "warning": 4
+        "info": 4,
+        "warning": 3
       },
       "source": "sim",
-      "source_rows_cited": 220,
+      "source_rows_cited": 320,
       "unverified_claims": 0,
-      "verdict": "Lost 1\u201313 \u2014 2 buys funded and never made.",
+      "verdict": "Lost 4\u201313 \u2014 2 buys funded and never made.",
       "verified_claims": 8,
       "winner": "Blue"
     },
     {
-      "force_rate": 0.125,
-      "game_length_ms": 2400000,
+      "force_rate": 0.2381,
+      "game_length_ms": 2100000,
       "hero_puuid": "hero",
       "hero_team": "Red",
       "map_id": "D960549E-485C-E861-8D71-AA9D1AED12A2",
       "map_name": "Split",
       "match_id": "022d03e5-b6cb-7a9c-6eb3-023e1941c3e4",
       "queue_id": "competitive",
-      "rounds": 24,
+      "rounds": 21,
       "score": {
         "Blue": 13,
-        "Red": 11
+        "Red": 8
       },
       "severities": {
-        "info": 3,
-        "warning": 2
+        "info": 4,
+        "warning": 4
       },
       "source": "sim",
-      "source_rows_cited": 153,
+      "source_rows_cited": 279,
       "unverified_claims": 0,
-      "verdict": "Lost 11\u201313 \u2014 3 force buys back to back, no economy reset.",
-      "verified_claims": 5,
+      "verdict": "Lost 8\u201313 \u2014 out-fought in the R12 pivot.",
+      "verified_claims": 8,
       "winner": "Blue"
     },
     {
-      "force_rate": 0.1429,
+      "force_rate": 0.3571,
       "game_length_ms": 1400000,
       "hero_puuid": "hero",
       "hero_team": "Red",
@@ -70,100 +70,124 @@
       "severities": {
         "critical": 1,
         "info": 3,
-        "warning": 5
+        "warning": 3
       },
       "source": "sim",
-      "source_rows_cited": 339,
+      "source_rows_cited": 257,
       "unverified_claims": 0,
-      "verdict": "Won 13\u20131, but lost the R3 pivot on a broken buy.",
-      "verified_claims": 9,
+      "verdict": "Won 13\u20131, but 2 buys funded and never made.",
+      "verified_claims": 7,
       "winner": "Red"
     },
     {
-      "force_rate": 0.2667,
-      "game_length_ms": 1500000,
+      "force_rate": 0.1538,
+      "game_length_ms": 1300000,
       "hero_puuid": "hero",
       "hero_team": "Red",
       "map_id": "A38A3F9A-4042-844C-8970-A3AC2F7CE93D",
       "map_name": "Skirmish B",
       "match_id": "0a298534-67bb-af82-6fe4-946084d706a1",
       "queue_id": "competitive",
-      "rounds": 15,
+      "rounds": 13,
       "score": {
-        "Blue": 2,
+        "Blue": 0,
         "Red": 13
       },
       "severities": {
-        "critical": 1,
-        "info": 3,
-        "warning": 5
+        "info": 1
       },
       "source": "sim",
-      "source_rows_cited": 430,
+      "source_rows_cited": 6,
       "unverified_claims": 0,
-      "verdict": "Won 13\u20132, but 2 buys funded and never made.",
-      "verified_claims": 9,
+      "verdict": "Won 13\u20130, but eco rounds converting at 100%.",
+      "verified_claims": 1,
       "winner": "Red"
     },
     {
-      "force_rate": 0.2609,
-      "game_length_ms": 2300000,
+      "force_rate": 0.2727,
+      "game_length_ms": 2200000,
       "hero_puuid": "hero",
       "hero_team": "Red",
       "map_id": "EE613EE9-28B7-4BEB-9666-08DB13BB2244",
       "map_name": "The Range",
       "match_id": "0c5b35ed-da8b-7e2d-f04c-ff6690ca33b6",
       "queue_id": "competitive",
-      "rounds": 23,
+      "rounds": 22,
       "score": {
         "Blue": 13,
-        "Red": 10
+        "Red": 9
       },
       "severities": {
+        "critical": 2,
         "info": 4,
-        "warning": 4
+        "warning": 2
       },
       "source": "sim",
-      "source_rows_cited": 192,
+      "source_rows_cited": 84,
       "unverified_claims": 0,
-      "verdict": "Lost 10\u201313 \u2014 the spike went down and did not stay down.",
+      "verdict": "Lost 9\u201313 \u2014 lost the R19 pivot on a broken buy.",
       "verified_claims": 8,
       "winner": "Blue"
     },
     {
-      "force_rate": 0.3571,
-      "game_length_ms": 1400000,
+      "force_rate": 0.4737,
+      "game_length_ms": 1900000,
       "hero_puuid": "hero",
       "hero_team": "Red",
       "map_id": "DE28AA9B-4CBE-1003-320E-6CB3EC309557",
       "map_name": "Piazza",
       "match_id": "0c7b9f63-ca0c-b031-0568-50873a98fa47",
       "queue_id": "competitive",
-      "rounds": 14,
+      "rounds": 19,
       "score": {
         "Blue": 13,
-        "Red": 1
+        "Red": 6
       },
       "severities": {
         "critical": 2,
-        "info": 3,
-        "warning": 6
+        "info": 5,
+        "warning": 8
       },
       "source": "sim",
-      "source_rows_cited": 463,
+      "source_rows_cited": 535,
       "unverified_claims": 0,
-      "verdict": "Lost 1\u201313 \u2014 lost the R6 pivot on a broken buy.",
-      "verified_claims": 11,
+      "verdict": "Lost 6\u201313 \u2014 lost the R4 pivot on a broken buy.",
+      "verified_claims": 15,
       "winner": "Blue"
     },
     {
-      "force_rate": 0.2778,
-      "game_length_ms": 1800000,
+      "force_rate": 0.1364,
+      "game_length_ms": 2200000,
       "hero_puuid": "hero",
       "hero_team": "Red",
       "map_id": "1C7555FC-4BC6-3B98-9674-789D47EF6C50",
       "map_name": "Skirmish D",
       "match_id": "0d31c021-8ccb-bc43-4772-ce0fa5b44fcd",
+      "queue_id": "competitive",
+      "rounds": 22,
+      "score": {
+        "Blue": 13,
+        "Red": 9
+      },
+      "severities": {
+        "info": 3,
+        "warning": 3
+      },
+      "source": "sim",
+      "source_rows_cited": 273,
+      "unverified_claims": 0,
+      "verdict": "Lost 9\u201313 \u2014 the spike went down and did not stay down.",
+      "verified_claims": 6,
+      "winner": "Blue"
+    },
+    {
+      "force_rate": 0.1111,
+      "game_length_ms": 1800000,
+      "hero_puuid": "hero",
+      "hero_team": "Red",
+      "map_id": "2C9D57EC-4431-9C5E-2939-8F9EF6DD5CBA",
+      "map_name": "Bind",
+      "match_id": "0da10c78-5df6-2846-0035-bb82d0a76654",
       "queue_id": "competitive",
       "rounds": 18,
       "score": {
@@ -171,120 +195,96 @@
         "Red": 13
       },
       "severities": {
-        "info": 4,
-        "warning": 1
-      },
-      "source": "sim",
-      "source_rows_cited": 43,
-      "unverified_claims": 0,
-      "verdict": "Won 13\u20135, but the spike went down and did not stay down.",
-      "verified_claims": 5,
-      "winner": "Red"
-    },
-    {
-      "force_rate": 0.0417,
-      "game_length_ms": 2400000,
-      "hero_puuid": "hero",
-      "hero_team": "Red",
-      "map_id": "2C9D57EC-4431-9C5E-2939-8F9EF6DD5CBA",
-      "map_name": "Bind",
-      "match_id": "0da10c78-5df6-2846-0035-bb82d0a76654",
-      "queue_id": "competitive",
-      "rounds": 24,
-      "score": {
-        "Blue": 11,
-        "Red": 13
-      },
-      "severities": {
-        "critical": 1,
+        "critical": 2,
         "info": 3,
-        "warning": 1
+        "warning": 6
       },
       "source": "sim",
-      "source_rows_cited": 51,
+      "source_rows_cited": 406,
       "unverified_claims": 0,
-      "verdict": "Won 13\u201311, but 2 buys funded and never made.",
-      "verified_claims": 5,
+      "verdict": "Won 13\u20135, but lost the R4 pivot on a broken buy.",
+      "verified_claims": 11,
       "winner": "Red"
     },
     {
-      "force_rate": 0.25,
-      "game_length_ms": 2000000,
+      "force_rate": 0.3333,
+      "game_length_ms": 2100000,
       "hero_puuid": "hero",
       "hero_team": "Red",
       "map_id": "A38A3F9A-4042-844C-8970-A3AC2F7CE93D",
       "map_name": "Skirmish B",
       "match_id": "11838110-0da4-833a-a7f2-39ce4892171c",
       "queue_id": "competitive",
-      "rounds": 20,
+      "rounds": 21,
       "score": {
-        "Blue": 7,
+        "Blue": 8,
         "Red": 13
       },
       "severities": {
-        "critical": 1,
-        "info": 4,
-        "warning": 2
+        "critical": 2,
+        "info": 3,
+        "warning": 5
       },
       "source": "sim",
-      "source_rows_cited": 74,
+      "source_rows_cited": 312,
       "unverified_claims": 0,
-      "verdict": "Won 13\u20137, but 2 buys funded and never made.",
-      "verified_claims": 7,
+      "verdict": "Won 13\u20138, but lost the R2 pivot on a broken buy.",
+      "verified_claims": 10,
       "winner": "Red"
     },
     {
-      "force_rate": 0.25,
-      "game_length_ms": 1600000,
+      "force_rate": 0.2778,
+      "game_length_ms": 1800000,
       "hero_puuid": "hero",
       "hero_team": "Red",
       "map_id": "D960549E-485C-E861-8D71-AA9D1AED12A2",
       "map_name": "Split",
       "match_id": "14348b05-fe39-7166-3e40-f673e8b9de71",
       "queue_id": "competitive",
-      "rounds": 16,
+      "rounds": 18,
       "score": {
         "Blue": 13,
-        "Red": 3
+        "Red": 5
       },
       "severities": {
         "info": 3,
-        "warning": 7
+        "warning": 3
       },
       "source": "sim",
-      "source_rows_cited": 473,
+      "source_rows_cited": 234,
       "unverified_claims": 0,
-      "verdict": "Lost 3\u201313 \u2014 went into the R4 pivot on bonus money.",
-      "verified_claims": 10,
+      "verdict": "Lost 5\u201313 \u2014 the spike went down and did not stay down.",
+      "verified_claims": 6,
       "winner": "Blue"
     },
     {
-      "force_rate": 0.2,
-      "game_length_ms": 2000000,
+      "force_rate": 0.1667,
+      "game_length_ms": 2400000,
       "hero_puuid": "hero",
       "hero_team": "Red",
       "map_id": "12452A9D-48C3-0B02-E7EB-0381C3520404",
       "map_name": "Kasbah",
       "match_id": "18c5c87b-6d9b-8674-89c7-7144d42f2748",
       "queue_id": "competitive",
-      "rounds": 20,
+      "rounds": 24,
       "score": {
         "Blue": 13,
-        "Red": 7
+        "Red": 11
       },
       "severities": {
-        "info": 4,
-        "warning": 2
+        "critical": 2,
+        "info": 3,
+        "warning": 3
       },
       "source": "sim",
-      "source_rows_cited": 145,
+      "source_rows_cited": 89,
       "unverified_claims": 0,
-      "verdict": "Lost 7\u201313 \u2014 the spike went down and did not stay down.",
-      "verified_claims": 6,
+      "verdict": "Lost 11\u201313 \u2014 lost the R8 pivot on a broken buy.",
+      "verified_claims": 8,
       "winner": "Blue"
     },
     {
-      "force_rate": 0.0714,
+      "force_rate": 0.2857,
       "game_length_ms": 1400000,
       "hero_puuid": "hero",
       "hero_team": "Red",
@@ -298,15 +298,15 @@
         "Red": 13
       },
       "severities": {
-        "critical": 2,
-        "info": 3,
-        "warning": 5
+        "critical": 1,
+        "info": 4,
+        "warning": 4
       },
       "source": "sim",
-      "source_rows_cited": 285,
+      "source_rows_cited": 310,
       "unverified_claims": 0,
-      "verdict": "Won 13\u20131, but lost the R3 pivot on a broken buy.",
-      "verified_claims": 10,
+      "verdict": "Won 13\u20131, but 6 buys funded and never made.",
+      "verified_claims": 9,
       "winner": "Red"
     }
   ],
@@ -322,12 +322,12 @@
   "season": {
     "agents": {
       "Analyst": {
-        "critical": 3,
-        "findings": 48
+        "critical": 5,
+        "findings": 49
       },
       "Economist": {
-        "critical": 6,
-        "findings": 45
+        "critical": 8,
+        "findings": 48
       }
     },
     "broken_buys": 11,
@@ -338,37 +338,37 @@
         "won": 7
       },
       "force": {
-        "rate": 0.5349,
-        "rounds": 43,
-        "won": 23
+        "rate": 0.5,
+        "rounds": 58,
+        "won": 29
       },
       "full": {
-        "rate": 0.6852,
-        "rounds": 54,
-        "won": 37
+        "rate": 0.5957,
+        "rounds": 47,
+        "won": 28
       },
       "half": {
-        "rate": 0.4112,
-        "rounds": 107,
-        "won": 44
+        "rate": 0.5,
+        "rounds": 106,
+        "won": 53
       }
     },
-    "critical_findings": 9,
+    "critical_findings": 13,
     "force_line": 0.3,
-    "force_rate": 0.1991,
-    "kill_share_sim_approx": 0.4957,
+    "force_rate": 0.2601,
+    "kill_share_sim_approx": 0.4763,
     "matches": 12,
-    "matches_over_force_line": 1,
+    "matches_over_force_line": 4,
     "perspective": "hero",
     "record": {
       "draws": 0,
-      "losses": 6,
-      "wins": 6
+      "losses": 7,
+      "wins": 5
     },
-    "rounds": 216,
-    "source_rows_cited": 2868,
+    "rounds": 223,
+    "source_rows_cited": 3105,
     "unverified_claims": 0,
-    "verified_claims": 93,
-    "win_rate": 0.5
+    "verified_claims": 97,
+    "win_rate": 0.4167
   }
 }
