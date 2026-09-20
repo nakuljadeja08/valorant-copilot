@@ -36,11 +36,12 @@ export function useJson(path) {
   return state;
 }
 
-/** Current hash route. Four views:
+/** Current hash route. Five views:
  *    ""              overview
  *    "agents"        the agent pipeline and every verified finding
  *    "matches"       the filterable match list
  *    "match/<id>"    one match
+ *    "role"          the standalone role lens (most recent match)
  *
  *  Only a hash starting with `#/` is a route, so a bare fragment (an in-page
  *  anchor, or the `#` a browser leaves behind) resolves to the overview rather

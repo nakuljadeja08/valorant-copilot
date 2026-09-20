@@ -4,20 +4,41 @@ import MatchCard from "./MatchCard.jsx";
 import Tile from "./Tile.jsx";
 import TrendChart from "./TrendChart.jsx";
 
+const BASE = import.meta.env.BASE_URL;
 const RECENT = 4;
 
 export default function OverviewView({ index }) {
   const { matches, season } = index;
   const perspective = season?.perspective === "hero" ? "your" : "Blue's";
+  const sources = index.provenance?.sources?.join(" · ") ?? "simulated";
 
   return (
     <>
-      <header className="page-head">
-        <h1 className="page-title">Last {index.match_count} matches</h1>
-        <p className="lede" style={{ margin: 0 }}>
-          Competitive · {index.provenance?.sources?.join(" · ") ?? "simulated"} val-match-v1
-          {season?.perspective !== "hero" && " · no focal player recorded, showing Blue"}
-        </p>
+      <header className="hero">
+        <img
+          className="hero-art"
+          src={`${BASE}assets/keyart-arrival.jpg`}
+          alt=""
+          aria-hidden="true"
+        />
+        <div className="hero-veil" aria-hidden="true" />
+        <div className="hero-body">
+          <div className="hero-eyebrow">
+            Competitive · {sources} · {index.match_count} matches
+            {season?.perspective !== "hero" && " · no focal player recorded, showing Blue"}
+          </div>
+          <h1 className="hero-title">
+            Last {index.match_count}
+            <br />
+            matches
+          </h1>
+          <div className="hero-slash" aria-hidden="true" />
+          <p className="hero-lede">
+            Every number is {perspective === "your" ? "your" : "Blue's"} side, recomputed from the
+            same rows the match views cite. Kill share stands in for trade efficiency — the
+            simulator emits no death timestamps.
+          </p>
+        </div>
       </header>
 
       {season && (

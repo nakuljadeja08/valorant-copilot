@@ -33,12 +33,14 @@ export default function AgentsView({ season }) {
   return (
     <>
       <header className="page-head">
-        <h1 className="page-title">Agent pipeline</h1>
-        <p className="lede" style={{ margin: 0 }}>
-          Deterministic rules read the feature store. A Watchdog re-queries every cited value
-          against the database and drops anything that does not match. The language model only
-          phrases what survives — it never introduces a number.
-        </p>
+        <div className="accent-rule">
+          <h1 className="page-title">Agent pipeline</h1>
+          <p className="lede" style={{ margin: "6px 0 0" }}>
+            Deterministic rules read the feature store. A Watchdog re-queries every cited value
+            against the database and drops anything that does not match. The language model only
+            phrases what survives — it never introduces a number.
+          </p>
+        </div>
       </header>
 
       <AgentPipeline season={season} />

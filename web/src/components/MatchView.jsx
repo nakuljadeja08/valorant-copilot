@@ -30,6 +30,9 @@ export default function MatchView({ matchId }) {
   return (
     <>
       <div className="section">
+        <a className="back-link" href="#/matches" style={{ display: "inline-block", marginBottom: 16 }}>
+          ← All matches
+        </a>
         <p className="eyebrow" style={{ marginBottom: 8 }}>
           {match.map_name} · {match.queue_id} · {match.rounds} rounds
           {match.hero_team ? "" : " · no focal player recorded, showing Blue"}

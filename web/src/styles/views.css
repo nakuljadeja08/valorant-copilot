@@ -1,4 +1,77 @@
-/* Layout for the two routes: the Command Center overview and the match view. */
+/* Layout for the routes: overview, matches, match view, role lens, agents. */
+
+/* ----------------------------------------------------------- hero art --- */
+
+/* The overview's key-art banner. The image sits under a hard left-to-right
+   veil so the display type always lands on solid surface, never on busy art --
+   the art is atmosphere, the words are the content. */
+.hero {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line-1);
+  background: linear-gradient(120deg, var(--surface-panel), var(--surface-card));
+  clip-path: var(--notch-tile);
+  margin-bottom: 26px;
+}
+
+.hero-art {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 62%;
+  object-fit: cover;
+  object-position: center 30%;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.hero-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--surface-panel) 30%, transparent 78%);
+}
+
+.hero-body {
+  position: relative;
+  padding: 32px 34px 30px;
+  max-width: 70%;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 14px;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 0.9;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+
+.hero-slash {
+  width: 46px;
+  height: 3px;
+  background: var(--brand-grad);
+  clip-path: var(--slant-badge);
+  margin: 14px 0;
+}
+
+.hero-lede {
+  color: var(--ink-muted);
+  font-size: 14px;
+  max-width: 52ch;
+  margin: 0;
+}
 
 /* ------------------------------------------------------------ overview --- */
 
@@ -453,5 +526,18 @@
   }
   .feed-trace {
     padding-left: 0;
+  }
+  .hero-body {
+    max-width: 100%;
+    padding: 22px 18px 20px;
+  }
+  .hero-title {
+    font-size: 40px;
+  }
+  .hero-art {
+    width: 100%;
+  }
+  .hero-veil {
+    background: linear-gradient(90deg, var(--surface-panel) 45%, color-mix(in srgb, var(--surface-panel) 55%, transparent));
   }
 }

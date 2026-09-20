@@ -142,6 +142,19 @@ button {
   border: 0;
 }
 
+/* The one entrance the shell uses: the onboarding overlay fading up. Views
+   swap without animation so the content never appears to "reload". */
+@keyframes vcpFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -155,14 +168,20 @@ button {
    encoding, so restore real borders and drop the notches. */
 @media (forced-colors: active) {
   .notch,
-  .logo-mark,
-  .badge-slant {
+  .rail-mark,
+  .badge-slant,
+  .hero,
+  .hero-slash,
+  .onboard,
+  .onboard-enter {
     clip-path: none;
   }
   .tile,
   .panel,
   .feed-row,
-  .match-card {
+  .match-card,
+  .rail,
+  .onboard {
     border: 1px solid CanvasText;
   }
 }

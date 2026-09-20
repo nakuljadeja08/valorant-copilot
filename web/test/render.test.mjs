@@ -226,7 +226,7 @@ describe("dashboard", () => {
     assert.match(container.textContent, new RegExp(`Findings — ${economist} of`));
   });
 
-  it("provenance banner and app header are present on both routes", async () => {
+  it("provenance banner and the launcher rail are present on both routes", async () => {
     for (const hash of ["#/", `#/match/${firstMatch}`]) {
       const { container } = await mount(hash);
       assert.match(
@@ -235,30 +235,31 @@ describe("dashboard", () => {
         `banner missing on ${hash}`,
       );
       assert.ok(
-        container.querySelector("header.app-header"),
-        `app header missing on ${hash}`,
+        container.querySelector("aside.rail"),
+        `launcher rail missing on ${hash}`,
       );
-      assert.match(container.textContent, /SIM DATA/, `data-source pill missing on ${hash}`);
+      assert.match(container.textContent, /SIM DATA/, `data-source marker missing on ${hash}`);
     }
   });
 
   it("each nav item is its own route, and marks itself current", async () => {
     const expected = [
       ["#/", "Overview", ".kpi-grid"],
-      ["#/agents", "Agents", ".pipeline"],
       ["#/matches", "Matches", "a.match-card"],
+      ["#/agents", "Agent Pipeline", ".pipeline"],
+      ["#/role", "Role Lens", ".role-grid"],
     ];
 
     for (const [hash, label, marker] of expected) {
       const { container } = await mount(hash);
 
       assert.deepEqual(
-        [...container.querySelectorAll(".app-nav a")].map((a) => a.getAttribute("href")),
-        ["#/", "#/agents", "#/matches"],
+        [...container.querySelectorAll(".rail-nav a")].map((a) => a.getAttribute("href")),
+        ["#/", "#/matches", "#/agents", "#/role"],
       );
       assert.ok(container.querySelector(marker), `${hash} did not render ${marker}`);
 
-      const current = container.querySelector('.app-nav a[aria-current="page"]');
+      const current = container.querySelector('.rail-nav a[aria-current="page"]');
       assert.equal(current?.textContent, label, `wrong nav item current on ${hash}`);
     }
   });
@@ -266,7 +267,7 @@ describe("dashboard", () => {
   it("a match keeps Matches lit and offers a way back to it", async () => {
     const { container } = await mount(`#/match/${firstMatch}`);
 
-    const current = container.querySelector('.app-nav a[aria-current="page"]');
+    const current = container.querySelector('.rail-nav a[aria-current="page"]');
     assert.equal(current?.textContent, "Matches");
     assert.equal(
       container.querySelector("a.back-link")?.getAttribute("href"),

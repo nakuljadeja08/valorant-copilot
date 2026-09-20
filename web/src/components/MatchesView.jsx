@@ -24,10 +24,12 @@ export default function MatchesView({ index }) {
   return (
     <>
       <header className="page-head">
-        <h1 className="page-title">Matches</h1>
-        <p className="lede" style={{ margin: 0 }}>
-          The verdict up front, the trace one click in.
-        </p>
+        <div className="accent-rule">
+          <h1 className="page-title">Matches</h1>
+          <p className="lede" style={{ margin: "6px 0 0" }}>
+            The verdict up front, the trace one click in.
+          </p>
+        </div>
       </header>
 
       <div className="section">
