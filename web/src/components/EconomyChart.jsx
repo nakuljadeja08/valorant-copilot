@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { fmt, useWidth } from "../lib/data.js";
+import { fmt, MIN_CHART_W, useWidth } from "../lib/data.js";
 
 /* Two series, one y-axis (credits). Never a second axis: bank and spend are
    both credits, so they share the scale honestly; anything measured in other
@@ -32,7 +32,7 @@ export default function EconomyChart({ rounds, pivotalRound }) {
     buys: { Blue: r.economy.Blue.buy_type, Red: r.economy.Red.buy_type },
   }));
 
-  const w = Math.max(width, 320);
+  const w = Math.max(width, MIN_CHART_W);
   const innerW = Math.max(w - M.left - M.right, 80);
   const yMax = niceCeil(
     Math.max(...points.flatMap((p) => [p.Blue ?? 0, p.Red ?? 0]), 0),
