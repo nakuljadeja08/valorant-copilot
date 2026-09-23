@@ -51,9 +51,20 @@ function installDom(hash = "") {
 
   dom.window.scrollTo = () => {}; // jsdom logs "not implemented" otherwise
 
-  // jsdom ships neither of these; the chart only uses them for sizing.
+  // jsdom ships neither of these; the chart only uses them for sizing. When a test
+  // sets `global.__roWidth`, observe() reports that width the way a real browser
+  // would, and records the node so a test can tell a remounted plot was observed.
+  global.__observed = new Set();
   dom.window.ResizeObserver = class {
-    observe() {}
+    constructor(cb) {
+      this.cb = cb;
+    }
+    observe(node) {
+      global.__observed.add(node);
+      if (global.__roWidth) {
+        queueMicrotask(() => this.cb([{ contentRect: { width: global.__roWidth } }]));
+      }
+    }
     disconnect() {}
   };
   global.ResizeObserver = dom.window.ResizeObserver;
@@ -408,6 +419,42 @@ describe("dashboard", () => {
           `${chart.dataset.chart} on ${hash} showed no table`,
         );
       }
+    }
+  });
+
+  /* A 320px phone leaves ~235px inside a panel. Charts used to floor their width
+     at 320, overflowing the panel and scrolling the whole page sideways. And the
+     width hook observed its node once, on mount, so a chart flipped to its table
+     twin and back was never observed again. */
+  it("charts fit a phone-width panel, including after a table round-trip", async () => {
+    const PANEL = 235;
+    global.__roWidth = PANEL;
+    try {
+      for (const hash of ["#/", `#/match/${firstMatch}`]) {
+        const { container } = await mount(hash);
+        await React.act(async () => {});
+        const charts = [...container.querySelectorAll("[data-chart]")].filter((c) =>
+          c.querySelector(".plot-wrap > svg"),
+        );
+        assert.ok(charts.length > 0, `no drawn charts on ${hash}`);
+
+        for (const chart of charts) {
+          const name = `${chart.dataset.chart} on ${hash}`;
+          const svgW = () => Number(chart.querySelector(".plot-wrap > svg").getAttribute("width"));
+          assert.ok(svgW() <= PANEL, `${name} drew ${svgW()}px into a ${PANEL}px panel`);
+
+          const toggle = chart.querySelector("button.table-toggle");
+          for (let i = 0; i < 2; i++) {
+            await React.act(async () => {
+              toggle.dispatchEvent(new global.window.MouseEvent("click", { bubbles: true }));
+            });
+          }
+          const plot = chart.querySelector(".plot-wrap");
+          assert.ok(global.__observed.has(plot), `${name}: remounted plot is not observed`);
+        }
+      }
+    } finally {
+      global.__roWidth = undefined;
     }
   });
 

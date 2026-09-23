@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { pct, useWidth } from "../lib/data.js";
+import { pct, MIN_CHART_W, useWidth } from "../lib/data.js";
 
 /* Force-buy rate per match, against the habit threshold.
 
@@ -29,7 +29,7 @@ export default function TrendChart({ matches, threshold = 0.3 }) {
       won: m.winner && m.hero_team ? m.winner === m.hero_team : null,
     }));
 
-  const w = Math.max(width, 320);
+  const w = Math.max(width, MIN_CHART_W);
   const innerW = Math.max(w - M.left - M.right, 80);
   const yMax = Math.max(0.6, Math.ceil(Math.max(...points.map((p) => p.rate), 0) * 10) / 10);
   const last = points.length - 1;

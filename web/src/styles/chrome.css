@@ -344,6 +344,7 @@
   align-items: center;
   justify-content: center;
   padding: 24px;
+  overflow-y: auto;
   animation: vcpFade 300ms ease;
 }
 
@@ -351,6 +352,8 @@
   position: relative;
   max-width: 620px;
   width: 100%;
+  min-width: 0; /* a flex item otherwise takes the steps grid's width, not the screen's */
+  margin: auto; /* centres when it fits; stays reachable by scrolling when it doesn't */
   background: var(--surface-panel);
   border: 1px solid var(--line-2);
   box-shadow: var(--brand-glow);
@@ -926,5 +929,17 @@ th {
   }
   .account-label {
     display: none;
+  }
+  .overlay {
+    padding: 16px;
+  }
+  .onboard-body {
+    padding: 26px 20px 22px;
+  }
+  .onboard-title {
+    font-size: 28px;
+  }
+  .onboard-steps {
+    grid-template-columns: 1fr;
   }
 }

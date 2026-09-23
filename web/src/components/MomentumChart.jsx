@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { useWidth } from "../lib/data.js";
+import { MIN_CHART_W, useWidth } from "../lib/data.js";
 
 /* The per-round momentum proxy, annotated with the events that moved it.
 
@@ -41,7 +41,7 @@ export default function MomentumChart({ rounds, pivotalRound, team, proxyNote })
   // when only one side ever won one. Nothing to draw.
   if (points.length < 2) return null;
 
-  const w = Math.max(width, 320);
+  const w = Math.max(width, MIN_CHART_W);
   const innerW = Math.max(w - M.left - M.right, 80);
   const last = points.length - 1;
   const x = (i) => M.left + (i * innerW) / last;
