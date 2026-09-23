@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches: [main, release]
+  pull_request:
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m pytest -q
+
+  # The committed bundles in web/public/data are exported from a gitignored store,
+  # so nothing stops them drifting from what the code would produce. Rebuild the
+  # store from the seeded simulator and re-export: the export is byte-stable, so
+  # any diff means the committed bundles are stale (or were built from a stale store).
+  bundle-drift:
+    runs-on: ubuntu-latest
+    env:
+      DB_PATH: data/ci-drift.db   # gitignored via data/*.db
+      SIM_SEED: "1337"
+      RIOT_DATA_SOURCE: sim
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Rebuild store and re-export bundles
+        run: |
+          python -m src.storage.init
+          python -m src.ingest.pipeline --source sim --matches 100
+          python -m src.features.run --all > /dev/null
+          python -m src.export.bundle --matches 12
+      - name: Fail if committed bundles differ from a fresh export
+        run: |
+          if ! git diff --exit-code --stat -- web/public/data \
+             || [ -n "$(git status --porcelain -- web/public/data)" ]; then
+            echo "::error::web/public/data is stale. Rebuild the store and re-export (see README), then commit."
+            git status --short -- web/public/data
+            exit 1
+          fi
+
+  web:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
