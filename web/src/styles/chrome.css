@@ -19,7 +19,10 @@
 .content {
   flex: 1;
   width: 100%;
-  max-width: 1240px;
+  /* Wide enough that a 1920+ monitor isn't half empty, and centred so any
+     leftover space splits evenly instead of pooling on the right. */
+  max-width: 1680px;
+  margin: 0 auto;
   padding: 30px 34px 72px;
 }
 
@@ -551,8 +554,10 @@
 
 .banner-detail {
   padding: 0 34px 10px;
+  max-width: 130ch;
   font-size: 12px;
   color: var(--ink-muted);
+  margin: 0;
 }
 
 /* ------------------------------------------------------- panels + tiles --- */
