@@ -214,7 +214,7 @@ python -m src.agents.role_fit --match <id>        # just the mis-role flags
 
 ## Dashboard
 
-**Live URL:** _not yet deployed._
+**Live URL:** https://valorant-copilot.vercel.app — deployed from the `release` branch; simulated data, no credentials on the server.
 
 The dashboard exists to make the trace legible, not to be a product. Match list →
 match view (round timeline, economy chart, scoreboard) → debrief, where every claim
