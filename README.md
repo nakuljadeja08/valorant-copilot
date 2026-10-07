@@ -1,10 +1,119 @@
 # VALORANT Coaching Copilot
 
-A multi-agent, explainability-first coaching pipeline for VALORANT competitive matches.
+[![CI](https://github.com/nakuljadeja08/valorant-copilot/actions/workflows/ci.yml/badge.svg)](https://github.com/nakuljadeja08/valorant-copilot/actions/workflows/ci.yml)
 
-Instead of surfacing raw stats, the pipeline reconstructs **why a round was lost** — economy
-deficit, utility spent too early, a site take that never had the numbers — and emits a
-**decision trace** showing every step that led to each conclusion.
+**Live demo:** https://valorant-copilot.vercel.app
+
+A coaching tool that explains *why* a VALORANT match was lost, and **shows its work**
+for every sentence it says.
+
+## What it is, in one minute
+
+Most stat sites hand you a scoreboard: K/D, ACS, headshot %. Numbers, but no reasons.
+A human coach does something different. They watch the match and say *"you lost round
+12 because you went in on a half-buy when your loss bonus should have funded a full
+one."*
+
+The Copilot does that coach's job, with one rule a human coach can't promise:
+
+> **Every claim links back to the exact data it came from.** If a number can't be
+> traced to a row in the match data and re-checked, it doesn't make it into the report.
+
+Here's a real claim from the demo, and what you get when you click it:
+
+```
+[critical] Red broke its buy 2 times (R5, R12) -- rounds where the escalated
+           loss bonus should have funded a real buy and the team went in short anyway.
+
+  └─ rule   economist.broken_buy_count
+     ├─ feature   broken_buy:Red = 1.0   (round 5)
+     │  └─ raw rows   rounds 2, 3, 4 (the loss streak)
+     │                round_player_stats, all 5 players in round 5 (what they bought)
+     └─ feature   broken_buy:Red = 1.0   (round 12)
+        └─ ...
+```
+
+So you can go **sentence → rule → computed feature → raw match rows**, and check
+the reasoning yourself instead of trusting it.
+
+It coaches on two levels:
+
+- **Team: "why did we lose?"** Economy mistakes (force-buy habits, broken buys),
+  the pivotal round, post-plant conversion, trading.
+- **Player: "how did I do *for my role*?"** A Sentinel is scored against other
+  Sentinels, not against Duelists. A low first-blood rate is fine for a Sentinel and
+  a problem for a Duelist, and the Copilot knows the difference.
+
+## How it works
+
+```mermaid
+flowchart LR
+    A["Match data<br/>(Riot API or simulator)"] --> B["Ingest<br/>clean + store"]
+    B --> C["Features<br/>economy, streaks,<br/>entries, trades"]
+    C --> D["Rule agents<br/>Analyst · Economist<br/>RoleCoach"]
+    D --> E["Watchdog<br/>re-checks every<br/>cited number"]
+    E --> F["Debrief<br/>+ decision trace"]
+    F --> G["Dashboard"]
+```
+
+1. **Ingest.** Pull match payloads, rate-limited and resumable, into a normalized
+   SQLite store.
+2. **Features.** Turn raw rounds into coaching signals ("was this a force buy?",
+   "how long was the loss streak?"). Every feature row records the raw rows it came
+   from (`inputs_json`), so lineage is stored as data.
+3. **Rule agents.** Deterministic rules turn features into conclusions: twelve team
+   rules across the Analyst and Economist, plus role-fit rules for players.
+4. **Watchdog.** Before anything reaches a report, every cited value is re-read from
+   the store and compared with what the rule saw. A mismatch drops the claim.
+5. **Debrief.** Template text by default. An LLM can optionally rephrase it, but it
+   is **not allowed to add a number**: a code check rejects any draft containing a
+   numeral that isn't already in the trace.
+6. **Dashboard.** A static React app where every claim expands into its trace.
+
+## Architecture
+
+```mermaid
+flowchart TB
+    subgraph sources["Data sources"]
+        direction LR
+        LIVE["Riot val-match-v1<br/><i>needs production key</i>"]
+        SIM["Match simulator<br/><i>schema-faithful</i>"]
+        CONTENT["val-content-v1 · val-status-v1<br/><i>real, dev key</i>"]
+    end
+
+    ADAPTER{{"Match Adapter<br/>the single live/sim seam"}}
+    LIVE -.-> ADAPTER
+    SIM --> ADAPTER
+    CONTENT -- "real agent/map IDs" --> SIM
+
+    ADAPTER --> INGEST["Ingest pipeline<br/>rate-limited · cached · resumable"]
+    INGEST --> STORE[("SQLite store<br/>matches · rounds · kills<br/>round_player_stats")]
+    STORE --> FEAT["Feature layer<br/>+ inputs_json lineage"]
+    FEAT --> FSTORE[("features table")]
+    FEAT --> BASE["Role baselines<br/>versioned by content hash"]
+
+    FSTORE --> AGENTS["Rule agents<br/>Analyst · Economist · RoleCoach"]
+    BASE --> AGENTS
+    AGENTS --> WD["Watchdog<br/>re-queries the store"]
+    STORE -. verify .-> WD
+    WD --> WRITER["Writer<br/>template, or LLM + numeral post-check"]
+    WRITER --> EXPORT["Bundle export<br/>byte-stable static JSON"]
+    EXPORT --> WEB["React dashboard<br/>static host, no backend"]
+
+    CI["CI: rebuild from seeded sim,<br/>re-export, fail on any diff"] -. guards .-> EXPORT
+```
+
+### Why it's built this way
+
+| Decision | Why |
+|---|---|
+| **One adapter seam for live vs. simulated data** | Riot's match endpoint needs a production key. Rather than scrape or use unofficial APIs, a simulator emits the *documented* `val-match-v1` schema. Everything downstream is source-agnostic, so going live is a config flip (`RIOT_DATA_SOURCE=live`) with no other code change. |
+| **Lineage stored as data** | Each feature row carries the raw rows it was computed from. That's what makes "click a claim → see the evidence" possible: the trace comes from the store, not from something assembled for display. |
+| **Rules decide, the LLM only phrases** | Conclusions come from deterministic, testable rules. An LLM can make the prose friendlier but can't invent a stat, and that's enforced by a post-check in code, not a line in a prompt. The whole pipeline also runs with no API key. |
+| **Watchdog verification** | Re-checking every cited number against the store catches stale features, changed thresholds, or corrupted rows before they reach a report. Tests deliberately corrupt the store to prove it fires. |
+| **Static bundles, no backend** | The dashboard reads pre-generated JSON only. A static host can't leak an API key it never had, hosting is free, and the frontend has no code path to Riot. |
+| **Byte-stable exports + CI drift check** | No timestamps and sorted collections mean re-exporting an unchanged store gives identical bytes. CI rebuilds everything from a seeded sim and fails if the committed data drifts, so a diff in `web/public/data` always means something really changed. |
+| **Honest labels over fake precision** | Anything approximated is tagged in code and UI (`sim-approx`, `role-approx`). Metrics the data can't support (such as anchor positioning) are left unbuilt rather than faked. |
 
 ---
 
@@ -27,37 +136,6 @@ The consequence is an intentional design constraint:
 Live endpoints that *do* work on a development key are used for real: `val-content-v1`
 (agents, maps, weapons) and `val-status-v1`. Simulated matches are grounded in those real
 asset IDs, so the schema, the map pool, and the agent roster are all authentic.
-
-## Architecture
-
-```
-                 ┌───────────────────┐
-  val-content-v1 │  Content Cache    │  real, dev-key
-  val-status-v1  │  (agents/maps)    │
-                 └─────────┬─────────┘
-                           │ grounds
-                 ┌─────────▼─────────┐
-   live ──┐      │   Match Adapter   │  single seam: live | sim
-   sim  ──┘      └─────────┬─────────┘
-                           │ raw val-match-v1 payloads
-                 ┌─────────▼─────────┐
-                 │  Ingest Pipeline  │  rate-limited, cached, resumable
-                 └─────────┬─────────┘
-                           │
-                 ┌─────────▼─────────┐
-                 │  Feature Store    │  economy curves, util timing, trades
-                 └─────────┬─────────┘
-                           │
-        ┌──────────────────┼──────────────────┐
-        │                  │                  │
-   ┌────▼────┐      ┌──────▼──────┐   ┌───────▼──────┐
-   │ Analyst │      │  Economist  │   │   Watchdog   │
-   └────┬────┘      └──────┬──────┘   └───────┬──────┘
-        └──────────────────┼──────────────────┘
-                    ┌──────▼──────┐
-                    │Report Writer│  → debrief + decision trace
-                    └─────────────┘
-```
 
 ## Quickstart
 
@@ -284,6 +362,49 @@ chart has a table view, so nothing is conveyed by color alone.
 | `web/` | React (Vite) dashboard — reads only the generated bundles |
 | `web/public/data/` | Generated bundles, committed (the store itself is gitignored) |
 | `src/storage/schema.sql` | Normalized match store |
+
+## Roadmap
+
+```mermaid
+flowchart LR
+    P0["Phases 0–4 ✅<br/>pipeline, agents,<br/>trace, dashboard, deploy"] --> P5["Phase 5<br/>production data access"]
+    P5 --> P6["Real-data signals<br/>trades, sides, role depth"]
+    P5 --> P7["Dashboard updates<br/>progress over time"]
+```
+
+**Next up: production data access.** The pipeline is ready for real matches. Applying
+to Riot for a production key is the next phase:
+
+- [ ] Submit the production application for `val-match-v1`, `val-content-v1`,
+      `val-status-v1` and `account-v1`, with RSO so players explicitly opt in to
+      having their matches analysed
+- [ ] Flip `RIOT_DATA_SOURCE=live` and run the same pipeline end to end on real matches
+- [ ] Rebuild role baselines from real same-role players instead of the simulated
+      corpus, and recalibrate rule thresholds against real distributions
+
+**What real data unlocks.** Several signals are approximated or deferred today only
+because the simulator doesn't model them:
+
+- [ ] **Real trade windows:** a kill answered within N seconds of a teammate's death,
+      replacing the `sim-approx` kill-share stand-in once death timestamps exist
+- [ ] **True attack/defense side per round,** replacing the documented convention
+- [ ] **Deferred role signals:** anchor positioning, defensive hold trades, post-plant
+      presence
+- [ ] **Utility timing,** so `support_before_entry` can drop its `role-approx` label
+
+**Pipeline**
+
+- [ ] Scheduled, incremental ingest for opted-in players, re-exporting only the
+      matches that changed
+- [ ] Data-quality checks at ingest (schema drift, missing rounds) alongside the
+      existing Watchdog and bundle-drift checks
+
+**Dashboard**
+
+- [ ] Player progress over time: role percentiles and recurring findings across a
+      season, not just per match
+- [ ] Match-to-match comparison and a filterable findings view
+- [ ] Continued UI polish, including a check on physical phones
 
 ## License
 
