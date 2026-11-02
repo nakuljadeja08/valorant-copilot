@@ -26,6 +26,7 @@ import os
 import json
 import random
 import uuid
+from dataclasses import dataclass
 from pathlib import Path
 
 from src.riot.resolve import Role, UnknownAgentError, role_of
@@ -74,8 +75,42 @@ UTILITY_MEANS: dict[Role, tuple[float, float, float]] = {
 TRADE_P = 0.35  # chance the previous fragger is immediately traded back
 
 
+@dataclass(frozen=True)
+class FixtureSide:
+    """One team in a fixed fixture: who plays, on which agents, and how good they are."""
+
+    puuids: tuple[str, ...]
+    agents: tuple[str, ...]  # parallel to puuids
+    edge: float  # added to this side's round-win probability
+    player_skill: dict[str, float]  # kill/survival multiplier; 1.0 is average
+
+
+@dataclass(frozen=True)
+class MatchFixture:
+    """Opt-in pro match: stable rosters and skill on a chosen map, played to a winner.
+
+    Without one, `build_match` keeps its original ranked-style behaviour exactly. The
+    committed coaching bundles depend on that, and `tests/test_fantasy_sim.py` pins it.
+    """
+
+    map_id: str
+    red: FixtureSide
+    blue: FixtureSide
+    start_ms: int
+    queue_id: str = "tournament"
+    season_id: str = "vct-2027-sim"
+
+
 def _other(side: str) -> str:
     return "Blue" if side == "Red" else "Red"
+
+
+def _map_over(wins: dict[str, int], rnum: int, overtime: bool) -> bool:
+    """First to 13. With overtime, a map that reaches 12-12 needs a two-round lead."""
+    high, low = max(wins.values()), min(wins.values())
+    if overtime and high + low >= 24:
+        return high - low >= 2
+    return high >= 13 or rnum >= 24
 
 
 def _role_of(character_id: str) -> Role:
@@ -132,6 +167,7 @@ class MatchGenerator:
         loser: str,
         result: str,
         round_start_ms: int,
+        player_skill: dict[str, float] | None = None,
     ) -> dict[str, dict]:
         """Resolve one round as an ordered, role-weighted kill timeline.
 
@@ -140,7 +176,11 @@ class MatchGenerator:
         the opposing side weighted by ENTRY. The first event is the round's first
         contact. Returns per-puuid stats including the `kills` list that player was
         the *killer* in (val-match-v1 nests kills under the killer's playerStats).
+
+        `player_skill` scales those weights per player (better players kill more and
+        die less). Absent, every multiplier is exactly 1.0 and the draws are unchanged.
         """
+        skill_of = player_skill or {}
         alive = {s: list(roster[s]) for s in roster}
         # Casualty targets: a wiped side (Eliminated) loses all 5; otherwise partial.
         if result == "Eliminated":
@@ -173,13 +213,15 @@ class MatchGenerator:
                 vside, victim, traded = prev_killer_side, prev_killer, True
             else:
                 cands = [(s, p) for s in victim_sides for p in alive[s]]
-                weights = [EXPOSURE_WEIGHT[role_by_puuid[p]] for _, p in cands]
+                weights = [EXPOSURE_WEIGHT[role_by_puuid[p]] / skill_of.get(p, 1.0)
+                           for _, p in cands]
                 vside, victim = crng.choices(cands, weights=weights)[0]
 
             kside = _other(vside)
             killer = crng.choices(
                 alive[kside],
-                weights=[ENTRY_WEIGHT[role_by_puuid[p]] for p in alive[kside]],
+                weights=[ENTRY_WEIGHT[role_by_puuid[p]] * skill_of.get(p, 1.0)
+                         for p in alive[kside]],
             )[0]
 
             mates = [p for p in roster[kside] if p != killer]
@@ -208,27 +250,42 @@ class MatchGenerator:
 
         return stats
 
-    def build_match(self, match_id: str, hero_puuid: str = "hero") -> dict:
+    def build_match(self, match_id: str, hero_puuid: str = "hero",
+                    fixture: MatchFixture | None = None) -> dict:
         rng = random.Random(match_id)
         map_id = rng.choice(self.maps)
 
         teams = {"Red": [], "Blue": []}
-        agents = rng.sample(self.agents, min(10, len(self.agents))) * 2
-        for i in range(10):
-            side = "Red" if i < 5 else "Blue"
-            teams[side].append({
-                "puuid": hero_puuid if i == 0 else str(uuid.UUID(int=rng.getrandbits(128))),
-                "teamId": side,
-                "characterId": agents[i],
-                "competitiveTier": rng.randint(21, 23),  # Immortal band
-            })
+        if fixture:
+            map_id = fixture.map_id
+            for side, f in (("Red", fixture.red), ("Blue", fixture.blue)):
+                teams[side] = [
+                    {"puuid": puuid, "teamId": side, "characterId": agent,
+                     "competitiveTier": 27}  # Radiant
+                    for puuid, agent in zip(f.puuids, f.agents)
+                ]
+        else:
+            agents = rng.sample(self.agents, min(10, len(self.agents))) * 2
+            for i in range(10):
+                side = "Red" if i < 5 else "Blue"
+                teams[side].append({
+                    "puuid": hero_puuid if i == 0 else str(uuid.UUID(int=rng.getrandbits(128))),
+                    "teamId": side,
+                    "characterId": agents[i],
+                    "competitiveTier": rng.randint(21, 23),  # Immortal band
+                })
 
         roster = {s: [p["puuid"] for p in teams[s]] for s in teams}
         role_by_puuid = {
             p["puuid"]: _role_of(p["characterId"]) for s in teams for p in teams[s]
         }
 
-        skill = {"Red": rng.gauss(0, 0.15), "Blue": rng.gauss(0, 0.15)}
+        overtime = fixture is not None
+        player_skill = {**fixture.red.player_skill, **fixture.blue.player_skill} if fixture else None
+        if fixture:
+            skill = {"Red": fixture.red.edge, "Blue": fixture.blue.edge}
+        else:
+            skill = {"Red": rng.gauss(0, 0.15), "Blue": rng.gauss(0, 0.15)}
         creds = {"Red": CREDS_START, "Blue": CREDS_START}
         streak = {"Red": 0, "Blue": 0}
         rounds, wins = [], {"Red": 0, "Blue": 0}
@@ -236,7 +293,7 @@ class MatchGenerator:
                        for side in teams for p in teams[side]}
 
         rnum = 0
-        while max(wins.values()) < 13 and rnum < 24:
+        while not _map_over(wins, rnum, overtime):
             loadout = {s: min(creds[s], CREDS_MAX) for s in ("Red", "Blue")}
             spent = {s: int(loadout[s] * rng.uniform(0.55, 0.95)) for s in ("Red", "Blue")}
 
@@ -254,7 +311,7 @@ class MatchGenerator:
             # the economy/winner draws above stay independent of round order.
             combat = self._combat(
                 random.Random(f"{match_id}:{rnum}:combat"),
-                roster, role_by_puuid, winner, loser, result, rnum * 100_000,
+                roster, role_by_puuid, winner, loser, result, rnum * 100_000, player_skill,
             )
             # Utility casts on their own deterministic stream, drawn in roster order.
             urng = random.Random(f"{match_id}:{rnum}:util")
@@ -308,22 +365,23 @@ class MatchGenerator:
             creds[loser] = min(creds[loser] - spent[loser] + LOSS_BONUS[streak[loser]], CREDS_MAX)
             rnum += 1
 
+        start_ms = 1_770_000_000_000 + rng.randint(0, 10_000_000)
         return {
             "matchInfo": {
                 "matchId": match_id,
                 "mapId": map_id,
                 "gameLengthMillis": rnum * 100_000,
-                "gameStartMillis": 1_770_000_000_000 + rng.randint(0, 10_000_000),
+                "gameStartMillis": fixture.start_ms if fixture else start_ms,
                 "isCompleted": True,
-                "queueId": "competitive",
-                "seasonId": "e10a3",
+                "queueId": fixture.queue_id if fixture else "competitive",
+                "seasonId": fixture.season_id if fixture else "e10a3",
             },
             "players": [
                 {**p, **players_out[p["puuid"]], "stats": players_out[p["puuid"]]}
                 for side in teams for p in teams[side]
             ],
             "teams": [
-                {"teamId": s, "won": wins[s] >= 13, "roundsPlayed": rnum, "roundsWon": wins[s]}
+                {"teamId": s, "won": wins[s] > wins[_other(s)], "roundsPlayed": rnum, "roundsWon": wins[s]}
                 for s in ("Red", "Blue")
             ],
             "roundResults": rounds,

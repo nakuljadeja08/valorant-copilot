@@ -359,6 +359,7 @@ chart has a table view, so nothing is conveyed by color alone.
 | `src/agents/writer.py` | LLM phrasing layer + numeral post-check |
 | `src/agents/debrief.py` | `python -m src.agents.debrief --match <id>` |
 | `src/export/bundle.py` | Store → static JSON bundles for the dashboard |
+| `src/fantasy/` | Fantasy game (in progress): a simulated, fictional 2027 season in its own store |
 | `web/` | React (Vite) dashboard — reads only the generated bundles |
 | `web/public/data/` | Generated bundles, committed (the store itself is gitignored) |
 | `src/storage/schema.sql` | Normalized match store |
