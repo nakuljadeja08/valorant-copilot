@@ -1,0 +1,329 @@
+{
+  "bundle_version": 1,
+  "deadline_ms": 1813492800000,
+  "entities": {
+    "1487ff82-a6db-9b85-5a48-31da9d1a704e": {
+      "by_rule": {
+        "assist": 19.5,
+        "death": -36.0,
+        "first_death": -3.0,
+        "first_kill": 5.0,
+        "kill": 82.0,
+        "map_win": 6.0,
+        "multikill_3": 1.0,
+        "role_bonus": 6.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m1",
+          "points": 25.0
+        },
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m2",
+          "points": 31.5
+        },
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m3",
+          "points": 24.0
+        }
+      ],
+      "total": 80.5
+    },
+    "267ae013-c467-0c18-ef50-828e8f1d484a": {
+      "by_rule": {
+        "assist": 10.5,
+        "clutch_1v3": 2.0,
+        "death": -60.0,
+        "first_death": -22.0,
+        "first_kill": 9.0,
+        "kill": 68.0,
+        "multikill_3": 1.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m1",
+          "points": -7.5
+        },
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m2",
+          "points": 2.5
+        },
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m3",
+          "points": 13.5
+        }
+      ],
+      "total": 8.5
+    },
+    "388a7a65-ee39-5cdf-b910-a50f6dc2df17": {
+      "by_rule": {
+        "assist": 10.5,
+        "death": -37.0,
+        "first_death": -3.0,
+        "first_kill": 2.0,
+        "kill": 88.0,
+        "multikill_3": 2.0,
+        "role_bonus": 3.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m1",
+          "points": 17.0
+        },
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m2",
+          "points": 21.5
+        },
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m3",
+          "points": 27.0
+        }
+      ],
+      "total": 65.5
+    },
+    "412a89fc-4ead-5695-1093-df28319f2b39": {
+      "by_rule": {
+        "assist": 10.0,
+        "death": -55.0,
+        "first_death": -12.0,
+        "first_kill": 5.0,
+        "kill": 86.0,
+        "multikill_3": 3.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m1",
+          "points": 21.0
+        },
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m2",
+          "points": 7.5
+        },
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m3",
+          "points": 8.5
+        }
+      ],
+      "total": 37.0
+    },
+    "82acdb25-62ca-c198-a548-fcfe1e0f3169": {
+      "by_rule": {
+        "assist": 22.5,
+        "clutch_1v2": 1.0,
+        "death": -46.0,
+        "first_death": -4.0,
+        "first_kill": 9.0,
+        "kill": 96.0,
+        "map_win": 6.0,
+        "multikill_3": 4.0,
+        "role_bonus": 9.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m1",
+          "points": 40.5
+        },
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m2",
+          "points": 32.0
+        },
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m3",
+          "points": 25.0
+        }
+      ],
+      "total": 97.5
+    },
+    "9f5bdab9-df1b-9e5a-621a-f5d2f6be9d9f": {
+      "by_rule": {
+        "assist": 18.0,
+        "clutch_1v2": 1.0,
+        "death": -50.0,
+        "first_death": -7.0,
+        "first_kill": 3.0,
+        "kill": 74.0,
+        "multikill_3": 2.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m1",
+          "points": 15.5
+        },
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m2",
+          "points": 18.5
+        },
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m3",
+          "points": 7.0
+        }
+      ],
+      "total": 41.0
+    },
+    "a3c8b8cb-6bdb-11bb-259d-df22909c87ae": {
+      "by_rule": {},
+      "kind": "coach",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m1",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m2",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m3",
+          "points": 0.0
+        }
+      ],
+      "total": 0.0
+    },
+    "b647bb0d-6401-bfd9-1b2f-b59062c24fcd": {
+      "by_rule": {
+        "assist": 13.0,
+        "clutch_1v3": 2.0,
+        "death": -38.0,
+        "first_death": -4.0,
+        "first_kill": 9.0,
+        "kill": 94.0,
+        "map_win": 6.0,
+        "multikill_3": 2.0,
+        "role_bonus": 3.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m1",
+          "points": 21.5
+        },
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m2",
+          "points": 27.0
+        },
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m3",
+          "points": 38.5
+        }
+      ],
+      "total": 87.0
+    },
+    "b995b734-65e8-9c00-cb12-5d5bce953449": {
+      "by_rule": {
+        "coach_map_win": 36.0,
+        "coach_round_diff": 2.0,
+        "coach_series_win": 18.0,
+        "coach_upset": 10.0
+      },
+      "kind": "coach",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m1",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m2",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m3",
+          "points": 42.0
+        }
+      ],
+      "total": 66.0
+    },
+    "cc540658-2fca-8a5b-8485-4cb8f2a2deda": {
+      "by_rule": {
+        "assist": 7.5,
+        "death": -39.0,
+        "first_death": -2.0,
+        "first_kill": 7.0,
+        "kill": 102.0,
+        "multikill_3": 1.0,
+        "role_bonus": 6.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m1",
+          "points": 26.0
+        },
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m2",
+          "points": 33.5
+        },
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m3",
+          "points": 23.0
+        }
+      ],
+      "total": 82.5
+    },
+    "d520c65d-1b91-c009-500e-0bceb519050e": {
+      "by_rule": {
+        "assist": 14.5,
+        "death": -40.0,
+        "first_death": -9.0,
+        "first_kill": 6.0,
+        "kill": 76.0,
+        "map_win": 6.0,
+        "multikill_3": 2.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m1",
+          "points": 19.0
+        },
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m2",
+          "points": 21.5
+        },
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m3",
+          "points": 15.0
+        }
+      ],
+      "total": 55.5
+    },
+    "eb68499a-0a39-aceb-4e36-761a951afd47": {
+      "by_rule": {
+        "assist": 16.5,
+        "death": -49.0,
+        "first_death": -6.0,
+        "first_kill": 17.0,
+        "kill": 134.0,
+        "map_win": 6.0,
+        "multikill_3": 4.0,
+        "multikill_4": 3.0,
+        "role_bonus": 9.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m1",
+          "points": 43.0
+        },
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m2",
+          "points": 41.0
+        },
+        {
+          "match_id": "vct27-1337-masters_valencia-global-r6-f0-m3",
+          "points": 50.5
+        }
+      ],
+      "total": 134.5
+    }
+  },
+  "event_id": "masters_valencia",
+  "excluded": [],
+  "rules_version": "4c8badfec8d2",
+  "week_num": 3
+}

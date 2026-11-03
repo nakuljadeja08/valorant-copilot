@@ -1,0 +1,3402 @@
+{
+  "bundle_version": 1,
+  "deadline_ms": 1803124800000,
+  "entities": {
+    "03d8739e-d7aa-3337-2cd9-290204b5d8de": {
+      "by_rule": {
+        "coach_map_win": 72.0,
+        "coach_round_diff": 6.0,
+        "coach_series_win": 54.0
+      },
+      "kind": "coach",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m1",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m2",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m3",
+          "points": 30.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u1-m1",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u1-m2",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l0-m1",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l0-m2",
+          "points": 34.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l0-m1",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l0-m2",
+          "points": 32.0
+        }
+      ],
+      "total": 132.0
+    },
+    "116cec6e-5afe-8f5c-d418-b51fcbadd6cc": {
+      "by_rule": {
+        "assist": 16.5,
+        "death": -130.0,
+        "first_death": -33.0,
+        "first_kill": 28.0,
+        "kill": 236.0,
+        "map_win": 6.0,
+        "multikill_3": 11.0,
+        "multikill_4": 3.0,
+        "role_bonus": 6.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m1",
+          "points": 22.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m2",
+          "points": 22.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m3",
+          "points": 11.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m1",
+          "points": 5.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m2",
+          "points": 29.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m3",
+          "points": 35.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l2-m1",
+          "points": 8.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l2-m2",
+          "points": 11.0
+        }
+      ],
+      "total": 143.5
+    },
+    "13dd6259-e634-662a-b05a-2cc4ff9211fc": {
+      "by_rule": {
+        "assist": 30.0,
+        "clutch_1v3": 2.0,
+        "death": -102.0,
+        "first_death": -15.0,
+        "first_kill": 16.0,
+        "kill": 168.0,
+        "map_win": 4.0,
+        "multikill_3": 4.0,
+        "role_bonus": 6.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m1",
+          "points": 30.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m2",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m3",
+          "points": 19.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u0-m1",
+          "points": 14.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u0-m2",
+          "points": 2.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l1-m1",
+          "points": 3.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l1-m2",
+          "points": 32.0
+        }
+      ],
+      "total": 113.0
+    },
+    "1487ff82-a6db-9b85-5a48-31da9d1a704e": {
+      "by_rule": {
+        "assist": 34.5,
+        "clutch_1v2": 4.0,
+        "clutch_1v3": 4.0,
+        "death": -59.0,
+        "first_death": -7.0,
+        "first_kill": 7.0,
+        "kill": 142.0,
+        "map_win": 4.0,
+        "multikill_3": 3.0,
+        "role_bonus": 9.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m1",
+          "points": 34.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m2",
+          "points": 21.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m3",
+          "points": 34.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m1",
+          "points": 19.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m2",
+          "points": 18.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m3",
+          "points": 14.0
+        }
+      ],
+      "total": 141.5
+    },
+    "18756f6e-0ae2-e6d2-2878-46b701a6c869": {
+      "by_rule": {
+        "coach_map_win": 36.0,
+        "coach_round_diff": 4.0,
+        "coach_series_win": 18.0
+      },
+      "kind": "coach",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m1",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m2",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m3",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l0-m1",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l0-m2",
+          "points": 34.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l0-m1",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l0-m2",
+          "points": 0.0
+        }
+      ],
+      "total": 58.0
+    },
+    "19ee6024-fa94-ee03-d73e-600f7fe51533": {
+      "by_rule": {
+        "assist": 21.0,
+        "death": -102.0,
+        "first_death": -13.0,
+        "first_kill": 34.0,
+        "kill": 266.0,
+        "map_win": 6.0,
+        "multikill_3": 8.0,
+        "multikill_4": 3.0,
+        "role_bonus": 15.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m1",
+          "points": 29.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m2",
+          "points": 44.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m3",
+          "points": 28.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l0-m1",
+          "points": 40.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l0-m2",
+          "points": 46.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l0-m1",
+          "points": 24.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l0-m2",
+          "points": 26.0
+        }
+      ],
+      "total": 238.0
+    },
+    "1df40b67-5afb-b8c5-4926-0be6c2098dad": {
+      "by_rule": {
+        "assist": 43.5,
+        "clutch_1v2": 1.0,
+        "clutch_1v3": 4.0,
+        "death": -75.0,
+        "first_death": -6.0,
+        "first_kill": 8.0,
+        "kill": 180.0,
+        "map_win": 4.0,
+        "multikill_3": 5.0,
+        "role_bonus": 12.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m1",
+          "points": 35.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m2",
+          "points": 15.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m3",
+          "points": 29.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u0-m1",
+          "points": 15.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u0-m2",
+          "points": 4.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l1-m1",
+          "points": 36.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l1-m2",
+          "points": 40.0
+        }
+      ],
+      "total": 176.5
+    },
+    "1e05d871-e073-631b-8ee7-270378d4f865": {
+      "by_rule": {
+        "assist": 61.5,
+        "clutch_1v2": 2.0,
+        "clutch_1v3": 2.0,
+        "death": -127.0,
+        "first_death": -16.0,
+        "first_kill": 21.0,
+        "kill": 278.0,
+        "map_win": 8.0,
+        "multikill_3": 4.0,
+        "multikill_4": 3.0,
+        "role_bonus": 12.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u4-m1",
+          "points": 14.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u4-m2",
+          "points": 7.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m1",
+          "points": 53.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m2",
+          "points": 24.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m3",
+          "points": 38.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l1-m1",
+          "points": 37.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l1-m2",
+          "points": 43.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l1-m1",
+          "points": 16.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l1-m2",
+          "points": 15.0
+        }
+      ],
+      "total": 248.5
+    },
+    "205ccbda-6011-edc8-3fd9-33fab3edb6e6": {
+      "by_rule": {
+        "assist": 52.5,
+        "death": -149.0,
+        "first_death": -38.0,
+        "first_kill": 23.0,
+        "kill": 282.0,
+        "map_win": 8.0,
+        "multikill_3": 6.0,
+        "multikill_4": 12.0,
+        "multikill_5": 5.0,
+        "role_bonus": 12.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u4-m1",
+          "points": 32.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u4-m2",
+          "points": -1.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m1",
+          "points": 10.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m2",
+          "points": 23.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m3",
+          "points": 28.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l1-m1",
+          "points": 38.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l1-m2",
+          "points": 16.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l1-m1",
+          "points": 31.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l1-m2",
+          "points": 36.0
+        }
+      ],
+      "total": 213.5
+    },
+    "267ae013-c467-0c18-ef50-828e8f1d484a": {
+      "by_rule": {
+        "assist": 5.5,
+        "clutch_1v2": 1.0,
+        "death": -102.0,
+        "first_death": -27.0,
+        "first_kill": 24.0,
+        "kill": 184.0,
+        "map_win": 12.0,
+        "multikill_3": 3.0,
+        "role_bonus": 6.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m1",
+          "points": 10.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m2",
+          "points": 6.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m3",
+          "points": 21.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u0-m1",
+          "points": 13.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u0-m2",
+          "points": 21.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-u0-m1",
+          "points": 3.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-u0-m2",
+          "points": 31.0
+        }
+      ],
+      "total": 106.5
+    },
+    "2953ef34-ff9d-be19-6e5b-72c765b91bc7": {
+      "by_rule": {
+        "assist": 67.5,
+        "clutch_1v2": 1.0,
+        "death": -114.0,
+        "first_death": -17.0,
+        "first_kill": 11.0,
+        "kill": 208.0,
+        "map_win": 10.0,
+        "multikill_3": 4.0,
+        "multikill_4": 3.0,
+        "role_bonus": 15.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u4-m1",
+          "points": 24.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u4-m2",
+          "points": 41.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m1",
+          "points": 10.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m2",
+          "points": 10.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m3",
+          "points": 4.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l2-m1",
+          "points": 22.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l2-m2",
+          "points": 23.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l0-m1",
+          "points": 9.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l0-m2",
+          "points": 43.5
+        }
+      ],
+      "total": 188.5
+    },
+    "2ea205bb-a9c4-4ec0-d216-2b632305961e": {
+      "by_rule": {
+        "assist": 46.5,
+        "clutch_1v2": 1.0,
+        "clutch_1v3": 2.0,
+        "death": -127.0,
+        "first_death": -17.0,
+        "first_kill": 11.0,
+        "kill": 242.0,
+        "map_win": 12.0,
+        "multikill_3": 3.0,
+        "multikill_4": 3.0,
+        "role_bonus": 9.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m1",
+          "points": 26.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m2",
+          "points": 17.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m3",
+          "points": 48.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u1-m1",
+          "points": 22.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u1-m2",
+          "points": 39.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-u0-m1",
+          "points": -6.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-u0-m2",
+          "points": 19.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-u0-m1",
+          "points": 14.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-u0-m2",
+          "points": 4.5
+        }
+      ],
+      "total": 185.5
+    },
+    "35ffad44-1d75-de17-9ad1-10d6b2bab389": {
+      "by_rule": {
+        "coach_map_win": 72.0,
+        "coach_round_diff": 3.0,
+        "coach_series_win": 54.0,
+        "coach_upset": 30.0
+      },
+      "kind": "coach",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m1",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m2",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m3",
+          "points": 41.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u1-m1",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u1-m2",
+          "points": 41.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-u0-m1",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-u0-m2",
+          "points": 41.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-u0-m1",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-u0-m2",
+          "points": 0.0
+        }
+      ],
+      "total": 159.0
+    },
+    "388a7a65-ee39-5cdf-b910-a50f6dc2df17": {
+      "by_rule": {
+        "assist": 30.0,
+        "clutch_1v2": 6.0,
+        "clutch_1v3": 6.0,
+        "death": -63.0,
+        "first_death": -5.0,
+        "first_kill": 12.0,
+        "kill": 202.0,
+        "map_win": 12.0,
+        "multikill_3": 4.0,
+        "multikill_4": 6.0,
+        "role_bonus": 18.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m1",
+          "points": 38.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m2",
+          "points": 20.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m3",
+          "points": 19.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u0-m1",
+          "points": 35.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u0-m2",
+          "points": 33.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-u0-m1",
+          "points": 31.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-u0-m2",
+          "points": 51.0
+        }
+      ],
+      "total": 228.0
+    },
+    "3d08633b-9e1e-2c11-5376-1a5ce7dc5bc2": {
+      "by_rule": {
+        "assist": 37.0,
+        "clutch_1v3": 4.0,
+        "clutch_1v4": 3.0,
+        "death": -115.0,
+        "first_death": -9.0,
+        "first_kill": 31.0,
+        "kill": 294.0,
+        "map_win": 12.0,
+        "multikill_3": 9.0,
+        "multikill_4": 3.0,
+        "role_bonus": 21.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m1",
+          "points": 23.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m2",
+          "points": 38.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m3",
+          "points": 31.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u1-m1",
+          "points": 57.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u1-m2",
+          "points": 6.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l0-m1",
+          "points": 23.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l0-m2",
+          "points": 42.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l0-m1",
+          "points": 42.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l0-m2",
+          "points": 27.5
+        }
+      ],
+      "total": 290.0
+    },
+    "412a89fc-4ead-5695-1093-df28319f2b39": {
+      "by_rule": {
+        "assist": 26.0,
+        "clutch_1v2": 1.0,
+        "death": -92.0,
+        "first_death": -17.0,
+        "first_kill": 7.0,
+        "kill": 184.0,
+        "map_win": 12.0,
+        "multikill_3": 6.0,
+        "role_bonus": 6.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m1",
+          "points": 6.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m2",
+          "points": 5.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m3",
+          "points": 38.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u0-m1",
+          "points": 48.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u0-m2",
+          "points": 4.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-u0-m1",
+          "points": 17.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-u0-m2",
+          "points": 13.5
+        }
+      ],
+      "total": 133.0
+    },
+    "415148db-ed72-9d73-3152-8771c85458fe": {
+      "by_rule": {
+        "assist": 21.0,
+        "clutch_1v2": 1.0,
+        "clutch_1v3": 2.0,
+        "clutch_1v4": 3.0,
+        "death": -55.0,
+        "first_death": -2.0,
+        "first_kill": 12.0,
+        "kill": 148.0,
+        "map_win": 2.0,
+        "multikill_3": 3.0,
+        "multikill_4": 3.0,
+        "role_bonus": 3.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m1",
+          "points": 23.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m2",
+          "points": 72.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m3",
+          "points": 9.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l0-m1",
+          "points": 23.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l0-m2",
+          "points": 13.5
+        }
+      ],
+      "total": 141.0
+    },
+    "4294c8c5-ff29-b69b-eae5-4094183efe39": {
+      "by_rule": {
+        "assist": 41.0,
+        "clutch_1v3": 4.0,
+        "clutch_1v5": 5.0,
+        "death": -131.0,
+        "first_death": -25.0,
+        "first_kill": 17.0,
+        "kill": 208.0,
+        "map_win": 12.0,
+        "multikill_3": 3.0,
+        "multikill_5": 5.0,
+        "role_bonus": 9.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m1",
+          "points": 7.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m2",
+          "points": 26.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m3",
+          "points": 21.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m1",
+          "points": 15.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m2",
+          "points": -2.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m3",
+          "points": 9.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-u0-m1",
+          "points": 14.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-u0-m2",
+          "points": -7.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l1-m1",
+          "points": 28.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l1-m2",
+          "points": 36.0
+        }
+      ],
+      "total": 148.0
+    },
+    "49e820cb-7f9d-3f4d-2849-7d43def169d4": {
+      "by_rule": {
+        "assist": 25.5,
+        "death": -80.0,
+        "first_death": -11.0,
+        "first_kill": 8.0,
+        "kill": 122.0,
+        "map_win": 4.0,
+        "multikill_4": 3.0,
+        "role_bonus": 6.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m1",
+          "points": 16.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m2",
+          "points": 10.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m3",
+          "points": -9.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m1",
+          "points": 23.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m2",
+          "points": 28.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m3",
+          "points": 9.0
+        }
+      ],
+      "total": 77.5
+    },
+    "5563ae55-fc7c-98c6-e011-2b9e66406e8e": {
+      "by_rule": {
+        "coach_map_win": 60.0,
+        "coach_round_diff": 7.0,
+        "coach_series_win": 36.0,
+        "coach_upset": 10.0
+      },
+      "kind": "coach",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u4-m1",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u4-m2",
+          "points": 44.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m1",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m2",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m3",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l2-m1",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l2-m2",
+          "points": 33.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l0-m1",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l0-m2",
+          "points": 0.0
+        }
+      ],
+      "total": 113.0
+    },
+    "56ed5508-d132-ceff-c6e8-033675de6a05": {
+      "by_rule": {
+        "assist": 24.0,
+        "clutch_1v2": 2.0,
+        "clutch_1v4": 3.0,
+        "death": -85.0,
+        "first_death": -9.0,
+        "first_kill": 14.0,
+        "kill": 220.0,
+        "map_win": 10.0,
+        "multikill_3": 5.0,
+        "multikill_4": 6.0,
+        "role_bonus": 6.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u4-m1",
+          "points": 41.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u4-m2",
+          "points": 19.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m1",
+          "points": 7.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m2",
+          "points": 33.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m3",
+          "points": 5.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l2-m1",
+          "points": 15.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l2-m2",
+          "points": 43.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l0-m1",
+          "points": 11.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l0-m2",
+          "points": 19.0
+        }
+      ],
+      "total": 196.0
+    },
+    "5db8bac8-0be8-009b-f410-5aa88758a779": {
+      "by_rule": {
+        "assist": 36.0,
+        "clutch_1v2": 2.0,
+        "clutch_1v3": 6.0,
+        "clutch_1v4": 3.0,
+        "death": -111.0,
+        "first_death": -9.0,
+        "first_kill": 17.0,
+        "kill": 240.0,
+        "map_win": 8.0,
+        "multikill_3": 7.0,
+        "role_bonus": 9.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u4-m1",
+          "points": 23.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u4-m2",
+          "points": 16.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m1",
+          "points": 33.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m2",
+          "points": 9.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m3",
+          "points": 35.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l1-m1",
+          "points": 22.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l1-m2",
+          "points": 21.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l1-m1",
+          "points": 7.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l1-m2",
+          "points": 40.0
+        }
+      ],
+      "total": 208.0
+    },
+    "615d40a2-3d06-a971-4bb6-d47517c0df48": {
+      "by_rule": {
+        "assist": 20.0,
+        "death": -79.0,
+        "first_death": -14.0,
+        "first_kill": 7.0,
+        "kill": 134.0,
+        "map_win": 4.0,
+        "multikill_3": 1.0,
+        "role_bonus": 6.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m1",
+          "points": 27.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m2",
+          "points": 6.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m3",
+          "points": -5.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m1",
+          "points": 19.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m2",
+          "points": 18.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m3",
+          "points": 13.0
+        }
+      ],
+      "total": 79.0
+    },
+    "6168012b-6e3a-b6ac-12f0-24305d745c91": {
+      "by_rule": {
+        "assist": 12.5,
+        "death": -64.0,
+        "first_death": -10.0,
+        "first_kill": 10.0,
+        "kill": 168.0,
+        "map_win": 2.0,
+        "multikill_3": 4.0,
+        "role_bonus": 9.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m1",
+          "points": 33.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m2",
+          "points": 33.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m3",
+          "points": 14.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l0-m1",
+          "points": 26.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l0-m2",
+          "points": 24.0
+        }
+      ],
+      "total": 131.5
+    },
+    "6914c9e4-7e22-a918-18b0-56394d6a7602": {
+      "by_rule": {
+        "assist": 33.0,
+        "clutch_1v2": 1.0,
+        "death": -78.0,
+        "first_death": -9.0,
+        "first_kill": 11.0,
+        "kill": 130.0,
+        "map_win": 4.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m1",
+          "points": 27.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m2",
+          "points": 10.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m3",
+          "points": 17.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u0-m1",
+          "points": 3.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u0-m2",
+          "points": 2.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l1-m1",
+          "points": 17.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l1-m2",
+          "points": 15.5
+        }
+      ],
+      "total": 92.0
+    },
+    "712b5615-5686-9fe3-c9fe-8180441992aa": {
+      "by_rule": {
+        "assist": 37.5,
+        "death": -122.0,
+        "first_death": -18.0,
+        "first_kill": 18.0,
+        "kill": 260.0,
+        "map_win": 10.0,
+        "multikill_3": 5.0,
+        "role_bonus": 18.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u4-m1",
+          "points": 16.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u4-m2",
+          "points": 26.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m1",
+          "points": 8.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m2",
+          "points": 36.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m3",
+          "points": 18.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l2-m1",
+          "points": 28.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l2-m2",
+          "points": 28.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l0-m1",
+          "points": 24.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l0-m2",
+          "points": 23.0
+        }
+      ],
+      "total": 208.5
+    },
+    "733d3e5c-8a7f-5070-875a-437d5fea61af": {
+      "by_rule": {
+        "assist": 30.0,
+        "clutch_1v3": 2.0,
+        "death": -112.0,
+        "first_death": -16.0,
+        "first_kill": 13.0,
+        "kill": 198.0,
+        "map_win": 6.0,
+        "multikill_3": 6.0,
+        "multikill_4": 3.0,
+        "role_bonus": 9.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m1",
+          "points": 45.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m2",
+          "points": 2.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m3",
+          "points": 1.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m1",
+          "points": 14.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m2",
+          "points": 30.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m3",
+          "points": 31.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l2-m1",
+          "points": 9.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l2-m2",
+          "points": 4.0
+        }
+      ],
+      "total": 139.0
+    },
+    "73eb8ee5-3947-121a-1784-23603410abf4": {
+      "by_rule": {
+        "assist": 76.5,
+        "clutch_1v3": 2.0,
+        "death": -114.0,
+        "first_death": -17.0,
+        "first_kill": 11.0,
+        "kill": 168.0,
+        "map_win": 12.0,
+        "multikill_3": 3.0,
+        "role_bonus": 12.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m1",
+          "points": -2.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m2",
+          "points": 28.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m3",
+          "points": 9.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u1-m1",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u1-m2",
+          "points": 3.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l0-m1",
+          "points": 31.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l0-m2",
+          "points": 18.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l0-m1",
+          "points": 26.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l0-m2",
+          "points": 26.5
+        }
+      ],
+      "total": 153.5
+    },
+    "767f4c35-2bc6-c4e7-e0ef-eb566801e16f": {
+      "by_rule": {
+        "coach_map_win": 24.0
+      },
+      "kind": "coach",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m1",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m2",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m3",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m1",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m2",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m3",
+          "points": 0.0
+        }
+      ],
+      "total": 24.0
+    },
+    "801a1ef4-3c4c-16ca-8728-a045a3b916a1": {
+      "by_rule": {
+        "assist": 48.0,
+        "clutch_1v2": 2.0,
+        "clutch_1v3": 6.0,
+        "death": -77.0,
+        "first_death": -15.0,
+        "first_kill": 12.0,
+        "kill": 144.0,
+        "map_win": 6.0,
+        "multikill_3": 1.0,
+        "role_bonus": 12.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m1",
+          "points": 20.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m2",
+          "points": 38.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m3",
+          "points": 10.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l0-m1",
+          "points": 30.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l0-m2",
+          "points": 26.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l0-m1",
+          "points": 12.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l0-m2",
+          "points": 0.5
+        }
+      ],
+      "total": 139.0
+    },
+    "8188ed50-a484-dc83-3b52-428c13548038": {
+      "by_rule": {
+        "assist": 35.0,
+        "clutch_1v2": 1.0,
+        "death": -135.0,
+        "first_death": -21.0,
+        "first_kill": 22.0,
+        "kill": 270.0,
+        "map_win": 8.0,
+        "multikill_3": 6.0,
+        "multikill_4": 6.0,
+        "role_bonus": 12.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u4-m1",
+          "points": -2.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u4-m2",
+          "points": 9.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m1",
+          "points": 41.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m2",
+          "points": 14.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m3",
+          "points": 31.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l1-m1",
+          "points": 18.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l1-m2",
+          "points": 25.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l1-m1",
+          "points": 49.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l1-m2",
+          "points": 16.5
+        }
+      ],
+      "total": 204.0
+    },
+    "82acdb25-62ca-c198-a548-fcfe1e0f3169": {
+      "by_rule": {
+        "assist": 33.0,
+        "death": -75.0,
+        "first_death": -5.0,
+        "first_kill": 8.0,
+        "kill": 128.0,
+        "map_win": 4.0,
+        "multikill_3": 2.0,
+        "role_bonus": 9.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m1",
+          "points": 33.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m2",
+          "points": 12.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m3",
+          "points": 13.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m1",
+          "points": 10.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m2",
+          "points": 18.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m3",
+          "points": 16.5
+        }
+      ],
+      "total": 104.0
+    },
+    "851be252-354a-608e-078d-0550f7f11ea9": {
+      "by_rule": {
+        "assist": 28.0,
+        "clutch_1v4": 3.0,
+        "death": -91.0,
+        "first_death": -6.0,
+        "first_kill": 13.0,
+        "kill": 164.0,
+        "map_win": 6.0,
+        "multikill_3": 4.0,
+        "role_bonus": 6.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m1",
+          "points": 23.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m2",
+          "points": 15.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m3",
+          "points": 18.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l0-m1",
+          "points": 19.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l0-m2",
+          "points": 38.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l0-m1",
+          "points": 9.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l0-m2",
+          "points": 3.5
+        }
+      ],
+      "total": 127.0
+    },
+    "8d10d63b-8b8f-52fa-70ba-e7736c3bd565": {
+      "by_rule": {
+        "assist": 28.5,
+        "clutch_1v2": 2.0,
+        "clutch_1v3": 2.0,
+        "death": -97.0,
+        "first_death": -10.0,
+        "first_kill": 17.0,
+        "kill": 172.0,
+        "map_win": 6.0,
+        "multikill_3": 5.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m1",
+          "points": 21.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m2",
+          "points": 12.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m3",
+          "points": 12.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m1",
+          "points": 19.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m2",
+          "points": 15.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m3",
+          "points": 15.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l2-m1",
+          "points": 13.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l2-m2",
+          "points": 16.0
+        }
+      ],
+      "total": 125.5
+    },
+    "8d8a772b-474f-f0d3-6444-b09b099d3a10": {
+      "by_rule": {
+        "assist": 67.5,
+        "clutch_1v2": 2.0,
+        "clutch_1v4": 3.0,
+        "death": -124.0,
+        "first_death": -19.0,
+        "first_kill": 27.0,
+        "kill": 300.0,
+        "map_win": 12.0,
+        "multikill_3": 6.0,
+        "multikill_4": 3.0,
+        "multikill_5": 5.0,
+        "role_bonus": 18.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m1",
+          "points": 29.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m2",
+          "points": 36.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m3",
+          "points": 34.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u1-m1",
+          "points": 51.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u1-m2",
+          "points": 21.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-u0-m1",
+          "points": 39.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-u0-m2",
+          "points": 40.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-u0-m1",
+          "points": 7.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-u0-m2",
+          "points": 41.0
+        }
+      ],
+      "total": 300.5
+    },
+    "92da0945-4df4-724a-7657-5a20f920e4a8": {
+      "by_rule": {
+        "assist": 31.5,
+        "death": -104.0,
+        "first_death": -28.0,
+        "first_kill": 17.0,
+        "kill": 162.0,
+        "map_win": 4.0,
+        "multikill_3": 4.0,
+        "role_bonus": 9.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m1",
+          "points": 19.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m2",
+          "points": 13.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m3",
+          "points": 43.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u0-m1",
+          "points": -5.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u0-m2",
+          "points": 4.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l1-m1",
+          "points": 8.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l1-m2",
+          "points": 12.5
+        }
+      ],
+      "total": 95.5
+    },
+    "96bc09eb-94fc-554a-c2a6-893b9d283538": {
+      "by_rule": {
+        "assist": 42.0,
+        "clutch_1v2": 1.0,
+        "death": -154.0,
+        "first_death": -28.0,
+        "first_kill": 23.0,
+        "kill": 312.0,
+        "map_win": 12.0,
+        "multikill_3": 9.0,
+        "multikill_4": 15.0,
+        "role_bonus": 12.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m1",
+          "points": 9.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m2",
+          "points": 24.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m3",
+          "points": 14.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u1-m1",
+          "points": 6.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u1-m2",
+          "points": 74.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-u0-m1",
+          "points": 36.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-u0-m2",
+          "points": 25.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-u0-m1",
+          "points": 46.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-u0-m2",
+          "points": 8.5
+        }
+      ],
+      "total": 244.0
+    },
+    "97615659-ffaf-bc1b-920c-074e18a79b62": {
+      "by_rule": {
+        "assist": 39.0,
+        "death": -139.0,
+        "first_death": -39.0,
+        "first_kill": 33.0,
+        "kill": 308.0,
+        "map_win": 12.0,
+        "multikill_3": 4.0,
+        "multikill_4": 6.0,
+        "role_bonus": 9.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m1",
+          "points": -6.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m2",
+          "points": 18.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m3",
+          "points": 41.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u1-m1",
+          "points": 35.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u1-m2",
+          "points": 25.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l0-m1",
+          "points": 30.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l0-m2",
+          "points": 34.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l0-m1",
+          "points": 40.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l0-m2",
+          "points": 15.0
+        }
+      ],
+      "total": 233.0
+    },
+    "986bd3d5-46cc-2abb-4be3-2bf184e082e5": {
+      "by_rule": {
+        "assist": 46.5,
+        "death": -107.0,
+        "first_death": -10.0,
+        "first_kill": 25.0,
+        "kill": 302.0,
+        "map_win": 12.0,
+        "multikill_3": 3.0,
+        "multikill_5": 5.0,
+        "role_bonus": 21.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m1",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m2",
+          "points": 36.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m3",
+          "points": 38.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m1",
+          "points": 44.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m2",
+          "points": 19.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m3",
+          "points": 24.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-u0-m1",
+          "points": 20.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-u0-m2",
+          "points": 34.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l1-m1",
+          "points": 38.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l1-m2",
+          "points": 30.5
+        }
+      ],
+      "total": 297.5
+    },
+    "9f5bdab9-df1b-9e5a-621a-f5d2f6be9d9f": {
+      "by_rule": {
+        "assist": 39.0,
+        "clutch_1v3": 6.0,
+        "death": -83.0,
+        "first_death": -15.0,
+        "first_kill": 9.0,
+        "kill": 142.0,
+        "map_win": 12.0,
+        "multikill_4": 6.0,
+        "role_bonus": 12.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m1",
+          "points": 13.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m2",
+          "points": 12.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m3",
+          "points": 15.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u0-m1",
+          "points": 20.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u0-m2",
+          "points": 36.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-u0-m1",
+          "points": 20.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-u0-m2",
+          "points": 10.5
+        }
+      ],
+      "total": 128.0
+    },
+    "a3c8b8cb-6bdb-11bb-259d-df22909c87ae": {
+      "by_rule": {
+        "coach_map_win": 72.0,
+        "coach_round_diff": 10.0,
+        "coach_series_win": 54.0
+      },
+      "kind": "coach",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m1",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m2",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m3",
+          "points": 34.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u0-m1",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u0-m2",
+          "points": 34.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-u0-m1",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-u0-m2",
+          "points": 32.0
+        }
+      ],
+      "total": 136.0
+    },
+    "a8e751e3-88ff-8c29-6d56-5b2d6a7c4171": {
+      "by_rule": {
+        "assist": 37.5,
+        "clutch_1v3": 2.0,
+        "clutch_1v4": 3.0,
+        "death": -135.0,
+        "first_death": -30.0,
+        "first_kill": 23.0,
+        "kill": 256.0,
+        "map_win": 12.0,
+        "multikill_3": 9.0,
+        "multikill_4": 6.0,
+        "role_bonus": 6.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m1",
+          "points": 5.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m2",
+          "points": 42.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m3",
+          "points": 45.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u1-m1",
+          "points": 17.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u1-m2",
+          "points": 12.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l0-m1",
+          "points": 27.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l0-m2",
+          "points": 15.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l0-m1",
+          "points": 9.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l0-m2",
+          "points": 16.5
+        }
+      ],
+      "total": 189.5
+    },
+    "b3d9b597-49e2-507c-bc4a-86909f11f56b": {
+      "by_rule": {
+        "assist": 48.0,
+        "clutch_1v2": 2.0,
+        "death": -87.0,
+        "first_death": -24.0,
+        "first_kill": 4.0,
+        "kill": 124.0,
+        "map_win": 6.0,
+        "multikill_3": 2.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m1",
+          "points": 13.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m2",
+          "points": 22.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m3",
+          "points": 9.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l0-m1",
+          "points": 13.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l0-m2",
+          "points": 12.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l0-m1",
+          "points": 7.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l0-m2",
+          "points": -2.5
+        }
+      ],
+      "total": 75.0
+    },
+    "b647bb0d-6401-bfd9-1b2f-b59062c24fcd": {
+      "by_rule": {
+        "assist": 25.0,
+        "clutch_1v2": 1.0,
+        "death": -83.0,
+        "first_death": -20.0,
+        "first_kill": 15.0,
+        "kill": 160.0,
+        "map_win": 4.0,
+        "multikill_3": 2.0,
+        "multikill_4": 6.0,
+        "role_bonus": 3.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m1",
+          "points": 10.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m2",
+          "points": 20.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m3",
+          "points": 0.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m1",
+          "points": 65.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m2",
+          "points": 22.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m3",
+          "points": -5.5
+        }
+      ],
+      "total": 113.0
+    },
+    "b73dcfc3-d684-594b-dff6-5c07c0efc1c4": {
+      "by_rule": {
+        "assist": 70.5,
+        "clutch_1v3": 2.0,
+        "death": -152.0,
+        "first_death": -29.0,
+        "first_kill": 42.0,
+        "kill": 276.0,
+        "map_win": 12.0,
+        "multikill_3": 9.0,
+        "multikill_4": 3.0,
+        "role_bonus": 12.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m1",
+          "points": 13.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m2",
+          "points": 21.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m3",
+          "points": 39.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u1-m1",
+          "points": 32.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u1-m2",
+          "points": 36.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-u0-m1",
+          "points": 43.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-u0-m2",
+          "points": 17.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-u0-m1",
+          "points": 21.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-u0-m2",
+          "points": 22.0
+        }
+      ],
+      "total": 245.5
+    },
+    "b995b734-65e8-9c00-cb12-5d5bce953449": {
+      "by_rule": {
+        "coach_map_win": 24.0
+      },
+      "kind": "coach",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m1",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m2",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m3",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m1",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m2",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m3",
+          "points": 0.0
+        }
+      ],
+      "total": 24.0
+    },
+    "c026e05d-363d-8a2c-fd02-ae7fdbbe435d": {
+      "by_rule": {
+        "assist": 34.5,
+        "clutch_1v3": 2.0,
+        "death": -146.0,
+        "first_death": -45.0,
+        "first_kill": 40.0,
+        "kill": 356.0,
+        "map_win": 12.0,
+        "multikill_3": 14.0,
+        "multikill_4": 9.0,
+        "multikill_5": 10.0,
+        "role_bonus": 15.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m1",
+          "points": 12.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m2",
+          "points": 18.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m3",
+          "points": 37.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m1",
+          "points": 47.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m2",
+          "points": 10.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m3",
+          "points": 49.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-u0-m1",
+          "points": 37.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-u0-m2",
+          "points": 21.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l1-m1",
+          "points": 21.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l1-m2",
+          "points": 46.5
+        }
+      ],
+      "total": 301.5
+    },
+    "c02bb9b4-e8fa-11e1-a8fb-74262194db23": {
+      "by_rule": {
+        "assist": 66.0,
+        "death": -131.0,
+        "first_death": -28.0,
+        "first_kill": 8.0,
+        "kill": 156.0,
+        "map_win": 8.0,
+        "multikill_3": 3.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u4-m1",
+          "points": 18.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u4-m2",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m1",
+          "points": 15.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m2",
+          "points": 8.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m3",
+          "points": 12.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l1-m1",
+          "points": 0.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l1-m2",
+          "points": 9.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l1-m1",
+          "points": 16.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l1-m2",
+          "points": 2.5
+        }
+      ],
+      "total": 82.0
+    },
+    "c28b6e9d-9e96-7684-1a48-136d071378f2": {
+      "by_rule": {
+        "assist": 25.5,
+        "clutch_1v3": 2.0,
+        "death": -82.0,
+        "first_death": -32.0,
+        "first_kill": 9.0,
+        "kill": 72.0,
+        "map_win": 2.0,
+        "multikill_3": 2.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m1",
+          "points": -14.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m2",
+          "points": 5.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m3",
+          "points": 6.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l0-m1",
+          "points": 3.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l0-m2",
+          "points": -2.0
+        }
+      ],
+      "total": -1.5
+    },
+    "c342bbc6-6edf-5c7a-aeed-b33d4fa4ea9b": {
+      "by_rule": {
+        "assist": 30.0,
+        "clutch_1v2": 2.0,
+        "clutch_1v3": 8.0,
+        "clutch_1v4": 3.0,
+        "death": -95.0,
+        "first_death": -8.0,
+        "first_kill": 12.0,
+        "kill": 214.0,
+        "map_win": 12.0,
+        "multikill_3": 5.0,
+        "multikill_4": 3.0,
+        "role_bonus": 18.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m1",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m2",
+          "points": 30.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m3",
+          "points": 33.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m1",
+          "points": 19.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m2",
+          "points": 17.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m3",
+          "points": 24.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-u0-m1",
+          "points": 20.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-u0-m2",
+          "points": 29.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l1-m1",
+          "points": 24.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l1-m2",
+          "points": 6.5
+        }
+      ],
+      "total": 204.0
+    },
+    "c5ad9db5-7a43-5875-f924-36d4b8d57e44": {
+      "by_rule": {
+        "coach_map_win": 72.0,
+        "coach_round_diff": 7.0,
+        "coach_series_win": 54.0,
+        "coach_upset": 10.0
+      },
+      "kind": "coach",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m1",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m2",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m3",
+          "points": 33.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m1",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m2",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m3",
+          "points": 33.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-u0-m1",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-u0-m2",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l1-m1",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l1-m2",
+          "points": 41.0
+        }
+      ],
+      "total": 143.0
+    },
+    "c849433d-f907-17a8-7f7d-78f087b0f7d5": {
+      "by_rule": {
+        "coach_map_win": 48.0,
+        "coach_round_diff": 4.0,
+        "coach_series_win": 36.0
+      },
+      "kind": "coach",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u4-m1",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u4-m2",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m1",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m2",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m3",
+          "points": 30.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l1-m1",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l1-m2",
+          "points": 34.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l1-m1",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l1-m2",
+          "points": 0.0
+        }
+      ],
+      "total": 88.0
+    },
+    "cb38bed1-7bad-3e85-e4f3-873efb598726": {
+      "by_rule": {
+        "assist": 43.5,
+        "death": -68.0,
+        "first_death": -10.0,
+        "first_kill": 9.0,
+        "kill": 92.0,
+        "map_win": 2.0,
+        "multikill_3": 2.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m1",
+          "points": 15.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m2",
+          "points": 27.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m3",
+          "points": 1.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l0-m1",
+          "points": 4.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l0-m2",
+          "points": 22.5
+        }
+      ],
+      "total": 70.5
+    },
+    "cc540658-2fca-8a5b-8485-4cb8f2a2deda": {
+      "by_rule": {
+        "assist": 28.5,
+        "clutch_1v2": 3.0,
+        "clutch_1v3": 4.0,
+        "death": -82.0,
+        "first_death": -8.0,
+        "first_kill": 18.0,
+        "kill": 228.0,
+        "map_win": 12.0,
+        "multikill_3": 9.0,
+        "role_bonus": 15.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m1",
+          "points": 14.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m2",
+          "points": 56.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m3",
+          "points": 22.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u0-m1",
+          "points": 25.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u0-m2",
+          "points": 45.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-u0-m1",
+          "points": 38.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-u0-m2",
+          "points": 25.5
+        }
+      ],
+      "total": 227.5
+    },
+    "ce620ff5-264c-14f2-d73f-84ddd6d4e9e6": {
+      "by_rule": {
+        "assist": 55.5,
+        "death": -115.0,
+        "first_death": -22.0,
+        "first_kill": 12.0,
+        "kill": 172.0,
+        "map_win": 6.0,
+        "multikill_3": 2.0,
+        "multikill_4": 3.0,
+        "role_bonus": 9.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m1",
+          "points": 18.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m2",
+          "points": 15.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m3",
+          "points": 25.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m1",
+          "points": 5.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m2",
+          "points": 22.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m3",
+          "points": 11.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l2-m1",
+          "points": 10.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l2-m2",
+          "points": 15.0
+        }
+      ],
+      "total": 122.5
+    },
+    "d1a0e619-0da3-4843-fc16-c3dd14f7f5fd": {
+      "by_rule": {
+        "assist": 48.0,
+        "clutch_1v2": 2.0,
+        "death": -121.0,
+        "first_death": -26.0,
+        "first_kill": 41.0,
+        "kill": 310.0,
+        "map_win": 10.0,
+        "multikill_3": 6.0,
+        "multikill_4": 6.0,
+        "role_bonus": 18.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u4-m1",
+          "points": 40.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u4-m2",
+          "points": 44.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m1",
+          "points": 5.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m2",
+          "points": 26.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m3",
+          "points": 27.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l2-m1",
+          "points": 56.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l2-m2",
+          "points": 43.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l0-m1",
+          "points": 8.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l0-m2",
+          "points": 43.5
+        }
+      ],
+      "total": 294.0
+    },
+    "d20739de-949b-a8a0-c9d6-e8418f261606": {
+      "by_rule": {
+        "coach_map_win": 36.0,
+        "coach_series_win": 18.0,
+        "coach_upset": 10.0
+      },
+      "kind": "coach",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m1",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m2",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m3",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m1",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m2",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m3",
+          "points": 40.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l2-m1",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l2-m2",
+          "points": 0.0
+        }
+      ],
+      "total": 64.0
+    },
+    "d4229275-e7c5-554a-17f8-16016c533ab0": {
+      "by_rule": {
+        "coach_map_win": 24.0,
+        "coach_round_diff": 1.0,
+        "coach_series_win": 18.0
+      },
+      "kind": "coach",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m1",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m2",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m3",
+          "points": 31.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u0-m1",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u0-m2",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l1-m1",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l1-m2",
+          "points": 0.0
+        }
+      ],
+      "total": 43.0
+    },
+    "d520c65d-1b91-c009-500e-0bceb519050e": {
+      "by_rule": {
+        "assist": 15.0,
+        "clutch_1v2": 1.0,
+        "death": -78.0,
+        "first_death": -16.0,
+        "first_kill": 10.0,
+        "kill": 178.0,
+        "map_win": 4.0,
+        "multikill_3": 4.0,
+        "role_bonus": 3.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m1",
+          "points": 19.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m2",
+          "points": 43.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m3",
+          "points": 13.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m1",
+          "points": 11.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m2",
+          "points": 20.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m3",
+          "points": 14.5
+        }
+      ],
+      "total": 121.0
+    },
+    "d5999652-75dd-0200-6bc4-c357d6d4938d": {
+      "by_rule": {
+        "assist": 32.0,
+        "clutch_1v2": 1.0,
+        "clutch_1v3": 2.0,
+        "death": -120.0,
+        "first_death": -11.0,
+        "first_kill": 12.0,
+        "kill": 244.0,
+        "map_win": 12.0,
+        "multikill_3": 5.0,
+        "role_bonus": 9.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m1",
+          "points": 7.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m2",
+          "points": 19.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m3",
+          "points": 17.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m1",
+          "points": 20.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m2",
+          "points": 4.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m3",
+          "points": 14.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-u0-m1",
+          "points": 23.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-u0-m2",
+          "points": 26.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l1-m1",
+          "points": 21.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l1-m2",
+          "points": 32.5
+        }
+      ],
+      "total": 186.0
+    },
+    "d685452d-0511-1b3b-017b-34c4d0335ae2": {
+      "by_rule": {
+        "assist": 21.5,
+        "clutch_1v2": 2.0,
+        "clutch_1v3": 6.0,
+        "death": -64.0,
+        "first_death": -5.0,
+        "first_kill": 12.0,
+        "kill": 144.0,
+        "map_win": 4.0,
+        "multikill_3": 5.0,
+        "role_bonus": 6.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m1",
+          "points": 21.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m2",
+          "points": 16.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m3",
+          "points": 5.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m1",
+          "points": 31.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m2",
+          "points": 26.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m3",
+          "points": 31.5
+        }
+      ],
+      "total": 131.5
+    },
+    "dfec543e-66ca-9d18-70e7-808282ccd9b8": {
+      "by_rule": {
+        "assist": 64.5,
+        "clutch_1v2": 6.0,
+        "clutch_1v3": 2.0,
+        "clutch_1v4": 3.0,
+        "death": -96.0,
+        "first_death": -11.0,
+        "first_kill": 6.0,
+        "kill": 176.0,
+        "map_win": 12.0,
+        "multikill_3": 1.0,
+        "multikill_4": 3.0,
+        "role_bonus": 3.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m1",
+          "points": 9.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m2",
+          "points": 17.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m3",
+          "points": 13.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u1-m1",
+          "points": 16.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u1-m2",
+          "points": 16.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-u0-m1",
+          "points": 17.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-u0-m2",
+          "points": 44.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-u0-m1",
+          "points": 20.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-u0-m2",
+          "points": 15.5
+        }
+      ],
+      "total": 169.5
+    },
+    "eb68499a-0a39-aceb-4e36-761a951afd47": {
+      "by_rule": {
+        "assist": 21.0,
+        "death": -98.0,
+        "first_death": -29.0,
+        "first_kill": 16.0,
+        "kill": 198.0,
+        "map_win": 4.0,
+        "multikill_3": 7.0,
+        "multikill_4": 6.0,
+        "role_bonus": 9.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m1",
+          "points": 20.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m2",
+          "points": 13.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u3-m3",
+          "points": 20.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m1",
+          "points": 23.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m2",
+          "points": 18.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m3",
+          "points": 39.0
+        }
+      ],
+      "total": 134.0
+    },
+    "eca17fa7-1eb9-886a-d2d2-0eecf0b8985e": {
+      "by_rule": {
+        "assist": 43.5,
+        "clutch_1v2": 4.0,
+        "clutch_1v3": 6.0,
+        "death": -91.0,
+        "first_death": -5.0,
+        "first_kill": 5.0,
+        "kill": 236.0,
+        "map_win": 12.0,
+        "multikill_3": 4.0,
+        "multikill_4": 3.0,
+        "role_bonus": 18.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m1",
+          "points": 5.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m2",
+          "points": 27.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m3",
+          "points": 25.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u1-m1",
+          "points": 26.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u1-m2",
+          "points": 44.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l0-m1",
+          "points": 37.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l0-m2",
+          "points": 29.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l0-m1",
+          "points": 15.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l0-m2",
+          "points": 26.0
+        }
+      ],
+      "total": 235.5
+    },
+    "f125a6e8-c864-f98b-005d-c634b339ff19": {
+      "by_rule": {
+        "assist": 52.5,
+        "clutch_1v2": 3.0,
+        "clutch_1v3": 4.0,
+        "clutch_1v4": 6.0,
+        "death": -100.0,
+        "first_death": -17.0,
+        "first_kill": 13.0,
+        "kill": 222.0,
+        "map_win": 10.0,
+        "multikill_3": 3.0,
+        "multikill_4": 6.0,
+        "role_bonus": 15.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u4-m1",
+          "points": 23.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u4-m2",
+          "points": 20.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m1",
+          "points": 5.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m2",
+          "points": 55.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u2-m3",
+          "points": -1.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l2-m1",
+          "points": 30.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l2-m2",
+          "points": 21.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l0-m1",
+          "points": 28.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r3-l0-m2",
+          "points": 35.0
+        }
+      ],
+      "total": 217.5
+    },
+    "f30f6930-1a88-85d1-618e-a501b7526e0f": {
+      "by_rule": {
+        "assist": 20.5,
+        "clutch_1v3": 2.0,
+        "death": -77.0,
+        "first_death": -13.0,
+        "first_kill": 15.0,
+        "kill": 130.0,
+        "map_win": 4.0,
+        "multikill_3": 5.0,
+        "role_bonus": 3.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m1",
+          "points": 17.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m2",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m3",
+          "points": -1.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m1",
+          "points": 35.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m2",
+          "points": 31.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m3",
+          "points": 7.5
+        }
+      ],
+      "total": 89.5
+    },
+    "f87a9b16-5897-54ee-74f0-911ef6e2418c": {
+      "by_rule": {
+        "assist": 19.0,
+        "death": -92.0,
+        "first_death": -14.0,
+        "first_kill": 23.0,
+        "kill": 182.0,
+        "map_win": 4.0,
+        "multikill_3": 2.0,
+        "multikill_4": 3.0,
+        "role_bonus": 6.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m1",
+          "points": 41.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m2",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u5-m3",
+          "points": 6.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m1",
+          "points": 43.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m2",
+          "points": 15.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l2-m3",
+          "points": 15.5
+        }
+      ],
+      "total": 133.0
+    },
+    "f9fdc9e3-6863-d3fb-aa8a-5e445e8fd791": {
+      "by_rule": {
+        "assist": 33.0,
+        "clutch_1v2": 2.0,
+        "death": -71.0,
+        "first_death": -4.0,
+        "first_kill": 10.0,
+        "kill": 106.0,
+        "map_win": 6.0,
+        "multikill_3": 1.0,
+        "role_bonus": 9.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m1",
+          "points": 7.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m2",
+          "points": 32.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u0-m3",
+          "points": 11.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l0-m1",
+          "points": 16.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l0-m2",
+          "points": 19.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l0-m1",
+          "points": -2.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l0-m2",
+          "points": 8.0
+        }
+      ],
+      "total": 92.0
+    },
+    "fb98a044-0bc1-53c2-600e-b9399e055f7e": {
+      "by_rule": {
+        "assist": 49.5,
+        "clutch_1v2": 2.0,
+        "death": -89.0,
+        "first_death": -3.0,
+        "first_kill": 18.0,
+        "kill": 206.0,
+        "map_win": 6.0,
+        "multikill_3": 6.0,
+        "role_bonus": 12.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m1",
+          "points": 50.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m2",
+          "points": 12.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u2-m3",
+          "points": 7.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m1",
+          "points": 26.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m2",
+          "points": 44.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l1-m3",
+          "points": 32.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l2-m1",
+          "points": 21.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l2-m2",
+          "points": 13.0
+        }
+      ],
+      "total": 207.5
+    },
+    "fc43e6f8-ef26-44cd-9f7c-419718aa4018": {
+      "by_rule": {
+        "assist": 22.5,
+        "clutch_1v2": 2.0,
+        "death": -57.0,
+        "first_death": -5.0,
+        "first_kill": 2.0,
+        "kill": 90.0,
+        "map_win": 2.0,
+        "role_bonus": 3.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m1",
+          "points": 18.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m2",
+          "points": 22.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m3",
+          "points": 7.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l0-m1",
+          "points": -2.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l0-m2",
+          "points": 14.5
+        }
+      ],
+      "total": 59.5
+    },
+    "ff3b2e72-a1c2-f1e2-f73c-ad51d0993a0d": {
+      "by_rule": {
+        "coach_map_win": 12.0
+      },
+      "kind": "coach",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m1",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m2",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m3",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l0-m1",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-l0-m2",
+          "points": 0.0
+        }
+      ],
+      "total": 12.0
+    },
+    "ffb201cb-a8a0-e02a-1403-33408eb2f45e": {
+      "by_rule": {
+        "assist": 36.0,
+        "clutch_1v3": 2.0,
+        "death": -92.0,
+        "first_death": -6.0,
+        "first_kill": 25.0,
+        "kill": 198.0,
+        "map_win": 4.0,
+        "multikill_3": 3.0,
+        "multikill_5": 5.0,
+        "role_bonus": 6.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m1",
+          "points": 30.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m2",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r0-u1-m3",
+          "points": 56.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u0-m1",
+          "points": 35.5
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r1-u0-m2",
+          "points": 19.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l1-m1",
+          "points": 9.0
+        },
+        {
+          "match_id": "vct27-1337-masters_seoul-global-r2-l1-m2",
+          "points": 19.0
+        }
+      ],
+      "total": 181.0
+    }
+  },
+  "event_id": "masters_seoul",
+  "excluded": [],
+  "rules_version": "4c8badfec8d2",
+  "week_num": 1
+}

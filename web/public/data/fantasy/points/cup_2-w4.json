@@ -1,0 +1,1408 @@
+{
+  "bundle_version": 1,
+  "deadline_ms": 1819540800000,
+  "entities": {
+    "069c7124-639d-f33d-1826-ca847d66d638": {
+      "by_rule": {
+        "assist": 22.0,
+        "death": -37.0,
+        "first_death": -5.0,
+        "first_kill": 7.0,
+        "kill": 62.0,
+        "map_win": 6.0,
+        "role_bonus": 9.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m1",
+          "points": 24.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m2",
+          "points": 14.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m3",
+          "points": 26.0
+        }
+      ],
+      "total": 64.0
+    },
+    "10a34d75-abca-22e3-aee9-da253ce66021": {
+      "by_rule": {
+        "assist": 12.0,
+        "death": -50.0,
+        "first_death": -8.0,
+        "first_kill": 7.0,
+        "kill": 78.0,
+        "multikill_3": 1.0,
+        "role_bonus": 3.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m1",
+          "points": 1.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m2",
+          "points": 33.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m3",
+          "points": 8.0
+        }
+      ],
+      "total": 43.0
+    },
+    "1a181b1c-c9ac-b997-41d0-2d4b98ba6721": {
+      "by_rule": {
+        "assist": 10.5,
+        "clutch_1v2": 1.0,
+        "death": -42.0,
+        "first_death": -8.0,
+        "first_kill": 2.0,
+        "kill": 52.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m1",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m2",
+          "points": 7.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m3",
+          "points": 8.5
+        }
+      ],
+      "total": 15.5
+    },
+    "205ccbda-6011-edc8-3fd9-33fab3edb6e6": {
+      "by_rule": {
+        "assist": 15.0,
+        "death": -51.0,
+        "first_death": -13.0,
+        "first_kill": 13.0,
+        "kill": 104.0,
+        "map_win": 6.0,
+        "multikill_3": 6.0,
+        "role_bonus": 6.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m1",
+          "points": 20.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m2",
+          "points": 37.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m3",
+          "points": 28.5
+        }
+      ],
+      "total": 86.0
+    },
+    "21efbc0d-72ee-ca12-3a2e-5ff33bde10a4": {
+      "by_rule": {},
+      "kind": "coach",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m1",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m2",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m3",
+          "points": 0.0
+        }
+      ],
+      "total": 0.0
+    },
+    "27cd76c6-dab2-ff62-4e32-02563069064c": {
+      "by_rule": {
+        "assist": 11.5,
+        "death": -40.0,
+        "first_death": -6.0,
+        "first_kill": 7.0,
+        "kill": 84.0,
+        "multikill_3": 3.0,
+        "role_bonus": 3.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m1",
+          "points": 18.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m2",
+          "points": 17.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m3",
+          "points": 26.5
+        }
+      ],
+      "total": 62.5
+    },
+    "29975736-2e95-ed9b-27bc-14ab720e0622": {
+      "by_rule": {
+        "assist": 27.0,
+        "death": -39.0,
+        "first_death": -5.0,
+        "first_kill": 9.0,
+        "kill": 84.0,
+        "map_win": 6.0,
+        "multikill_3": 1.0,
+        "role_bonus": 6.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m1",
+          "points": 45.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m2",
+          "points": 6.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m3",
+          "points": 37.5
+        }
+      ],
+      "total": 89.0
+    },
+    "313fced7-ca77-70ef-1bc2-bc5b4f9e91d3": {
+      "by_rule": {
+        "assist": 21.0,
+        "death": -36.0,
+        "first_death": -7.0,
+        "first_kill": 7.0,
+        "kill": 68.0,
+        "map_win": 6.0,
+        "multikill_3": 1.0,
+        "role_bonus": 3.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m1",
+          "points": 18.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m2",
+          "points": 17.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m3",
+          "points": 27.5
+        }
+      ],
+      "total": 63.0
+    },
+    "37ed1443-868a-41a5-17ff-30c26a8a1827": {
+      "by_rule": {
+        "assist": 19.5,
+        "clutch_1v3": 2.0,
+        "death": -44.0,
+        "first_death": -7.0,
+        "first_kill": 5.0,
+        "kill": 74.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m1",
+          "points": 20.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m2",
+          "points": 5.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m3",
+          "points": 24.0
+        }
+      ],
+      "total": 49.5
+    },
+    "415148db-ed72-9d73-3152-8771c85458fe": {
+      "by_rule": {
+        "assist": 15.0,
+        "clutch_1v2": 1.0,
+        "death": -38.0,
+        "first_death": -5.0,
+        "first_kill": 12.0,
+        "kill": 90.0,
+        "multikill_3": 2.0,
+        "role_bonus": 3.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m1",
+          "points": 16.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m2",
+          "points": 52.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m3",
+          "points": 11.5
+        }
+      ],
+      "total": 80.0
+    },
+    "41acc197-9f99-cc55-ff90-c68790df2bbe": {
+      "by_rule": {
+        "assist": 4.5,
+        "death": -42.0,
+        "first_death": -11.0,
+        "first_kill": 13.0,
+        "kill": 136.0,
+        "map_win": 6.0,
+        "multikill_3": 5.0,
+        "multikill_4": 6.0,
+        "multikill_5": 5.0,
+        "role_bonus": 9.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m1",
+          "points": 43.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m2",
+          "points": 42.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m3",
+          "points": 46.0
+        }
+      ],
+      "total": 131.5
+    },
+    "47b23a39-400d-07a0-93c1-a65e7493d436": {
+      "by_rule": {
+        "coach_map_win": 36.0,
+        "coach_round_diff": 3.0,
+        "coach_series_win": 18.0,
+        "coach_upset": 10.0
+      },
+      "kind": "coach",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m1",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m2",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m3",
+          "points": 43.0
+        }
+      ],
+      "total": 67.0
+    },
+    "49e820cb-7f9d-3f4d-2849-7d43def169d4": {
+      "by_rule": {
+        "assist": 25.5,
+        "death": -67.0,
+        "first_death": -10.0,
+        "first_kill": 7.0,
+        "kill": 100.0,
+        "map_win": 4.0,
+        "multikill_3": 1.0,
+        "multikill_4": 3.0,
+        "role_bonus": 3.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m1",
+          "points": -3.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m2",
+          "points": 16.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m3",
+          "points": 4.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m4",
+          "points": 10.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m5",
+          "points": 39.5
+        }
+      ],
+      "total": 66.5
+    },
+    "5db8bac8-0be8-009b-f410-5aa88758a779": {
+      "by_rule": {
+        "assist": 15.0,
+        "clutch_1v3": 4.0,
+        "death": -32.0,
+        "first_death": -3.0,
+        "first_kill": 2.0,
+        "kill": 88.0,
+        "map_win": 6.0,
+        "multikill_3": 5.0,
+        "role_bonus": 9.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m1",
+          "points": 42.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m2",
+          "points": 24.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m3",
+          "points": 27.5
+        }
+      ],
+      "total": 94.0
+    },
+    "5f087f19-188f-1ed0-a0a0-3025bf5db264": {
+      "by_rule": {
+        "assist": 30.0,
+        "clutch_1v2": 2.0,
+        "clutch_1v4": 3.0,
+        "death": -26.0,
+        "first_death": -3.0,
+        "first_kill": 5.0,
+        "kill": 68.0,
+        "map_win": 6.0,
+        "multikill_4": 3.0,
+        "role_bonus": 3.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m1",
+          "points": 28.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m2",
+          "points": 19.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m3",
+          "points": 44.0
+        }
+      ],
+      "total": 91.0
+    },
+    "615d40a2-3d06-a971-4bb6-d47517c0df48": {
+      "by_rule": {
+        "assist": 19.0,
+        "death": -71.0,
+        "first_death": -8.0,
+        "first_kill": 8.0,
+        "kill": 118.0,
+        "map_win": 4.0,
+        "multikill_3": 2.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m1",
+          "points": 11.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m2",
+          "points": 10.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m3",
+          "points": 21.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m4",
+          "points": 12.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m5",
+          "points": 16.0
+        }
+      ],
+      "total": 72.0
+    },
+    "6168012b-6e3a-b6ac-12f0-24305d745c91": {
+      "by_rule": {
+        "assist": 6.5,
+        "death": -41.0,
+        "first_death": -5.0,
+        "first_kill": 7.0,
+        "kill": 96.0,
+        "multikill_3": 2.0,
+        "role_bonus": 3.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m1",
+          "points": 26.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m2",
+          "points": 34.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m3",
+          "points": 8.5
+        }
+      ],
+      "total": 68.5
+    },
+    "630c9749-f823-240d-13b2-d331763391ea": {
+      "by_rule": {
+        "assist": 10.0,
+        "death": -44.0,
+        "first_death": -10.0,
+        "first_kill": 3.0,
+        "kill": 50.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m1",
+          "points": -3.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m2",
+          "points": 10.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m3",
+          "points": 2.0
+        }
+      ],
+      "total": 9.0
+    },
+    "652621bc-ce9a-4716-4e26-8dd50f3104c8": {
+      "by_rule": {
+        "coach_map_win": 36.0,
+        "coach_series_win": 18.0,
+        "coach_upset": 10.0
+      },
+      "kind": "coach",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m1",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m2",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m3",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m4",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m5",
+          "points": 40.0
+        }
+      ],
+      "total": 64.0
+    },
+    "658e1710-6bb9-eca1-bfe1-1b477d17bf69": {
+      "by_rule": {
+        "assist": 21.0,
+        "death": -85.0,
+        "first_death": -21.0,
+        "first_kill": 17.0,
+        "kill": 138.0,
+        "map_win": 6.0,
+        "multikill_3": 3.0,
+        "multikill_5": 5.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m1",
+          "points": 36.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m2",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m3",
+          "points": 9.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m4",
+          "points": 16.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m5",
+          "points": 10.5
+        }
+      ],
+      "total": 84.0
+    },
+    "767f4c35-2bc6-c4e7-e0ef-eb566801e16f": {
+      "by_rule": {
+        "coach_map_win": 24.0
+      },
+      "kind": "coach",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m1",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m2",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m3",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m4",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m5",
+          "points": 0.0
+        }
+      ],
+      "total": 24.0
+    },
+    "78a76c3d-ec8f-f823-177f-c9a56017686d": {
+      "by_rule": {
+        "assist": 12.0,
+        "death": -79.0,
+        "first_death": -15.0,
+        "first_kill": 20.0,
+        "kill": 176.0,
+        "map_win": 6.0,
+        "multikill_3": 3.0,
+        "multikill_4": 3.0,
+        "role_bonus": 9.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m1",
+          "points": 11.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m2",
+          "points": 11.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m3",
+          "points": 53.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m4",
+          "points": 22.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m5",
+          "points": 36.0
+        }
+      ],
+      "total": 135.0
+    },
+    "8188ed50-a484-dc83-3b52-428c13548038": {
+      "by_rule": {
+        "assist": 19.5,
+        "clutch_1v2": 2.0,
+        "death": -37.0,
+        "first_death": -6.0,
+        "first_kill": 3.0,
+        "kill": 84.0,
+        "map_win": 6.0,
+        "multikill_3": 1.0,
+        "role_bonus": 6.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m1",
+          "points": 27.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m2",
+          "points": 28.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m3",
+          "points": 23.5
+        }
+      ],
+      "total": 78.5
+    },
+    "8fc1fd61-4b0d-6015-ae86-06977c2f6f71": {
+      "by_rule": {
+        "assist": 43.5,
+        "clutch_1v2": 1.0,
+        "death": -74.0,
+        "first_death": -12.0,
+        "first_kill": 5.0,
+        "kill": 84.0,
+        "map_win": 6.0,
+        "multikill_3": 3.0,
+        "role_bonus": 9.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m1",
+          "points": 18.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m2",
+          "points": 21.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m3",
+          "points": 10.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m4",
+          "points": -8.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m5",
+          "points": 24.0
+        }
+      ],
+      "total": 65.5
+    },
+    "a0bde389-42df-a8f3-af5c-e94dfc6792a4": {
+      "by_rule": {
+        "assist": 18.5,
+        "clutch_1v3": 2.0,
+        "death": -38.0,
+        "first_death": -7.0,
+        "first_kill": 6.0,
+        "kill": 66.0,
+        "map_win": 6.0,
+        "multikill_3": 1.0,
+        "role_bonus": 6.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m1",
+          "points": 22.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m2",
+          "points": 14.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m3",
+          "points": 24.0
+        }
+      ],
+      "total": 60.5
+    },
+    "aaedb538-5cf6-9fcc-004d-705e8fbc1d53": {
+      "by_rule": {
+        "assist": 9.0,
+        "clutch_1v2": 1.0,
+        "death": -33.0,
+        "first_death": -2.0,
+        "first_kill": 2.0,
+        "kill": 92.0,
+        "map_win": 6.0,
+        "multikill_3": 3.0,
+        "role_bonus": 3.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m1",
+          "points": 29.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m2",
+          "points": 33.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m3",
+          "points": 18.5
+        }
+      ],
+      "total": 81.0
+    },
+    "b6bec293-4f21-7da9-320f-bebba7448f3d": {
+      "by_rule": {
+        "assist": 18.0,
+        "clutch_1v2": 2.0,
+        "clutch_1v3": 6.0,
+        "clutch_1v5": 5.0,
+        "death": -50.0,
+        "first_death": -3.0,
+        "first_kill": 4.0,
+        "kill": 152.0,
+        "map_win": 6.0,
+        "multikill_3": 4.0,
+        "multikill_4": 3.0,
+        "role_bonus": 6.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m1",
+          "points": 24.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m2",
+          "points": 25.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m3",
+          "points": 32.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m4",
+          "points": 22.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m5",
+          "points": 48.5
+        }
+      ],
+      "total": 153.0
+    },
+    "bd1280ae-e4ae-5083-900b-7cd6dc2f780e": {
+      "by_rule": {
+        "assist": 7.5,
+        "death": -51.0,
+        "first_death": -9.0,
+        "first_kill": 15.0,
+        "kill": 108.0,
+        "multikill_3": 3.0,
+        "role_bonus": 3.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m1",
+          "points": 26.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m2",
+          "points": 28.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m3",
+          "points": 22.5
+        }
+      ],
+      "total": 76.5
+    },
+    "be179f7a-6760-5b6d-af4e-edcd5275d675": {
+      "by_rule": {
+        "coach_map_win": 36.0,
+        "coach_round_diff": 4.0,
+        "coach_series_win": 18.0
+      },
+      "kind": "coach",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m1",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m2",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m3",
+          "points": 34.0
+        }
+      ],
+      "total": 58.0
+    },
+    "be1a7007-4b5d-c415-3e51-697f49e33ab7": {
+      "by_rule": {
+        "assist": 12.5,
+        "clutch_1v2": 1.0,
+        "death": -37.0,
+        "first_death": -2.0,
+        "first_kill": 7.0,
+        "kill": 96.0,
+        "map_win": 6.0,
+        "multikill_3": 2.0,
+        "role_bonus": 6.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m1",
+          "points": 29.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m2",
+          "points": 26.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m3",
+          "points": 35.5
+        }
+      ],
+      "total": 91.5
+    },
+    "c02bb9b4-e8fa-11e1-a8fb-74262194db23": {
+      "by_rule": {
+        "assist": 21.0,
+        "clutch_1v3": 2.0,
+        "death": -39.0,
+        "first_death": -6.0,
+        "first_kill": 7.0,
+        "kill": 76.0,
+        "map_win": 6.0,
+        "multikill_3": 2.0,
+        "multikill_4": 3.0,
+        "role_bonus": 3.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m1",
+          "points": 39.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m2",
+          "points": 22.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m3",
+          "points": 13.5
+        }
+      ],
+      "total": 75.0
+    },
+    "c0bd512f-67be-23bb-e80d-f95e9f98372c": {
+      "by_rule": {
+        "assist": 21.0,
+        "clutch_1v2": 1.0,
+        "death": -38.0,
+        "first_death": -7.0,
+        "first_kill": 2.0,
+        "kill": 68.0,
+        "multikill_4": 3.0,
+        "role_bonus": 3.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m1",
+          "points": 13.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m2",
+          "points": 32.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m3",
+          "points": 7.5
+        }
+      ],
+      "total": 53.0
+    },
+    "c28b6e9d-9e96-7684-1a48-136d071378f2": {
+      "by_rule": {
+        "assist": 12.0,
+        "death": -52.0,
+        "first_death": -13.0,
+        "first_kill": 5.0,
+        "kill": 66.0,
+        "multikill_3": 2.0,
+        "multikill_4": 3.0,
+        "role_bonus": 3.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m1",
+          "points": 13.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m2",
+          "points": 7.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m3",
+          "points": 5.0
+        }
+      ],
+      "total": 26.0
+    },
+    "c692a431-cdd6-762a-4430-f15e320e684c": {
+      "by_rule": {
+        "assist": 12.0,
+        "death": -37.0,
+        "first_death": -3.0,
+        "first_kill": 6.0,
+        "kill": 56.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m1",
+          "points": 23.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m2",
+          "points": -2.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m3",
+          "points": 13.5
+        }
+      ],
+      "total": 34.0
+    },
+    "c849433d-f907-17a8-7f7d-78f087b0f7d5": {
+      "by_rule": {
+        "coach_map_win": 36.0,
+        "coach_round_diff": 3.0,
+        "coach_series_win": 18.0,
+        "coach_upset": 10.0
+      },
+      "kind": "coach",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m1",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m2",
+          "points": 12.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-americas-r6-f0-m3",
+          "points": 43.0
+        }
+      ],
+      "total": 67.0
+    },
+    "cb38bed1-7bad-3e85-e4f3-873efb598726": {
+      "by_rule": {
+        "assist": 15.0,
+        "death": -44.0,
+        "first_death": -6.0,
+        "first_kill": 6.0,
+        "kill": 42.0,
+        "multikill_3": 1.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m1",
+          "points": 15.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m2",
+          "points": -2.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m3",
+          "points": 1.5
+        }
+      ],
+      "total": 14.0
+    },
+    "d36aafa6-c67e-d9ee-cebc-9b8cd09072c0": {
+      "by_rule": {
+        "assist": 22.5,
+        "clutch_1v2": 2.0,
+        "clutch_1v4": 3.0,
+        "death": -27.0,
+        "first_death": -2.0,
+        "first_kill": 3.0,
+        "kill": 90.0,
+        "map_win": 6.0,
+        "multikill_3": 2.0,
+        "multikill_4": 3.0,
+        "role_bonus": 6.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m1",
+          "points": 44.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m2",
+          "points": 43.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m3",
+          "points": 21.0
+        }
+      ],
+      "total": 108.5
+    },
+    "d685452d-0511-1b3b-017b-34c4d0335ae2": {
+      "by_rule": {
+        "assist": 21.0,
+        "clutch_1v2": 1.0,
+        "clutch_1v3": 6.0,
+        "death": -52.0,
+        "first_death": -2.0,
+        "first_kill": 14.0,
+        "kill": 188.0,
+        "map_win": 4.0,
+        "multikill_3": 7.0,
+        "multikill_4": 3.0,
+        "role_bonus": 12.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m1",
+          "points": 35.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m2",
+          "points": 37.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m3",
+          "points": 47.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m4",
+          "points": 41.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m5",
+          "points": 41.5
+        }
+      ],
+      "total": 202.0
+    },
+    "d90ced63-a773-0f94-4f42-11eb16a51091": {
+      "by_rule": {
+        "assist": 4.5,
+        "death": -46.0,
+        "first_death": -19.0,
+        "first_kill": 11.0,
+        "kill": 82.0,
+        "map_win": 6.0,
+        "multikill_3": 4.0,
+        "role_bonus": 6.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m1",
+          "points": -12.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m2",
+          "points": 48.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m3",
+          "points": 13.0
+        }
+      ],
+      "total": 48.5
+    },
+    "da47253b-0b42-33f5-81e2-2d0bf20fd3be": {
+      "by_rule": {
+        "assist": 10.5,
+        "clutch_1v4": 3.0,
+        "death": -34.0,
+        "first_death": -2.0,
+        "first_kill": 9.0,
+        "kill": 86.0,
+        "multikill_3": 2.0,
+        "role_bonus": 3.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m1",
+          "points": 10.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m2",
+          "points": 34.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m3",
+          "points": 33.0
+        }
+      ],
+      "total": 77.5
+    },
+    "e8f31165-fc8f-9e1f-ee1a-bdcbecd7a33d": {
+      "by_rule": {
+        "assist": 9.0,
+        "clutch_1v3": 2.0,
+        "death": -44.0,
+        "first_death": -10.0,
+        "first_kill": 8.0,
+        "kill": 88.0,
+        "multikill_3": 1.0,
+        "multikill_4": 3.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m1",
+          "points": 22.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m2",
+          "points": 9.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m3",
+          "points": 26.0
+        }
+      ],
+      "total": 57.0
+    },
+    "e956fea3-bf87-e052-fc07-5748bc639878": {
+      "by_rule": {},
+      "kind": "coach",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m1",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m2",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m3",
+          "points": 0.0
+        }
+      ],
+      "total": 0.0
+    },
+    "f30f6930-1a88-85d1-618e-a501b7526e0f": {
+      "by_rule": {
+        "assist": 18.0,
+        "clutch_1v3": 2.0,
+        "death": -74.0,
+        "first_death": -17.0,
+        "first_kill": 12.0,
+        "kill": 114.0,
+        "map_win": 4.0,
+        "multikill_3": 3.0,
+        "role_bonus": 3.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m1",
+          "points": 0.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m2",
+          "points": 30.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m3",
+          "points": 14.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m4",
+          "points": 25.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m5",
+          "points": -5.5
+        }
+      ],
+      "total": 65.0
+    },
+    "f87a9b16-5897-54ee-74f0-911ef6e2418c": {
+      "by_rule": {
+        "assist": 4.5,
+        "death": -87.0,
+        "first_death": -14.0,
+        "first_kill": 21.0,
+        "kill": 200.0,
+        "map_win": 4.0,
+        "multikill_3": 4.0,
+        "multikill_4": 6.0,
+        "role_bonus": 9.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m1",
+          "points": 44.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m2",
+          "points": 30.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m3",
+          "points": 38.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m4",
+          "points": 24.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m5",
+          "points": 10.5
+        }
+      ],
+      "total": 147.5
+    },
+    "fc43e6f8-ef26-44cd-9f7c-419718aa4018": {
+      "by_rule": {
+        "assist": 13.5,
+        "clutch_1v4": 3.0,
+        "death": -36.0,
+        "first_death": -5.0,
+        "first_kill": 1.0,
+        "kill": 68.0,
+        "multikill_3": 1.0,
+        "multikill_4": 3.0,
+        "role_bonus": 3.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m1",
+          "points": 32.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m2",
+          "points": 1.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m3",
+          "points": 18.0
+        }
+      ],
+      "total": 51.5
+    },
+    "fdddd98b-cd34-6eb5-f61f-bca907ee4c83": {
+      "by_rule": {
+        "assist": 13.5,
+        "death": -33.0,
+        "first_death": -4.0,
+        "first_kill": 9.0,
+        "kill": 74.0,
+        "map_win": 6.0,
+        "multikill_3": 1.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m1",
+          "points": 29.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m2",
+          "points": 18.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-china-r6-f0-m3",
+          "points": 19.0
+        }
+      ],
+      "total": 66.5
+    },
+    "fe04bdf8-5153-6963-3f66-110b8e3ced5d": {
+      "by_rule": {
+        "assist": 23.0,
+        "clutch_1v4": 3.0,
+        "death": -72.0,
+        "first_death": -11.0,
+        "first_kill": 5.0,
+        "kill": 152.0,
+        "map_win": 6.0,
+        "multikill_3": 5.0,
+        "multikill_4": 6.0,
+        "role_bonus": 9.0
+      },
+      "kind": "player",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m1",
+          "points": 42.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m2",
+          "points": 6.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m3",
+          "points": 53.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m4",
+          "points": 2.5
+        },
+        {
+          "match_id": "vct27-1337-cup_2-pacific-r6-f0-m5",
+          "points": 21.5
+        }
+      ],
+      "total": 126.0
+    },
+    "ff3b2e72-a1c2-f1e2-f73c-ad51d0993a0d": {
+      "by_rule": {},
+      "kind": "coach",
+      "maps": [
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m1",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m2",
+          "points": 0.0
+        },
+        {
+          "match_id": "vct27-1337-cup_2-emea-r6-f0-m3",
+          "points": 0.0
+        }
+      ],
+      "total": 0.0
+    }
+  },
+  "event_id": "cup_2",
+  "excluded": [],
+  "rules_version": "4c8badfec8d2",
+  "week_num": 4
+}

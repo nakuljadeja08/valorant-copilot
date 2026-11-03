@@ -1,0 +1,728 @@
+{
+  "budget": 112,
+  "bundle_version": 1,
+  "event_id": "masters_valencia",
+  "kind": "international",
+  "pool": [
+    {
+      "bracket": "global",
+      "entity_id": "03d8739e-d7aa-3337-2cd9-290204b5d8de",
+      "handle": "Vyniva",
+      "kind": "coach",
+      "listed_role": null,
+      "previous_price": 9.0,
+      "price": 9.0,
+      "team_id": "c7e938e5-e500-4759-d8e1-6a4ed0712a3d"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "0450adec-a53f-666e-dac3-f713ecc31a1c",
+      "handle": "Vydrabre",
+      "kind": "coach",
+      "listed_role": null,
+      "previous_price": 7.0,
+      "price": 7.5,
+      "team_id": "e6740018-a7da-7935-f29b-18b5b243ca2b"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "069c7124-639d-f33d-1826-ca847d66d638",
+      "handle": "Nitaro",
+      "kind": "player",
+      "listed_role": "controller",
+      "previous_price": 10.5,
+      "price": 10.0,
+      "team_id": "f3c000e6-67b1-e490-4900-a4e50b92424f"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "116cec6e-5afe-8f5c-d418-b51fcbadd6cc",
+      "handle": "Fenlyno",
+      "kind": "player",
+      "listed_role": "duelist",
+      "previous_price": 13.5,
+      "price": 13.5,
+      "team_id": "3af9ff6c-da6b-5a22-d4e6-8d6aba3d2353"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "13dd6259-e634-662a-b05a-2cc4ff9211fc",
+      "handle": "Suelmi",
+      "kind": "player",
+      "listed_role": "initiator",
+      "previous_price": 14.5,
+      "price": 15.0,
+      "team_id": "4b084223-6575-1538-c3da-f75369a25d82"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "1487ff82-a6db-9b85-5a48-31da9d1a704e",
+      "handle": "Gorshaqui",
+      "kind": "player",
+      "listed_role": "sentinel",
+      "previous_price": 12.5,
+      "price": 13.0,
+      "team_id": "d4ebfee5-9619-7785-d8fe-94349e6bea12"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "15954028-cc49-e987-2f7f-50c42b5c40be",
+      "handle": "Fenkaxe",
+      "kind": "player",
+      "listed_role": "duelist",
+      "previous_price": 13.5,
+      "price": 14.0,
+      "team_id": "a2ad9c94-0fad-f5a9-b84f-c2321a2ba2e7"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "1b4237c7-70de-e7d2-611a-3493fa14055a",
+      "handle": "Sutuka",
+      "kind": "player",
+      "listed_role": "initiator",
+      "previous_price": 13.0,
+      "price": 13.0,
+      "team_id": "e6740018-a7da-7935-f29b-18b5b243ca2b"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "1de1d2d7-c11e-e951-ed4f-050437143b1e",
+      "handle": "Shavengor",
+      "kind": "player",
+      "listed_role": "initiator",
+      "previous_price": 14.5,
+      "price": 15.0,
+      "team_id": "9c54059b-81a7-cff9-1896-8531a9afd4b5"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "1df40b67-5afb-b8c5-4926-0be6c2098dad",
+      "handle": "Nivyqui",
+      "kind": "player",
+      "listed_role": "sentinel",
+      "previous_price": 15.0,
+      "price": 15.0,
+      "team_id": "4b084223-6575-1538-c3da-f75369a25d82"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "205ccbda-6011-edc8-3fd9-33fab3edb6e6",
+      "handle": "Venvensha",
+      "kind": "player",
+      "listed_role": "duelist",
+      "previous_price": 14.0,
+      "price": 14.0,
+      "team_id": "6f102a74-5a23-6bc9-34ff-1c2a676fe50e"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "267ae013-c467-0c18-ef50-828e8f1d484a",
+      "handle": "Xeshagor",
+      "kind": "player",
+      "listed_role": "duelist",
+      "previous_price": 14.0,
+      "price": 13.5,
+      "team_id": "998aa8a1-5d59-bf45-3aef-77f9dca699d0"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "2953ef34-ff9d-be19-6e5b-72c765b91bc7",
+      "handle": "Tuvengor",
+      "kind": "player",
+      "listed_role": "controller",
+      "previous_price": 13.0,
+      "price": 13.5,
+      "team_id": "f9fabb69-eaf6-fe5c-a531-678ef899ff41"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "29793d79-e7e6-19a8-b7a9-59673a052bbf",
+      "handle": "Kakemi",
+      "kind": "player",
+      "listed_role": "initiator",
+      "previous_price": 14.0,
+      "price": 13.5,
+      "team_id": "e6740018-a7da-7935-f29b-18b5b243ca2b"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "2c929adb-2e37-63ea-7fd5-76190ca378ef",
+      "handle": "Rifengor",
+      "kind": "coach",
+      "listed_role": null,
+      "previous_price": 8.5,
+      "price": 9.0,
+      "team_id": "a2ad9c94-0fad-f5a9-b84f-c2321a2ba2e7"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "2ea205bb-a9c4-4ec0-d216-2b632305961e",
+      "handle": "Rigorqui",
+      "kind": "player",
+      "listed_role": "initiator",
+      "previous_price": 12.0,
+      "price": 12.0,
+      "team_id": "e6d93982-7c76-9a10-ece6-61cdd440b5f4"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "313fced7-ca77-70ef-1bc2-bc5b4f9e91d3",
+      "handle": "Katuni",
+      "kind": "player",
+      "listed_role": "controller",
+      "previous_price": 15.0,
+      "price": 15.0,
+      "team_id": "6f102a74-5a23-6bc9-34ff-1c2a676fe50e"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "35ffad44-1d75-de17-9ad1-10d6b2bab389",
+      "handle": "Venmivy",
+      "kind": "coach",
+      "listed_role": null,
+      "previous_price": 9.0,
+      "price": 9.0,
+      "team_id": "e6d93982-7c76-9a10-ece6-61cdd440b5f4"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "388a7a65-ee39-5cdf-b910-a50f6dc2df17",
+      "handle": "Vyrotu",
+      "kind": "player",
+      "listed_role": "sentinel",
+      "previous_price": 15.0,
+      "price": 15.0,
+      "team_id": "998aa8a1-5d59-bf45-3aef-77f9dca699d0"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "3d08633b-9e1e-2c11-5376-1a5ce7dc5bc2",
+      "handle": "Niloven",
+      "kind": "player",
+      "listed_role": "initiator",
+      "previous_price": 15.0,
+      "price": 15.0,
+      "team_id": "c7e938e5-e500-4759-d8e1-6a4ed0712a3d"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "412a89fc-4ead-5695-1093-df28319f2b39",
+      "handle": "Dravyqui",
+      "kind": "player",
+      "listed_role": "initiator",
+      "previous_price": 15.0,
+      "price": 15.0,
+      "team_id": "998aa8a1-5d59-bf45-3aef-77f9dca699d0"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "4158e546-af00-2a36-4044-47a5b5ee8696",
+      "handle": "Kanofen",
+      "kind": "player",
+      "listed_role": "duelist",
+      "previous_price": 13.0,
+      "price": 13.5,
+      "team_id": "a2ad9c94-0fad-f5a9-b84f-c2321a2ba2e7"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "41acc197-9f99-cc55-ff90-c68790df2bbe",
+      "handle": "Xenika",
+      "kind": "player",
+      "listed_role": "duelist",
+      "previous_price": 14.0,
+      "price": 14.5,
+      "team_id": "f3c000e6-67b1-e490-4900-a4e50b92424f"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "47b23a39-400d-07a0-93c1-a65e7493d436",
+      "handle": "Tatusu",
+      "kind": "coach",
+      "listed_role": null,
+      "previous_price": 6.0,
+      "price": 7.0,
+      "team_id": "f3c000e6-67b1-e490-4900-a4e50b92424f"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "4835577e-880f-b77b-0098-11411889d9d8",
+      "handle": "Tubrelo",
+      "kind": "player",
+      "listed_role": "duelist",
+      "previous_price": 13.5,
+      "price": 14.0,
+      "team_id": "e6740018-a7da-7935-f29b-18b5b243ca2b"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "5563ae55-fc7c-98c6-e011-2b9e66406e8e",
+      "handle": "Rokaxe",
+      "kind": "coach",
+      "listed_role": null,
+      "previous_price": 9.0,
+      "price": 9.0,
+      "team_id": "f9fabb69-eaf6-fe5c-a531-678ef899ff41"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "56ed5508-d132-ceff-c6e8-033675de6a05",
+      "handle": "Riribre",
+      "kind": "player",
+      "listed_role": "sentinel",
+      "previous_price": 15.0,
+      "price": 15.0,
+      "team_id": "f9fabb69-eaf6-fe5c-a531-678ef899ff41"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "5db8bac8-0be8-009b-f410-5aa88758a779",
+      "handle": "Rimifen",
+      "kind": "player",
+      "listed_role": "sentinel",
+      "previous_price": 15.0,
+      "price": 15.0,
+      "team_id": "6f102a74-5a23-6bc9-34ff-1c2a676fe50e"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "6914c9e4-7e22-a918-18b0-56394d6a7602",
+      "handle": "Elquimi",
+      "kind": "player",
+      "listed_role": "sentinel",
+      "previous_price": 13.0,
+      "price": 13.5,
+      "team_id": "4b084223-6575-1538-c3da-f75369a25d82"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "712b5615-5686-9fe3-c9fe-8180441992aa",
+      "handle": "Tuvenbre",
+      "kind": "player",
+      "listed_role": "initiator",
+      "previous_price": 14.0,
+      "price": 14.0,
+      "team_id": "f9fabb69-eaf6-fe5c-a531-678ef899ff41"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "71cdde01-6676-250e-d6d3-553ad432a193",
+      "handle": "Quiquibre",
+      "kind": "player",
+      "listed_role": "initiator",
+      "previous_price": 14.0,
+      "price": 13.5,
+      "team_id": "9c54059b-81a7-cff9-1896-8531a9afd4b5"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "733d3e5c-8a7f-5070-875a-437d5fea61af",
+      "handle": "Noribre",
+      "kind": "player",
+      "listed_role": "initiator",
+      "previous_price": 14.0,
+      "price": 14.0,
+      "team_id": "3af9ff6c-da6b-5a22-d4e6-8d6aba3d2353"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "73eb8ee5-3947-121a-1784-23603410abf4",
+      "handle": "Tuvysu",
+      "kind": "player",
+      "listed_role": "controller",
+      "previous_price": 13.0,
+      "price": 13.0,
+      "team_id": "c7e938e5-e500-4759-d8e1-6a4ed0712a3d"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "7cde2021-9a7e-bb61-a64f-460911878dc2",
+      "handle": "Breelta",
+      "kind": "coach",
+      "listed_role": null,
+      "previous_price": 8.0,
+      "price": 8.5,
+      "team_id": "9c54059b-81a7-cff9-1896-8531a9afd4b5"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "8188ed50-a484-dc83-3b52-428c13548038",
+      "handle": "Tudraxe",
+      "kind": "player",
+      "listed_role": "initiator",
+      "previous_price": 15.0,
+      "price": 15.0,
+      "team_id": "6f102a74-5a23-6bc9-34ff-1c2a676fe50e"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "82acdb25-62ca-c198-a548-fcfe1e0f3169",
+      "handle": "Nigorbre",
+      "kind": "player",
+      "listed_role": "controller",
+      "previous_price": 15.0,
+      "price": 15.0,
+      "team_id": "d4ebfee5-9619-7785-d8fe-94349e6bea12"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "8d10d63b-8b8f-52fa-70ba-e7736c3bd565",
+      "handle": "Brefenni",
+      "kind": "player",
+      "listed_role": "sentinel",
+      "previous_price": 13.0,
+      "price": 13.0,
+      "team_id": "3af9ff6c-da6b-5a22-d4e6-8d6aba3d2353"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "8d8a772b-474f-f0d3-6444-b09b099d3a10",
+      "handle": "Migorbre",
+      "kind": "player",
+      "listed_role": "controller",
+      "previous_price": 15.0,
+      "price": 15.0,
+      "team_id": "e6d93982-7c76-9a10-ece6-61cdd440b5f4"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "92da0945-4df4-724a-7657-5a20f920e4a8",
+      "handle": "Elvenven",
+      "kind": "player",
+      "listed_role": "duelist",
+      "previous_price": 10.0,
+      "price": 10.0,
+      "team_id": "4b084223-6575-1538-c3da-f75369a25d82"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "96bc09eb-94fc-554a-c2a6-893b9d283538",
+      "handle": "Vendravy",
+      "kind": "player",
+      "listed_role": "duelist",
+      "previous_price": 14.5,
+      "price": 14.5,
+      "team_id": "e6d93982-7c76-9a10-ece6-61cdd440b5f4"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "97615659-ffaf-bc1b-920c-074e18a79b62",
+      "handle": "Quinifen",
+      "kind": "player",
+      "listed_role": "duelist",
+      "previous_price": 15.0,
+      "price": 14.5,
+      "team_id": "c7e938e5-e500-4759-d8e1-6a4ed0712a3d"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "9821a51a-5c8d-373a-ddd6-db325f715e0d",
+      "handle": "Eldratu",
+      "kind": "player",
+      "listed_role": "duelist",
+      "previous_price": 15.0,
+      "price": 15.0,
+      "team_id": "9c54059b-81a7-cff9-1896-8531a9afd4b5"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "9f5bdab9-df1b-9e5a-621a-f5d2f6be9d9f",
+      "handle": "Breeldra",
+      "kind": "player",
+      "listed_role": "controller",
+      "previous_price": 14.5,
+      "price": 14.0,
+      "team_id": "998aa8a1-5d59-bf45-3aef-77f9dca699d0"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "a0bde389-42df-a8f3-af5c-e94dfc6792a4",
+      "handle": "Kanono",
+      "kind": "player",
+      "listed_role": "initiator",
+      "previous_price": 11.5,
+      "price": 12.0,
+      "team_id": "f3c000e6-67b1-e490-4900-a4e50b92424f"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "a3c8b8cb-6bdb-11bb-259d-df22909c87ae",
+      "handle": "Brefenqui",
+      "kind": "coach",
+      "listed_role": null,
+      "previous_price": 9.0,
+      "price": 9.0,
+      "team_id": "998aa8a1-5d59-bf45-3aef-77f9dca699d0"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "a8e751e3-88ff-8c29-6d56-5b2d6a7c4171",
+      "handle": "Vytavy",
+      "kind": "player",
+      "listed_role": "duelist",
+      "previous_price": 14.0,
+      "price": 14.0,
+      "team_id": "c7e938e5-e500-4759-d8e1-6a4ed0712a3d"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "aeb790fd-1849-91b2-a15b-c8935d5fc956",
+      "handle": "Riniro",
+      "kind": "player",
+      "listed_role": "sentinel",
+      "previous_price": 8.5,
+      "price": 8.5,
+      "team_id": "a2ad9c94-0fad-f5a9-b84f-c2321a2ba2e7"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "b647bb0d-6401-bfd9-1b2f-b59062c24fcd",
+      "handle": "Sushaka",
+      "kind": "player",
+      "listed_role": "initiator",
+      "previous_price": 13.0,
+      "price": 13.0,
+      "team_id": "d4ebfee5-9619-7785-d8fe-94349e6bea12"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "b73dcfc3-d684-594b-dff6-5c07c0efc1c4",
+      "handle": "Kaxeke",
+      "kind": "player",
+      "listed_role": "duelist",
+      "previous_price": 10.5,
+      "price": 10.5,
+      "team_id": "e6d93982-7c76-9a10-ece6-61cdd440b5f4"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "b995b734-65e8-9c00-cb12-5d5bce953449",
+      "handle": "Tuvybre",
+      "kind": "coach",
+      "listed_role": null,
+      "previous_price": 8.5,
+      "price": 9.0,
+      "team_id": "d4ebfee5-9619-7785-d8fe-94349e6bea12"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "bad1b258-4552-2d59-509a-984a8c76148b",
+      "handle": "Vanini",
+      "kind": "player",
+      "listed_role": "controller",
+      "previous_price": 14.5,
+      "price": 15.0,
+      "team_id": "9c54059b-81a7-cff9-1896-8531a9afd4b5"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "bf0b74d2-cd32-34a1-bf4b-c99559ce7b09",
+      "handle": "Vyquilo",
+      "kind": "player",
+      "listed_role": "sentinel",
+      "previous_price": 13.0,
+      "price": 13.0,
+      "team_id": "e6740018-a7da-7935-f29b-18b5b243ca2b"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "c02bb9b4-e8fa-11e1-a8fb-74262194db23",
+      "handle": "Ketava",
+      "kind": "player",
+      "listed_role": "controller",
+      "previous_price": 9.5,
+      "price": 9.0,
+      "team_id": "6f102a74-5a23-6bc9-34ff-1c2a676fe50e"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "c849433d-f907-17a8-7f7d-78f087b0f7d5",
+      "handle": "Kakeni",
+      "kind": "coach",
+      "listed_role": null,
+      "previous_price": 9.0,
+      "price": 9.0,
+      "team_id": "6f102a74-5a23-6bc9-34ff-1c2a676fe50e"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "c99d1706-be27-4418-9a39-1d6b90dfe623",
+      "handle": "Lybresha",
+      "kind": "player",
+      "listed_role": "controller",
+      "previous_price": null,
+      "price": 12.5,
+      "team_id": "4b084223-6575-1538-c3da-f75369a25d82"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "cc540658-2fca-8a5b-8485-4cb8f2a2deda",
+      "handle": "Gorquifen",
+      "kind": "player",
+      "listed_role": "initiator",
+      "previous_price": 15.0,
+      "price": 15.0,
+      "team_id": "998aa8a1-5d59-bf45-3aef-77f9dca699d0"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "cdb03198-f9e9-a819-7e7a-f212888756ae",
+      "handle": "Quinibre",
+      "kind": "player",
+      "listed_role": "initiator",
+      "previous_price": 8.5,
+      "price": 8.5,
+      "team_id": "a2ad9c94-0fad-f5a9-b84f-c2321a2ba2e7"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "ce620ff5-264c-14f2-d73f-84ddd6d4e9e6",
+      "handle": "Vylosha",
+      "kind": "player",
+      "listed_role": "controller",
+      "previous_price": 12.0,
+      "price": 12.5,
+      "team_id": "3af9ff6c-da6b-5a22-d4e6-8d6aba3d2353"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "d1a0e619-0da3-4843-fc16-c3dd14f7f5fd",
+      "handle": "Gorgorgor",
+      "kind": "player",
+      "listed_role": "duelist",
+      "previous_price": 15.0,
+      "price": 15.0,
+      "team_id": "f9fabb69-eaf6-fe5c-a531-678ef899ff41"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "d20739de-949b-a8a0-c9d6-e8418f261606",
+      "handle": "Noriro",
+      "kind": "coach",
+      "listed_role": null,
+      "previous_price": 9.0,
+      "price": 9.0,
+      "team_id": "3af9ff6c-da6b-5a22-d4e6-8d6aba3d2353"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "d36aafa6-c67e-d9ee-cebc-9b8cd09072c0",
+      "handle": "Gorquiel",
+      "kind": "player",
+      "listed_role": "sentinel",
+      "previous_price": 10.0,
+      "price": 10.5,
+      "team_id": "f3c000e6-67b1-e490-4900-a4e50b92424f"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "d4229275-e7c5-554a-17f8-16016c533ab0",
+      "handle": "Gorelvy",
+      "kind": "coach",
+      "listed_role": null,
+      "previous_price": 8.5,
+      "price": 9.0,
+      "team_id": "4b084223-6575-1538-c3da-f75369a25d82"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "d520c65d-1b91-c009-500e-0bceb519050e",
+      "handle": "Venfenri",
+      "kind": "player",
+      "listed_role": "initiator",
+      "previous_price": 13.5,
+      "price": 14.0,
+      "team_id": "d4ebfee5-9619-7785-d8fe-94349e6bea12"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "dfec543e-66ca-9d18-70e7-808282ccd9b8",
+      "handle": "Vadraly",
+      "kind": "player",
+      "listed_role": "sentinel",
+      "previous_price": 14.5,
+      "price": 14.0,
+      "team_id": "e6d93982-7c76-9a10-ece6-61cdd440b5f4"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "eb68499a-0a39-aceb-4e36-761a951afd47",
+      "handle": "Novava",
+      "kind": "player",
+      "listed_role": "duelist",
+      "previous_price": 15.0,
+      "price": 15.0,
+      "team_id": "d4ebfee5-9619-7785-d8fe-94349e6bea12"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "eca17fa7-1eb9-886a-d2d2-0eecf0b8985e",
+      "handle": "Kavyni",
+      "kind": "player",
+      "listed_role": "sentinel",
+      "previous_price": 14.0,
+      "price": 14.0,
+      "team_id": "c7e938e5-e500-4759-d8e1-6a4ed0712a3d"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "f125a6e8-c864-f98b-005d-c634b339ff19",
+      "handle": "Roshaly",
+      "kind": "player",
+      "listed_role": "sentinel",
+      "previous_price": 13.0,
+      "price": 12.5,
+      "team_id": "f9fabb69-eaf6-fe5c-a531-678ef899ff41"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "fb98a044-0bc1-53c2-600e-b9399e055f7e",
+      "handle": "Rifenxe",
+      "kind": "player",
+      "listed_role": "sentinel",
+      "previous_price": 14.5,
+      "price": 15.0,
+      "team_id": "3af9ff6c-da6b-5a22-d4e6-8d6aba3d2353"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "fbc9ce59-1dd4-466a-ccf1-71fc250166b2",
+      "handle": "Rimisha",
+      "kind": "player",
+      "listed_role": "controller",
+      "previous_price": 9.0,
+      "price": 9.0,
+      "team_id": "a2ad9c94-0fad-f5a9-b84f-c2321a2ba2e7"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "fdddd98b-cd34-6eb5-f61f-bca907ee4c83",
+      "handle": "Fenlybre",
+      "kind": "player",
+      "listed_role": "sentinel",
+      "previous_price": 12.5,
+      "price": 13.0,
+      "team_id": "f3c000e6-67b1-e490-4900-a4e50b92424f"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "fe0b78a3-46d2-ca9a-4bd3-4ed60dc67dc7",
+      "handle": "Kexexe",
+      "kind": "player",
+      "listed_role": "controller",
+      "previous_price": 15.0,
+      "price": 15.0,
+      "team_id": "e6740018-a7da-7935-f29b-18b5b243ca2b"
+    },
+    {
+      "bracket": "global",
+      "entity_id": "fe335419-30fe-f4b9-569d-51faefbfc838",
+      "handle": "Xekevy",
+      "kind": "player",
+      "listed_role": "sentinel",
+      "previous_price": 13.5,
+      "price": 13.5,
+      "team_id": "9c54059b-81a7-cff9-1896-8531a9afd4b5"
+    }
+  ]
+}
