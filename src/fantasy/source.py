@@ -43,8 +43,8 @@ class SimProSeasonSource(ProSeasonSource):
 
     provenance = "sim"
 
-    def __init__(self, seed: int):
-        self.sim = SeasonSimulator(seed)
+    def __init__(self, seed: int, league_seed: int | None = None):
+        self.sim = SeasonSimulator(seed, league_seed=league_seed)
 
     def config(self) -> dict[str, Any]:
         return self.sim.config

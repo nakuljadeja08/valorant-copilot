@@ -23,7 +23,8 @@ MATCH_ID_PREFIX = "vct27-"
 
 # Children first, so foreign keys hold while a season is replaced.
 _SEASON_TABLES = (
-    "series_maps", "series", "event_rosters", "event_teams", "match_weeks", "events",
+    "series_maps", "series", "event_prices", "event_rosters", "event_teams", "match_weeks",
+    "events",
     "pro_coaches", "pro_players", "pro_teams",
     "features", "round_kill_assists", "round_kills", "round_player_stats", "rounds",
     "match_players", "ingest_log", "matches",

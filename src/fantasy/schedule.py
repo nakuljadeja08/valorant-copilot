@@ -111,11 +111,12 @@ class _Pairing:
 
 class SeasonSimulator:
     def __init__(self, seed: int, config: dict[str, Any] | None = None,
-                 generator: MatchGenerator | None = None):
+                 generator: MatchGenerator | None = None, league_seed: int | None = None):
+        """`league_seed` replays a league under different results, for balance testing."""
         self.seed = seed
         self.config = config or load_config()
         self.gen = generator or MatchGenerator(seed=seed)
-        self.league: League = build_league(self.config, seed)
+        self.league: League = build_league(self.config, seed if league_seed is None else league_seed)
         self.results: dict[str, EventRecord] = {}
         self.map_ids = self._map_pool()
         self.agents_by_role = self._agents_by_role()

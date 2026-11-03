@@ -63,6 +63,18 @@ CREATE TABLE IF NOT EXISTS event_rosters (
     PRIMARY KEY (event_id, puuid)
 );
 
+-- Fantasy prices and squad-building roles, fixed for an event. `entity_id` is a puuid
+-- or coach_id. listed_role is NULL for coaches.
+CREATE TABLE IF NOT EXISTS event_prices (
+    event_id        TEXT NOT NULL REFERENCES events(event_id),
+    entity_id       TEXT NOT NULL,
+    kind            TEXT NOT NULL,        -- player | coach
+    team_id         TEXT NOT NULL REFERENCES pro_teams(team_id),
+    price           REAL NOT NULL,
+    listed_role     TEXT,
+    PRIMARY KEY (event_id, entity_id)
+);
+
 CREATE TABLE IF NOT EXISTS series (
     series_id       TEXT PRIMARY KEY,
     event_id        TEXT NOT NULL REFERENCES events(event_id),

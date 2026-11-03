@@ -37,8 +37,8 @@ SYLLABLES = (
 TEAM_RATING_SD = 0.022
 TIER_RATING_BONUS = {"partner": 0.018, "visitor": 0.006, "open": 0.0}
 # Multiplier on kill weights, as exp(gauss). Partners sign slightly better players.
-PLAYER_SKILL_SD = 0.18
-TIER_SKILL_BONUS = {"partner": 0.07, "visitor": 0.03, "open": 0.0}
+PLAYER_SKILL_SD = 0.12
+TIER_SKILL_BONUS = {"partner": 0.05, "visitor": 0.02, "open": 0.0}
 
 
 @dataclass

@@ -15,6 +15,7 @@ import json
 import os
 import sqlite3
 
+from src.fantasy.scoring import score_season
 from src.fantasy.source import get_pro_source
 from src.fantasy.store import load_season, open_store
 
@@ -71,6 +72,8 @@ if __name__ == "__main__":
 
     store = open_store(args.db)
     totals = load_season(store, get_pro_source(args.seed))
+    scored = score_season(store)
     print(f"SIMULATED season, seed {args.seed}. Teams and players are fictional.")
-    print(f"{totals['events']} events, {totals['series']} series, {totals['maps']} maps")
+    print(f"{totals['events']} events, {totals['series']} series, {totals['maps']} maps, "
+          f"{scored['feature_rows']} fantasy feature rows")
     report(store, show_bracket=args.bracket)

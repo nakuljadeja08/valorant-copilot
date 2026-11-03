@@ -99,6 +99,13 @@ class MatchFixture:
     start_ms: int
     queue_id: str = "tournament"
     season_id: str = "vct-2027-sim"
+    # Chance of 0, 1 or 2 assists on a kill. The ranked default credits far more
+    # assists per kill than top-level play shows, which would skew fantasy scoring.
+    assist_mix: tuple[float, float, float] = (0.7, 0.25, 0.05)
+    # Kill share by role. Top-level kills are spread more evenly than the ranked default.
+    entry_weight: tuple[tuple[Role, float], ...] = (
+        ("duelist", 3.4), ("initiator", 2.0), ("controller", 1.6), ("sentinel", 1.3),
+    )
 
 
 def _other(side: str) -> str:
@@ -168,6 +175,8 @@ class MatchGenerator:
         result: str,
         round_start_ms: int,
         player_skill: dict[str, float] | None = None,
+        assist_mix: tuple[float, float, float] = (0.5, 0.35, 0.15),
+        entry_weight: dict[Role, float] = ENTRY_WEIGHT,
     ) -> dict[str, dict]:
         """Resolve one round as an ordered, role-weighted kill timeline.
 
@@ -220,12 +229,12 @@ class MatchGenerator:
             kside = _other(vside)
             killer = crng.choices(
                 alive[kside],
-                weights=[ENTRY_WEIGHT[role_by_puuid[p]] * skill_of.get(p, 1.0)
+                weights=[entry_weight[role_by_puuid[p]] * skill_of.get(p, 1.0)
                          for p in alive[kside]],
             )[0]
 
             mates = [p for p in roster[kside] if p != killer]
-            n_assist = crng.choices([0, 1, 2], weights=[0.5, 0.35, 0.15])[0]
+            n_assist = crng.choices([0, 1, 2], weights=assist_mix)[0]
             assisters = _weighted_sample(
                 crng, mates, [ASSIST_WEIGHT[role_by_puuid[p]] for p in mates], n_assist
             )
@@ -312,6 +321,8 @@ class MatchGenerator:
             combat = self._combat(
                 random.Random(f"{match_id}:{rnum}:combat"),
                 roster, role_by_puuid, winner, loser, result, rnum * 100_000, player_skill,
+                **({"assist_mix": fixture.assist_mix, "entry_weight": dict(fixture.entry_weight)}
+                   if fixture else {}),
             )
             # Utility casts on their own deterministic stream, drawn in roster order.
             urng = random.Random(f"{match_id}:{rnum}:util")
