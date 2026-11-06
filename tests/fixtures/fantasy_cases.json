@@ -1,0 +1,1215 @@
+{
+  "chip_half": [
+    {
+      "event_id": "kickoff",
+      "event_order": [
+        "kickoff",
+        "masters_seoul",
+        "cup_1",
+        "masters_valencia",
+        "cup_2",
+        "champions"
+      ],
+      "half": 1
+    },
+    {
+      "event_id": "masters_seoul",
+      "event_order": [
+        "kickoff",
+        "masters_seoul",
+        "cup_1",
+        "masters_valencia",
+        "cup_2",
+        "champions"
+      ],
+      "half": 1
+    },
+    {
+      "event_id": "cup_1",
+      "event_order": [
+        "kickoff",
+        "masters_seoul",
+        "cup_1",
+        "masters_valencia",
+        "cup_2",
+        "champions"
+      ],
+      "half": 1
+    },
+    {
+      "event_id": "masters_valencia",
+      "event_order": [
+        "kickoff",
+        "masters_seoul",
+        "cup_1",
+        "masters_valencia",
+        "cup_2",
+        "champions"
+      ],
+      "half": 2
+    },
+    {
+      "event_id": "cup_2",
+      "event_order": [
+        "kickoff",
+        "masters_seoul",
+        "cup_1",
+        "masters_valencia",
+        "cup_2",
+        "champions"
+      ],
+      "half": 2
+    },
+    {
+      "event_id": "champions",
+      "event_order": [
+        "kickoff",
+        "masters_seoul",
+        "cup_1",
+        "masters_valencia",
+        "cup_2",
+        "champions"
+      ],
+      "half": 2
+    }
+  ],
+  "prices": {
+    "c0": {
+      "kind": "coach",
+      "listed_role": null,
+      "price": 5.0,
+      "team_id": "t0"
+    },
+    "c1": {
+      "kind": "coach",
+      "listed_role": null,
+      "price": 5.0,
+      "team_id": "t1"
+    },
+    "c2": {
+      "kind": "coach",
+      "listed_role": null,
+      "price": 4.5,
+      "team_id": "t1"
+    },
+    "p0": {
+      "kind": "player",
+      "listed_role": "duelist",
+      "price": 13.0,
+      "team_id": "t0"
+    },
+    "p1": {
+      "kind": "player",
+      "listed_role": "initiator",
+      "price": 13.0,
+      "team_id": "t0"
+    },
+    "p2": {
+      "kind": "player",
+      "listed_role": "controller",
+      "price": 13.0,
+      "team_id": "t1"
+    },
+    "p3": {
+      "kind": "player",
+      "listed_role": "sentinel",
+      "price": 13.0,
+      "team_id": "t1"
+    },
+    "p4": {
+      "kind": "player",
+      "listed_role": "duelist",
+      "price": 13.0,
+      "team_id": "t2"
+    },
+    "p5": {
+      "kind": "player",
+      "listed_role": "initiator",
+      "price": 13.0,
+      "team_id": "t2"
+    },
+    "p6": {
+      "kind": "player",
+      "listed_role": "sentinel",
+      "price": 13.0,
+      "team_id": "t3"
+    },
+    "p7": {
+      "kind": "player",
+      "listed_role": "controller",
+      "price": 13.0,
+      "team_id": "t3"
+    },
+    "p8": {
+      "kind": "player",
+      "listed_role": "sentinel",
+      "price": 9.5,
+      "team_id": "t0"
+    }
+  },
+  "rules": {
+    "chips": {
+      "bench_boost": {},
+      "second_half_from": "masters_valencia",
+      "triple_captain": {
+        "captain_multiplier": 3
+      },
+      "uses_per_half": 1
+    },
+    "squad": {
+      "budget": {
+        "international": 112,
+        "regional": 100
+      },
+      "captain_multiplier": 2,
+      "coaches": 2,
+      "max_coaches_per_team": 1,
+      "max_players_per_team": 2,
+      "required_roles": [
+        "duelist",
+        "initiator",
+        "controller",
+        "sentinel"
+      ],
+      "starters": 5,
+      "subs": 2
+    },
+    "transfers": {
+      "free_per_week": 1,
+      "hit": 4,
+      "max_banked": 2
+    }
+  },
+  "score": [
+    {
+      "chip": null,
+      "expected": {
+        "captain_bonus": 10,
+        "coaches": 11,
+        "players": 30,
+        "total": 51
+      },
+      "name": "everyone played",
+      "points": {
+        "c0": 12,
+        "c1": -1,
+        "p0": 10,
+        "p1": 8,
+        "p2": 6,
+        "p3": 4,
+        "p4": 2,
+        "p5": 7,
+        "p6": 5
+      },
+      "squad": {
+        "captain": "p0",
+        "coaches": [
+          "c0",
+          "c1"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ],
+        "subs": [
+          "p5",
+          "p6"
+        ],
+        "vice": "p1"
+      }
+    },
+    {
+      "chip": null,
+      "expected": {
+        "captain_bonus": 10,
+        "coaches": 11,
+        "players": 31,
+        "total": 52
+      },
+      "name": "auto-sub fills a starter who played no map",
+      "points": {
+        "c0": 12,
+        "c1": -1,
+        "p0": 10,
+        "p1": 8,
+        "p3": 4,
+        "p4": 2,
+        "p5": 7,
+        "p6": 5
+      },
+      "squad": {
+        "captain": "p0",
+        "coaches": [
+          "c0",
+          "c1"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ],
+        "subs": [
+          "p5",
+          "p6"
+        ],
+        "vice": "p1"
+      }
+    },
+    {
+      "chip": null,
+      "expected": {
+        "captain_bonus": 10,
+        "coaches": 11,
+        "players": 32,
+        "total": 53
+      },
+      "name": "two starters out, both subs come in",
+      "points": {
+        "c0": 12,
+        "c1": -1,
+        "p0": 10,
+        "p1": 8,
+        "p4": 2,
+        "p5": 7,
+        "p6": 5
+      },
+      "squad": {
+        "captain": "p0",
+        "coaches": [
+          "c0",
+          "c1"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ],
+        "subs": [
+          "p5",
+          "p6"
+        ],
+        "vice": "p1"
+      }
+    },
+    {
+      "chip": null,
+      "expected": {
+        "captain_bonus": 10,
+        "coaches": 11,
+        "players": 29,
+        "total": 50
+      },
+      "name": "sub who didn't play can't come in",
+      "points": {
+        "c0": 12,
+        "c1": -1,
+        "p0": 10,
+        "p1": 8,
+        "p3": 4,
+        "p4": 2,
+        "p6": 5
+      },
+      "squad": {
+        "captain": "p0",
+        "coaches": [
+          "c0",
+          "c1"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ],
+        "subs": [
+          "p5",
+          "p6"
+        ],
+        "vice": "p1"
+      }
+    },
+    {
+      "chip": null,
+      "expected": {
+        "captain_bonus": 8,
+        "coaches": 11,
+        "players": 27,
+        "total": 46
+      },
+      "name": "vice takes the armband",
+      "points": {
+        "c0": 12,
+        "c1": -1,
+        "p1": 8,
+        "p2": 6,
+        "p3": 4,
+        "p4": 2,
+        "p5": 7,
+        "p6": 5
+      },
+      "squad": {
+        "captain": "p0",
+        "coaches": [
+          "c0",
+          "c1"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ],
+        "subs": [
+          "p5",
+          "p6"
+        ],
+        "vice": "p1"
+      }
+    },
+    {
+      "chip": null,
+      "expected": {
+        "captain_bonus": 0.0,
+        "coaches": 11,
+        "players": 24,
+        "total": 35.0
+      },
+      "name": "nobody with an armband played",
+      "points": {
+        "c0": 12,
+        "c1": -1,
+        "p2": 6,
+        "p3": 4,
+        "p4": 2,
+        "p5": 7,
+        "p6": 5
+      },
+      "squad": {
+        "captain": "p0",
+        "coaches": [
+          "c0",
+          "c1"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ],
+        "subs": [
+          "p5",
+          "p6"
+        ],
+        "vice": "p1"
+      }
+    },
+    {
+      "chip": "triple_captain",
+      "expected": {
+        "captain_bonus": 20,
+        "coaches": 11,
+        "players": 30,
+        "total": 61
+      },
+      "name": "triple captain",
+      "points": {
+        "c0": 12,
+        "c1": -1,
+        "p0": 10,
+        "p1": 8,
+        "p2": 6,
+        "p3": 4,
+        "p4": 2,
+        "p5": 7,
+        "p6": 5
+      },
+      "squad": {
+        "captain": "p0",
+        "coaches": [
+          "c0",
+          "c1"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ],
+        "subs": [
+          "p5",
+          "p6"
+        ],
+        "vice": "p1"
+      }
+    },
+    {
+      "chip": "triple_captain",
+      "expected": {
+        "captain_bonus": 16,
+        "coaches": 11,
+        "players": 27,
+        "total": 54
+      },
+      "name": "triple captain moves to the vice",
+      "points": {
+        "c0": 12,
+        "c1": -1,
+        "p1": 8,
+        "p2": 6,
+        "p3": 4,
+        "p4": 2,
+        "p5": 7,
+        "p6": 5
+      },
+      "squad": {
+        "captain": "p0",
+        "coaches": [
+          "c0",
+          "c1"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ],
+        "subs": [
+          "p5",
+          "p6"
+        ],
+        "vice": "p1"
+      }
+    },
+    {
+      "chip": "bench_boost",
+      "expected": {
+        "captain_bonus": 10,
+        "coaches": 11,
+        "players": 42,
+        "total": 63
+      },
+      "name": "bench boost scores every sub",
+      "points": {
+        "c0": 12,
+        "c1": -1,
+        "p0": 10,
+        "p1": 8,
+        "p2": 6,
+        "p3": 4,
+        "p4": 2,
+        "p5": 7,
+        "p6": 5
+      },
+      "squad": {
+        "captain": "p0",
+        "coaches": [
+          "c0",
+          "c1"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ],
+        "subs": [
+          "p5",
+          "p6"
+        ],
+        "vice": "p1"
+      }
+    },
+    {
+      "chip": "bench_boost",
+      "expected": {
+        "captain_bonus": 10,
+        "coaches": 11,
+        "players": 36,
+        "total": 57
+      },
+      "name": "bench boost with a starter out",
+      "points": {
+        "c0": 12,
+        "c1": -1,
+        "p0": 10,
+        "p1": 8,
+        "p3": 4,
+        "p4": 2,
+        "p5": 7,
+        "p6": 5
+      },
+      "squad": {
+        "captain": "p0",
+        "coaches": [
+          "c0",
+          "c1"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ],
+        "subs": [
+          "p5",
+          "p6"
+        ],
+        "vice": "p1"
+      }
+    },
+    {
+      "chip": null,
+      "expected": {
+        "captain_bonus": -3,
+        "coaches": 11,
+        "players": 17,
+        "total": 25
+      },
+      "name": "negative captain still doubles",
+      "points": {
+        "c0": 12,
+        "c1": -1,
+        "p0": -3,
+        "p1": 8,
+        "p2": 6,
+        "p3": 4,
+        "p4": 2,
+        "p5": 7,
+        "p6": 5
+      },
+      "squad": {
+        "captain": "p0",
+        "coaches": [
+          "c0",
+          "c1"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ],
+        "subs": [
+          "p5",
+          "p6"
+        ],
+        "vice": "p1"
+      }
+    },
+    {
+      "chip": null,
+      "expected": {
+        "captain_bonus": 10,
+        "coaches": 12.0,
+        "players": 30,
+        "total": 52.0
+      },
+      "name": "a coach who played no map scores nothing",
+      "points": {
+        "c0": 12,
+        "p0": 10,
+        "p1": 8,
+        "p2": 6,
+        "p3": 4,
+        "p4": 2,
+        "p5": 7,
+        "p6": 5
+      },
+      "squad": {
+        "captain": "p0",
+        "coaches": [
+          "c0",
+          "c1"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ],
+        "subs": [
+          "p5",
+          "p6"
+        ],
+        "vice": "p1"
+      }
+    }
+  ],
+  "transfers": [
+    {
+      "free": 1,
+      "free_next": 2,
+      "hit": 0,
+      "made": 0,
+      "name": "no change",
+      "previous": {
+        "captain": "p0",
+        "coaches": [
+          "c0",
+          "c1"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ],
+        "subs": [
+          "p5",
+          "p6"
+        ],
+        "vice": "p1"
+      },
+      "squad": {
+        "captain": "p0",
+        "coaches": [
+          "c0",
+          "c1"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ],
+        "subs": [
+          "p5",
+          "p6"
+        ],
+        "vice": "p1"
+      }
+    },
+    {
+      "free": 1,
+      "free_next": 2,
+      "hit": 0,
+      "made": 0,
+      "name": "bench reorder is free",
+      "previous": {
+        "captain": "p0",
+        "coaches": [
+          "c0",
+          "c1"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ],
+        "subs": [
+          "p5",
+          "p6"
+        ],
+        "vice": "p1"
+      },
+      "squad": {
+        "captain": "p1",
+        "coaches": [
+          "c0",
+          "c1"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ],
+        "subs": [
+          "p6",
+          "p5"
+        ],
+        "vice": "p0"
+      }
+    },
+    {
+      "free": 1,
+      "free_next": 1,
+      "hit": 0,
+      "made": 1,
+      "name": "one transfer, one free",
+      "previous": {
+        "captain": "p0",
+        "coaches": [
+          "c0",
+          "c1"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ],
+        "subs": [
+          "p5",
+          "p6"
+        ],
+        "vice": "p1"
+      },
+      "squad": {
+        "captain": "p0",
+        "coaches": [
+          "c0",
+          "c1"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p7"
+        ],
+        "subs": [
+          "p5",
+          "p6"
+        ],
+        "vice": "p1"
+      }
+    },
+    {
+      "free": 1,
+      "free_next": 1,
+      "hit": 4,
+      "made": 2,
+      "name": "two transfers, one free",
+      "previous": {
+        "captain": "p0",
+        "coaches": [
+          "c0",
+          "c1"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ],
+        "subs": [
+          "p5",
+          "p6"
+        ],
+        "vice": "p1"
+      },
+      "squad": {
+        "captain": "p0",
+        "coaches": [
+          "c0",
+          "c1"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p7"
+        ],
+        "subs": [
+          "p5",
+          "p8"
+        ],
+        "vice": "p1"
+      }
+    },
+    {
+      "free": 2,
+      "free_next": 1,
+      "hit": 0,
+      "made": 2,
+      "name": "two transfers, two banked",
+      "previous": {
+        "captain": "p0",
+        "coaches": [
+          "c0",
+          "c1"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ],
+        "subs": [
+          "p5",
+          "p6"
+        ],
+        "vice": "p1"
+      },
+      "squad": {
+        "captain": "p0",
+        "coaches": [
+          "c0",
+          "c1"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p7"
+        ],
+        "subs": [
+          "p5",
+          "p8"
+        ],
+        "vice": "p1"
+      }
+    },
+    {
+      "free": 0,
+      "free_next": 1,
+      "hit": 4,
+      "made": 1,
+      "name": "coach swap counts",
+      "previous": {
+        "captain": "p0",
+        "coaches": [
+          "c0",
+          "c1"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ],
+        "subs": [
+          "p5",
+          "p6"
+        ],
+        "vice": "p1"
+      },
+      "squad": {
+        "captain": "p0",
+        "coaches": [
+          "c0",
+          "c2"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ],
+        "subs": [
+          "p5",
+          "p6"
+        ],
+        "vice": "p1"
+      }
+    }
+  ],
+  "validate": [
+    {
+      "errors": [],
+      "event_kind": "international",
+      "name": "legal squad",
+      "squad": {
+        "captain": "p0",
+        "coaches": [
+          "c0",
+          "c1"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ],
+        "subs": [
+          "p5",
+          "p6"
+        ],
+        "vice": "p1"
+      }
+    },
+    {
+      "errors": [
+        "costs 101, budget is 100"
+      ],
+      "event_kind": "regional",
+      "name": "over budget at a regional event",
+      "squad": {
+        "captain": "p0",
+        "coaches": [
+          "c0",
+          "c1"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ],
+        "subs": [
+          "p5",
+          "p6"
+        ],
+        "vice": "p1"
+      }
+    },
+    {
+      "errors": [
+        "starters are missing: sentinel"
+      ],
+      "event_kind": "international",
+      "name": "missing a role",
+      "squad": {
+        "captain": "p0",
+        "coaches": [
+          "c0",
+          "c1"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p4",
+          "p5"
+        ],
+        "subs": [
+          "p3",
+          "p6"
+        ],
+        "vice": "p1"
+      }
+    },
+    {
+      "errors": [
+        "more than 2 players from one team"
+      ],
+      "event_kind": "international",
+      "name": "three from one team",
+      "squad": {
+        "captain": "p0",
+        "coaches": [
+          "c0",
+          "c1"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p8"
+        ],
+        "subs": [
+          "p5",
+          "p6"
+        ],
+        "vice": "p1"
+      }
+    },
+    {
+      "errors": [
+        "more than 1 coach from one team"
+      ],
+      "event_kind": "international",
+      "name": "two coaches from one team",
+      "squad": {
+        "captain": "p0",
+        "coaches": [
+          "c1",
+          "c2"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ],
+        "subs": [
+          "p5",
+          "p6"
+        ],
+        "vice": "p1"
+      }
+    },
+    {
+      "errors": [
+        "needs 5 starters",
+        "needs 2 subs",
+        "needs 2 coaches"
+      ],
+      "event_kind": "international",
+      "name": "wrong counts",
+      "squad": {
+        "captain": "p0",
+        "coaches": [
+          "c0"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+        ],
+        "subs": [
+          "p5",
+          "p6",
+          "p4"
+        ],
+        "vice": "p1"
+      }
+    },
+    {
+      "errors": [
+        "the same person is picked twice",
+        "more than 2 players from one team"
+      ],
+      "event_kind": "international",
+      "name": "same person twice",
+      "squad": {
+        "captain": "p1",
+        "coaches": [
+          "c0",
+          "c1"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p0"
+        ],
+        "subs": [
+          "p5",
+          "p6"
+        ],
+        "vice": "p2"
+      }
+    },
+    {
+      "errors": [
+        "not available in this bracket: zz"
+      ],
+      "event_kind": "international",
+      "name": "unknown entity",
+      "squad": {
+        "captain": "p0",
+        "coaches": [
+          "c0",
+          "c1"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "zz"
+        ],
+        "subs": [
+          "p5",
+          "p6"
+        ],
+        "vice": "p1"
+      }
+    },
+    {
+      "errors": [
+        "a coach is in a player slot",
+        "more than 2 players from one team"
+      ],
+      "event_kind": "international",
+      "name": "coach in a player slot",
+      "squad": {
+        "captain": "p0",
+        "coaches": [
+          "c0",
+          "c1"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "c2"
+        ],
+        "subs": [
+          "p5",
+          "p6"
+        ],
+        "vice": "p1"
+      }
+    },
+    {
+      "errors": [
+        "captain and vice-captain must be starters"
+      ],
+      "event_kind": "international",
+      "name": "captain on the bench",
+      "squad": {
+        "captain": "p5",
+        "coaches": [
+          "c0",
+          "c1"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ],
+        "subs": [
+          "p5",
+          "p6"
+        ],
+        "vice": "p1"
+      }
+    },
+    {
+      "errors": [
+        "captain and vice-captain must be different players"
+      ],
+      "event_kind": "international",
+      "name": "captain is vice",
+      "squad": {
+        "captain": "p0",
+        "coaches": [
+          "c0",
+          "c1"
+        ],
+        "starters": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ],
+        "subs": [
+          "p5",
+          "p6"
+        ],
+        "vice": "p0"
+      }
+    }
+  ]
+}

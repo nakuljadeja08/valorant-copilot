@@ -56,11 +56,21 @@ const NAV = [
       </svg>
     ),
   },
+  {
+    route: "fantasy",
+    label: "Fantasy",
+    icon: (
+      <svg width="17" height="17" viewBox="0 0 17 17" fill="currentColor" aria-hidden="true">
+        <path d="M2 2 H15 V7 C15 11 12 14.5 8.5 16 C5 14.5 2 11 2 7 Z" opacity="0.35" />
+        <path d="M8.5 3.5 L10 7 L13.6 7.2 L10.8 9.5 L11.8 13 L8.5 11 L5.2 13 L6.2 9.5 L3.4 7.2 L7 7 Z" />
+      </svg>
+    ),
+  },
 ];
 
 export default function SideRail({ route, provenance, onReplayIntro }) {
   const onMatch = route.startsWith("match/");
-  const active = onMatch ? "matches" : route;
+  const active = onMatch ? "matches" : route.startsWith("fantasy") ? "fantasy" : route;
   const sources = provenance?.sources?.join(" · ");
 
   return (

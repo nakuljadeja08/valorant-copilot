@@ -26,6 +26,17 @@
     "required_roles": ["duelist", "initiator", "controller", "sentinel"],
     "captain_multiplier": 2
   },
+  "transfers": {
+    "free_per_week": 1,
+    "max_banked": 2,
+    "hit": 4
+  },
+  "chips": {
+    "triple_captain": {"captain_multiplier": 3},
+    "bench_boost": {},
+    "uses_per_half": 1,
+    "second_half_from": "masters_valencia"
+  },
   "prices": {
     "player_min": 7.5,
     "player_max": 15.0,

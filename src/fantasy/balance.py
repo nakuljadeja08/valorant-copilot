@@ -44,7 +44,7 @@ def _brackets(conn: sqlite3.Connection) -> list[sqlite3.Row]:
     return conn.execute("SELECT DISTINCT event_id, bracket FROM event_teams ORDER BY 1, 2").fetchall()
 
 
-def _pool(conn: sqlite3.Connection, event_id: str, bracket: str) -> dict[str, dict[str, Any]]:
+def event_pool(conn: sqlite3.Connection, event_id: str, bracket: str) -> dict[str, dict[str, Any]]:
     rows = conn.execute(
         """SELECT ep.entity_id, ep.kind, ep.team_id, ep.price, ep.listed_role FROM event_prices ep
            JOIN event_teams et ON et.event_id = ep.event_id AND et.team_id = ep.team_id
@@ -64,7 +64,7 @@ def _weekly_points(conn: sqlite3.Connection, event_id: str, bracket: str) -> dic
     return weeks
 
 
-def _random_squad(rng: random.Random, pool: dict[str, dict], rules: dict) -> Squad:
+def random_squad(rng: random.Random, pool: dict[str, dict], rules: dict) -> Squad:
     """A manager's plausible pick: legal shape, no hindsight. May be over budget."""
     by_role: dict[str, list[str]] = defaultdict(list)
     players, coaches = [], []
@@ -101,7 +101,7 @@ def _best_squad(pool: dict[str, dict], totals: dict[str, float], rules: dict, rn
     for _ in range(SEARCH_RESTARTS):
         current = None
         for _ in range(3000):
-            candidate = _random_squad(rng, pool, rules)
+            candidate = random_squad(rng, pool, rules)
             if legal(candidate):
                 current = candidate
                 break
@@ -138,7 +138,7 @@ def _best_squad(pool: dict[str, dict], totals: dict[str, float], rules: dict, rn
 
 
 def _bracket_metrics(conn: sqlite3.Connection, event_id: str, bracket: str, rules: dict, seed: int) -> dict:
-    pool = _pool(conn, event_id, bracket)
+    pool = event_pool(conn, event_id, bracket)
     weeks = _weekly_points(conn, event_id, bracket)
     kind = conn.execute("SELECT kind FROM events WHERE event_id = ?", (event_id,)).fetchone()["kind"]
     budget = rules["squad"]["budget"][kind]
@@ -156,7 +156,7 @@ def _bracket_metrics(conn: sqlite3.Connection, event_id: str, bracket: str, rule
     squad_total = 0.0
     while legal < RANDOM_SQUADS_PER_BRACKET and attempts < RANDOM_SQUADS_PER_BRACKET * 40:
         attempts += 1
-        squad = _random_squad(rng, pool, rules)
+        squad = random_squad(rng, pool, rules)
         if validate_squad(squad, pool, rules, kind):
             continue
         legal += 1

@@ -10,6 +10,7 @@ import src.fantasy.export as fx
 from src.fantasy.export import decode_refs, export
 from src.fantasy.scoring import score_season
 from src.fantasy.source import SimProSeasonSource
+from src.fantasy.squads import Squad, score_week, validate_squad
 from src.fantasy.store import load_season, open_store
 
 
@@ -119,6 +120,29 @@ def test_pools_match_prices_and_brackets(season, bundle):
             assert all(p["previous_price"] is None for p in pool["pool"])
         if event["kind"] == "international":
             assert {p["bracket"] for p in pool["pool"]} == {"global"}
+
+
+def test_rivals_are_legal_and_scored_from_the_week_files(season, bundle):
+    out, _ = bundle
+    rivals = _load(out / "rivals.json")
+    s = _load(out / "season.json")
+    rules = s["rules"]
+    assert len(rivals["managers"]) == len(s["regions"]) * fx.RIVALS_PER_REGION
+    for event in s["events"]:
+        pool = {p["entity_id"]: p for p in _load(out / "players" / f"{event['event_id']}.json")["pool"]}
+        weeks = {w["week_num"]: _load(out / "points" / f"{event['event_id']}-w{w['week_num']}.json")
+                 for w in event["weeks"]}
+        for m in rivals["managers"]:
+            raw = rivals["squads"][event["event_id"]][m["manager_id"]]
+            squad = Squad(tuple(raw["starters"]), tuple(raw["subs"]), tuple(raw["coaches"]),
+                          raw["captain"], raw["vice"])
+            bracket = "global" if event["kind"] == "international" else m["region"]
+            allowed = {k: v for k, v in pool.items() if v["bracket"] == bracket}
+            assert validate_squad(squad, allowed, rules, event["kind"]) == []
+            for n, week in weeks.items():
+                points = {e: v["total"] for e, v in week["entities"].items()}
+                assert rivals["scores"][m["manager_id"]][f"{event['event_id']}-w{n}"] == \
+                    pytest.approx(score_week(squad, points, rules)["total"])
 
 
 def test_season_carries_provenance_and_no_ground_truth(bundle):

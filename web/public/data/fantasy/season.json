@@ -16276,6 +16276,14 @@
     "pacific"
   ],
   "rules": {
+    "chips": {
+      "bench_boost": {},
+      "second_half_from": "masters_valencia",
+      "triple_captain": {
+        "captain_multiplier": 3
+      },
+      "uses_per_half": 1
+    },
     "coach": {
       "map_win": 12,
       "round_diff_divisor": 3,
@@ -16334,9 +16342,14 @@
       ],
       "starters": 5,
       "subs": 2
+    },
+    "transfers": {
+      "free_per_week": 1,
+      "hit": 4,
+      "max_banked": 2
     }
   },
-  "rules_version": "4c8badfec8d2",
+  "rules_version": "8873975186fb",
   "teams": [
     {
       "name": "Hollow Sparrows",

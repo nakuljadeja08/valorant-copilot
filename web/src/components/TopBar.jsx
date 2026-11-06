@@ -14,6 +14,8 @@ const CRUMB = {
 
 export default function TopBar({ route, matchId, season, matches }) {
   let crumb = CRUMB[route] ?? "Overview";
+  const fantasy = route.startsWith("fantasy");
+  if (fantasy) crumb = "Fantasy";
   if (matchId) {
     const m = matches?.find((x) => x.match_id === matchId);
     crumb = m ? `Match · ${m.map_name}` : "Match";
@@ -22,7 +24,9 @@ export default function TopBar({ route, matchId, season, matches }) {
   // Every first-person number is phrased for one side; say which, rather than
   // implying a "you" the data may not support.
   const side = matches?.[0] ? heroTeam(matches[0]) : "Blue";
-  const sub = `Competitive · ${matches?.length ?? 0} matches · hero: ${side}`;
+  const sub = fantasy
+    ? "Simulated VCT 2027 season · fictional players"
+    : `Competitive · ${matches?.length ?? 0} matches · hero: ${side}`;
 
   return (
     <div className="topbar">
@@ -54,7 +58,7 @@ export default function TopBar({ route, matchId, season, matches }) {
           <span className="account-avatar" aria-hidden="true">
             NJ
           </span>
-          <span className="account-label">{side} side</span>
+          <span className="account-label">{fantasy ? "Manager" : `${side} side`}</span>
         </div>
       </div>
     </div>

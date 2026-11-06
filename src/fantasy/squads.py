@@ -1,7 +1,7 @@
 """Squad rules and weekly squad scoring, as pure functions.
 
-No database here. F4 ports these to the browser and F5 to Postgres, with shared test cases
-keeping all three in agreement. Chips and transfers arrive with the game in F4.
+No database here. `web/src/lib/fantasy.js` ports these to the browser and F5 to Postgres,
+with the shared cases in `tests/fixtures/fantasy_cases.json` keeping them in agreement.
 """
 
 from __future__ import annotations
@@ -71,21 +71,35 @@ def validate_squad(squad: Squad, prices: dict[str, dict[str, Any]], rules: dict[
     return errors
 
 
-def score_week(squad: Squad, points: dict[str, float], rules: dict[str, Any]) -> dict[str, float]:
+CHIPS = ("triple_captain", "bench_boost")
+
+
+def score_week(squad: Squad, points: dict[str, float], rules: dict[str, Any],
+               chip: str | None = None) -> dict[str, float]:
     """One match week. `points` holds only people who played, so absence means no map.
 
     A starter who plays no map is replaced by the first unused sub who did. The captain's
     points double; if the captain played nothing, the vice-captain's double instead. The
     extra goes to whoever actually played, and only a starter can hold the armband.
+
+    Bench Boost scores every sub who played, with no auto-sub needed. Triple Captain
+    raises the armband's multiplier, and moves to the vice the same way.
     """
+    if chip is not None and chip not in CHIPS:
+        raise ValueError(f"unknown chip {chip!r}")
     fielded = [p for p in squad.starters if p in points]
     bench = [p for p in squad.subs if p in points]
-    missing = sum(1 for p in squad.starters if p not in points)
-    fielded += bench[:missing]
+    if chip == "bench_boost":
+        fielded += bench
+    else:
+        missing = sum(1 for p in squad.starters if p not in points)
+        fielded += bench[:missing]
 
     players = sum(points[p] for p in fielded)
+    multiplier = (rules["chips"]["triple_captain"]["captain_multiplier"] if chip == "triple_captain"
+                  else rules["squad"]["captain_multiplier"])
     armband = squad.captain if squad.captain in points else squad.vice if squad.vice in points else None
-    bonus = points[armband] * (rules["squad"]["captain_multiplier"] - 1) if armband else 0.0
+    bonus = points[armband] * (multiplier - 1) if armband else 0.0
     coaches = sum(points.get(c, 0.0) for c in squad.coaches)
     return {
         "players": players,
@@ -93,3 +107,28 @@ def score_week(squad: Squad, points: dict[str, float], rules: dict[str, Any]) ->
         "coaches": coaches,
         "total": players + bonus + coaches,
     }
+
+
+def transfers_made(previous: Squad, squad: Squad) -> int:
+    """People in the new squad who weren't in the old one. Reordering the bench is free."""
+    before = {*previous.starters, *previous.subs, *previous.coaches}
+    return sum(1 for e in (*squad.starters, *squad.subs, *squad.coaches) if e not in before)
+
+
+def transfer_hit(made: int, free: int, rules: dict[str, Any]) -> float:
+    """Points deducted for transfers beyond the free ones."""
+    return max(0, made - free) * rules["transfers"]["hit"]
+
+
+def free_transfers_next(free: int, made: int, rules: dict[str, Any]) -> int:
+    """Unused free transfers roll over, up to the bank limit. An event's first week is a
+    free rebuild, so callers reset to `free_per_week` after it rather than calling this."""
+    t = rules["transfers"]
+    return min(t["max_banked"], max(0, free - made) + t["free_per_week"])
+
+
+def chip_half(event_id: str, event_order: list[str], rules: dict[str, Any]) -> int:
+    """1 before the split event, 2 from it on. Each chip can be used once per half."""
+    split = event_order.index(rules["chips"]["second_half_from"])
+    return 2 if event_order.index(event_id) >= split else 1
+

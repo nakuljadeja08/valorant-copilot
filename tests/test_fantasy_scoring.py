@@ -9,7 +9,7 @@ import json
 
 import pytest
 
-from src.fantasy.balance import _best_squad, _pool, summarize
+from src.fantasy.balance import _best_squad, event_pool, summarize
 from src.fantasy.prices import team_price_totals
 from src.fantasy.scoring import (
     compute_event_rows, load_rules, role_bonuses, rules_version, score_season,
@@ -432,7 +432,7 @@ def test_listed_roles_are_real_roles(season):
 def test_best_squad_search_returns_a_legal_squad(season):
     import random
     rules = load_rules()
-    pool = _pool(season, "kickoff", "americas")
+    pool = event_pool(season, "kickoff", "americas")
     totals = {r["entity_id"]: float(i) for i, r in enumerate(
         season.execute("SELECT entity_id FROM event_prices WHERE event_id='kickoff' ORDER BY entity_id"))}
     best = _best_squad(pool, totals, rules, random.Random(1))

@@ -259,6 +259,7 @@ describe("dashboard", () => {
       ["#/matches", "Matches", "a.match-card"],
       ["#/agents", "Agent Pipeline", ".pipeline"],
       ["#/role", "Role Lens", ".role-grid"],
+      ["#/fantasy", "Fantasy", ".fx-regions"],
     ];
 
     for (const [hash, label, marker] of expected) {
@@ -266,7 +267,7 @@ describe("dashboard", () => {
 
       assert.deepEqual(
         [...container.querySelectorAll(".rail-nav a")].map((a) => a.getAttribute("href")),
-        ["#/", "#/matches", "#/agents", "#/role"],
+        ["#/", "#/matches", "#/agents", "#/role", "#/fantasy"],
       );
       assert.ok(container.querySelector(marker), `${hash} did not render ${marker}`);
 
@@ -291,6 +292,65 @@ describe("dashboard", () => {
   it("a bare fragment falls back to the overview", async () => {
     const { container } = await mount("#");
     assert.ok(container.querySelector(".kpi-grid"), "bare # lost the overview");
+  });
+
+  /* The fantasy game: landing, then a whole week played through the real UI. */
+  it("fantasy landing pitches the game, labels it simulated, and carries the legal notice", async () => {
+    const { container } = await mount("#/fantasy");
+    const season = JSON.parse(
+      await readFile(path.join(dataRoot, "fantasy", "season.json"), "utf-8"),
+    );
+    assert.equal(container.querySelectorAll(".fx-region").length, season.regions.length);
+    assert.match(container.textContent, /fictional/i);
+    assert.match(container.textContent, /Riot Games does not endorse or sponsor this project/);
+    assert.match(container.textContent, new RegExp(season.provenance.note));
+    // The coaching intro would sit on top of the pitch.
+    assert.equal(container.querySelector(".onboard"), null);
+  });
+
+  it("fantasy: pick a region, auto-pick a squad, lock it, and open a point's trace", async () => {
+    const { container, dom } = await mount("#/fantasy");
+    const click = async (el) =>
+      React.act(async () => {
+        el.dispatchEvent(new global.window.MouseEvent("click", { bubbles: true }));
+      });
+    const settle = async (test) => {
+      for (let i = 0; i < 100 && !test(); i++) {
+        await React.act(async () => {
+          await new Promise((r) => setTimeout(r, 2));
+        });
+      }
+    };
+
+    await click(container.querySelector(".fx-region"));
+    assert.match(container.textContent, /Your season/);
+    assert.ok(dom.window.localStorage.getItem("vcp-fantasy"), "season not saved");
+
+    dom.window.location.hash = "#/fantasy/squad";
+    await settle(() => container.querySelector(".fx-pool-table tbody tr"));
+    const lockButton = () => findButton(container, /Lock squad/);
+    assert.ok(lockButton().disabled, "an empty squad can be locked");
+
+    await click(findButton(container, /Auto-pick/));
+    assert.equal(container.querySelectorAll(".fx-slot:not(.fx-slot-empty)").length, 9);
+    assert.equal(container.querySelector(".fx-errors"), null);
+    assert.ok(!lockButton().disabled);
+
+    await click(lockButton());
+    await settle(() => /points/.test(container.querySelector(".page-title")?.textContent ?? ""));
+    assert.match(dom.window.location.hash, /#\/fantasy\/week\/kickoff-w1/);
+    await settle(() => container.querySelector(".fx-result"));
+    assert.equal(container.querySelectorAll(".fx-result").length, 9);
+
+    const open = findButton(container, /where the points came from/);
+    assert.ok(open, "no player had a map to open");
+    await click(open);
+    await settle(() => container.querySelector("article.claim"));
+    const claim = container.querySelector("article.claim");
+    assert.ok(claim, "the map's trace never rendered");
+    await click(findButton(claim, /Show decision trace/));
+    assert.ok(claim.querySelector(".rows li"), "fantasy trace cited no raw rows");
+    dom.window.localStorage.removeItem("vcp-fantasy");
   });
 
   it("theme toggle flips the document theme and persists it", async () => {
@@ -504,6 +564,8 @@ describe("dashboard", () => {
       "src/styles/chrome.css",
       "src/styles/charts.css",
       "src/styles/views.css",
+      "src/styles/fantasy.css",
+      "src/lib/fantasy.js",
     ];
     const sources = await Promise.all(
       files.map(async (f) => [f, await readFile(path.join(webRoot, f), "utf-8")]),

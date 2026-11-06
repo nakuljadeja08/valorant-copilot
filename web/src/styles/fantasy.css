@@ -1,0 +1,429 @@
+/* The fantasy game. Same tokens and primitives as the dashboard (panels, chips,
+   tiles, table-toggle buttons); only layout and the squad slots are new. */
+
+.fx-subnav {
+  margin-bottom: 18px;
+}
+
+.fx-subnav .chip {
+  text-decoration: none;
+}
+
+.fx-subnav .chip[aria-current="page"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--surface-page);
+  font-weight: 600;
+}
+
+.fx-subnav-note {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--ink-faint);
+}
+
+.fx-pitch,
+.fx-two {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.fx-two {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.fx-pitch .lede,
+.fx-next .lede {
+  margin-top: 6px;
+}
+
+.fx-kpis {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* ------------------------------------------------------------- regions --- */
+
+.fx-regions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.fx-region {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding: 16px;
+  background: var(--surface-card);
+  border: 1px solid var(--line-2);
+  cursor: pointer;
+  text-align: left;
+}
+
+.fx-region:hover {
+  border-color: var(--hairline-accent);
+  background: var(--brand-wash);
+}
+
+.fx-region-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.fx-region-meta {
+  font-size: 11px;
+  color: var(--ink-faint);
+}
+
+/* ------------------------------------------------------------ buttons --- */
+
+.fx-cta {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 9px 18px;
+  border: 0;
+  background: var(--brand-grad);
+  color: var(--on-brand);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.fx-cta:disabled {
+  background: var(--surface-inset);
+  color: var(--ink-faint);
+  cursor: not-allowed;
+}
+
+.table-toggle:disabled,
+.chip:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.table-toggle[aria-pressed="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--surface-page);
+}
+
+/* ------------------------------------------------------------- builder --- */
+
+.fx-builder {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 12px;
+  align-items: start;
+}
+
+.fx-group {
+  margin: 14px 0 6px;
+}
+
+.fx-slots,
+.fx-results,
+.fx-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.fx-list li {
+  font-size: 13px;
+  color: var(--ink-body);
+  padding: 4px 0;
+  border-bottom: 1px solid var(--grid);
+}
+
+.fx-result-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--grid);
+}
+
+/* Name and price on one line, controls under the name: the squad column is narrow,
+   and a single row squeezed the price under the armband badge. */
+.fx-slot {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr) auto;
+  grid-template-areas:
+    "role name price"
+    ". actions actions";
+  align-items: center;
+  gap: 4px 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--grid);
+}
+
+.fx-slot-empty {
+  grid-template-areas: "role name price";
+}
+
+.fx-slot .fx-slot-role {
+  grid-area: role;
+}
+.fx-slot .fx-slot-name {
+  grid-area: name;
+}
+.fx-slot .fx-slot-price {
+  grid-area: price;
+}
+.fx-slot .fx-slot-actions {
+  grid-area: actions;
+}
+
+.fx-slot-empty {
+  opacity: 0.6;
+}
+
+.fx-swapping {
+  background: var(--brand-wash);
+}
+
+.fx-slot-role {
+  flex: none;
+  width: 72px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.fx-slot-name {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+}
+
+.fx-slot-name a {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.fx-slot-name a:hover {
+  text-decoration: underline;
+}
+
+.fx-slot-team,
+.fx-sub {
+  font-size: 11px;
+  color: var(--ink-faint);
+}
+
+.fx-slot-price,
+.fx-result-pts {
+  flex: none;
+  font-size: 13px;
+}
+
+.fx-result-pts {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.fx-slot-actions {
+  flex: none;
+  display: flex;
+  gap: 4px;
+}
+
+.fx-slot-actions .table-toggle {
+  padding: 2px 7px;
+}
+
+.fx-band {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 0 5px;
+  background: var(--warn);
+  color: var(--on-good);
+}
+
+.fx-band-vice {
+  background: none;
+  color: var(--warn);
+  border: 1px solid var(--warn);
+}
+
+.fx-budget {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+}
+
+.fx-budget-bar {
+  flex: 1;
+  height: 6px;
+  background: var(--surface-inset);
+}
+
+.fx-budget-bar span {
+  display: block;
+  height: 100%;
+  background: var(--good);
+}
+
+.fx-budget.over .fx-budget-bar span {
+  background: var(--bad);
+}
+
+.fx-budget.over .mono {
+  color: var(--bad);
+}
+
+.fx-transfers {
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--ink-body);
+}
+
+.fx-chips {
+  margin-top: 10px;
+}
+
+.fx-errors {
+  margin: 12px 0 0;
+  padding: 8px 12px 8px 26px;
+  border: 1px solid var(--line-2);
+  border-left: 3px solid var(--warn);
+  font-size: 12px;
+  color: var(--ink-body);
+}
+
+.fx-search {
+  min-width: 140px;
+  flex: 1;
+  background: var(--surface-panel);
+  color: var(--ink);
+}
+
+.fx-pool .table-scroll {
+  max-height: 640px;
+  overflow-y: auto;
+  /* Contains the visually-hidden header, which is absolutely positioned and would
+     otherwise widen the page on a 320px phone. */
+  position: relative;
+}
+
+.fx-table td {
+  white-space: normal;
+}
+
+.fx-table td a {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.fx-picked td {
+  background: var(--brand-wash);
+}
+
+.fx-you td {
+  background: var(--brand-wash);
+  font-weight: 700;
+}
+
+.fx-delta {
+  margin-left: 3px;
+  font-size: 9px;
+}
+
+/* ------------------------------------------------------------- results --- */
+
+.fx-result-out .fx-result-line {
+  opacity: 0.55;
+}
+
+.fx-maps {
+  padding: 0 0 8px 82px;
+}
+
+.fx-map {
+  margin-top: 10px;
+}
+
+.fx-map-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 4px;
+}
+
+.fx-breakdown {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  font-size: 12px;
+}
+
+.fx-breakdown li {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 2px 0;
+  color: var(--ink-body);
+}
+
+/* ---------------------------------------------------------------- legal --- */
+
+.fx-legal {
+  margin-top: 32px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line-1);
+  font-size: 11px;
+  color: var(--ink-faint);
+  max-width: 80ch;
+}
+
+.fx-legal p {
+  margin: 0 0 6px;
+}
+
+@media (max-width: 900px) {
+  /* minmax(0, ...) so a wide table scrolls inside its panel instead of widening it. */
+  .fx-builder,
+  .fx-pitch,
+  .fx-two {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .fx-regions,
+  .fx-kpis {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .fx-subnav-note {
+    margin-left: 0;
+    flex-basis: 100%;
+  }
+  .fx-maps {
+    padding-left: 0;
+  }
+  .fx-slot-role {
+    width: 58px;
+  }
+  .fx-slot {
+    grid-template-columns: 58px minmax(0, 1fr) auto;
+  }
+}
+
+.fx-map-vs {
+  flex: 1;
+  margin-left: 10px;
+}

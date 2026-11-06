@@ -8,6 +8,7 @@ store re-exports to identical bytes and CI can diff the result. Four shapes, all
   players/<event>.json      that event's prices and listed roles: the squad builder's pool
   points/<event>-w<n>.json  verified points per player and coach for one match week
   traces/<match_id>.json    every point on one map, down to the kills and rounds behind it
+  rivals.json               simulated rival managers, so a league table works with no backend
 
 Traces are compact JSON and index kills and players within the map, because the store's
 lineage is ~48 MB as written. Nothing is dropped: `decode_refs` rebuilds the store's exact
@@ -28,12 +29,15 @@ from __future__ import annotations
 
 import argparse
 import json
+import random
 import sqlite3
 from pathlib import Path
 from typing import Any
 
 from src.export.bundle import dumps
+from src.fantasy.balance import event_pool, random_squad
 from src.fantasy.scoring import SCOPE, load_rules, rules_version
+from src.fantasy.squads import score_week, validate_squad
 from src.fantasy.store import open_store
 from src.fantasy.verify import Mismatch, verify_points
 from src.riot.resolve import ContentResolver, default_resolver, role_of
@@ -54,7 +58,20 @@ PROVENANCE_DETAIL = (
     "they are published."
 )
 
-_OWNED = ("season.json", "players", "points", "traces")
+_OWNED = ("season.json", "rivals.json", "players", "points", "traces")
+
+# Rival managers per home region. They pick a fresh legal squad at each event from prices
+# alone, with no hindsight, and keep it for the event: a plausible casual manager.
+RIVALS_PER_REGION = 8
+RIVAL_SEED = 2027
+# Manager-style names, kept clear of the words pro team names use, so a rival can
+# never be mistaken for a team.
+_RIVAL_WORDS = (
+    ("Midnight", "Static", "Granite", "Feral", "Northern", "Lucky", "Rusty", "Electric",
+     "Sleepy", "Mighty", "Tiny", "Reckless"),
+    ("Snipers", "Defusers", "Rotators", "Lurkers", "Peekers", "Planters", "Clutchers",
+     "Flankers", "Eco Kings", "Op Hoarders", "Spike Carriers", "Entry Fraggers"),
+)
 
 
 def _compact(obj: Any) -> str:
@@ -302,6 +319,59 @@ def build_week(event: dict[str, Any], week: dict[str, Any], traces: list[dict[st
     }
 
 
+def _rival_name(rng: random.Random, taken: set[str]) -> str:
+    while True:
+        name = f"{rng.choice(_RIVAL_WORDS[0])} {rng.choice(_RIVAL_WORDS[1])}"
+        if name not in taken:
+            taken.add(name)
+            return name
+
+
+def _rival_squad(rng: random.Random, pool: dict[str, dict[str, Any]], rules: dict[str, Any],
+                 kind: str) -> dict[str, Any]:
+    for _ in range(5000):
+        squad = random_squad(rng, pool, rules)
+        if not validate_squad(squad, pool, rules, kind):
+            return squad
+    raise SystemExit("could not draw a legal rival squad; check budgets against prices")
+
+
+def build_rivals(conn: sqlite3.Connection, season: dict[str, Any],
+                 week_points: dict[tuple[str, int], dict[str, float]],
+                 rules: dict[str, Any]) -> dict[str, Any]:
+    """Seeded rival managers with their squads and weekly scores, scored by `score_week`."""
+    rng = random.Random(RIVAL_SEED)
+    taken: set[str] = set()
+    managers = [
+        {"manager_id": f"rival-{region}-{i + 1}", "name": _rival_name(rng, taken), "region": region}
+        for region in season["regions"] for i in range(RIVALS_PER_REGION)
+    ]
+    squads: dict[str, dict[str, Any]] = {}
+    scores: dict[str, dict[str, float]] = {m["manager_id"]: {} for m in managers}
+    for event in season["events"]:
+        eid, kind = event["event_id"], event["kind"]
+        pools = {b: event_pool(conn, eid, b) for b in {t["bracket"] for t in event["entries"]}}
+        squads[eid] = {}
+        for m in managers:
+            bracket = "global" if kind == "international" else m["region"]
+            squad = _rival_squad(random.Random(f"{RIVAL_SEED}:{m['manager_id']}:{eid}"),
+                                 pools[bracket], rules, kind)
+            squads[eid][m["manager_id"]] = {
+                "starters": list(squad.starters), "subs": list(squad.subs),
+                "coaches": list(squad.coaches), "captain": squad.captain, "vice": squad.vice,
+            }
+            for week in event["weeks"]:
+                points = week_points.get((eid, week["week_num"]), {})
+                scores[m["manager_id"]][f"{eid}-w{week['week_num']}"] =                     score_week(squad, points, rules)["total"]
+    return {
+        "bundle_version": FANTASY_BUNDLE_VERSION,
+        "note": "Simulated rival managers: seeded squads picked from prices alone, no real people.",
+        "managers": managers,
+        "squads": squads,
+        "scores": scores,
+    }
+
+
 # ---------------------------------------------------------------- export
 
 def _clear(out_dir: Path) -> None:
@@ -352,6 +422,7 @@ def export(conn: sqlite3.Connection, out_dir: Path = DEFAULT_OUT,
         (out_dir / "traces" / f"{sm['match_id']}.json").write_text(_compact(trace), encoding="utf-8")
         by_week.setdefault((sm["event_id"], sm["week_num"]), []).append(trace)
 
+    week_points: dict[tuple[str, int], dict[str, float]] = {}
     previous = None
     for event in season["events"]:
         eid = event["event_id"]
@@ -363,8 +434,13 @@ def export(conn: sqlite3.Connection, out_dir: Path = DEFAULT_OUT,
             maps = {t["match_id"] for t in traces}
             excluded = [{"match_id": m.match_id, "name": m.name, "reason": m.reason}
                         for m in mismatches if m.match_id in maps]
+            built = build_week(event, week, traces, kinds, excluded, version)
+            week_points[(eid, week["week_num"])] = {e: v["total"] for e, v in built["entities"].items()}
             (out_dir / "points" / f"{eid}-w{week['week_num']}.json").write_text(
-                dumps(build_week(event, week, traces, kinds, excluded, version)), encoding="utf-8")
+                dumps(built), encoding="utf-8")
+
+    (out_dir / "rivals.json").write_text(
+        dumps(build_rivals(conn, season, week_points, rules)), encoding="utf-8")
 
     size = dir_size(out_dir)
     if size > SIZE_BUDGET_BYTES:
