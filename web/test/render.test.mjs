@@ -331,8 +331,16 @@ describe("dashboard", () => {
     const lockButton = () => findButton(container, /Lock squad/);
     assert.ok(lockButton().disabled, "an empty squad can be locked");
 
+    // Five empty seats on stage; the first sends you to the pool filtered to a missing role.
+    const seats = container.querySelectorAll(".fx-stage-seats .fx-seat-empty");
+    assert.equal(seats.length, 5);
+    assert.ok(container.querySelector(".fx-desk"), "no desk under the stage");
+    await click(seats[0].querySelector("button"));
+    const checked = container.querySelector('.fx-pool [role="radio"][aria-checked="true"]');
+    assert.equal(checked?.textContent, "Duelist");
+
     await click(findButton(container, /Auto-pick/));
-    assert.equal(container.querySelectorAll(".fx-slot:not(.fx-slot-empty)").length, 9);
+    assert.equal(container.querySelectorAll(".fx-seat:not(.fx-seat-empty)").length, 9);
     assert.equal(container.querySelector(".fx-errors"), null);
     assert.ok(!lockButton().disabled);
 

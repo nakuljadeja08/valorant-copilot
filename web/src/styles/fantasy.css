@@ -120,16 +120,14 @@
 
 .fx-builder {
   display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: 12px;
-  align-items: start;
 }
 
 .fx-group {
   margin: 14px 0 6px;
 }
 
-.fx-slots,
 .fx-results,
 .fx-list {
   list-style: none;
@@ -152,44 +150,6 @@
   border-bottom: 1px solid var(--grid);
 }
 
-/* Name and price on one line, controls under the name: the squad column is narrow,
-   and a single row squeezed the price under the armband badge. */
-.fx-slot {
-  display: grid;
-  grid-template-columns: 72px minmax(0, 1fr) auto;
-  grid-template-areas:
-    "role name price"
-    ". actions actions";
-  align-items: center;
-  gap: 4px 10px;
-  padding: 7px 0;
-  border-bottom: 1px solid var(--grid);
-}
-
-.fx-slot-empty {
-  grid-template-areas: "role name price";
-}
-
-.fx-slot .fx-slot-role {
-  grid-area: role;
-}
-.fx-slot .fx-slot-name {
-  grid-area: name;
-}
-.fx-slot .fx-slot-price {
-  grid-area: price;
-}
-.fx-slot .fx-slot-actions {
-  grid-area: actions;
-}
-
-.fx-slot-empty {
-  opacity: 0.6;
-}
-
-.fx-swapping {
-  background: var(--brand-wash);
-}
 
 .fx-slot-role {
   flex: none;
@@ -224,7 +184,6 @@
   color: var(--ink-faint);
 }
 
-.fx-slot-price,
 .fx-result-pts {
   flex: none;
   font-size: 13px;
@@ -233,16 +192,6 @@
 .fx-result-pts {
   font-size: 16px;
   font-weight: 600;
-}
-
-.fx-slot-actions {
-  flex: none;
-  display: flex;
-  gap: 4px;
-}
-
-.fx-slot-actions .table-toggle {
-  padding: 2px 7px;
 }
 
 .fx-band {
@@ -418,12 +367,379 @@
   .fx-slot-role {
     width: 58px;
   }
-  .fx-slot {
-    grid-template-columns: 58px minmax(0, 1fr) auto;
-  }
 }
 
 .fx-map-vs {
   flex: 1;
   margin-left: 10px;
+}
+
+/* --------------------------------------------------------------- stage ---
+   The starting five sit behind a broadcast desk, the bench and coaches in a
+   dugout row underneath. Decorative light only: every seat still carries its
+   role, name, team and price as text. */
+
+.fx-stage {
+  position: relative;
+  margin-top: 14px;
+  padding: 12px 16px 0;
+  border: 1px solid var(--line-2);
+  background:
+    radial-gradient(60% 90% at 20% -10%, rgba(255, 255, 255, 0.07), transparent 60%),
+    radial-gradient(60% 90% at 80% -10%, rgba(255, 255, 255, 0.07), transparent 60%),
+    radial-gradient(70% 60% at 50% 100%, var(--brand-wash), transparent 70%),
+    linear-gradient(180deg, var(--surface-inset), var(--surface-card));
+  overflow: hidden;
+}
+
+.fx-stage-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.fx-stage-label .fx-sub {
+  font-family: var(--font-ui);
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.fx-stage-seats,
+.fx-dugout-seats {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.fx-stage-seats {
+  position: relative;
+  z-index: 1;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  /* Seats overlap the desk edge, as if sitting behind it. */
+  margin-bottom: -10px;
+}
+
+/* In front of the seats, so they read as sitting behind it. */
+.fx-desk {
+  position: relative;
+  z-index: 2;
+  height: 30px;
+  margin: 0 -16px;
+  background: linear-gradient(180deg, var(--surface-panel), var(--surface-inset));
+  border-top: 2px solid var(--brand);
+  box-shadow: var(--brand-glow);
+}
+
+/* -- a seat ------------------------------------------------------------- */
+
+.fx-seat {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--surface-panel);
+  border: 1px solid var(--line-2);
+  clip-path: var(--notch-tile);
+}
+
+.fx-seat-captain {
+  border-color: var(--warn);
+}
+
+.fx-swapping {
+  border-color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 10%, var(--surface-panel));
+}
+
+.fx-seat-screen {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 6px 6px;
+  background: var(--surface-inset);
+  border-bottom: 1px solid var(--line-1);
+}
+
+.fx-seat-role {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.fx-seat-screen .fx-band {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+}
+
+.fx-seat-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1px;
+  padding: 8px 6px 4px;
+  min-width: 0;
+}
+
+.fx-seat-name {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.fx-seat-name:hover {
+  text-decoration: underline;
+}
+
+.fx-seat-team {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11px;
+  color: var(--ink-faint);
+}
+
+.fx-seat-price {
+  font-size: 12px;
+  color: var(--ink-body);
+}
+
+.fx-seat-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px 6px 16px;
+  margin-top: auto;
+}
+
+.fx-seat-actions .table-toggle {
+  min-width: 26px;
+  padding: 2px 6px;
+}
+
+/* Stage seats leave room at the foot for the desk to cut across. */
+.fx-seat-starter .fx-seat-actions {
+  padding-bottom: 18px;
+}
+
+/* -- empty seats --------------------------------------------------------- */
+
+.fx-seat-empty {
+  background: color-mix(in srgb, var(--surface-panel) 55%, transparent);
+  border-style: dashed;
+}
+
+.fx-seat-add {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 150px;
+  padding: 12px 6px 22px;
+  border: 0;
+  background: none;
+  color: var(--ink-muted);
+  font-size: 12px;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.fx-seat-add:hover {
+  color: var(--ink);
+  background: var(--brand-wash);
+}
+
+.fx-seat-plus {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px dashed var(--line-3);
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* -- dugout -------------------------------------------------------------- */
+
+.fx-dugout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.fx-dugout-group .eyebrow {
+  margin-bottom: 6px;
+}
+
+.fx-dugout-seats {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* Dugout seats are a single row each: screen on the left, details beside it. */
+.fx-dugout .fx-seat {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-areas:
+    "screen body"
+    "screen actions";
+  clip-path: none;
+}
+
+.fx-dugout .fx-seat-screen {
+  grid-area: screen;
+  justify-content: center;
+  padding: 8px;
+  border-bottom: 0;
+  border-right: 1px solid var(--line-1);
+}
+
+.fx-dugout .fx-seat-screen .fx-seat-role {
+  display: none;
+}
+
+.fx-dugout .fx-seat-body {
+  grid-area: body;
+  align-items: flex-start;
+  text-align: left;
+  padding: 6px 8px 0;
+}
+
+.fx-dugout .fx-seat-name {
+  font-size: 15px;
+}
+
+.fx-dugout .fx-seat-actions {
+  grid-area: actions;
+  justify-content: flex-start;
+  padding: 4px 8px 6px;
+}
+
+.fx-dugout .fx-seat-add {
+  flex-direction: row;
+  min-height: 64px;
+  padding: 8px;
+}
+
+.fx-dugout .fx-seat-plus {
+  width: 26px;
+  height: 26px;
+  font-size: 16px;
+}
+
+/* -- controls ------------------------------------------------------------ */
+
+.fx-controls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "transfers lock"
+    "chips lock"
+    "errors errors";
+  align-items: center;
+  column-gap: 16px;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line-1);
+}
+
+.fx-controls .fx-transfers {
+  grid-area: transfers;
+  margin-top: 0;
+}
+
+.fx-controls .fx-chips {
+  grid-area: chips;
+}
+
+.fx-controls .fx-errors {
+  grid-area: errors;
+}
+
+.fx-controls .fx-cta {
+  grid-area: lock;
+  margin-top: 0;
+}
+
+@media (max-width: 720px) {
+  /* 3 + 2, like a formation, so seats stay wide enough to read. */
+  .fx-stage {
+    padding: 12px 10px 0;
+  }
+  .fx-stage-seats {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .fx-stage-seats > .fx-seat {
+    grid-column: span 2;
+  }
+  .fx-stage-seats > .fx-seat:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+  .fx-desk {
+    margin: 0 -10px;
+  }
+  .fx-seat-name {
+    font-size: 15px;
+  }
+  .fx-seat-actions .table-toggle {
+    min-width: 22px;
+    padding: 1px 4px;
+  }
+  .fx-dugout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .fx-controls {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "transfers"
+      "chips"
+      "errors"
+      "lock";
+  }
+  .fx-controls .fx-cta {
+    margin-top: 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  /* 2 + 2 + 1 on the narrowest phones, so a handle fits without truncating. */
+  .fx-stage-seats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .fx-stage-seats > .fx-seat:nth-child(4) {
+    grid-column: span 2;
+  }
+  .fx-stage-seats > .fx-seat:nth-child(5) {
+    grid-column: 2 / span 2;
+  }
+  .fx-dugout-seats {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }

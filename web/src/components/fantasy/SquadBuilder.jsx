@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import { loadJson, useJson } from "../../lib/data.js";
 import {
@@ -17,6 +17,7 @@ import {
   squadCost,
   validateSquad,
 } from "../../lib/fantasy.js";
+import RoleGlyph from "../RoleGlyph.jsx";
 import { dateOf } from "./FantasyHub.jsx";
 import { regionLabel } from "./FantasyLanding.jsx";
 import { totalsFrom, usePlayedWeeks } from "./usePlayed.js";
@@ -37,6 +38,7 @@ export default function SquadBuilder({ season, state, setState, dir, weeks }) {
   const [query, setQuery] = useState("");
   const [swapping, setSwapping] = useState(null);
   const [locking, setLocking] = useState(false);
+  const poolRef = useRef(null);
 
   const pool = useMemo(
     () => (players && week ? poolFor(players, week.event, state.region) : null),
@@ -147,49 +149,90 @@ export default function SquadBuilder({ season, state, setState, dir, weeks }) {
         : b.price - a.price || a.handle.localeCompare(b.handle),
     );
 
-  const member = (e, slot) => {
+  // An empty seat sends you to the pool, filtered to what the squad still needs.
+  const browse = (r) => {
+    setRole(r);
+    poolRef.current?.scrollIntoView?.({ behavior: "smooth", block: "start" });
+  };
+
+  const seat = (e, slot) => {
     const p = pool[e];
+    const captain = draft.captain === e;
+    const vice = draft.vice === e;
     return (
-      <li key={e} className={`fx-slot${swapping === e ? " fx-swapping" : ""}`}>
-        <span className="fx-slot-role">{roleLabel(p.listed_role)}</span>
-        <span className="fx-slot-name">
-          <a href={`#/fantasy/player/${e}`}>{p.handle}</a>
-          {draft.captain === e && <span className="fx-band">C</span>}
-          {draft.vice === e && <span className="fx-band fx-band-vice">V</span>}
-          <span className="fx-slot-team">{teamName(p.team_id)}</span>
-        </span>
-        <span className="fx-slot-price mono">{fmtPrice(p.price)}</span>
-        <span className="fx-slot-actions">
+      <li
+        key={e}
+        className={`fx-seat fx-seat-${slot}${captain ? " fx-seat-captain" : ""}${swapping === e ? " fx-swapping" : ""}`}
+      >
+        <div className="fx-seat-screen">
+          {p.kind === "coach" ? <CoachGlyph /> : <RoleGlyph role={p.listed_role} size={slot === "starter" ? 40 : 30} />}
+          <span className="fx-seat-role">{roleLabel(p.listed_role)}</span>
+          {(captain || vice) && <span className={`fx-band${vice ? " fx-band-vice" : ""}`}>{captain ? "C" : "V"}</span>}
+        </div>
+        <div className="fx-seat-body">
+          <a className="fx-seat-name" href={`#/fantasy/player/${e}`}>
+            {p.handle}
+          </a>
+          <span className="fx-seat-team">{teamName(p.team_id)}</span>
+          <span className="fx-seat-price mono">{fmtPrice(p.price)}</span>
+        </div>
+        <div className="fx-seat-actions">
           {slot === "starter" && (
             <>
-              <button type="button" className="table-toggle" aria-pressed={draft.captain === e} onClick={() => armband(e, "captain")} title="Make captain">
+              <button type="button" className="table-toggle" aria-pressed={captain} onClick={() => armband(e, "captain")} aria-label={`Make ${p.handle} captain`} title="Captain">
                 C
               </button>
-              <button type="button" className="table-toggle" aria-pressed={draft.vice === e} onClick={() => armband(e, "vice")} title="Make vice-captain">
+              <button type="button" className="table-toggle" aria-pressed={vice} onClick={() => armband(e, "vice")} aria-label={`Make ${p.handle} vice-captain`} title="Vice-captain">
                 V
               </button>
             </>
           )}
           {slot !== "coach" && (
-            <button type="button" className="table-toggle" aria-pressed={swapping === e} onClick={() => swap(e)}>
-              Swap
+            <button
+              type="button"
+              className="table-toggle"
+              aria-pressed={swapping === e}
+              onClick={() => swap(e)}
+              aria-label={slot === "starter" ? `Swap ${p.handle} with a sub` : `Swap ${p.handle} onto the stage`}
+              title="Swap"
+            >
+              ⇄
             </button>
           )}
-          <button type="button" className="table-toggle" onClick={() => remove(e)} aria-label={`Remove ${p.handle}`}>
+          <button type="button" className="table-toggle" onClick={() => remove(e)} aria-label={`Remove ${p.handle}`} title="Remove">
             ✕
           </button>
-        </span>
+        </div>
       </li>
     );
   };
 
-  const empty = (label, n) =>
-    Array.from({ length: n }, (_, i) => (
-      <li key={`empty-${label}-${i}`} className="fx-slot fx-slot-empty">
-        <span className="fx-slot-role">{label}</span>
-        <span className="fx-slot-name tone-muted">Empty</span>
-      </li>
-    ));
+  const emptySeats = (slot, n, hints) =>
+    Array.from({ length: n }, (_, i) => {
+      const want = hints[i] ?? hints.at(-1);
+      return (
+        <li key={`empty-${slot}-${i}`} className={`fx-seat fx-seat-${slot} fx-seat-empty`}>
+          <button type="button" className="fx-seat-add" onClick={() => browse(want.filter)}>
+            <span className="fx-seat-plus" aria-hidden="true">
+              +
+            </span>
+            <span>{want.label}</span>
+          </button>
+        </li>
+      );
+    });
+
+  // Starters sit on stage by role, left to right, so the desk reads like a lineup.
+  const onStage = [...draft.starters].sort(
+    (a, b) => ROLES.indexOf(pool[a].listed_role) - ROLES.indexOf(pool[b].listed_role),
+  );
+  const listedRoles = new Set(draft.starters.map((e) => pool[e].listed_role));
+  const starterHints = [
+    ...rules.squad.required_roles
+      .filter((r) => !listedRoles.has(r))
+      .map((r) => ({ label: `Add ${r}`, filter: r })),
+    { label: "Add any role", filter: "all" },
+  ];
 
   const complete =
     draft.starters.length === rules.squad.starters &&
@@ -232,23 +275,41 @@ export default function SquadBuilder({ season, state, setState, dir, weeks }) {
             </span>
           </div>
 
-          <div className="eyebrow fx-group">Starters</div>
-          <ul className="fx-slots">
-            {draft.starters.map((e) => member(e, "starter"))}
-            {empty("Starter", rules.squad.starters - draft.starters.length)}
-          </ul>
-          <div className="eyebrow fx-group">Bench, in auto-sub order</div>
-          <ul className="fx-slots">
-            {draft.subs.map((e) => member(e, "sub"))}
-            {empty("Sub", rules.squad.subs - draft.subs.length)}
-          </ul>
-          <div className="eyebrow fx-group">Coaches</div>
-          <ul className="fx-slots">
-            {draft.coaches.map((e) => member(e, "coach"))}
-            {empty("Coach", rules.squad.coaches - draft.coaches.length)}
-          </ul>
-          {swapping && <p className="footnote">Now pick who to swap with, from the other group.</p>}
+          <div className="fx-stage" aria-label="Starting five">
+            <div className="fx-stage-label">
+              <span>On stage</span>
+              <span className="fx-sub">starters score · captain ×{rules.squad.captain_multiplier}</span>
+            </div>
+            <ul className="fx-stage-seats">
+              {onStage.map((e) => seat(e, "starter"))}
+              {emptySeats("starter", rules.squad.starters - draft.starters.length, starterHints)}
+            </ul>
+            <div className="fx-desk" aria-hidden="true" />
+          </div>
 
+          <div className="fx-dugout">
+            <div className="fx-dugout-group">
+              <div className="eyebrow">Bench · auto-sub order</div>
+              <ul className="fx-dugout-seats">
+                {draft.subs.map((e) => seat(e, "sub"))}
+                {emptySeats("sub", rules.squad.subs - draft.subs.length, [{ label: "Add sub", filter: "all" }])}
+              </ul>
+            </div>
+            <div className="fx-dugout-group">
+              <div className="eyebrow">Coaches · both score</div>
+              <ul className="fx-dugout-seats">
+                {draft.coaches.map((e) => seat(e, "coach"))}
+                {emptySeats("coach", rules.squad.coaches - draft.coaches.length, [{ label: "Add coach", filter: "coach" }])}
+              </ul>
+            </div>
+          </div>
+          {swapping && (
+            <p className="footnote">
+              {draft.starters.includes(swapping) ? "Now pick a sub to bring on stage." : "Now pick a starter to swap out."}
+            </p>
+          )}
+
+          <div className="fx-controls">
           <div className="fx-transfers">
             {transfers.free === null ? (
               <span>Free rebuild: change as many as you like this week.</span>
@@ -292,9 +353,10 @@ export default function SquadBuilder({ season, state, setState, dir, weeks }) {
           <button type="button" className="fx-cta" disabled={errors.length > 0 || locking} onClick={lock}>
             {locking ? "Playing…" : "Lock squad and play the week"}
           </button>
+          </div>
         </section>
 
-        <section className="panel fx-pool" aria-label="Player pool">
+        <section className="panel fx-pool" aria-label="Player pool" ref={poolRef}>
           <div className="panel-head">
             <div className="section-title">Pool</div>
             <span className="panel-meta">{rows.length} shown</span>
@@ -392,5 +454,24 @@ export default function SquadBuilder({ season, state, setState, dir, weeks }) {
         </section>
       </div>
     </>
+  );
+}
+
+/** Coaches have no agent, so their screen shows a tactics board instead of a role. */
+function CoachGlyph() {
+  return (
+    <span className="role-glyph" style={{ "--glyph": "var(--ink-muted)" }} aria-hidden="true">
+      <svg width="30" height="30" viewBox="0 0 28 28" fill="none">
+        <path
+          d="M2 2 L26 2 L26 20 L20 26 L2 26 Z"
+          fill="color-mix(in srgb, var(--glyph) 12%, transparent)"
+          stroke="color-mix(in srgb, var(--glyph) 55%, transparent)"
+          strokeWidth="1"
+        />
+        <path d="M7 8 L11 12 M11 8 L7 12" stroke="var(--glyph)" strokeWidth="1.8" />
+        <circle cx="19" cy="18" r="2.6" stroke="var(--glyph)" strokeWidth="1.8" />
+        <path d="M11 15 Q13 20 16.5 18.5" stroke="var(--glyph)" strokeWidth="1.5" strokeDasharray="2 1.6" />
+      </svg>
+    </span>
   );
 }
