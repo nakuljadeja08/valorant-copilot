@@ -44,6 +44,11 @@ It coaches on two levels:
   Sentinels, not against Duelists. A low first-blood rate is fine for a Sentinel and
   a problem for a Duelist, and the Copilot knows the difference.
 
+The same pipeline also powers a **[Fantasy VALORANT draft](#fantasy-valorant-draft)**:
+a Fantasy Premier League-style game on the VCT 2027 calendar, where every fantasy
+point opens into the rounds that earned it. It runs on a simulated season with
+fictional teams and players, and isn't on the live site.
+
 ## How it works
 
 ```mermaid
@@ -290,6 +295,93 @@ python -m src.features.report --match <id> --by-role   # per-player role card + 
 python -m src.agents.role_fit --match <id>        # just the mis-role flags
 ```
 
+## Fantasy VALORANT (draft)
+
+A fantasy game built on the same pipeline: pick pros, score from what they do on the
+server, and compete across the season, the way Fantasy Premier League works for football.
+It's a **working draft on a simulated season**, built to show the idea before asking Riot
+whether it can run on real data.
+
+> **Every fantasy point has a receipt.** Points are computed from the round-by-round kill
+> timeline, stored with the same `inputs_json` lineage as coaching features, and
+> recomputed by a watchdog before they're published. Click any player's points and you
+> get the same decision trace a coaching claim has.
+
+```
+$ python -m src.fantasy.report --player Fenlyno --event kickoff
+
+  R0 upper map 1  (vct27-1337-kickoff-americas-r0-u5-m1): 17 points
+    death                 15 x -1 = -15
+    first_death            4 x -1 = -4
+    first_kill             3 x  1 = 3
+    kill                  14 x  2 = 28
+    multikill_5            1 x  5 = 5
+```
+
+That `multikill_5` is an ace. Add `--rows` and each line lists the kills and rounds
+behind it; in the app, the same lines open as a decision trace.
+
+### How the game works
+
+- **Squad:** 5 starters with at least one of each role, 2 subs in auto-sub order, and
+  2 coaches who both score. Budget, a limit per team, and a captain who scores double.
+- **Regions:** a manager picks a home region. Kickoff and both Cups use that region's
+  teams; both Masters events and Champions open the pool to every qualified team.
+- **Season:** six events on the announced 2027 calendar. Each event opens with a free
+  rebuild, then one free transfer a week (banked up to two, extras cost points), plus
+  Triple Captain and Bench Boost once per half of the season.
+- **Scoring:** kills, assists (worth less for Initiators, whose job includes them),
+  deaths, first kills and deaths, multikills, clutches, map wins, and a bonus for the best
+  player *in their role* on each map, keeping this repo's role-relative principle. Coaches
+  score on map wins, series wins, upsets and round difference.
+- **Prices** are set before each event and move on form against same-role players.
+
+Every number lives in `src/fantasy/rules_2027.json`, and the rules page in the app reads
+it directly, so the page can't disagree with the points.
+
+### How it's built
+
+```mermaid
+flowchart LR
+    SIM["Season simulator<br/>fictional teams, real 2027 calendar"] --> STORE[("Fantasy store<br/>data/fantasy.db")]
+    STORE --> SCORE["Scoring<br/>points as feature rows<br/>+ lineage"]
+    SCORE --> VERIFY["Watchdog<br/>recompute every point<br/>from raw rows"]
+    VERIFY --> EXPORT["Bundle export<br/>byte-stable JSON"]
+    EXPORT --> GAME["Game in the dashboard<br/>#/fantasy, no backend"]
+```
+
+| Decision | Why |
+|---|---|
+| **Simulated season, fictional people** | Riot sells pro match data only through its data partner, and its policy on games built with its IP needs a direct answer. Until then, nothing uses real teams, players or stats, and invented numbers are never attached to real people. |
+| **Its own store** | The coaching export reads every row of `matches`. Fantasy matches live in `data/fantasy.db` (`FANTASY_DB_PATH`), and the store refuses any database that holds coaching matches. |
+| **A source seam, like the match adapter** | `ProSeasonSource` hides whether a season is simulated, so a licensed feed can replace it with no downstream change. |
+| **Points re-derived, not just re-read** | The coaching Watchdog re-reads cited values. The fantasy watchdog recomputes every point from the kill timeline, so a corrupted raw row, an edited point and a changed rules file are all caught. Only verified points are exported. |
+| **One rulebook in two languages** | Squad rules, scoring, auto-sub, chips and transfers exist in Python (`src/fantasy/squads.py`) and in the browser (`web/src/lib/fantasy.js`). Shared cases in `tests/fixtures/fantasy_cases.json` run against both, so they can't drift apart. |
+| **No backend yet** | A season is saved in the browser. Rival managers are seeded and scored in the export, so a league table works offline. Accounts and private leagues wait until the data question is answered. |
+| **No spoilers** | The game replays the season week by week and only loads results for weeks already played. |
+| **Sim ground truth stays hidden** | The simulator knows each player's true skill. It's never exported, because it would tell a manager who's better than their price. |
+
+The simulator was extended rather than forked: tournament matches get fixed rosters,
+player skill, team agent pools and overtime, all opt-in, and the default output is pinned
+by hash so the coaching bundles never change. Scoring was balance-tested over 200
+simulated seasons (roles within 6% of each other, coaches about 12% of a squad's points).
+
+```bash
+python -m src.fantasy.season --seed 1337        # build and score the season (~45s)
+python -m src.fantasy.report --player <handle> --event kickoff --rows   # points down to raw rows
+python -m src.fantasy.export                    # -> web/public/data/fantasy
+python -m src.fantasy.balance --leagues 4 --seeds-per-league 50        # balance check (~13 min)
+```
+
+Then open `#/fantasy` in the dashboard. CI rebuilds the fantasy season in its own store
+and fails if the committed bundles drift, the same check the coaching bundles get.
+
+**Status.** The draft is playable end to end: squad builder, a week-by-week replay with
+transfers and chips, results that open each point's trace, player and rules pages, and a
+league against simulated rivals. It's previewed from the `demo` branch and kept off
+`release`, so the live site stays exactly what Riot is reviewing for the production key.
+Riot's legal notice is on every fantasy page, and the game is free with no prizes.
+
 ## Dashboard
 
 **Live URL:** https://valorant-copilot.vercel.app — deployed from the `release` branch; simulated data, no credentials on the server.
@@ -359,7 +451,10 @@ chart has a table view, so nothing is conveyed by color alone.
 | `src/agents/writer.py` | LLM phrasing layer + numeral post-check |
 | `src/agents/debrief.py` | `python -m src.agents.debrief --match <id>` |
 | `src/export/bundle.py` | Store → static JSON bundles for the dashboard |
-| `src/fantasy/` | Fantasy game draft: a simulated, fictional 2027 season in its own store, scored and exported to `web/public/data/fantasy/`, playable at `#/fantasy` |
+| `src/fantasy/` | Fantasy game draft: simulated 2027 season, scoring, watchdog, prices, export |
+| `src/fantasy/rules_2027.json` | Every fantasy points value, budget, transfer and chip rule |
+| `web/src/components/fantasy/` | The game's pages: squad builder, weekly results, player and rules pages |
+| `web/src/lib/fantasy.js` | Squad rules and scoring in the browser, checked against the Python by shared cases |
 | `web/` | React (Vite) dashboard — reads only the generated bundles |
 | `web/public/data/` | Generated bundles, committed (the store itself is gitignored) |
 | `src/storage/schema.sql` | Normalized match store |
@@ -371,6 +466,9 @@ flowchart LR
     P0["Phases 0–4 ✅<br/>pipeline, agents,<br/>trace, dashboard, deploy"] --> P5["Phase 5<br/>production data access"]
     P5 --> P6["Real-data signals<br/>trades, sides, role depth"]
     P5 --> P7["Dashboard updates<br/>progress over time"]
+    P0 --> F["Fantasy draft ✅<br/>simulated season"]
+    F --> FA["Ask Riot<br/>with the draft"]
+    FA --> FL["Accounts, leagues,<br/>real data"]
 ```
 
 **Next up: production data access.** The pipeline is ready for real matches. Applying
@@ -399,6 +497,16 @@ because the simulator doesn't model them:
       matches that changed
 - [ ] Data-quality checks at ingest (schema drift, missing rounds) alongside the
       existing Watchdog and bundle-drift checks
+
+**Fantasy VALORANT**
+
+- [x] Simulated VCT 2027 season, scoring with lineage, watchdog, prices, playable draft
+- [ ] Ask Riot, with the draft, whether a free fantasy game fits its policies and can show
+      pro stats, and ask its data partner about access
+- [ ] If yes: accounts, saved squads and private leagues, then a rehearsal during a real
+      event, then a licensed data source behind `ProSeasonSource`
+- [ ] Refit prices and scoring on real distributions; the current values are tuned on
+      simulated data
 
 **Dashboard**
 
