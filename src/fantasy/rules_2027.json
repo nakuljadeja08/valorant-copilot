@@ -1,0 +1,48 @@
+{
+  "player": {
+    "kill": 2,
+    "assist": {"duelist": 1.5, "initiator": 0.5, "controller": 1.5, "sentinel": 1.5},
+    "death": -1,
+    "first_kill": 1,
+    "first_death": -1,
+    "multikill": {"3": 1, "4": 3, "5": 5},
+    "clutch": {"2": 1, "3": 2, "4": 3, "5": 5},
+    "map_win": 2,
+    "role_bonus": [3]
+  },
+  "coach": {
+    "map_win": 12,
+    "series_win": 18,
+    "round_diff_divisor": 3,
+    "upset": 10
+  },
+  "squad": {
+    "budget": {"regional": 100, "international": 112},
+    "starters": 5,
+    "subs": 2,
+    "coaches": 2,
+    "max_players_per_team": 2,
+    "max_coaches_per_team": 1,
+    "required_roles": ["duelist", "initiator", "controller", "sentinel"],
+    "captain_multiplier": 2
+  },
+  "transfers": {
+    "free_per_week": 1,
+    "max_banked": 2,
+    "hit": 4
+  },
+  "chips": {
+    "triple_captain": {"captain_multiplier": 3},
+    "bench_boost": {},
+    "uses_per_half": 1,
+    "second_half_from": "masters_valencia"
+  },
+  "prices": {
+    "player_min": 7.5,
+    "player_max": 15.0,
+    "coach_min": 3.0,
+    "coach_max": 9.0,
+    "step_per_sd": 0.5,
+    "max_move": 1.5
+  }
+}

@@ -19,12 +19,16 @@ function load(path) {
   return cache.get(path);
 }
 
+/** The same cached fetch `useJson` uses, for loads that happen on an action. */
+export const loadJson = load;
+
 export function useJson(path) {
   const [state, setState] = useState({ data: null, error: null });
 
   useEffect(() => {
     let live = true;
     setState({ data: null, error: null });
+    if (path === null) return undefined; // nothing to load on this route
     load(path)
       .then((data) => live && setState({ data, error: null }))
       .catch((error) => live && setState({ data: null, error }));
@@ -36,12 +40,13 @@ export function useJson(path) {
   return state;
 }
 
-/** Current hash route. Five views:
+/** Current hash route. Six views:
  *    ""              overview
  *    "agents"        the agent pipeline and every verified finding
  *    "matches"       the filterable match list
  *    "match/<id>"    one match
  *    "role"          the standalone role lens (most recent match)
+ *    "fantasy/..."   the fantasy game, routed further in FantasyView
  *
  *  Only a hash starting with `#/` is a route, so a bare fragment (an in-page
  *  anchor, or the `#` a browser leaves behind) resolves to the overview rather

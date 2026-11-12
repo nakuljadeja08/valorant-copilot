@@ -10,6 +10,7 @@ import AgentsView from "./components/AgentsView.jsx";
 import MatchesView from "./components/MatchesView.jsx";
 import MatchView from "./components/MatchView.jsx";
 import RoleLensView from "./components/RoleLensView.jsx";
+import FantasyView from "./components/fantasy/FantasyView.jsx";
 
 const ONBOARD_KEY = "vcp-onboarded";
 
@@ -18,6 +19,11 @@ export default function App() {
   const { data: index, error } = useJson("index.json");
 
   const matchId = route.startsWith("match/") ? route.slice("match/".length) : null;
+  const fantasy = route === "fantasy" || route.startsWith("fantasy/");
+  // The game carries its own provenance: a different simulated season, described
+  // by the bundle it ships in.
+  const { data: fantasySeason } = useJson(fantasy ? "fantasy/season.json" : null);
+  const provenance = fantasy ? fantasySeason?.provenance : index?.provenance;
 
   // First-run overlay. Default closed so a returning visitor never sees a flash;
   // the effect opens it once, unless a prior dismissal was stored.
@@ -41,13 +47,14 @@ export default function App() {
 
   return (
     <div className="app">
-      {onboard && <Onboarding onClose={closeOnboard} />}
+      {/* The coaching intro would talk over the fantasy pitch, so the game skips it. */}
+      {onboard && !fantasy && <Onboarding onClose={closeOnboard} />}
 
       {/* The rail and top bar are the shell, so provenance and the SIM DATA
           marker are on every route by construction. */}
       <SideRail
         route={route}
-        provenance={index?.provenance}
+        provenance={provenance}
         onReplayIntro={() => setOnboard(true)}
       />
 
@@ -55,20 +62,21 @@ export default function App() {
         <TopBar
           route={route}
           matchId={matchId}
-          season={index?.season}
+          season={fantasy ? null : index?.season}
           matches={index?.matches}
         />
-        <ProvenanceBanner provenance={index?.provenance} />
+        <ProvenanceBanner provenance={provenance} />
 
         <main className="content">
-          {error && (
+          {fantasy && <FantasyView route={route} />}
+          {!fantasy && error && (
             <p className="empty">
               Could not load the match bundles ({String(error.message)}). Run{" "}
               <code>python -m src.export.bundle</code> to generate them.
             </p>
           )}
-          {!index && !error && <p className="empty">Loading…</p>}
-          {index && <Route route={route} matchId={matchId} index={index} />}
+          {!fantasy && !index && !error && <p className="empty">Loading…</p>}
+          {!fantasy && index && <Route route={route} matchId={matchId} index={index} />}
         </main>
       </div>
     </div>

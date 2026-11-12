@@ -1,0 +1,123 @@
+{
+  "season": "2027",
+  "notes": [
+    "Dates and cities are Riot's published 2027 calendar as reported on 2026-10-15 and 2026-10-22.",
+    "Anything Riot has not announced is marked assumed: true and must surface in the UI."
+  ],
+  "regions": ["americas", "emea", "pacific", "china"],
+  "map_pool": {
+    "assumed": true,
+    "names": ["Abyss", "Ascent", "Bind", "Corrode", "Haven", "Lotus", "Sunset"]
+  },
+  "league": {
+    "assumed": true,
+    "note": "Riot confirms 8 partners per region and 2 visitors in China. Open-team pool sizes are ours.",
+    "tiers": {
+      "americas": {"partner": 8, "open": 8},
+      "emea": {"partner": 8, "open": 8},
+      "pacific": {"partner": 8, "open": 8},
+      "china": {"partner": 8, "visitor": 2, "open": 6}
+    },
+    "free_agents_per_region": 10
+  },
+  "events": [
+    {
+      "id": "kickoff",
+      "name": "Kickoff",
+      "kind": "regional",
+      "start": "2027-01-14",
+      "end": "2027-02-07",
+      "date_note": "A Pacific community guide gives Jan 11-31 for Pacific Kickoff.",
+      "cities": {"americas": "São Paulo", "emea": "Berlin", "pacific": "Bangkok", "china": "Hangzhou"},
+      "field": {
+        "source": "direct_and_open",
+        "teams": 12,
+        "direct_tiers": ["partner", "visitor"],
+        "assumed": false
+      },
+      "format": {"type": "double_elim", "best_of": 3, "final_best_of": 5, "assumed": true}
+    },
+    {
+      "id": "masters_seoul",
+      "name": "Masters Seoul",
+      "kind": "international",
+      "start": "2027-02-20",
+      "end": "2027-03-03",
+      "cities": {"global": "Seoul"},
+      "field": {
+        "source": "placement",
+        "from_event": "kickoff",
+        "per_region": 3,
+        "assumed": false
+      },
+      "format": {"type": "double_elim", "best_of": 3, "final_best_of": 5, "assumed": true}
+    },
+    {
+      "id": "cup_1",
+      "name": "Cup 1",
+      "kind": "regional",
+      "start": "2027-04-29",
+      "end": "2027-05-23",
+      "date_note": "Reported end dates are May 21 and May 23. A Pacific guide gives May 6-23 for Pacific.",
+      "cities": {"americas": "Mexico City", "emea": "Warsaw", "pacific": "Manila", "china": "Wuhan"},
+      "city_mapping_assumed": true,
+      "field": {
+        "source": "open_playoffs",
+        "teams": 12,
+        "direct_regions_tiers": {"china": ["partner", "visitor"]},
+        "assumed": true,
+        "note": "12 teams is reported for Pacific and assumed elsewhere. China direct entry is confirmed; other regions earn every place."
+      },
+      "format": {"type": "double_elim", "best_of": 3, "final_best_of": 5, "assumed": true}
+    },
+    {
+      "id": "masters_valencia",
+      "name": "Masters València",
+      "kind": "international",
+      "start": "2027-06-05",
+      "end": "2027-06-20",
+      "cities": {"global": "València"},
+      "field": {
+        "source": "placement",
+        "from_event": "cup_1",
+        "per_region": 3,
+        "assumed": true
+      },
+      "format": {"type": "double_elim", "best_of": 3, "final_best_of": 5, "assumed": true}
+    },
+    {
+      "id": "cup_2",
+      "name": "Cup 2",
+      "kind": "regional",
+      "start": "2027-08-05",
+      "end": "2027-08-29",
+      "date_note": "Reported start dates are Aug 1 and Aug 5. A Pacific guide gives Aug 12-29 for Pacific.",
+      "cities": {"americas": "Rio de Janeiro", "emea": "Istanbul", "pacific": "Tokyo", "china": "Shanghai"},
+      "city_mapping_assumed": true,
+      "field": {
+        "source": "open_playoffs",
+        "teams": 12,
+        "direct_regions_tiers": {"china": ["partner", "visitor"]},
+        "assumed": true,
+        "note": "12 teams is reported for Pacific and assumed elsewhere. China direct entry is confirmed; other regions earn every place."
+      },
+      "format": {"type": "double_elim", "best_of": 3, "final_best_of": 5, "assumed": true}
+    },
+    {
+      "id": "champions",
+      "name": "Champions",
+      "kind": "international",
+      "start": "2027-09-16",
+      "end": "2027-10-10",
+      "cities": {"global": "Austin"},
+      "field": {
+        "source": "placement",
+        "from_event": "cup_2",
+        "per_region": 4,
+        "assumed": true,
+        "note": "Riot has not announced the field. 16 teams matches 2026."
+      },
+      "format": {"type": "double_elim", "best_of": 3, "final_best_of": 5, "assumed": true}
+    }
+  ]
+}

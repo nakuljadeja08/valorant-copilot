@@ -48,6 +48,23 @@ jobs:
             git status --short -- web/public/data
             exit 1
           fi
+      # Same check for the fantasy game, from its own store: the coaching export reads every
+      # row of `matches`, so the two seasons must never share a database. The export exits
+      # non-zero if any point fails re-verification from raw rows.
+      - name: Rebuild fantasy season and re-export fantasy bundles
+        env:
+          FANTASY_DB_PATH: data/ci-fantasy.db
+        run: |
+          python -m src.fantasy.season --seed 1337 > /dev/null
+          python -m src.fantasy.export
+      - name: Fail if committed fantasy bundles differ from a fresh export
+        run: |
+          if ! git diff --exit-code --stat -- web/public/data/fantasy \
+             || [ -n "$(git status --porcelain -- web/public/data/fantasy)" ]; then
+            echo "::error::web/public/data/fantasy is stale. Run python -m src.fantasy.season --seed 1337, then python -m src.fantasy.export, and commit."
+            git status --short -- web/public/data/fantasy
+            exit 1
+          fi
 
   web:
     runs-on: ubuntu-latest
